@@ -11,4 +11,4 @@ The folder "project_philip_peach_thomas_cheung" contains a superb
 implementation of the CMPT 120 Fall 2006 project. In addition to the
 basic requirements, it includes special graphics, and animated
 helicopters that come out and douse fires. Philip has given
-permission via email to include this project under the GPL v2.
+permission via email to include this project under the GPL V2.
