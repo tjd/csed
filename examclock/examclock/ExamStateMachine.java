@@ -1,6 +1,5 @@
 package examclock;
 
-
 public class ExamStateMachine {
 
 	private ExamState currentState;
