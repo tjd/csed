@@ -1,0 +1,1433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML><HEAD><TITLE>Slashdot: News for nerds, stuff that matters</TITLE><LINK REL="top"       TITLE="News for nerds, stuff that matters" HREF="//slashdot.org/" >
+<LINK REL="search"    TITLE="Search Slashdot" HREF="//slashdot.org/search.pl">
+<LINK REL="alternate" TITLE="Slashdot RSS" HREF="//slashdot.org/index.rss" TYPE="application/rss+xml">
+<LINK REL="shortcut icon" HREF="/favicon.ico" TYPE="image/x-icon">
+</HEAD>
+<BODY BGCOLOR="#000000"
+	TEXT="#000000"
+	LINK="#006666" VLINK="#000000"
+	TOPMARGIN="0" LEFTMARGIN="0"
+	MARGINWIDTH="0" MARGINHEIGHT="0">
+
+<!-- begin OSTG navbar -->
+<table width="100%" border="0" cellpadding="2" cellspacing="0"
+bgcolor="#cccccc" style="border-top: 1px #999999 solid; border-bottom: 5px #000000 solid">
+     <tr>
+             <td valign="middle" nowrap style="border-bottom: 2px #999999 solid" width="100%"><font face="arial, sans-serif" size="-2"><a href="http://www.ostg.com" title="OSTG - The Open Source Technology Group" style="text-decoration:none"><font face="verdana" color="#001670">&nbsp;<b>OSTG</b></font></a>&nbsp;|&nbsp;<a href="http://sf.net" style="text-decoration: none">SourceForge</a> -&nbsp;<a href="http://thinkgeek.com" style="text-decoration: none">ThinkGeek</a> -&nbsp;<a href="http://slashdot.org/relocate.pl?id=aa662bf36092159c12cda336f6195d10" style="text-decoration: none">IT Product Guide</a>  -&nbsp;<a href="http://linux.com" style="text-decoration: none">Linux.com</a> -&nbsp;<a href="http://newsforge.com" style="text-decoration: none">NewsForge</a> -&nbsp;<a href="http://freshmeat.net" style="text-decoration: none">freshmeat</a> -&nbsp;<a href="http://newsletters.osdn.com" style="text-decoration: none">Newsletters</a> -&nbsp;<a href="http://slashdot.org/relocate.pl?id=0bd85aa57f4ab88f2d01c33b548b693c" style="text-decoration: none">TechJobs</a> -&nbsp;<a href="http://slashdot.org/relocate.pl?id=776713765547209fc2c05a83454efda2" style="text-decoration: none">Slashdot&nbsp;Broadband</a></font></td><td valign="middle" style="border-bottom: 2px solid #999999" nowrap><b><A HREF="//slashdot.org/users.pl?op=savemiscopts&amp;opt_osdn_navbar=0" style="text-decoration: none;"><font size="-2" face="verdana" color="#666666">&nbsp;X&nbsp;</font></a></b>
+
+              </td>
+      </tr>
+</table>
+<!-- end OSTG navbar -->
+
+
+<!-- Advertisement code. -->
+
+<CENTER>
+<script LANGUAGE="JAVASCRIPT">
+<!--
+document.write("<iframe style='{background-color: #FFFFFF }' type='content' id='1' name='pos1' SRC='http://ads.osdn.com/?ad_id=6802&alloc_id=14953&site_id=1&request_id=7985445' width='728' height='90' frameborder='0' border='0' MARGINWIDTH='0' MARGINHEIGHT='0' SCROLLING='no'></iframe>");
+//-->
+</SCRIPT>
+<noscript>
+<iframe style='{background-color: #FFFFFF }' id='1' type='content' name='pos1' SRC='http://ads.osdn.com/?ad_id=6802&alloc_id=14953&site_id=1&request_id=7985445' width='728' height='90' frameborder='0' border='0' MARGINWIDTH='0' MARGINHEIGHT='0' SCROLLING='no'></iframe>
+</noscript>
+
+</CENTER>
+<!-- end ad code -->
+
+
+<TABLE CELLPADDING="5" WIDTH="100%"><TR><TD>
+<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="99%" ALIGN="CENTER" BGCOLOR="#FFFFFF">
+	<TR VALIGN="MIDDLE">
+		<TD VALIGN="TOP" ALIGN="LEFT"><A HREF="//slashdot.org"><IMG SRC="//images.slashdot.org/title.gif" WIDTH="275" HEIGHT="72" ALT="Welcome to Slashdot" TITLE="Welcome to Slashdot" BORDER="0"></A></TD>
+			
+				<TD><A HREF="//slashdot.org/search.pl?tid=185"><IMG
+                SRC="//images.slashdot.org/topics/topicsoftware.gif"
+                WIDTH="65" HEIGHT="65"
+                BORDER="0" ALT="" TITLE=""></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?tid=174"><IMG
+                SRC="//images.slashdot.org/topics/topicapdesktops.gif"
+                WIDTH="43" HEIGHT="73"
+                BORDER="0" ALT="" TITLE=""></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?tid=222"><IMG
+                SRC="//images.slashdot.org/topics/topichardwarehacking.gif"
+                WIDTH="69" HEIGHT="66"
+                BORDER="0" ALT="" TITLE=""></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?tid=188"><IMG
+                SRC="//images.slashdot.org/topics/topicmediaall.gif"
+                WIDTH="73" HEIGHT="59"
+                BORDER="0" ALT="" TITLE=""></A>
+</TD><TD><A HREF="//slashdot.org/search.pl?tid=137"><IMG
+                SRC="//images.slashdot.org/topics/topichardware.gif"
+                WIDTH="64" HEIGHT="55"
+                BORDER="0" ALT="" TITLE=""></A>
+
+</TD>
+			
+	</TR></TABLE>
+<TABLE WIDTH="99%" ALIGN="CENTER" CELLPADDING="0" CELLSPACING="0" BORDER="0" BGCOLOR="#FFFFFF">
+<TR>
+<TD VALIGN="top" ROWSPAN="3">
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="LEFT" width="100">
+<TR>
+<TD>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="LEFT" width="100">
+                                                                               
+   <TR>
+      <TD bgcolor=#006666><FONT color=#FFFFFF>&nbsp;<A HREF="//slashdot.org/login.pl"><FONT color="#FFFFFF">Login</FONT></A></FONT></TD>
+   </TR>
+
+   <TR>
+      <TD><NOBR>
+         <FONT size=2>
+         &nbsp;<A HREF="//slashdot.org/faq/accounts.shtml#ac050">Why Login?</A><BR>
+         &nbsp;<A HREF="//slashdot.org/faq/subscriptions.shtml">Why Subscribe?</A><BR><BR>
+         </FONT>
+      </NOBR></TD>
+   </TR>
+
+   <TR>
+      <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Sections</FONT></TD>
+   </TR>
+<TR><TD BGCOLOR=#CCCCCC><FONT SIZE="3">
+&nbsp;<B><A HREF="//slashdot.org/">Main</A></B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//apache.slashdot.org/">Apache</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//apple.slashdot.org/">Apple</A></FONT></TD></TR>
+
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//ask.slashdot.org/">AskSlashdot</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>4 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//books.slashdot.org/">Books</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//bsd.slashdot.org/">BSD</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//developers.slashdot.org/">Developers</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>2 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//games.slashdot.org/">Games</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>7 more</B></FONT></TD></TR>
+
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//interviews.slashdot.org/">Interviews</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//it.slashdot.org/">IT</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>4 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//linux.slashdot.org/">Linux</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>3 more</B></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//politics.slashdot.org/">Politics</A></FONT></TD></TR>
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//science.slashdot.org/">Science</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>3 more</B></FONT></TD></TR>
+
+<TR><TD ><FONT SIZE="2"> 
+&nbsp;<A HREF="//yro.slashdot.org/">YRO</A></FONT><BR>&nbsp;&nbsp;<font size="1"><B>2 more</B></FONT></TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+   <TR>
+      <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Help</FONT></TD>
+   </TR>
+   <TR>
+      <TD><NOBR><FONT size=2>
+      &nbsp;<A HREF="//slashdot.org/faq/">FAQ</A><BR>
+
+      &nbsp;<A HREF="http://sourceforge.net/tracker/?func=add&amp;group_id=4421&amp;atid=104421">Bugs</A><BR><BR>
+      </FONT></NOBR></TD>
+   </TR>
+   <TR>
+      <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Stories</FONT></TD>
+   </TR>
+   <TR>
+      <TD><NOBR><FONT size=2>
+
+      &nbsp;<A HREF="//slashdot.org/search.pl">Old Stories</A><BR>
+      &nbsp;<A HREF="//polls.slashdot.org">Old Polls</A><BR> 
+      &nbsp;<A HREF="//slashdot.org/topics.shtml">Topics</A><BR> 
+      &nbsp;<A HREF="//slashdot.org/hof.shtml">Hall of Fame</A><BR> 
+      &nbsp;<A HREF="//slashdot.org/submit.pl">Submit Story</A><BR><BR>
+      </FONT></NOBR></TD>
+   </TR>
+   <TR>
+
+       <TD bgcolor="#006666">&nbsp;<A HREF="//slashdot.org/about.shtml"><FONT color="#FFFFFF">About</FONT></A></TD>
+   </TR>
+   <TR>
+       <TD><NOBR><FONT size=2>
+       &nbsp;<A HREF="//slashdot.org/supporters.shtml">Supporters</A><BR>
+       &nbsp;<A HREF="//slashdot.org/code.shtml">Code</A><BR>
+       &nbsp;<A HREF="//slashdot.org/awards.shtml">Awards</A><BR><BR>
+
+       </font></NOBR></TD>
+   </TR>
+   <TR>
+       <TD bgcolor="#006666"><FONT color="#FFFFFF">&nbsp;Services</FONT></TD>
+   </TR>
+   <TR>
+       <TD><NOBR><FONT size=2>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=f1e11bb33b295301768c6a3a7e506a76">Broadband</A><BR>
+
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=5698263263f8466f3709fd92f355367f">PriceGrabber</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=c3caa23d8eb7f77c8ed6bef6bbc1a92b">Product Guide</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=a27a66150282ba2c8d94d57fabaf3e58">Special Offers</A><BR>
+       &nbsp;<A HREF="//slashdot.org/relocate.pl?id=61cb6456ff2d4376bb13b2393e08a086">Tech Jobs</A><BR>
+	<BR>
+       </FONT></NOBR></TD>
+   </TR>
+
+</TABLE>
+</TD>
+<TD>
+	<IMG SRC="//images.slashdot.org/pix.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT="">
+</TD>
+</TR>
+</TABLE>
+
+
+
+	</TD>
+
+	<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="100%" HEIGHT="1"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//yro.slashdot.org/"><FONT COLOR="#FFFFFF">Your Rights Online</FONT></A>: What Will We Do With Innocent People's DNA?</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=191">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicbiotech.gif"
+			WIDTH="42" HEIGHT="65" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Biotech"
+			TITLE="Biotech"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @06:11PM</B><BR>
+
+<FONT SIZE="2"><B>from the if-you-have-nothing-to-hide dept.</B></FONT><BR>
+<A HREF="http://www.funkytests.com/">NevDull</A> writes <i>"As creepy as it may be to deal with identity theft from corporate databases, <A HREF="http://wireservice.wired.com/wired/story.asp?section=Breaking&amp;storyId=1007713&amp;tw=wn_wire_story">imagine being swabbed for DNA samples as a suspect</a> in a crime, being vindicated by that sample, and never even being told why you were suspected. This article discusses a man, Roger Valadez, who's fighting both to have his DNA sample and its profile purged from government records, and to find out why he and his DNA were searched in the BTK case.  DA Nola Foulston said, 'I think some people are overwrought about their concerns.'  -- convenient as she wasn't the one probed without explanation. The article then mentions that 'In California, police will be able in 2008 to take DNA samples from anyone arrested for a felony, whether the person is convicted or not, under a law approved by voters in November.'  What will be the disposition of the DNA of the innocent?"</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//yro.slashdot.org/yro/05/03/21/1937206.shtml?tid=191&amp;tid=158&amp;tid=103&amp;tid=123&amp;tid=198&amp;tid=17"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//yro.slashdot.org/yro/05/03/21/1937206.shtml?tid=191&amp;tid=158&amp;tid=103&amp;tid=123&amp;tid=198&amp;tid=17">12</A> of <A HREF="//yro.slashdot.org/article.pl?sid=05/03/21/1937206&amp;threshold=-1&amp;tid=191&amp;tid=158&amp;tid=103&amp;tid=123&amp;tid=198&amp;tid=17">19</A></B> comments
+ | 
+
+<A HREF="//yro.slashdot.org/">yro.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Ultaportable Apps: Take Your Thumbware Anywhere</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=185">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicsoftware.gif"
+			WIDTH="65" HEIGHT="65" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Software"
+			TITLE="Software"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @05:23PM</B><BR>
+<FONT SIZE="2"><B>from the simon's-nephew-perhaps dept.</B></FONT><BR>
+<A HREF="mailto:bucky.davinci@gmail.com">museumpeace</A> writes <i>"On his blog, Jeremy Wagstaff makes available a list of the <A HREF="http://loosewire.typepad.com/blog/2005/03/a_directory_of_.html">apps now packaged for USB thumbdrives</a>.  He also wrote these up in WSJ but that will cost you.  My personal favorite is the <A HREF="http://johnhaller.com/jh/mozilla/portable_firefox/">FireFox in a box</a>...every where I went, I had a different crop of bookmarks, now my browsing is the same wherever
+I go."</i>
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/2220255.shtml?tid=185&amp;tid=198&amp;tid=184"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/2220255.shtml?tid=185&amp;tid=198&amp;tid=184">82</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/2220255&amp;threshold=-1&amp;tid=185&amp;tid=198&amp;tid=184">100</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//apple.slashdot.org/"><FONT COLOR="#FFFFFF">Apple</FONT></A>: Forbes Predicts 5% Desktop Share for Apple in 2005</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=174">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicapdesktops.gif"
+			WIDTH="43" HEIGHT="73" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Desktops (Apple)"
+			TITLE="Desktops (Apple)"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @04:47PM</B><BR>
+
+<FONT SIZE="2"><B>from the of-course-the-rates-have-gone-up dept.</B></FONT><BR>
+<A HREF="http://slashdot.org/~sebFlyte">sebFlyte</A> writes <i>"Spurred on by the iPod, Apple's share of the desktop computer market will grow <A HREF="http://news.zdnet.co.uk/hardware/0,39020351,39192133,00.htm">to five percent (from three percent) this year, according to research from Morgan Stanley</a>. Apparrently nearly 20% of iPod users surveyed are planning to switch to Macs, and the sales figures for the last few quarters are backing up the theory of the iPod Halo Effect. All this suggests the question ... how many iPod-touting Slashdotters are thinking of switching?"</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//apple.slashdot.org/apple/05/03/21/2144204.shtml?tid=174&amp;tid=3"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//apple.slashdot.org/apple/05/03/21/2144204.shtml?tid=174&amp;tid=3">406</A> of <A HREF="//apple.slashdot.org/article.pl?sid=05/03/21/2144204&amp;threshold=-1&amp;tid=174&amp;tid=3">509</A></B> comments
+ | 
+
+<A HREF="//apple.slashdot.org/">apple.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Wooden-Cased Computers, Small and Extra-Large</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=222">
+		<IMG
+			SRC="//images.slashdot.org/topics/topichardwarehacking.gif"
+			WIDTH="69" HEIGHT="66" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Hardware Hacking"
+			TITLE="Hardware Hacking"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @03:54PM</B><BR>
+<FONT SIZE="2"><B>from the that-stuff-grows-on-trees dept.</B></FONT><BR>
+DCPete writes <i>"Some guy made a <a href="http://www.beefstew.net/snozberry/index.html">pretty nice mahogany computer table</a>; apparently he does this as a hobby.  I've seen lots of stuff like this before, but this one is actually nice and would be fun in a kitchen or studio apartment."</i> On the smaller end of things, LoSmilzo writes <i>"This guy made a <a href="http://www.zaverio.net/laptop/legnatile/index-en.html">real wooden laptop</a> ... totally stunning!  Not a wooden-covered laptop, but a real wooden one, made by hand, fully portable and usable, lighter than his original plastic shell."</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/2044230.shtml?tid=222"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/2044230.shtml?tid=222">149</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/2044230&amp;threshold=-1&amp;tid=222">209</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>From Archive.org, Free Multimedia Hosting for Life</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=188">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicmediaall.gif"
+			WIDTH="73" HEIGHT="59" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Media"
+			TITLE="Media"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @03:03PM</B><BR>
+
+<FONT SIZE="2"><B>from the but-then-they'll-have-to-kill-you dept.</B></FONT><BR>
+<A HREF="mailto:gizmo53@myrealboxNETBSD.com minus bsd">powerline22</A> writes <i>"From the people who gave you the Internet Archive comes <a href="http://www.ourmedia.org/">Ourmedia</a>, a place for grassroots media to flourish. Upload anything, maybe a video, some pictures, your custom applescript, and it gets hosted for free, for life. Drupal is hosting the site, and the Internet Archive is providing hosting and bandwidth for the files."</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/1916206.shtml?tid=188&amp;tid=95"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/1916206.shtml?tid=188&amp;tid=95">158</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/1916206&amp;threshold=-1&amp;tid=188&amp;tid=95">236</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//ask.slashdot.org/"><FONT COLOR="#FFFFFF">Ask Slashdot</FONT></A>: Free/Open Source Software Hardware Requirements?</B></FONT></TD>
+	
+
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=137">
+		<IMG
+			SRC="//images.slashdot.org/topics/topichardware.gif"
+			WIDTH="64" HEIGHT="55" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Hardware"
+			TITLE="Hardware"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="mailto:cliff@dotslash[REVERSETHIS].org">Cliff</A>
+on Monday March 21, @02:19PM</B><BR>
+<FONT SIZE="2"><B>from the flip-side-of-the-ole-chestnut dept.</B></FONT><BR>
+
+Bender asks: <i>"Most on Slashdot seem to be concerned with getting Free/Open Source software to be compatible with hardware (firmware, register sets, etc). My question is from the other side of the table: I'm in the hardware business and I'm wondering if there are any central guidelines to better guarantee compatibility with Linux/*BSD. As an example, to guarantee that our hardware runs Microsoft Windows, we have to conform to <A HREF="http://www.microsoft.com/whdc/winlogo/downloads.mspx">the Windows Logo Program Requirements</a>. These requirements dictate (among other things) firmware interfaces, debug ports, and DRM. Some of these requirements, if not implemented carefully, could trigger incompatibilities with non-Microsoft operating systems. Is there a Linux/*BSD equivalent to the Microsoft requirements to allow hardware designers to build OS agnostic systems?"</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//ask.slashdot.org/askslashdot/05/03/21/1625252.shtml?tid=137&amp;tid=190&amp;tid=185&amp;tid=4"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//ask.slashdot.org/askslashdot/05/03/21/1625252.shtml?tid=137&amp;tid=190&amp;tid=185&amp;tid=4">131</A> of <A HREF="//ask.slashdot.org/article.pl?sid=05/03/21/1625252&amp;threshold=-1&amp;tid=137&amp;tid=190&amp;tid=185&amp;tid=4">175</A></B> comments
+ | 
+
+<A HREF="//ask.slashdot.org/">ask.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//yro.slashdot.org/"><FONT COLOR="#FFFFFF">Your Rights Online</FONT></A>: Michigan Diagnostic Software Case Big Win for GPL</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=117">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicgnu.gif"
+			WIDTH="50" HEIGHT="76" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="GNU is Not Unix"
+			TITLE="GNU is Not Unix"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @01:40PM</B><BR>
+
+<FONT SIZE="2"><B>from the nicely-done dept.</B></FONT><BR>
+<A HREF="mailto:pig.hogger@[ ]il.com ['gma' in gap]">Pig Hogger</A> writes <i>"Many people claim that the validity of the GNU Public License has not been tested in court in the US. Well, it just had been, in Michigan, in a case that validated open-source car diagnostic software against the pretension of automakers who want to keep it secret. But don't take my word for it; <A HREF="http://www.groklaw.net/article.php?story=20050225223848129">read the story on GROKLAW</a>."</i> It's actually the Society of Automotive Engineers involved here; DrewTech (the developers in this case) nicely donated half of their settlement money to the SAE.
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//yro.slashdot.org/yro/05/03/21/1822239.shtml?tid=117&amp;tid=123&amp;tid=17"><B>Read More...</B></A>
+
+ | 
+
+<B><A HREF="//yro.slashdot.org/yro/05/03/21/1822239.shtml?tid=117&amp;tid=123&amp;tid=17">121</A> of <A HREF="//yro.slashdot.org/article.pl?sid=05/03/21/1822239&amp;threshold=-1&amp;tid=117&amp;tid=123&amp;tid=17">167</A></B> comments
+ | 
+
+<A HREF="//yro.slashdot.org/">yro.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//it.slashdot.org/"><FONT COLOR="#FFFFFF">IT</FONT></A>: Build Your Own Cell tower</B></FONT></TD>
+	
+
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=126">
+		<IMG
+			SRC="//images.slashdot.org/topics/topictech2.gif"
+			WIDTH="60" HEIGHT="80" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Technology"
+			TITLE="Technology"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @12:58PM</B><BR>
+<FONT SIZE="2"><B>from the beam-with-joy dept.</B></FONT><BR>
+
+BlakeCaldwell writes <i>"If you're the type who dreads being dragged kicking and screaming into the use of a cell phone, <A HREF="http://www.gizmodo.com/gadgets/wireless/samsung-30mile-cordless-phone-036608.php">Samsung sells their Long Range Cordless Phone</a>. With an incredible (for landlines) 30-mile range, the set includes a caller ID-capable LCD and is able to communicate with the base-station, acting as an intercom."</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//it.slashdot.org/it/05/03/21/1520228.shtml?tid=126&amp;tid=218"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//it.slashdot.org/it/05/03/21/1520228.shtml?tid=126&amp;tid=218">242</A> of <A HREF="//it.slashdot.org/article.pl?sid=05/03/21/1520228&amp;threshold=-1&amp;tid=126&amp;tid=218">322</A></B> comments
+ | 
+
+<A HREF="//it.slashdot.org/">it.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Benioff and Weiss To Write Ender's Game Script</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=214">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicscifi.gif"
+			WIDTH="48" HEIGHT="64" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Sci-Fi"
+			TITLE="Sci-Fi"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @12:25PM</B><BR>
+
+<FONT SIZE="2"><B>from the dear-god dept.</B></FONT><BR>
+<A HREF="mailto:nighthawk127127@yahoo.com">nighthawk127127</A> writes <i>"According to the <A HREF="http://www.frescopictures.com/movies/ender/endersgame_update.html">Fresco Pictures website</a>, David Benioff (writer of the screenplay for <i>Troy</i>) has been signed on by Warner Brothers to write the script for the movie adaptation of Ender's Game. Rumors of the Ender's Game movie have been circulating for a long time now, but this is the first time in a while we've gotten some definite information. The movie will be a combination of Ender's Game and Ender's Shadow by Orson Scott Card."</i>  Well, gosh, with <cite>Troy</cite> under his belt, all my concerns about the movie sucking are straight out! *cough*
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/1412211.shtml?tid=214&amp;tid=97&amp;tid=1"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/1412211.shtml?tid=214&amp;tid=97&amp;tid=1">333</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/1412211&amp;threshold=-1&amp;tid=214&amp;tid=97&amp;tid=1">413</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Credit card signatures: Useless?</B></FONT></TD>
+	
+</TR></TABLE>
+
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=133">
+		<IMG
+			SRC="//images.slashdot.org/topics/topichumor.gif"
+			WIDTH="58" HEIGHT="39" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="It's funny.  Laugh."
+			TITLE="It's funny.  Laugh."></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @11:50AM</B><BR>
+<FONT SIZE="2"><B>from the yep-and-you-betcha dept.</B></FONT><BR>
+
+<A HREF="mailto:spaceadmiral@gmail.com">SpaceAdmiral</A> writes <i>"Everyone should remember <A HREF="http://www.zug.com/us/jhargrav/">John Hargrave</a>'s classic Credit Card Prank on <A HREF="http://www.zug.com/">Zug</a>.  He tried signing fake names on his credit card receipt, and no one seemed to care.
+
+But that's nothing compared to <A HREF="http://www.zug.com/pranks/credit_card/">The Credit Card Prank, Part 2</a>.  Can he draw obscene pictures instead of signing his credit card?  Yes, it turns out.  Is there <strong>any</strong> way of getting your signature checked?  . . . Yes, it turns out.  But you have to do an awful lot."</i>
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/1333258.shtml?tid=133&amp;tid=1"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/1333258.shtml?tid=133&amp;tid=1">719</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/1333258&amp;threshold=-1&amp;tid=133&amp;tid=1">897</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//science.slashdot.org/"><FONT COLOR="#FFFFFF">Science</FONT></A>: Students Do Better Without Computers</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=146">
+		<IMG
+			SRC="//images.slashdot.org/topics/topiced.gif"
+			WIDTH="87" HEIGHT="64" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Education"
+			TITLE="Education"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @11:15AM</B><BR>
+
+<FONT SIZE="2"><B>from the the-flame-war-begins dept.</B></FONT><BR>
+Gogogoch writes <i>"The <A HREF="http://www.telegraph.co.uk/news/main.jhtml?xml=/news/2005/03/21/nteach21.xml&amp;sSheet=/portal/2005/03/21/ixportal.html">Telegraph
+is reporting</a> a large study that shows that the less students use computers
+at school and at home, the better they do in international tests of literacy
+and math. The more access they had to computers at home, the lower they scored
+in tests, partly because they diverted attention from homework. Students tended
+to do worse in schools generously equipped with computers, apparently because
+computerised instruction replaced more effective forms of teaching. "</i> Worth noting that it took almost 20 years for PCs in the corporate environment to actually have a positive impact on productivity; might the same be true in education?
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//science.slashdot.org/science/05/03/21/1251247.shtml?tid=146&amp;tid=14"><B>Read More...</B></A>
+
+ | 
+
+<B><A HREF="//science.slashdot.org/science/05/03/21/1251247.shtml?tid=146&amp;tid=14">443</A> of <A HREF="//science.slashdot.org/article.pl?sid=05/03/21/1251247&amp;threshold=-1&amp;tid=146&amp;tid=14">552</A></B> comments
+ | 
+
+<A HREF="//science.slashdot.org/">science.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//apple.slashdot.org/"><FONT COLOR="#FFFFFF">Apple</FONT></A>: PowerBook As A New Kind Of Human Interface Device</B></FONT></TD>
+	
+
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=180">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicapportables.gif"
+			WIDTH="67" HEIGHT="56" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Portables (Apple)"
+			TITLE="Portables (Apple)"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @10:42AM</B><BR>
+<FONT SIZE="2"><B>from the interesting-applications dept.</B></FONT><BR>
+
+An anonymous reader writes <i>"As covered <A HREF="//apple.slashdot.org/apple/05/03/03/1354248.shtml?tid=179">earlier</a> on Slashdot, Amit Singh had shown how to access and use the motion sensor feature in the late model PowerBooks for innovative things, which <A HREF="http://www.oreillynet.com/pub/wlg/6600">created</a> <A HREF="http://www.gizmodo.com/gadgets/laptops-pcs/apple/repurposing-the-powerbook-motion-sensor-034878.php">quite</a> <A HREF="http://macslash.org/article.pl?sid=05/03/08/2141246">a</a> <A HREF="http://www.nytimes.com/2005/03/16/technology/poguesposts/16pogues-posts.html">buzz</a> in the Mac community. In an ingenius <A HREF="http://kernelthread.com/software/ams2hid/">new article</a>, Singh has taken the idea all the way and released software which lets you use a PowerBook with a motion sensor as a general purpose input device which works with existing apps. IMHO the coolest use of this is for playing games: be sure to check out the video footage in the article. For instance, in a car racing game, you steer by tilting the PowerBook left and right, go faster by tilting it forward, brake by tilting it backwards! You can also scroll in apps. Google Map scrolling with my PowerBook feels like flying in an aiprlane over the terrain. I must say you have to try this in real life to appreciate the experience<nobr> <wbr></nobr>... go to the Apple store or something if you don't have the hardware<nobr> <wbr></nobr>;-) Before this my girlfriend (who uses a Dell notebook) has never called anything computer related "jawdropping"! Wouldn't it be nice to have a gaming motion sensor be standard issue in all future laptops?"</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//apple.slashdot.org/apple/05/03/21/1243229.shtml?tid=180&amp;tid=3"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//apple.slashdot.org/apple/05/03/21/1243229.shtml?tid=180&amp;tid=3">175</A> of <A HREF="//apple.slashdot.org/article.pl?sid=05/03/21/1243229&amp;threshold=-1&amp;tid=180&amp;tid=3">245</A></B> comments
+ | 
+
+
+<A HREF="//apple.slashdot.org/">apple.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>How To Talk To Aliens</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=215">
+		<IMG
+			SRC="//images.slashdot.org/topics/topiccommunications.gif"
+			WIDTH="96" HEIGHT="62" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Communications"
+			TITLE="Communications"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @10:07AM</B><BR>
+<FONT SIZE="2"><B>from the not-a-phone-home-joke dept.</B></FONT><BR>
+Frederic Friedel writes: <i>"In their efforts to talk to alien civilizations human beings are currently
+engaged in sending pictures based on a rectangular array of dots, arranged
+from left to right and top to bottom. But is this stategy sound? For
+instance
+what if the aliens do not see in pictures at all, or if they think in vector
+graphics rather than bitmap? On <a
+href="http://www.chessbase.com">ChessBase.com</a>
+grandmaster John Nunn proposes <a
+href="http://www.chessbase.com/newsdetail.asp?newsid=2268">sending them a
+trading machine</a> instead."</I>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/1237237.shtml?tid=215&amp;tid=95"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/1237237.shtml?tid=215&amp;tid=95">338</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/1237237&amp;threshold=-1&amp;tid=215&amp;tid=95">456</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Google's Library Up and Running</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=217">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicgoogle.gif"
+			WIDTH="104" HEIGHT="38" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Google"
+			TITLE="Google"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @09:34AM</B><BR>
+
+<FONT SIZE="2"><B>from the good-news-for-the-information dept.</B></FONT><BR>
+An anonymous reader writes <i>"It seems that Google Print results are beginning to appear on searches. For
+those who don't know, Google has been <A HREF="//slashdot.org/mainpage/04/12/14/013251.shtml?tid=192">scanning from libraries</A> from some of the world's
+greatest universities in order to compile a freely accessible online library. An easy way to turn up these results is to simply type "book", and then
+whatever you want to search for.
+
+For instance, <A HREF="http://www.google.com/search?hl=en&amp;q=book+origin+of+species">book origin of species</a> will turn up the
+full text of Charles Darwin's controversial treatise. <A HREF="http://www.google.com/search?hl=en&amp;lr=&amp;q=book+20%2C000+leagues">20,000
+leagues</A>, <A HREF="http://www.google.com/search?hl=en&amp;lr=&amp;q=book+oliver+twist">Oliver Twist</A> and <A HREF="http://www.google.com/search?hl=en&amp;lr=&amp;q=book+pride+and+prejudice">Pride and
+Prejudice</A> and <A HREF="http://www.google.com/search?hl=en&amp;q=book+treasure+island">m</A> <A HREF="http://www.google.com/search?hl=en&amp;lr=&amp;q=book+sherlock+holmes">o</A> <A HREF="http://www.google.com/search?hl=en&amp;lr=&amp;q=book+tom+sawyer">r</A> <A HREF="http://www.google.com/search?hl=en&amp;lr=&amp;q=book+romeo+and+juliet">e</a> are all there in full.
+It'll be interestin to see how publishers deal with this if demand for these
+books declines. In the meantime, would anyone like to point out any good books?"</i>  Hopefully, Google can also start to index some books that are being released in the Creative Commons/alternative open licenses.
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/1237243.shtml?tid=217&amp;tid=95"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/1237243.shtml?tid=217&amp;tid=95">287</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/1237243&amp;threshold=-1&amp;tid=217&amp;tid=95">386</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B>Ask Jeeves Bought for $2 billion</B></FONT></TD>
+	
+</TR></TABLE>
+
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=95">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicinternet.gif"
+			WIDTH="70" HEIGHT="73" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="The Internet"
+			TITLE="The Internet"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @09:00AM</B><BR>
+<FONT SIZE="2"><B>from the jeeves-let-me-axe-u-sumthin dept.</B></FONT><BR>
+
+RMX writes <i>"CNet's reporting that
+Ask Jeeves <A HREF="http://news.com.com/Ask+Jeeves+to+be+bought+for+2+billion/2100-1030_3-5627679.html?tag=nefd.top">
+is being bought by InterActive Corp
+for $2 billion</a>.
+Ask Jeeves (<A HREF="http://www.ask.com/">ask.com</a>,
+<A HREF="http://www.excite.com/">excite.com</a>,
+<A HREF="http://www.iwon.com/">iwon.com</a>)
+and InterActive Corp (expedia, ticketmaster, match.com, citysearch).
+This marks a nice comeback for Ask Jeeves, whose stock was quite a <A HREF="http://finance.yahoo.com/q/bc?s=ASKJ&amp;t=my&amp;l=on&amp;z=m&amp;q=l&amp;c=iaci">roller coaster</a> ride during the 2000-2003<nobr> <wbr></nobr>.com crash.  Are the good times back?"</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//slashdot.org/articles/05/03/21/1224249.shtml?tid=95&amp;tid=1"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//slashdot.org/articles/05/03/21/1224249.shtml?tid=95&amp;tid=1">104</A> of <A HREF="//slashdot.org/article.pl?sid=05/03/21/1224249&amp;threshold=-1&amp;tid=95&amp;tid=1">157</A></B> comments
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//games.slashdot.org/"><FONT COLOR="#FFFFFF">Games</FONT></A>: PSPCasting</B></FONT></TD>
+
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=95">
+		<IMG
+			SRC="//images.slashdot.org/topics/topicinternet.gif"
+			WIDTH="70" HEIGHT="73" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="The Internet"
+			TITLE="The Internet"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @08:30AM</B><BR>
+
+<FONT SIZE="2"><B>from the leaving-post-it-notes:-postitcasting? dept.</B></FONT><BR>
+ChipGuy writes <i>"Om Malik points out the launch of Sony PSP in US could actually turn Sony's fortunes around and thinks that new unqiue applications like <A HREF="http://www.gigaom.com/2005/01/10/videora-like-tivo-for-torrents/">Sajeeth Cherian</a>'s latest software, PSP Video 9, might be the real reason. Cherian created <A HREF="http://www.gigaom.com/2005/01/02/got-videora/">Videora</a> bit torrent client's new hack, <A HREF="http://www.pspvideo9.com/">PSP Video 9</a>. It takes any video and turns it into a format that PSP can read. So now you can download videos using Videora, and then convert them to PSP friendly format within a few seconds.<A HREF="http://www.pspvideo9.com/pspcasting.html">He calls this PSP casting.</a>"</i>
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//games.slashdot.org/games/05/03/21/1220209.shtml?tid=95&amp;tid=10"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//games.slashdot.org/games/05/03/21/1220209.shtml?tid=95&amp;tid=10">90</A> of <A HREF="//games.slashdot.org/article.pl?sid=05/03/21/1220209&amp;threshold=-1&amp;tid=95&amp;tid=10">127</A></B> comments
+ | 
+
+
+<A HREF="//games.slashdot.org/">games.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//yro.slashdot.org/"><FONT COLOR="#FFFFFF">Your Rights Online</FONT></A>: Amazon Pursues Plogging Patent</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=155">
+
+		<IMG
+			SRC="//images.slashdot.org/topics/topicpatents.gif"
+			WIDTH="75" HEIGHT="54" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Patents"
+			TITLE="Patents"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://everything2.com/index.pl?node_id=322">Hemos</A>
+on Monday March 21, @07:54AM</B><BR>
+<FONT SIZE="2"><B>from the add-it-to-the-one-click-patent-trophy dept.</B></FONT><BR>
+<A HREF="mailto:theodp@aol.com">theodp</A> writes <i>"When it <A HREF="http://www.internetnews.com/ec-news/article.php/3363301">unveiled a beta of Plogs</a> (personalized blogs), a nonpublication request Amazon had in effect prevented the USPTO from disclosing that Plogs were patent-pending. But now you can check out Amazon's patent application for the <A HREF="http://appft1.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&amp;Sect2=HITOFF&amp;d=PG01&amp;p=1&amp;u=%2Fnetahtml%2FPTO%2Fsrchnum.html&amp;r=1&amp;f=G&amp;l=50&amp;s1=%2220050038717%22.PGNR.&amp;OS=DN/20050038717&amp;RS=DN/20050038717">Personalized selection and display of user-supplied content to enhance browsing of electronic catalogs</a>, which describes how 'blurbs' can be made available in a blog format for viewing by others."</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//yro.slashdot.org/yro/05/03/21/1215224.shtml?tid=155&amp;tid=1"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//yro.slashdot.org/yro/05/03/21/1215224.shtml?tid=155&amp;tid=1">67</A> of <A HREF="//yro.slashdot.org/article.pl?sid=05/03/21/1215224&amp;threshold=-1&amp;tid=155&amp;tid=1">103</A></B> comments
+ | 
+
+
+<A HREF="//yro.slashdot.org/">yro.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//apple.slashdot.org/"><FONT COLOR="#FFFFFF">Apple</FONT></A>: Shufflephones 2.0</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=222">
+
+		<IMG
+			SRC="//images.slashdot.org/topics/topichardwarehacking.gif"
+			WIDTH="69" HEIGHT="66" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Hardware Hacking"
+			TITLE="Hardware Hacking"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @07:31AM</B><BR>
+<FONT SIZE="2"><B>from the status-symbology dept.</B></FONT><BR>
+<A HREF="http://homepage.mac.com/jimyounkin/">Photo_Designer</A> writes <i>"After <A HREF="http://homepage.mac.com/jimyounkin/PhotoAlbum18.html">hacking my first pair of headphones</a> to accept an iPod Shuffle, I just couldn't keep my hands off my other set of headphones and <A HREF="http://homepage.mac.com/jimyounkin/PhotoAlbum19.html">hacked an iPod shuffle adapter inside them, too</a>. This version also includes an all-new expansion jack which allows sharing your music on the go, plugging your Shuffle into a stereo with a patch cable (without removing it from the phones), and also allows the headphones to be used as regular phones with the shuffle removed or turned off."</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//apple.slashdot.org/apple/05/03/21/0525207.shtml?tid=222&amp;tid=176&amp;tid=3"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//apple.slashdot.org/apple/05/03/21/0525207.shtml?tid=222&amp;tid=176&amp;tid=3">100</A> of <A HREF="//apple.slashdot.org/article.pl?sid=05/03/21/0525207&amp;threshold=-1&amp;tid=222&amp;tid=176&amp;tid=3">136</A></B> comments
+ | 
+
+
+<A HREF="//apple.slashdot.org/">apple.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//yro.slashdot.org/"><FONT COLOR="#FFFFFF">Your Rights Online</FONT></A>: Microsoft's European License Dissected</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=109">
+
+		<IMG
+			SRC="//images.slashdot.org/topics/topicms.gif"
+			WIDTH="75" HEIGHT="55" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Microsoft"
+			TITLE="Microsoft"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @06:11AM</B><BR>
+<FONT SIZE="2"><B>from the in-the-name-of-science dept.</B></FONT><BR>
+An anonymous reader writes <i>"ZDNet has published a <A HREF="http://www.zdnet.com.au/insight/software/0,39023769,39185372,00.htm">step-by-step explanation</a> of Microsoft's proposed server interoperability license, which was just <A HREF="//yro.slashdot.org/yro/05/03/18/1356203.shtml?tid=109">rejected by the European Commission</a>. The EC said the license excluded open-source vendors and charged unjustifiably high royalty fees -- all bad for business."</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//yro.slashdot.org/yro/05/03/21/0217202.shtml?tid=109&amp;tid=17"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//yro.slashdot.org/yro/05/03/21/0217202.shtml?tid=109&amp;tid=17">116</A> of <A HREF="//yro.slashdot.org/article.pl?sid=05/03/21/0217202&amp;threshold=-1&amp;tid=109&amp;tid=17">158</A></B> comments
+ | 
+
+
+<A HREF="//yro.slashdot.org/">yro.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//science.slashdot.org/"><FONT COLOR="#FFFFFF">Science</FONT></A>: Wellcome Trust to Require Open-Access Publishing</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=149">
+
+		<IMG
+			SRC="//images.slashdot.org/topics/topicmedia.gif"
+			WIDTH="60" HEIGHT="53" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="The Media"
+			TITLE="The Media"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @03:22AM</B><BR>
+<FONT SIZE="2"><B>from the wellcome-idea dept.</B></FONT><BR>
+<A HREF="http://www.nada.kth.se/~arve">Lars Arvestad</A> writes <i>"<A HREF="http://www.wellcome.ac.uk/">The Wellcome Trust</a>, one of the worlds largest research funding agencies, will require results from research funded by the Trust to be available in public repositories six months after publication. The Trust's policy advisor Robert Terry writes in <A HREF="http://biology.plosjournals.org/perlserv/?request=get-document&amp;doi=10.1371/journal.pbio.0030097">
+
+an article in PLoS Biology</a> that the Trust plans to start its own public access repository where authors are expected to deposit their published works. The repository is modeled after <A HREF="http://www.nlm.nih.gov/">NLM's</a> <A HREF="http://pubmedcentral.gov/">PubMed Central</a> and is called UKPMC. Terry's article also mentions that a <A HREF="http://www.wellcome.ac.uk/doc_WTD002874.html">recent Wellcome report</a> found that an author-pays business model has the opportunity for a saving of 30 % on publishing costs alone compared to reader-pays. This contrasts the recent IEEE report (<A HREF="//science.slashdot.org/science/05/03/09/0255238.shtml?tid=188">Slashdot story last week</a>) where it was claimed that some universities will face higher costs using author-pays."</i>
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//science.slashdot.org/science/05/03/20/2043237.shtml?tid=149&amp;tid=14"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//science.slashdot.org/science/05/03/20/2043237.shtml?tid=149&amp;tid=14">69</A> of <A HREF="//science.slashdot.org/article.pl?sid=05/03/20/2043237&amp;threshold=-1&amp;tid=149&amp;tid=14">82</A></B> comments
+ | 
+
+
+<A HREF="//science.slashdot.org/">science.slashdot.org</A>
+
+
+
+				<B>)</B></P><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0"><TR><TD
+	VALIGN="TOP" BGCOLOR="#006666"><IMG
+	SRC="//images.slashdot.org/slc.gif"
+	WIDTH="13" HEIGHT="16" ALT="" ALIGN="TOP"><FONT
+	FACE="arial,helvetica" SIZE="4" COLOR="#FFFFFF"><B><A HREF="//yro.slashdot.org/"><FONT COLOR="#FFFFFF">Your Rights Online</FONT></A>: Imax Theaters Demur On Controversial Science Films</B></FONT></TD>
+	
+</TR></TABLE>
+<TABLE ALIGN="RIGHT"><TR><TD ALIGN="RIGHT">
+
+
+	<A HREF="//slashdot.org/search.pl?topic=153">
+
+		<IMG
+			SRC="//images.slashdot.org/topics/topiccensorship.gif"
+			WIDTH="44" HEIGHT="55" BORDER="0"
+			HSPACE="20" VSPACE="10"
+			ALT="Censorship"
+			TITLE="Censorship"></A><BR>
+
+
+</TD></TR></TABLE>
+<B>Posted by
+<A HREF="http://www.monkey.org/~timothy/">timothy</A>
+on Monday March 21, @12:01AM</B><BR>
+<FONT SIZE="2"><B>from the truth-will-out-regardless dept.</B></FONT><BR>
+<A HREF="mailto:circletimessquare.gmail@com">circletimessquare</A> writes <i>"The New York Times is reporting that a number of <a href="http://www.nytimes.com/2005/03/19/national/19imax.html?hp&ex=1111294800&en=bac14b20d4620205&ei=5094">Imax theatres are passing on science-themed films</a> that might provoke controversy among a handful of religious fundamentalists. Films that are having their distribution impacted include '"Cosmic Voyage," which depicts the universe in dimensions running from the scale of subatomic particles to clusters of galaxies; "Gal&#225;pagos," about the islands where Darwin theorized about evolution; and "Volcanoes of the Deep Sea," an underwater epic about the bizarre creatures that flourish in the hot, sulfurous emanations from vents in the ocean floor.'"</i>
+
+
+
+
+
+
+	<P><P><B>(</B>
+
+<A HREF="//yro.slashdot.org/yro/05/03/21/0229234.shtml?tid=153&amp;tid=14"><B>Read More...</B></A>
+
+ | 
+<B><A HREF="//yro.slashdot.org/yro/05/03/21/0229234.shtml?tid=153&amp;tid=14">1411</A> of <A HREF="//yro.slashdot.org/article.pl?sid=05/03/21/0229234&amp;threshold=-1&amp;tid=153&amp;tid=14">1879</A></B> comments
+ | 
+
+
+<A HREF="//yro.slashdot.org/">yro.slashdot.org</A>
+
+
+
+				<B>)</B></P>&lt;&nbsp; 
+
+<a href="//slashdot.org/index.pl?issue=20050320">Yesterday's News</a>
+
+ &nbsp;&gt;
+
+
+
+
+</TD>
+<TD>&nbsp;</TD>
+<TD VALIGN="TOP" WIDTH="230" HEIGHT="1">
+
+<FONT COLOR="#000000">
+
+
+
+<TABLE WIDTH="230" BORDER="0" CELLPADDING="3" CELLSPACING="0">
+		<TR VALIGN="TOP" BGCOLOR="#006666">
+			<TD><FONT FACE="arial,helvetica" SIZE="-1" COLOR="#FFFFFF"><B><A HREF="http://slashdot.org/index.pl?section=science"><FONT COLOR="#FFFFFF">Science</FONT></A></B></FONT></TD>
+		</TR>
+		<TR><TD BGCOLOR="#CCCCCC">
+
+				<FONT SIZE="2" COLOR="#000000">
+&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/21/1916243">Maggots: Coming to a Hospital Near You</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/21/1251247">Students Do Better Without Computers</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/20/2043237">Wellcome Trust to Require Open-Access Publishing</A><BR>&middot; <A HREF="//yro.slashdot.org/article.pl?sid=05/03/21/0229234">Imax Theaters Demur On Controversial Science Films</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/20/1827237">Peter Lax wins Abel Prize</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/20/1658220">Needle Free Injections With Microjets</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/20/0149205">Wisconsin Researchers Create Nano-Bio-Circuits</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/19/2330218">USA National Memory Championships</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/19/1943236">Autonomous Robot Finds Life in Atacama Desert</A><BR>&middot; <A HREF="//science.slashdot.org/article.pl?sid=05/03/19/1925258">How to Spackle and Plaster a Black Hole</A><BR>
+
+</FONT>
+			</TD></TR></TABLE>
+
+
+<img SRC="//images.slashdot.org/pix.gif" ALT="" WIDTH="230" HEIGHT="1" VSPACE="2"><TABLE WIDTH="230" BORDER="0" CELLPADDING="3" CELLSPACING="0">
+		<TR VALIGN="TOP" BGCOLOR="#006666">
+			<TD><FONT FACE="arial,helvetica" SIZE="-1" COLOR="#FFFFFF"><B><A HREF="/users.pl"><FONT COLOR="#FFFFFF">Slashdot Login</FONT></A></B></FONT></TD>
+		</TR>
+		<TR><TD BGCOLOR="#CCCCCC">
+				<FONT SIZE="2" COLOR="#000000">
+
+<form action="//slashdot.org/login.pl" method="POST">
+<b>Nickname:</b><br>
+<input type="TEXT" name="unickname" size="20" value=""><br>
+<b>Password:</b><br>
+<input type="HIDDEN" name="returnto" value="//slashdot.org/">
+<input type="HIDDEN" name="op" value="userlogin">
+<input type="PASSWORD" name="upasswd" size="20"><br>
+<input type="CHECKBOX" name="login_temp" value="yes"> Public Terminal<br>
+<input type="SUBMIT" name="userlogin" value="Log in">
+</form>
+
+<p>[ <b><a href="//slashdot.org/login.pl?op=newuserform">Create a new account</a></b> ]
+
+
+</FONT>
+			</TD></TR></TABLE>
+
+
+<img SRC="//images.slashdot.org/pix.gif" ALT="" WIDTH="230" HEIGHT="1" VSPACE="2"><TABLE WIDTH="230" BORDER="0" CELLPADDING="3" CELLSPACING="0">
+		<TR VALIGN="TOP" BGCOLOR="#006666">
+			<TD><FONT FACE="arial,helvetica" SIZE="-1" COLOR="#FFFFFF"><B>Slashdot Poll</B></FONT></TD>
+		</TR>
+		<TR><TD BGCOLOR="#CCCCCC">
+				<FONT SIZE="2" COLOR="#000000">
+
+<FORM ACTION="//slashdot.org/pollBooth.pl">		<INPUT TYPE="hidden" NAME="qid" VALUE="1259">
+		
+		<INPUT TYPE="hidden" NAME="section" VALUE="mainpage">
+		
+	<B>Favorite Sandwich?</B>
+
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="1">PBJ
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="2">BLT
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="3">Egg Salad
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="4">Turkey
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="5">Tuna
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="6">Veggie
+	
+		<BR><INPUT TYPE="radio" NAME="aid"
+		VALUE="7">Other (specify below)
+	
+
+	<BR><INPUT TYPE="submit" VALUE="Vote">
+
+	[ <A HREF="//slashdot.org/pollBooth.pl?qid=1259&amp;aid=-1"><B>Results</B></A> |
+	<A HREF="//slashdot.org/pollBooth.pl"><B>Polls</B></A> ] <BR>
+	Comments:<B>1490</B> | Votes:<B>35091</B>
+	</FORM>
+
+</FONT>
+			</TD></TR></TABLE>
+
+
+<img SRC="//images.slashdot.org/pix.gif" ALT="" WIDTH="230" HEIGHT="1" VSPACE="2"><TABLE WIDTH="230" BORDER="0" CELLPADDING="3" CELLSPACING="0">
+		<TR VALIGN="TOP" BGCOLOR="#006666">
+			<TD><FONT FACE="arial,helvetica" SIZE="-1" COLOR="#FFFFFF"><B><A HREF="/index.pl?section=books"><FONT COLOR="#FFFFFF">Book Reviews</FONT></A></B></FONT></TD>
+		</TR>
+		<TR><TD BGCOLOR="#CCCCCC">
+				<FONT SIZE="2" COLOR="#000000">
+
+Recent reviews from Slashdot readers:
+     
+<ul>
+<li> <a href="http://service.bfast.com/bfast/click?bfmid=2181&sourceid=39391960&isbn=1886411832"><cite>The
+Cult of Mac</cite></a> is Leander Kahney's glossy paean to all things
+Macintosh, from philosophy to fandom. (<a
+href="//books.slashdot.org/article.pl?sid=04/10/29/1950228&tid=107&tid=192&tid=190&tid=137&tid=6">Jack
+Herrington's review</a>)
+
+<li> <a href="http://service.bfast.com/bfast/click?bfmid=2181&sourceid=39391960&isbn=1580535313"><cite>Outsourcing
+Information Security</cite></a> looks at the risks and realities of
+letting sensitive data out the company gates. (<a
+href="//books.slashdot.org/article.pl?sid=04/11/04/1853219&tid=192&tid=172&tid=187&tid=6">Ben
+Rothke's review</a>)
+
+<li> <a href="http://service.bfast.com/bfast/click?bfmid=2181&sourceid=39391960&isbn=078214330X"><cite>Digital
+Retro</cite></a>: 14 of the most creative years in personal computer
+history; nostalgic, sharp and informative. (<a
+href="//books.slashdot.org/article.pl?sid=04/11/05/1950251&tid=192&tid=137&tid=202&tid=6">timothy's
+review</a>)
+
+
+<li> <a href="http://service.bfast.com/bfast/click?bfmid=2181&sourceid=39391960&isbn=0321218736"><cite>High-Tech
+Crimes Revealed</cite></a> paints a sobering picture of all the ways
+they really are out to get you (and your computer). (<a
+href="//books.slashdot.org/article.pl?sid=04/11/01/1834209&tid=192&tid=172&tid=6">Alex
+Moskalyuk's review</a>)
+</ul>
+<p>
+
+<a href="https://slashdot.org/submit.pl">Submitting a review</a> for
+consideration is easy; please first read <a
+href="http://slashdot.org/book.review.guidelines.shtml">Slashdot's
+book review guidelines</a>. <br>Updated: 20041110 17:00 by timothy
+
+</FONT>
+			</TD></TR></TABLE>
+
+
+<img SRC="//images.slashdot.org/pix.gif" ALT="" WIDTH="230" HEIGHT="1" VSPACE="2"><TABLE WIDTH="230" BORDER="0" CELLPADDING="3" CELLSPACING="0">
+		<TR VALIGN="TOP" BGCOLOR="#006666">
+			<TD><FONT FACE="arial,helvetica" SIZE="-1" COLOR="#FFFFFF"><B>Older Stuff</B></FONT></TD>
+		</TR>
+		<TR><TD BGCOLOR="#CCCCCC">
+				<FONT SIZE="2" COLOR="#000000">
+<p><b><font size="4"><a href="//slashdot.org/index.pl?issue=20050320">			Sunday</a></font> March 20		</b></p>
+
+	&middot;
+	<A HREF="//slashdot.org/articles/05/03/21/028208.shtml?tid=146&amp;tid=185">Learning a Language in the Digital Age</A>
+	(423)<BR>
+	
+
+	&middot;
+	<A HREF="//apple.slashdot.org/apple/05/03/21/0053245.shtml?tid=141&amp;tid=187&amp;tid=176">Business Models: Napster to Go vs. iPod</A>
+	(489)<BR>
+	
+
+	&middot;
+
+	<A HREF="//games.slashdot.org/games/05/03/20/233220.shtml?tid=103&amp;tid=201&amp;tid=10">State-Sponsored Solitaire?</A>
+	(320)<BR>
+	
+
+	&middot;
+	<A HREF="//slashdot.org/articles/05/03/20/2248244.shtml?tid=187&amp;tid=95">Yahoo buys Flickr</A>
+	(150)<BR>
+	
+
+
+<p align="right">
+
+
+<b><a href="//slashdot.org/search.pl?start=4">Older Articles</a></b>
+
+
+
+<br><b><a href="//slashdot.org/index.pl?issue=20050320">Yesterday's News</a></b>
+
+</FONT>
+			</TD></TR></TABLE>
+
+
+<img SRC="//images.slashdot.org/pix.gif" ALT="" WIDTH="230" HEIGHT="1" VSPACE="2"><TABLE WIDTH="230" BORDER="0" CELLPADDING="3" CELLSPACING="0">
+		<TR VALIGN="TOP" BGCOLOR="#006666">
+
+			<TD><FONT FACE="arial,helvetica" SIZE="-1" COLOR="#FFFFFF"><B><A HREF="http://freshmeat.net"><FONT COLOR="#FFFFFF">Freshmeat</FONT></A></B></FONT></TD>
+		</TR>
+		<TR><TD BGCOLOR="#CCCCCC">
+				<FONT SIZE="2" COLOR="#000000">
+&middot; <A HREF="http://freshmeat.net/releases/191226/">Revelation 0.4.1 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191222/">SwarmStream Public Edition 3.0.b2 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191210/">1060 Forum 1.0.0 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191224/">ezUserManager 1.3 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191221/">Musical MIDI Accompaniment 0.13 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191220/">PM Report 2.1 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191204/">Netfig Platform 0.8.1 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191219/">Advanced Bash Scripting Guide 3.3 (Stable branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191218/">SAGATOR 0.5.9 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191217/">PHP Timeclock 0.9.3 (Default branch)</A><BR>&middot; <A HREF="http://ad.doubleclick.net/clk;11713626;10469167;e?http://infoworld.com/spotlights/sbc/main.html?lpid0101035400730403idlp">ADV: Dialing for Dollars</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191216/">ELOG Electronic Web Logbook 2.5.8 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191214/">Musicextras 0.6.6 (Default branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191213/">mod_ldap_userdir 1.1.6 (Stable branch)</A><BR>&middot; <A HREF="http://freshmeat.net/releases/191212/">KMobileTools 0.4.3.1 (Default branch)</A><BR>
+
+<FORM METHOD="get" ACTION="http://freshmeat.net/search/">
+<FONT size=3 color="#006666"><B>Search Freshmeat:</B></FONT><BR>
+<INPUT TYPE="hidden" NAME="link" VALUE="freshmeat.net">
+<INPUT TYPE="text" NAME="q">
+</FORM>
+<P ALIGN="RIGHT"><A HREF="http://freshmeat.net/"><B>More Meat...</B></A>
+		
+
+</FONT>
+			</TD></TR></TABLE>
+
+
+<img SRC="//images.slashdot.org/pix.gif" ALT="" WIDTH="230" HEIGHT="1" VSPACE="2">
+       <IMG SRC="//images.slashdot.org/pix.gif" WIDTH="230" HEIGHT="1" BORDER="0" ALT=" ">
+
+
+
+
+</FONT>
+</TD>
+
+<TD>
+       <IMG SRC="//images.slashdot.org/pix.gif" WIDTH="5" HEIGHT="1" BORDER="0" ALT=" ">
+</TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+
+
+</TABLE>
+
+<TABLE WIDTH="99%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="CENTER" BGCOLOR="#FFFFFF">
+	<TR>
+		<TD COLSPAN="4" ALIGN="CENTER"><IMG SRC="//images.slashdot.org/greendot.gif" ALT="" WIDTH="100%" HEIGHT="1" VSPACE="5"></TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER">
+<FONT SIZE="2" FACE="arial,helvetica">
+
+  <FORM METHOD="GET" ACTION="//slashdot.org/search.pl">
+         <INPUT TYPE="TEXT" NAME="query" VALUE="" SIZE="20">
+
+        <INPUT TYPE="SUBMIT" VALUE="Search">
+  </FORM>
+
+  </FONT>
+</TD>
+		<TD BGCOLOR="#ffffff" WIDTH="25"> &nbsp; </TD>
+		<TD ALIGN="CENTER">
+
+<FONT SIZE="2" FACE="arial,helvetica"><I>The sheep died in the wool.</I></FONT>
+
+		</TD></TR>
+		<TR><TD ALIGN="CENTER" COLSPAN="4">
+			<FONT size="1" color="#006666" face="arial,helvetica">
+
+
+<!-- image audit code -->
+<script LANGUAGE="JAVASCRIPT">
+<!--
+now = new Date();
+tail = now.getTime();
+document.write("<IMG SRC='//images-aud.slashdot.org/pc.gif?l,");
+document.write(tail);
+document.write("' WIDTH=1 HEIGHT=1 BORDER=0 ALT=' '>");
+//-->
+</SCRIPT>
+<noscript>
+<IMG SRC='//images-aud.slashdot.org/pc.gif?l,966' WIDTH=1 HEIGHT=1 BORDER=0 ALT=' '>
+</noscript>
+<!-- end audit code -->
+
+ All trademarks and copyrights on this
+  page are owned by their respective owners.  Comments
+  are owned by the Poster.
+  The Rest &copy; 1997-2005 <A href="http://www.ostg.com/">OSTG</A>.
+</FONT>
+		</TD></TR>
+</TABLE>
+
+<CENTER>
+	<FONT SIZE="2" COLOR="#006666"> [
+		<A HREF="//slashdot.org/"><FONT COLOR="#FFFFFF">home</FONT></A> |
+		<A HREF="//slashdot.org/awards.shtml"><FONT COLOR="#FFFFFF">awards</FONT></A> |
+		<A HREF="//slashdot.org/submit.pl"><FONT COLOR="#FFFFFF">contribute story</FONT></A> |
+		<A HREF="//slashdot.org/search.pl"><FONT COLOR="#FFFFFF">older articles</FONT></A> |
+		<A HREF="http://www.ostg.com/"><FONT COLOR="#FFFFFF">OSTG</FONT></A> |
+		<A HREF="http://www.ostg.com/advertising/"><FONT COLOR="#FFFFFF">advertise</FONT></A> |
+		<A HREF="//slashdot.org/about.shtml"><FONT COLOR="#FFFFFF">about</FONT></A> |
+		<A HREF="http://www.ostg.com/terms.htm"><FONT COLOR="#FFFFFF">terms of service</FONT></A> |
+		<A HREF="http://www.ostg.com/privacy.htm"><FONT COLOR="#FFFFFF">privacy</FONT></A> |
+		<A HREF="//slashdot.org/faq/"><FONT COLOR="#FFFFFF">faq</FONT></A> |
+		<A HREF="//slashdot.org/index.rss"><FONT COLOR="#FFFFFF">rss</FONT></A> ]
+	</FONT>
+
+</CENTER>
+</TD></TR></TABLE>
+</BODY>
+</HTML>
