@@ -104,7 +104,7 @@ class AdviceGiver extends TimerTask {
 
 	private static final String EXAM_OVER_MSG = "Hand in your exam!";
 
-	private JLabel label;
+	private JLabel adviceLabel;
 
 	private Exam exam;
 
@@ -114,7 +114,7 @@ class AdviceGiver extends TimerTask {
 
 	private String[] earlyMsg = {
 			"Write your name and student number on all pages.",
-			"Finished early? Double-check your answers!",
+			"Double-check your answers!",
 			"Read the questions carefully!", "Think.", "Relax.",
 			"Have a question? Raise your hand!",
 			"Have mercy on your marker: write clearly!" };
@@ -127,7 +127,7 @@ class AdviceGiver extends TimerTask {
 	public AdviceGiver(JLabel label, Exam exam) {
 		msg = earlyMsg;
 		nextMsg = 0;
-		this.label = label;
+		this.adviceLabel = label;
 		this.exam = exam;
 	}
 
@@ -141,12 +141,12 @@ class AdviceGiver extends TimerTask {
 	@Override
 	public void run() {
 		if (exam.finished()) {
-			label.setText(EXAM_OVER_MSG);
+			adviceLabel.setText(EXAM_OVER_MSG);
 		} else {
 			if (exam.minutesRemaining() <= FINAL_MSG_TIME) {
 				useFinalMessages();
 			}
-			label.setText(msg[nextMsg]);
+			adviceLabel.setText(msg[nextMsg]);
 			nextMsg = (nextMsg + 1) % msg.length;
 		}
 	}
