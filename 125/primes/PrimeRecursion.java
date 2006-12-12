@@ -16,7 +16,7 @@ public class PrimeRecursion {
 			return divides(n, d + 1);
 		}
 	}
-	
+
 	public static boolean isPrime1(int n) {
 		if (n <= 1) {
 			return false;
@@ -26,7 +26,7 @@ public class PrimeRecursion {
 			return divides(n, 2);
 		}
 	}
-	
+
 	private static void isPrime1Test() {
 		assert !isPrime1(-1);
 		assert !isPrime1(0);

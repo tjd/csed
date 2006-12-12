@@ -2,7 +2,7 @@ package javaintro;
 
 /*
  * 
- * Number.py 
+ * Numbers.java
  * 
  * Demonstrates some numeric subtleties.
  *

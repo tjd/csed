@@ -16,17 +16,17 @@ public class ShapeTest {
 		tri.drawOn(img);
 		show.inFrame(img);
 	}
-	
+
 	private static void test2() {
 		UberImage img = UberImage.blankImage(500, 500);
 		Line line1 = new Line(10, 10, 200, 200);
 		line1.drawOn(img);
-		
+
 		Line line2 = new Line(300, 300, 200, 450);
 		line2.drawOn(img);
 		show.inFrame(img);
 	}
-	
+
 	public static void test1() {
 		UberImage img = UberImage.blankImage(500, 500);
 		for (int i = 0; i < 500; ++i) {
@@ -41,10 +41,9 @@ public class ShapeTest {
 	}
 
 	public static void main(String[] args) {
-//		test1();
-//		test2();
+		// test1();
+		// test2();
 		test3();
 	}
-
 
 }

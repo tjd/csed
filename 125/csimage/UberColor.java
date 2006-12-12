@@ -100,9 +100,9 @@ public class UberColor extends Color {
 	 * @return the lightness of this color
 	 */
 	public double lightness() {
-		final int R = getRed();
-		final int G = getGreen();
-		final int B = getBlue();
+		final int R = this.getRed();
+		final int G = this.getGreen();
+		final int B = this.getBlue();
 		return (Math.max(Math.max(R, G), B) + Math.min(Math.min(R, G), B)) / 2;
 	}
 
@@ -117,7 +117,7 @@ public class UberColor extends Color {
 	 *      Poynton's Color FAQ </a> for more information.
 	 */
 	public double luminance() {
-		return 0.2126 * getRed() + 0.7152 * getBlue() + 0.0722 * getGreen();
+		return 0.2126 * this.getRed() + 0.7152 * this.getBlue() + 0.0722 * this.getGreen();
 	}
 
 	/**
@@ -131,9 +131,9 @@ public class UberColor extends Color {
 	 *         their RGB values.
 	 */
 	public double dist(Color other) {
-		final int rd = getRed() - other.getRed();
-		final int bd = getBlue() - other.getBlue();
-		final int gd = getGreen() - other.getGreen();
+		final int rd = this.getRed() - other.getRed();
+		final int bd = this.getBlue() - other.getBlue();
+		final int gd = this.getGreen() - other.getGreen();
 		return Math.sqrt(rd * rd + bd * bd + gd * gd);
 	}
 
@@ -141,7 +141,7 @@ public class UberColor extends Color {
 	 * @return an HTML-style #RRGGBB string
 	 */
 	public String getHTMLcolor() {
-		return "#" + String.format("%X", getRGB());
+		return "#" + String.format("%X", this.getRGB());
 	}
 
 	public static void main(String[] args) {

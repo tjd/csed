@@ -368,7 +368,7 @@ public class Prime {
 			return false;
 		} else {
 			// first check for small primes
-			for(Integer p: SMALL_PRIMES) {
+			for (Integer p : SMALL_PRIMES) {
 				if (n == p) {
 					return true;
 				} else if (n % p == 0) {
@@ -401,7 +401,7 @@ public class Prime {
 		assert !isPrime5(105);
 		System.out.printf("all isPrime5 tests done\n");
 	}
-	
+
 	// Returns the numnber of primes less than or equal to n.
 	public static int numPrimes1(int n) {
 		if (n <= 1) {
@@ -602,7 +602,7 @@ public class Prime {
 			return count;
 		}
 	}
-	
+
 	public static void numPrimes6Test() {
 		assert numPrimes6(-1) == 0;
 		assert numPrimes6(0) == 0;
@@ -618,7 +618,7 @@ public class Prime {
 		assert numPrimes6(29) == 10;
 		System.out.printf("all numPrimes6 tests done\n");
 	}
-	
+
 	final static int MAX_NUM = 100000 * 10 * 10 * 2;
 
 	public static void numPrimes1Timing() {
@@ -670,7 +670,7 @@ public class Prime {
 		System.out.printf("numPrimes5(%s) = %s\n%.1f seconds\n", MAX_NUM, num,
 				elapsedSeconds);
 	}
-	
+
 	public static void numPrimes6Timing() {
 		long startTime = System.currentTimeMillis();
 		System.out.printf("Running numPrimes6(%s) ...\n", MAX_NUM);

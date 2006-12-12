@@ -24,16 +24,20 @@ public class WolframAutomata3 {
 				// Get the code of the previous three pixels
 				lastThree = 0;
 				if (((x + 1) < m.getWidth())
-						&& (m.getColor(x + 1, y - 1).equals(Color.black)))
+						&& (m.getColor(x + 1, y - 1).equals(Color.black))) {
 					lastThree |= 1;
-				if (m.getColor(x, y - 1).equals(Color.black))
+				}
+				if (m.getColor(x, y - 1).equals(Color.black)) {
 					lastThree |= 2;
-				if ((x > 0) && m.getColor(x - 1, y - 1).equals(Color.black))
+				}
+				if ((x > 0) && m.getColor(x - 1, y - 1).equals(Color.black)) {
 					lastThree |= 4;
+				}
 
 				// Now determine the value of the current pixel and set it
-				if (((rule >> lastThree) & 1) == 1)
+				if (((rule >> lastThree) & 1) == 1) {
 					m.setColor(x, y, Color.black);
+				}
 			}
 		}
 		show.inFrame(m);

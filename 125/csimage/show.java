@@ -46,6 +46,7 @@ public class show {
 	public static JFrame makeFrame(final BufferedImage img) {
 		assert img != null;
 		JPanel panel = new JPanel() {
+			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponents(g);
 				g.drawImage(img, 0, 0, this);

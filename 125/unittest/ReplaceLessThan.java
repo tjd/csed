@@ -16,7 +16,7 @@ public class ReplaceLessThan {
 	}
 
 	public static void replaceLessThanTest() {
-//		assert 1 == 2;
+		// assert 1 == 2;
 		assert replaceLessThan("").equals("");
 		assert replaceLessThan("a").equals("a");
 		assert replaceLessThan("<").equals("&lt;");

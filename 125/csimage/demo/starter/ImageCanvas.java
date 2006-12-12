@@ -17,31 +17,32 @@ public class ImageCanvas extends Canvas {
 
 	public ImageCanvas(JFrame frame) {
 		this.frame = frame;
-		img = UberImage.blankImage(640, 400, Color.DARK_GRAY);
-		setSize();
+		this.img = UberImage.blankImage(640, 400, Color.DARK_GRAY);
+		this.setSize();
 	}
 
+	@Override
 	public void paint(Graphics g) {
-		g.drawImage(img, 20, 20, this);
+		g.drawImage(this.img, 20, 20, this);
 	}
 
 	public void setImage(UberImage img) {
 		this.img = img;
-		setSize();
+		this.setSize();
 	}
 
 	public UberImage getImageCopy() {
-		return UberImage.fromImage(img);
+		return UberImage.fromImage(this.img);
 	}
 
 	public void saveAsPNG(String fname) {
-		img.saveAsPNG(fname);
+		this.img.saveAsPNG(fname);
 	}
 
 	public void setSize() {
-		setSize(new Dimension(img.getWidth() + 40, img.getHeight() + 10));
-		frame.pack();
-		repaint();
+		this.setSize(new Dimension(this.img.getWidth() + 40, this.img.getHeight() + 10));
+		this.frame.pack();
+		this.repaint();
 	}
 
 }

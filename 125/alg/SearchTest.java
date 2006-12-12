@@ -1,6 +1,5 @@
 package alg;
 
-
 public class SearchTest {
 
 	/**

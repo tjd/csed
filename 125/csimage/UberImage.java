@@ -28,7 +28,7 @@ import csimage.util.dbg;
 
 public class UberImage extends BufferedImage {
 
-	private static final int DEFAULT_IMAGE_TYPE = UberImage.TYPE_INT_RGB;
+	private static final int DEFAULT_IMAGE_TYPE = BufferedImage.TYPE_INT_RGB;
 
 	private static final UberColor DEFAULT_BACKGROUND_COLOR = UberColor.WHITE;
 
@@ -157,7 +157,7 @@ public class UberImage extends BufferedImage {
 	 *            name/path to save the image in
 	 */
 	public void saveAsPNG(String path) {
-		saveAsPNG(new File(path));
+		this.saveAsPNG(new File(path));
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class UberImage extends BufferedImage {
 	 *            name/path to save the image in
 	 */
 	public void saveAsJPEG(String path) {
-		saveAsJPEG(new File(path));
+		this.saveAsJPEG(new File(path));
 	}
 
 	/**
@@ -207,7 +207,7 @@ public class UberImage extends BufferedImage {
 	 *            name/path to save the image in
 	 */
 	public void saveAsBMP(String fname) {
-		saveAsBMP(new File(fname));
+		this.saveAsBMP(new File(fname));
 	}
 
 	/**
@@ -235,36 +235,36 @@ public class UberImage extends BufferedImage {
 	 */
 	private void assertCheckRange(int x, int y) {
 		assert 0 <= x : "\n" + dbg.pair(x, y) + " - x coordinate must be >= 0";
-		assert x < getWidth() : "\n" + dbg.pair(x, y)
-				+ " - x coordinate must be <  " + getWidth();
+		assert x < this.getWidth() : "\n" + dbg.pair(x, y)
+				+ " - x coordinate must be <  " + this.getWidth();
 		assert 0 <= y : "\n" + dbg.pair(x, y) + " - y coordinate must be >= 0";
-		assert y < getHeight() : "\n" + dbg.pair(x, y)
-				+ " - y coordinate must be <  " + getHeight();
+		assert y < this.getHeight() : "\n" + dbg.pair(x, y)
+				+ " - y coordinate must be <  " + this.getHeight();
 	}
 
 	private void assertCheckRange(Point p) {
-		assertCheckRange(p.x, p.y);
+		this.assertCheckRange(p.x, p.y);
 	}
 
 	/**
 	 * @return true if (x, y) is within the current image, false otherwise
 	 */
 	public boolean inImage(int x, int y) {
-		return x >= 0 && y >= 0 && x < getWidth() && y < getHeight();
+		return x >= 0 && y >= 0 && x < this.getWidth() && y < this.getHeight();
 	}
 
 	/**
 	 * @return true if p is within the current image, false otherwise
 	 */
 	public boolean inImage(Point p) {
-		return inImage(p.x, p.y);
+		return this.inImage(p.x, p.y);
 	}
 
 	/**
 	 * @return A Graphics2D object that can be used to draw on top of the image.
 	 */
 	public Graphics2D getGraphics2D() {
-		return createGraphics();
+		return this.createGraphics();
 	}
 
 	/**
@@ -278,16 +278,16 @@ public class UberImage extends BufferedImage {
 	 *            color to be set at (x, y) position
 	 */
 	public void setColor(int x, int y, Color c) {
-		assertCheckRange(x, y);
-		setRGB(x, y, c.getRGB());
+		this.assertCheckRange(x, y);
+		this.setRGB(x, y, c.getRGB());
 	}
 
 	public void setColor(int x, int y, int red, int green, int blue) {
-		setColor(x, y, new UberColor(red, green, blue));
+		this.setColor(x, y, new UberColor(red, green, blue));
 	}
 
 	public void setColor(Point p, Color c) {
-		setColor(p.x, p.y, c);
+		this.setColor(p.x, p.y, c);
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class UberImage extends BufferedImage {
 	 */
 	public UberColor getColor(int x, int y) {
 		try {
-			return new UberColor(getRGB(x, y));
+			return new UberColor(this.getRGB(x, y));
 		} catch (ArrayIndexOutOfBoundsException e) {
 			throw new Error("Array Index out of bounds error inside getColor: "
 					+ dbg.pair("" + x, "" + y));
@@ -303,7 +303,7 @@ public class UberImage extends BufferedImage {
 	}
 
 	public UberColor getColor(Point p) {
-		return getColor(p.x, p.y);
+		return this.getColor(p.x, p.y);
 	}
 
 	/**
@@ -313,9 +313,9 @@ public class UberImage extends BufferedImage {
 	 *            the fill color
 	 */
 	public void fill(Color c) {
-		for (int i = 0; i < getWidth(); ++i) {
-			for (int j = 0; j < getHeight(); j++) {
-				setColor(i, j, c);
+		for (int i = 0; i < this.getWidth(); ++i) {
+			for (int j = 0; j < this.getHeight(); j++) {
+				this.setColor(i, j, c);
 			} // for
 		} // for
 	}
@@ -336,12 +336,12 @@ public class UberImage extends BufferedImage {
 	public void fillRectangle(int a, int b, int width, int height, Color c) {
 		assert width >= 0 : "width is >= 0";
 		assert height >= 0 : "height is >= 0";
-		assertCheckRange(a, b);
-		assertCheckRange(a + width - 1, b + height - 1);
+		this.assertCheckRange(a, b);
+		this.assertCheckRange(a + width - 1, b + height - 1);
 
 		for (int x = a; x < a + width; x++) {
 			for (int y = b; y < b + height; y++) {
-				setColor(x, y, c);
+				this.setColor(x, y, c);
 			}
 		}
 	}
@@ -357,7 +357,7 @@ public class UberImage extends BufferedImage {
 	 *            the rectangle's height (in pixels)
 	 */
 	public void fillRectangle(Point p, int width, int height, Color c) {
-		fillRectangle(p.x, p.y, width, height, c);
+		this.fillRectangle(p.x, p.y, width, height, c);
 	}
 
 	/**
@@ -367,7 +367,7 @@ public class UberImage extends BufferedImage {
 	 *            the length (in pixels) of the side of the square
 	 */
 	public void fillSquare(int x, int y, int side, Color c) {
-		fillRectangle(x, y, side, side, c);
+		this.fillRectangle(x, y, side, side, c);
 	}
 
 	/**
@@ -379,7 +379,7 @@ public class UberImage extends BufferedImage {
 	 *            the length (in pixels) of the side of the square
 	 */
 	public void fillSquare(Point p, int side, Color c) {
-		fillRectangle(p, side, side, c);
+		this.fillRectangle(p, side, side, c);
 	}
 
 	/**
@@ -391,12 +391,12 @@ public class UberImage extends BufferedImage {
 	 *            the pixel transformation
 	 */
 	public void mapPixel(UberPixelMapper f, Point ul, Point lr) {
-		assertCheckRange(ul);
-		assertCheckRange(lr);
+		this.assertCheckRange(ul);
+		this.assertCheckRange(lr);
 		for (int x = ul.x; x < lr.x; x++) {
 			for (int y = ul.y; y < lr.y; y++) {
-				Color newPixelColor = f.trans(x, y, getColor(x, y));
-				setColor(x, y, newPixelColor);
+				Color newPixelColor = f.trans(x, y, this.getColor(x, y));
+				this.setColor(x, y, newPixelColor);
 			}
 		}
 	}
@@ -408,7 +408,7 @@ public class UberImage extends BufferedImage {
 	 *            the pixel transformation
 	 */
 	public void mapPixel(UberPixelMapper f) {
-		mapPixel(f, new Point(0, 0), new Point(getWidth(), getHeight()));
+		this.mapPixel(f, new Point(0, 0), new Point(this.getWidth(), this.getHeight()));
 	}
 
 }

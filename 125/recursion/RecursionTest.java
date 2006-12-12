@@ -267,13 +267,18 @@ public class RecursionTest {
 		return arr[0];
 	}
 
-	// Returns a new array that contains all the elements of arr except for the first.
-	// WARNING: This method makes a copy of arr (excluding the first element), and this
-	// takes extra space and time. For the sample functions below using this rest
-	// function is *not* the most efficient way to write that code. The advantage of using
-	// rest is to make the code simpler and easier to understand. Remember Knuth's quote:
-    //
-	//     Premature optimization is the root of all evil.
+	// Returns a new array that contains all the elements of arr except for the
+	// first.
+	// WARNING: This method makes a copy of arr (excluding the first element),
+	// and this
+	// takes extra space and time. For the sample functions below using this
+	// rest
+	// function is *not* the most efficient way to write that code. The
+	// advantage of using
+	// rest is to make the code simpler and easier to understand. Remember
+	// Knuth's quote:
+	//
+	// Premature optimization is the root of all evil.
 	//
 	// If necessary, these functions can be made more efficient later on.
 	public static int[] rest(int[] arr) {
@@ -309,7 +314,7 @@ public class RecursionTest {
 		assert recMax(new int[] { 4, 7, 2, 54, 23, 54, 34, 2, 3, 5 }) == 54;
 		System.out.printf("all recMaxTest tests passed\n");
 	}
-	
+
 	public static int recSum(int[] arr) {
 		if (arr.length == 1) {
 			return first(arr);
@@ -324,10 +329,10 @@ public class RecursionTest {
 		assert recSum(new int[] { 7, 1, 0 }) == 8;
 		System.out.printf("all recSumTest tests passed\n");
 	}
-	
+
 	public static boolean recLinearSearch(int x, int[] arr) {
 		if (arr.length == 1) {
-			return first(arr)  == x;
+			return first(arr) == x;
 		} else {
 			return (first(arr) == x) || recLinearSearch(x, rest(arr));
 		}
@@ -341,7 +346,7 @@ public class RecursionTest {
 			return (first(arr) <= first(tail)) && isSorted(tail);
 		}
 	}
-	
+
 	public static void isSortedTest() {
 		assert isSorted(new int[] { 5 });
 		assert isSorted(new int[] { 2, 5 });
@@ -351,7 +356,6 @@ public class RecursionTest {
 		System.out.printf("all isSortedTest tests passed\n");
 	}
 
-	
 	public static void test2() {
 		testFirstRest();
 		recMaxTest();
