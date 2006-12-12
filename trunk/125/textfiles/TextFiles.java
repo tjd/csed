@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class TextFiles {
 
 	public static void main(String[] args) {
-		// change BASE_PATH to be the path to the folder on your computer where you want
+		// change BASE_PATH to be the path to the folder on your computer where
+		// you want
 		// to store your text files
 		final String BASE_PATH = "/Users/toby/Documents/workspace/cmpt125/textfiles/";
 		String[] lines = { "This is a test.", "Please stop reading.", "Right.",
@@ -26,8 +27,8 @@ public class TextFiles {
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter output = new PrintWriter(bw);
 
-			for (int i = 0; i < lines.length; ++i) {
-				output.printf(" - %s\n", lines[i]);
+			for (String element : lines) {
+				output.printf(" - %s\n", element);
 			}
 			output.close();
 		} catch (IOException e) {

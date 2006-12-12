@@ -25,14 +25,14 @@ public class Cats {
 				.getHeight());
 		System.out.printf("drnebulon: %s x %s", drnebulon.getWidth(), drnebulon
 				.getHeight());
-		
+
 		UberImage croppedNewton = UberImage.blankImage(422, 500);
-		for(int i = 0; i < croppedNewton.getWidth(); ++i) {
-			for(int j = 0; j < croppedNewton.getHeight(); ++j) {
+		for (int i = 0; i < croppedNewton.getWidth(); ++i) {
+			for (int j = 0; j < croppedNewton.getHeight(); ++j) {
 				croppedNewton.setColor(i, j, newton.getColor(i, j));
 			}
 		}
-		
+
 		croppedNewton.saveAsJPEG(IMAGE_DIR + "croppedNewton.jpg");
 	}
 

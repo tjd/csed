@@ -57,8 +57,9 @@ public class Utilities extends dbg {
 		} catch (InterruptedException ie) {
 			return false;
 		}
-		if (sTracker.isErrorID(id))
+		if (sTracker.isErrorID(id)) {
 			return false;
+		}
 		return true;
 	}
 
@@ -90,15 +91,17 @@ public class Utilities extends dbg {
 
 	public static Image blockingLoad(String path) {
 		Image image = Toolkit.getDefaultToolkit().getImage(path);
-		if (waitForImage(image) == false)
+		if (waitForImage(image) == false) {
 			return null;
+		}
 		return image;
 	}
 
 	public static Image blockingLoad(URL url) {
 		Image image = Toolkit.getDefaultToolkit().getImage(url);
-		if (waitForImage(image) == false)
+		if (waitForImage(image) == false) {
 			return null;
+		}
 		return image;
 	}
 
@@ -107,8 +110,9 @@ public class Utilities extends dbg {
 	}
 
 	public static BufferedImage makeBufferedImage(Image image, int imageType) {
-		if (waitForImage(image) == false)
+		if (waitForImage(image) == false) {
 			return null;
+		}
 
 		BufferedImage bufferedImage = new BufferedImage(image.getWidth(null),
 				image.getHeight(null), imageType);
@@ -119,8 +123,9 @@ public class Utilities extends dbg {
 
 	public static Frame getNonClearingFrame(String name, Component c) {
 		final Frame f = new Frame(name) {
+			@Override
 			public void update(Graphics g) {
-				paint(g);
+				this.paint(g);
 			}
 		};
 		sizeContainerToComponent(f, c);
@@ -128,6 +133,7 @@ public class Utilities extends dbg {
 		f.setLayout(new BorderLayout());
 		f.add(c, BorderLayout.CENTER);
 		f.addWindowListener(new WindowAdapter() {
+			@Override
 			public void windowClosing(WindowEvent e) {
 				f.dispose();
 			}
@@ -143,8 +149,9 @@ public class Utilities extends dbg {
 	 */
 	public static void sizeContainerToComponent(Container container,
 			Component component) {
-		if (container.isDisplayable() == false)
+		if (container.isDisplayable() == false) {
 			container.addNotify();
+		}
 		Insets insets = container.getInsets();
 		Dimension size = component.getPreferredSize();
 		int width = insets.left + insets.right + size.width;

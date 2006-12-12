@@ -21,7 +21,8 @@ public class ColorCount {
 			}
 		}
 		System.out.println(new Date());
-		System.out.printf("%s has exactly %s different colors", fname, set.size());
+		System.out.printf("%s has exactly %s different colors", fname, set
+				.size());
 		System.out.printf("Width = %s pixels", img.getWidth());
 		System.out.printf("Height = %s pixels", img.getHeight());
 	}

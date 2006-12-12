@@ -18,7 +18,7 @@ public class Attribute {
 	}
 
 	public double getValue() {
-		return value;
+		return this.value;
 	}
 
 	public void setValue(double value) {
@@ -28,15 +28,15 @@ public class Attribute {
 	}
 
 	public int getMax() {
-		return max;
+		return this.max;
 	}
 
 	public int getMin() {
-		return min;
+		return this.min;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 }

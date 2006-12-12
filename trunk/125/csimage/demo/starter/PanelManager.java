@@ -29,51 +29,51 @@ public class PanelManager extends JPanel {
 	public PanelManager(JFrame frame) {
 		// initialize this panel
 		this.frame = frame;
-		setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout());
 		ActionListener buttonListener = new ButtonListener();
 
 		// create and configure the load/save buttons
 		JPanel loadSavePanel = new JPanel();
-		add(loadSavePanel, BorderLayout.SOUTH);
-		loadButton = new JButton("Load");
-		loadButton.addActionListener(buttonListener);
-		loadSavePanel.add(loadButton);
-		saveButton = new JButton("Save");
-		saveButton.addActionListener(buttonListener);
-		loadSavePanel.add(saveButton);
+		this.add(loadSavePanel, BorderLayout.SOUTH);
+		this.loadButton = new JButton("Load");
+		this.loadButton.addActionListener(buttonListener);
+		loadSavePanel.add(this.loadButton);
+		this.saveButton = new JButton("Save");
+		this.saveButton.addActionListener(buttonListener);
+		loadSavePanel.add(this.saveButton);
 
 		// create and configure the effect buttons
 		JPanel effectPanel = new JPanel();
-		add(effectPanel, BorderLayout.NORTH);
-		bwButton = new JButton("black & white");
-		bwButton.addActionListener(buttonListener);
-		effectPanel.add(bwButton);
+		this.add(effectPanel, BorderLayout.NORTH);
+		this.bwButton = new JButton("black & white");
+		this.bwButton.addActionListener(buttonListener);
+		effectPanel.add(this.bwButton);
 
 		// create and congfigure the image canvas
-		canvas = new ImageCanvas(frame);
-		add(canvas, BorderLayout.CENTER);
+		this.canvas = new ImageCanvas(frame);
+		this.add(this.canvas, BorderLayout.CENTER);
 	}
 
 	public class ButtonListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			if (event.getSource() == loadButton) {
-				fname = EasyInput.chooseFile();
-				canvas.setImage(UberImage.fromFile(fname));
-			} else if (event.getSource() == saveButton) {
-				canvas.saveAsPNG(getName() + "_mod.png");
-			} else if (event.getSource() == bwButton) {
-				UberImage pic = canvas.getImageCopy();
+			if (event.getSource() == PanelManager.this.loadButton) {
+				PanelManager.this.fname = EasyInput.chooseFile();
+				PanelManager.this.canvas.setImage(UberImage.fromFile(PanelManager.this.fname));
+			} else if (event.getSource() == PanelManager.this.saveButton) {
+				PanelManager.this.canvas.saveAsPNG(this.getName() + "_mod.png");
+			} else if (event.getSource() == PanelManager.this.bwButton) {
+				UberImage pic = PanelManager.this.canvas.getImageCopy();
 				Effects.makeBlackAndWhite(pic);
-				canvas.setImage(pic);
+				PanelManager.this.canvas.setImage(pic);
 			}
 		}
 
 		// helper function that returns the name, without the
 		// extension, of the current file being processed
 		private String getName() {
-			int dotLoc = fname.lastIndexOf(".");
-			return fname.substring(0, dotLoc);
+			int dotLoc = PanelManager.this.fname.lastIndexOf(".");
+			return PanelManager.this.fname.substring(0, dotLoc);
 		}
 
 	}

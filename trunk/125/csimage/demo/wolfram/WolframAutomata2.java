@@ -43,45 +43,53 @@ public class WolframAutomata2 {
 				String current = checkSection(x, y, theImage);
 
 				if (current.equals("BBB")) {
-					if ((rule & (byte) 128) == 128)
+					if ((rule & (byte) 128) == 128) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("BBW")) {
-					if ((rule & (byte) 64) == 64)
+					if ((rule & (byte) 64) == 64) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("BWB")) {
-					if ((rule & (byte) 32) == 32)
+					if ((rule & (byte) 32) == 32) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("BWW")) {
-					if ((rule & (byte) 16) == 16)
+					if ((rule & (byte) 16) == 16) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("WBB")) {
-					if ((rule & (byte) 8) == 8)
+					if ((rule & (byte) 8) == 8) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("WBW")) {
-					if ((rule & (byte) 4) == 4)
+					if ((rule & (byte) 4) == 4) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("WWB")) {
-					if ((rule & (byte) 2) == 2)
+					if ((rule & (byte) 2) == 2) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				} else if (current.equals("WWW")) {
-					if ((rule & (byte) 1) == 1)
+					if ((rule & (byte) 1) == 1) {
 						theImage.setColor(x, y + 1, Color.BLACK);
-					else
+					} else {
 						theImage.setColor(x, y + 1, Color.WHITE);
+					}
 				}
 			}
 		}
@@ -93,37 +101,44 @@ public class WolframAutomata2 {
 
 		if (x == 0) {
 			result += "W";
-			if (image.getColor(x, y).equals(Color.BLACK))
+			if (image.getColor(x, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
-			if (image.getColor(x + 1, y).equals(Color.BLACK))
+			}
+			if (image.getColor(x + 1, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
+			}
 		} else if (x == image.getWidth() - 1) {
-			if (image.getColor(x - 1, y).equals(Color.BLACK))
+			if (image.getColor(x - 1, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
-			if (image.getColor(x, y).equals(Color.BLACK))
+			}
+			if (image.getColor(x, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
+			}
 			result += "W";
 		} else {
-			if (image.getColor(x - 1, y).equals(Color.BLACK))
+			if (image.getColor(x - 1, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
-			if (image.getColor(x, y).equals(Color.BLACK))
+			}
+			if (image.getColor(x, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
-			if (image.getColor(x + 1, y).equals(Color.BLACK))
+			}
+			if (image.getColor(x + 1, y).equals(Color.BLACK)) {
 				result += "B";
-			else
+			} else {
 				result += "W";
+			}
 		}
 
 		return result;

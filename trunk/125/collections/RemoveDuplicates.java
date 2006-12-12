@@ -8,11 +8,11 @@ public class RemoveDuplicates {
 		String[] arr = { "cat", "cat", "dog", "bird", "dog", "mouse", "bird",
 				"fish", "cat" };
 		HashSet<String> set = new HashSet<String>();
-		
-		for(int i = 0; i < arr.length; ++i) {
-			set.add(arr[i]);
+
+		for (String element : arr) {
+			set.add(element);
 		}
-		
+
 		System.out.printf("set = %s\n", set);
 	}
 

@@ -3,13 +3,19 @@ package oop;
 public class Character {
 
 	private CharacterName name;
+
 	private int gold;
+
 	private int xp;
+
 	private int hp;
+
 	private State stateOfMind;
+
 	private Attribute strength;
+
 	private Attribute agility;
-	
+
 	public Character(String name) {
 		this.name = new CharacterName(name);
 		this.gold = 25;
@@ -19,14 +25,14 @@ public class Character {
 		this.strength = new Attribute("strength", 0, 20);
 		this.agility = new Attribute("agility", 0, 20);
 	}
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
 	public double getAgility() {
-		return agility.getValue();
+		return this.agility.getValue();
 	}
 
 	public void setAgility(double agility) {
@@ -34,11 +40,11 @@ public class Character {
 	}
 
 	public int getLevel() {
-		return getXp() / 100;
+		return this.getXp() / 100;
 	}
 
 	public State getStateOfMind() {
-		return stateOfMind;
+		return this.stateOfMind;
 	}
 
 	public void setStateOfMind(State stateOfMind) {
@@ -46,7 +52,7 @@ public class Character {
 	}
 
 	public double getStrength() {
-		return strength.getValue();
+		return this.strength.getValue();
 	}
 
 	public void setStrength(double strength) {
@@ -54,11 +60,11 @@ public class Character {
 	}
 
 	public String getName() {
-		return name.getName();
+		return this.name.getName();
 	}
 
 	public int getGold() {
-		return gold;
+		return this.gold;
 	}
 
 	public void setGold(int gold) {
@@ -66,7 +72,7 @@ public class Character {
 	}
 
 	public int getHp() {
-		return hp;
+		return this.hp;
 	}
 
 	public void setHp(int hp) {
@@ -74,7 +80,7 @@ public class Character {
 	}
 
 	public int getXp() {
-		return xp;
+		return this.xp;
 	}
 
 	public void setXp(int xp) {
@@ -82,7 +88,6 @@ public class Character {
 	}
 
 }
-
 
 enum State {
 	normal, sleepy, dizzy, confused, afraid

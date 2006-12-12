@@ -12,11 +12,11 @@ public class CharacterName {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public String getRawName() {
-		return rawName;
+		return this.rawName;
 	}
-		
+
 }

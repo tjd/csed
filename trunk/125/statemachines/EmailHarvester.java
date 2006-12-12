@@ -7,7 +7,6 @@ package statemachines;
  * 
  */
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
@@ -25,14 +24,14 @@ public class EmailHarvester {
 		// extract all the email addresses
 		ArrayList<Email> allEmails = getAllEmails(text);
 		System.out.printf("\n(%s email addresses extracted)", allEmails.size());
-		
+
 		// sort them
 		TreeMap<String, Email> map = sortByUsername(allEmails);
 		System.out.println("(email addresses sorted)");
-		
+
 		// get rid of duplicates
 		Set<Email> set = removeDuplicates(map.values());
-		
+
 		// print the results
 		print(set.toArray());
 
