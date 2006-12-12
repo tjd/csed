@@ -1,0 +1,55 @@
+  1: package javaintro;
+  2: 
+  3: import java.io.BufferedWriter;
+  4: import java.io.File;
+  5: import java.io.FileNotFoundException;
+  6: import java.io.FileWriter;
+  7: import java.io.IOException;
+  8: import java.io.PrintWriter;
+  9: import java.util.Scanner;
+ 10: 
+ 11: /*
+ 12:  * 
+ 13:  * Listfile.java
+ 14:  * 
+ 15:  * Demonstrates basic reading a text file using a Scanner object, and writing
+ 16:  * a text file using a PrintWriter. Also shows an example of using String.format, and
+ 17:  * the syntax for catching multiple exceptions.
+ 18:  * 
+ 19:  */
+ 20: 
+ 21: public class Listfile {
+ 22: 
+ 23: 	public static void main(String[] args) {
+ 24: 		String fname = "javaintro/Listfile.java";
+ 25: 		String outfilename = "javaintro/out.dat";
+ 26: 
+ 27: 		try {
+ 28: 			// use Scanner to read the input text file
+ 29: 			Scanner infile = new Scanner(new File(fname));
+ 30: 			
+ 31: 			// next 3 commands set up a text file writer
+ 32: 			FileWriter fw = new FileWriter(outfilename);
+ 33: 			BufferedWriter bw = new BufferedWriter(fw);
+ 34: 			PrintWriter outfile = new PrintWriter(bw);
+ 35: 			
+ 36: 			int count = 0;
+ 37: 			while (infile.hasNextLine()) {
+ 38: 				++count;
+ 39: 				String line = infile.nextLine();
+ 40: 				
+ 41: 				// "%3d" prints a decimal number right-justified in 3 spaces
+ 42: 				String result = String.format("%3d: %s\n", count, line);
+ 43: 				System.out.print(result);
+ 44: 				outfile.print(result);
+ 45: 			}
+ 46: 			outfile.close();
+ 47: 		} catch (FileNotFoundException e) {
+ 48: 			System.out.printf("The file \"%s\" was not found.", fname);
+ 49: 		} catch (IOException e) {
+ 50: 			System.out.printf("Unable to create \"%s\"", outfilename);
+ 51: 		}
+ 52: 
+ 53: 	}
+ 54: 
+ 55: }
