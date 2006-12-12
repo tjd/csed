@@ -1,4 +1,5 @@
 package examclock;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -90,8 +91,6 @@ public class Examclock {
 	}
 
 	public static Exam askUserForExamInfo() {
-		// Scanner sc = new Scanner(System.in);
-		// System.out.printf("How long is the exam in minutes? --> ");
 		String inval = JOptionPane
 				.showInputDialog("Enter exam length in minutes");
 		int minutes = Integer.parseInt(inval);
