@@ -59,7 +59,8 @@ public class PanelManager extends JPanel {
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == PanelManager.this.loadButton) {
 				PanelManager.this.fname = EasyInput.chooseFile();
-				PanelManager.this.canvas.setImage(UberImage.fromFile(PanelManager.this.fname));
+				PanelManager.this.canvas.setImage(UberImage
+						.fromFile(PanelManager.this.fname));
 			} else if (event.getSource() == PanelManager.this.saveButton) {
 				PanelManager.this.canvas.saveAsPNG(this.getName() + "_mod.png");
 			} else if (event.getSource() == PanelManager.this.bwButton) {

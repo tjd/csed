@@ -24,7 +24,7 @@ public class MyArrayList<T> extends ArrayList<T> {
 		int r = rnd.nextInt(size());
 		return remove(r);
 	}
-	
+
 	public T remove(int i) {
 		if (i < 0) {
 			i += size();
@@ -39,10 +39,10 @@ public class MyArrayList<T> extends ArrayList<T> {
 		System.out.printf("%s\n", arr);
 		String s = arr.removeRandom();
 		System.out.printf("%s, %s", s, arr);
-		
+
 		ArrayList<String> arr2 = new MyArrayList<String>();
-		//arr2.removeRandom(); // error
-		
-		//MyArrayList<String> arr3 = new ArrayList<String>();
+		// arr2.removeRandom(); // error
+
+		// MyArrayList<String> arr3 = new ArrayList<String>();
 	}
 }

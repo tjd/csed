@@ -21,8 +21,10 @@ public class CarvableTree extends Tree {
 	public static void main(String[] args) {
 		CarvableTree tree = new CarvableTree(55, Color.YELLOW);
 		tree.setLetters("YC & JD");
-		System.out.printf("This tree has\n%s %s leaves, with \"%s\" carved into the bark",
-				tree.getNumLeaves(), tree.getColor(), tree.getLetters());
+		System.out
+				.printf(
+						"This tree has\n%s %s leaves, with \"%s\" carved into the bark",
+						tree.getNumLeaves(), tree.getColor(), tree.getLetters());
 	}
 
 }

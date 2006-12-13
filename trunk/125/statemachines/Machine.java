@@ -7,7 +7,7 @@ public class Machine {
 			return false;
 		} else {
 			int i = 0;
-			
+
 			// check for 'a's
 			while (s.charAt(i) == 'a') {
 				++i;
@@ -103,17 +103,17 @@ public class Machine {
 		assert B("aaaab");
 		assert B("abbbbbb");
 		assert B("aaaaabbbb");
-		
+
 		assert !B("");
 		assert !B("a");
 		assert !B("b");
 		assert !B("aba");
 		assert !B("bab");
 		assert !B("bbaaa");
-		
+
 		System.out.printf("all tests passed\n");
 	}
-	
+
 	public static void testM2() {
 		assert M2("b");
 		assert M2("bb");

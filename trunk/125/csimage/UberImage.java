@@ -408,7 +408,8 @@ public class UberImage extends BufferedImage {
 	 *            the pixel transformation
 	 */
 	public void mapPixel(UberPixelMapper f) {
-		this.mapPixel(f, new Point(0, 0), new Point(this.getWidth(), this.getHeight()));
+		this.mapPixel(f, new Point(0, 0), new Point(this.getWidth(), this
+				.getHeight()));
 	}
 
 }

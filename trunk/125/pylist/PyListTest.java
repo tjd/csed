@@ -1,6 +1,5 @@
 package pylist;
 
-
 public class PyListTest extends TestCase {
 
 	public static void testAppend1() {

@@ -20,12 +20,12 @@ public class StringSort {
 	// Here is the definition of the Comparable interface:
 	//
 	// public interface Comparable {
-	//      public int compareTo(Object o);
+	// public int compareTo(Object o);
 	// }
 	//
 	// The idea here is that any class that implements the Comparable interface
 	// will provide the compareTo method for comparing objects. We use an
-	// interface because different objects will have different criteria for how 
+	// interface because different objects will have different criteria for how
 	// they want to compare themselves.
 	//
 	// For example, in the Email class we could compare emails just by username,
@@ -33,53 +33,70 @@ public class StringSort {
 	// the emails first by extension, and then by username. We can implement
 	// the Email compareTo method whatever way we need.
 	//
-	// Lets make our own interface. Suppose you want to keep track of basic information
-	// about certain objects, such as who owns the object, when it was created, what type
-	// of object it is, and so on. Such information would be useful in a file system, or
-	// any a document management program where you need to keep track of such information.
+	// Lets make our own interface. Suppose you want to keep track of basic
+	// information
+	// about certain objects, such as who owns the object, when it was created,
+	// what type
+	// of object it is, and so on. Such information would be useful in a file
+	// system, or
+	// any a document management program where you need to keep track of such
+	// information.
 	//
 	// Here's the interface:
 	//
-	//   public interface Information {
-	//	    public String getOwner();
-	//	    public java.util.Date getDateCreated();
-	//	    public String getType();
-	//	    public void setType(String type);
-	//   }
+	// public interface Information {
+	// public String getOwner();
+	// public java.util.Date getDateCreated();
+	// public String getType();
+	// public void setType(String type);
+	// }
 	//
-	// Now any class you wish can implement this interface. It is then up to the class to
-	// provide implementations of each of these methods. This is really elegant idea
+	// Now any class you wish can implement this interface. It is then up to the
+	// class to
+	// provide implementations of each of these methods. This is really elegant
+	// idea
 	// because it completely seperates the interface from implementation.
 	//
-	// As an analogy, consider electrical outlets like you would find in your house.
-	// In North America, at least, outles have standard geometric shape, and a standard
-	// electrical output. You can plug any device into any outlet, now matter what the
-	// device is, and now matter how the outlet draws its electricity. It doesn't matter
-	// if the outlet is running on solar power, hydroelectric power, geothermal power, or
-	// a hamster in a wheel. All that matters is that it delivers on its promise of delivering
+	// As an analogy, consider electrical outlets like you would find in your
+	// house.
+	// In North America, at least, outles have standard geometric shape, and a
+	// standard
+	// electrical output. You can plug any device into any outlet, now matter
+	// what the
+	// device is, and now matter how the outlet draws its electricity. It
+	// doesn't matter
+	// if the outlet is running on solar power, hydroelectric power, geothermal
+	// power, or
+	// a hamster in a wheel. All that matters is that it delivers on its promise
+	// of delivering
 	// a certain amount of electricity.
 	//
-	// Electrical outlets also give a nice example of extending a class. Original outlets only
-	// allowed two-pronged plugs. But over time, a third ground plug was added 
-	// (http://en.wikipedia.org/wiki/Electrical_outlet). In Java, we could denote the situation 
+	// Electrical outlets also give a nice example of extending a class.
+	// Original outlets only
+	// allowed two-pronged plugs. But over time, a third ground plug was added
+	// (http://en.wikipedia.org/wiki/Electrical_outlet). In Java, we could
+	// denote the situation
 	// like this:
 	// 
-	//   interface Outlet {
-	//       public Electricity leftProng();
-	//       public Electricity rightProng();
-	//   }
+	// interface Outlet {
+	// public Electricity leftProng();
+	// public Electricity rightProng();
+	// }
 	//
-	//   interface GroundedOutlet extends Outlet {
-	//       public Ground groundProng();
-	//   }
+	// interface GroundedOutlet extends Outlet {
+	// public Ground groundProng();
+	// }
 	//
-	// The beauty of this approach is that if you have a two-pronged plug, you can
-	// plug it into either outlet. That's because the GroundedOutlet has not modifed
+	// The beauty of this approach is that if you have a two-pronged plug, you
+	// can
+	// plug it into either outlet. That's because the GroundedOutlet has not
+	// modifed
 	// the basic Outlet; it simply extends, adding extra functionality. You can
-	// think of it as the grounded outlet remaining backwards compatible with the
+	// think of it as the grounded outlet remaining backwards compatible with
+	// the
 	// regular outlet.
-    //
-	// Of course, a three-pronged plug won't work in a two-pronged outlet. 
+	//
+	// Of course, a three-pronged plug won't work in a two-pronged outlet.
 
 	public static void bubblesort(String[] arr) {
 		boolean done = false;

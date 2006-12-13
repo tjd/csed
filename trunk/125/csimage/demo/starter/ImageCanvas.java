@@ -40,7 +40,8 @@ public class ImageCanvas extends Canvas {
 	}
 
 	public void setSize() {
-		this.setSize(new Dimension(this.img.getWidth() + 40, this.img.getHeight() + 10));
+		this.setSize(new Dimension(this.img.getWidth() + 40, this.img
+				.getHeight() + 10));
 		this.frame.pack();
 		this.repaint();
 	}
