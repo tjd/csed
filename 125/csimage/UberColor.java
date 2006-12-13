@@ -117,7 +117,8 @@ public class UberColor extends Color {
 	 *      Poynton's Color FAQ </a> for more information.
 	 */
 	public double luminance() {
-		return 0.2126 * this.getRed() + 0.7152 * this.getBlue() + 0.0722 * this.getGreen();
+		return 0.2126 * this.getRed() + 0.7152 * this.getBlue() + 0.0722
+				* this.getGreen();
 	}
 
 	/**

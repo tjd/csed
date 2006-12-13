@@ -44,7 +44,8 @@ public class Triangle {
 
 	@Override
 	public String toString() {
-		return String.format("[A:%s, B:%s, C:%s]", this.getA(), this.getB(), this.getC());
+		return String.format("[A:%s, B:%s, C:%s]", this.getA(), this.getB(),
+				this.getC());
 	}
 
 	public String debug() {

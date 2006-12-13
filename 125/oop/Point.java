@@ -63,8 +63,8 @@ public class Point {
 		System.out.printf("origin = %s\n", origin);
 		System.out.printf("p1 = %s\n", p1);
 		System.out.printf("q = %s\n", q);
-		System.out.printf("origin.dist((1, 1)) = %s\n", origin
-				.dist(new Point(1, 1)));
+		System.out.printf("origin.dist((1, 1)) = %s\n", origin.dist(new Point(
+				1, 1)));
 	}
 
 }

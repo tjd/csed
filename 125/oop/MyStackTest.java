@@ -5,7 +5,7 @@ public class MyStackTest {
 	/**
 	 * @param args
 	 */
-public static void main(String[] args) {
+	public static void main(String[] args) {
 		MyStack<Integer> istack = new MyStack<Integer>();
 
 		istack.println();
