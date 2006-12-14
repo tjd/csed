@@ -113,9 +113,8 @@ class AdviceGiver extends TimerTask {
 
 	private String[] earlyMsg = {
 			"Write your name and student number on all pages.",
-			"Double-check your answers!",
-			"Read the questions carefully!", "Think.", "Relax.",
-			"Have a question? Raise your hand!",
+			"Double-check your answers!", "Read the questions carefully!",
+			"Think.", "Relax.", "Have a question? Raise your hand!",
 			"Have mercy on your marker: write clearly!" };
 
 	private String[] finalMsg = { "Finish what you are working on!",
@@ -170,6 +169,21 @@ class UpdateClockTask extends TimerTask {
 		this.exam = exam;
 	}
 
+	public static String minToTime(long min) {
+		// min = 60*h + m
+		// 0 <= m < 60
+		assert min >= 0;
+		long h = min / 60;
+		long m = min % 60;
+		if (h < 1) {
+			return String.format("%s min", m);
+		} else if (m == 0) {
+			return String.format("%s hour%s", h, (h == 1) ? "" : "s");
+		} else {
+			return String.format("%shr %smin", h, m);
+		}
+	}
+
 	@Override
 	public void run() {
 		final long remaining = exam.minutesRemaining();
@@ -184,8 +198,9 @@ class UpdateClockTask extends TimerTask {
 		if (exam.finished()) {
 			timeRemaining.setText(String.format(EXAM_FINISHED_MSG));
 		} else {
-			timeRemaining.setText(String.format("%s min", remaining));
+			timeRemaining.setText(minToTime(remaining));
 		}
+
 		timeElapsed.setText(String.format("%s minute%s elapsed", elapsed,
 				(elapsed == 1) ? "" : "s"));
 	}
