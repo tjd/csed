@@ -23,10 +23,28 @@ special cases. If n is 1 or less, then it's not prime. The prime 2 is
 unusual not only because it is the first prime, but because it is the
 only even prime. Thus we will also check explicitly if n is 2.
  
-When n is 3 or greater we start generating candidate divisors. We
+When n is 3 or greater we will generate candidate divisors. We
 start by trying 2, then 3, then 4, then 5, and so on, until either we
 find a divisors that goes into n with no remainder, or we reach n - 1
-without finding a divisors (in which case n must be prime).
+without finding a divisors (in which case n must be prime).  Here is
+the code:
+
+	public static boolean isPrime1(int n) {
+		if (n <= 1) {
+			return false;
+		} else if (n == 2) {
+			return true;
+		} else {
+			int d = 2;
+			while (d < n) {
+				if (n % d == 0) {
+					return false;
+				}
+				d = d + 1;
+			}
+			return true;
+		}
+	}
 
 The expression n % d returns the remainder when when d is divided into
 n. For example, 25 % 5 is 0, and 33 % 6 is 3.
@@ -34,7 +52,7 @@ n. For example, 25 % 5 is 0, and 33 % 6 is 3.
 Testing our Function
  --------------------
 
-After we've written the isPrime function and gotten rid any syntax
+After we've written the isPrime1 function and gotten rid any syntax
 errors, we need to test it to make sure it really works correctly.
  
 A good way to do that is to use "automatic unit testing". A unit test
@@ -42,29 +60,29 @@ is a test applied to a single unit or thing --- in this case a single
 function.
  
 The simplest way to do a unit test is to print the results of the
-function on the screen, and verify the result by looking at it. But
-that manually verifying the results is not only error-prone, it
+function on the screen, and verify its correctness by looking at it. 
+But manually verifying the results is not only error-prone, it
 quickly becomes tedious.
  
 A much better technique is to have the computer check the results for
 us. We'll do this using Java's assert statement. Consider this
 example:
  
-    assert isPrime(2);  
+    assert isPrime1(2);  
     
-This works by calling isPrime(2), and, if the result is true, then
+This works by calling isPrime1(2), and, if the result is true, then
 nothing happens --- the program continues on to the following
-statement. If, however, isPrime(2) returns false, then the program
+statement. If, however, isPrime1(2) returns false, then the program
 crashes with an AssertionError. Since 2 is prime the only time "assert
-isPrime(2);" should crash is when there's a bug in the isPrime
+isPrime1(2);" should crash is when there's a bug in the isPrime1
 function.
  
-To check the result of isPrime(4), we write this:
+To check the result of isPrime1(4) we write this:
  
-    assert !isPrime(4);
+    assert !isPrime1(4);
     
 We must include the ! (logical "not") because when isPrime works
-correctly, isPrime(4) should evaluate to false. If we didn't include
+correctly, isPrime1(4) should evaluate to false. If we didn't include
 the ! then assert would crash when it returns the correct result. So
 it is vital to include or exclude to the !, depending on the correct
 answer.
@@ -75,13 +93,57 @@ isPrime function, a good set of test cases should test extreme values,
 i.e. values near boundaries or near special cases, and also a few
 ordinary cases of number that are prime or not prime.
 
-See the isPrimeTest() for a list of the test cases.
-   
+Here is the isPrime1Test():
+
+	private static void isPrime1Test() {
+		assert !isPrime1(-1);
+		assert !isPrime1(0);
+		assert !isPrime1(1);
+		assert isPrime1(2);
+		assert isPrime1(3);
+		assert !isPrime1(4);
+		assert isPrime1(5);
+		assert !isPrime1(55);
+		assert isPrime1(101);
+		assert !isPrime1(105);
+		System.out.printf("all isPrime1 tests done\n");
+	}
+
+Of course, this is not a guarantee that isPrime1 is bug-free. It could
+certainly still contain errors. But through a combination of unit-testing
+and careful checking of the code, we can be very confident that it is
+working in all cases.
+
+Aside: In this course, we are doing what is known as "informal code inspection".
+When we are checking source, we simply read it and think about it, and look
+for errors. In contrast to this informal checking, some computer scientists
+have suggested that "formal code inspections" are better. A formal inspection
+of code is essentially a detailed mathematical proof of its correctness.
+Formal logic is used, and sometimes it is possible to guarantee that the proof
+is correct. However, formal inspections are rarely useful in practice since the
+necessary mathematics is too difficult for all but the shortest and simplest
+programs. Just as for automated unit testing, automatic "theorem provers"
+are needed to help with any kind of formal inspection in real programs. The
+resulting proofs are typically in a formal language that is often as complex
+as the program that they are proving correct, which leaves doubts as to the
+proof's correctness. And they are usually so long and dense that humans
+don't have the time to read them.
+
+While full-blown formal inspections have not yet caught on practice --- or
+even in academic CS outside of the researchers who promote it! --- there are
+more limited forms of formal inspection that have been far more successful. 
+The best example of this is type-checking. Most modern computer languages 
+have some notion of "data type", or "types" for short, and types are used to 
+prevent errors and increase program readability. For example, s is a string, 
+languages that do type-checking will signal an error if you try to calculate 
+the square root of s, sqrt(s). In a language like Java, much (but not all) of 
+the type-checking is done at compile time, and in this example the Java
+compiler would tell you that sqrt(s) is an error.
 
 Calculating the Number of Primes Up to N
 ----------------------------------------
 
-Now lets use the isPrime function to write an important function that
+Now lets use the isPrime1 function to write an important function that
 calculates the number of primes from 1 to n (including n).
  
 Once again the idea is to use generate and test: generate the numbers
