@@ -19,8 +19,9 @@ public class BarChart {
 		// print a blank line for neatness
 		System.out.println();
 
-		for (int element : arr) {
-			String stars = makeStars(element);
+		// display the bar chart
+		for (int i = 0; i < arr.length; ++i) {
+			String stars = makeStars(arr[i]);
 			System.out.println(stars);
 		}
 	}
@@ -29,6 +30,7 @@ public class BarChart {
 		String result = "";
 		for (int i = 0; i < n; ++i) {
 			result = result + "*";
+
 		}
 		return result;
 	}

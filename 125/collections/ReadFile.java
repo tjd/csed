@@ -24,7 +24,7 @@ public class ReadFile {
 			System.out.printf("last: \"%s\"\n", lst.get(lst.size() - 1));
 
 			// print the entire contents of the file
-			for (int i = 0; i < lst.size(); ++i) {
+			for(int i = 0; i < lst.size(); ++i) {
 				System.out.println(lst.get(i));
 			}
 
@@ -33,3 +33,5 @@ public class ReadFile {
 		}
 	}
 }
+
+

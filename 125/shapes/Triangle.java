@@ -11,9 +11,9 @@ public class Triangle {
 	private Line ac;
 
 	public Triangle(Point a, Point b, Point c) {
-		this.ab = new Line(a, b);
-		this.bc = new Line(b, c);
-		this.ac = new Line(a, c);
+		ab = new Line(a, b);
+		bc = new Line(b, c);
+		ac = new Line(a, c);
 	}
 
 	public Triangle(int x, int y, int a, int b, int m, int n) {
@@ -25,31 +25,29 @@ public class Triangle {
 	}
 
 	public Point getA() {
-		return this.ab.getP();
+		return ab.getP();
 	}
 
 	public Point getB() {
-		return this.ab.getQ();
+		return ab.getQ();
 	}
 
 	public Point getC() {
-		return this.bc.getQ();
+		return bc.getQ();
 	}
 
 	public void drawOn(UberImage img) {
-		this.ab.drawOn(img);
-		this.bc.drawOn(img);
-		this.ac.drawOn(img);
+		ab.drawOn(img);
+		bc.drawOn(img);
+		ac.drawOn(img);
 	}
 
-	@Override
 	public String toString() {
-		return String.format("[A:%s, B:%s, C:%s]", this.getA(), this.getB(),
-				this.getC());
+		return String.format("[A:%s, B:%s, C:%s]", getA(), getB(), getC());
 	}
 
 	public String debug() {
-		return String.format("ab=%s\nbc=%s\nac=%s", this.ab, this.bc, this.ac);
+		return String.format("ab=%s\nbc=%s\nac=%s", ab, bc, ac);
 	}
-
+	
 }

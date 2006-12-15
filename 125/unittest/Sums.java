@@ -48,14 +48,14 @@ public class Sums {
 
 	public static void prob1() {
 		int sum = 0;
-		for (int i = 1; i <= 1000; ++i) {
+		for(int i = 1; i <= 1000; ++i) {
 			if (!hasSeven(i)) {
 				sum += i;
 			}
 		}
 		System.out.printf("sum of 7-free numbers from 1 to a 1000: %s", sum);
 	}
-
+	
 	public static int digitSum(int n) {
 		n = Math.abs(n);
 		int sum = 0;
@@ -66,7 +66,7 @@ public class Sums {
 		}
 		return sum;
 	}
-
+	
 	public static void digitSumTest() {
 		assert digitSum(4) == 4;
 		assert digitSum(0) == 0;
@@ -79,16 +79,14 @@ public class Sums {
 
 	public static void prob2() {
 		int sum = 0;
-		for (int i = 1; i <= 1000; ++i) {
+		for(int i = 1; i <= 1000; ++i) {
 			if ((i % digitSum(i)) != 0) {
 				sum += i;
 			}
 		}
-		System.out.printf(
-				"\nsum of non-digit sum divisible numbers from 1 to 1000: %s",
-				sum);
+		System.out.printf("\nsum of non-digit sum divisible numbers from 1 to 1000: %s", sum);
 	}
-
+	
 	public static void main(String[] args) {
 		hasSevenTest();
 		digitSumTest();

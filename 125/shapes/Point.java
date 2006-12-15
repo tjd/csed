@@ -32,12 +32,11 @@ public class Point {
 	}
 
 	public void drawOn(UberImage img) {
-		img.setColor(this.x, this.y, Color.BLACK);
+		img.setColor(x, y, Color.BLACK);
 	}
 
-	@Override
 	public String toString() {
-		return String.format("(%s, %s)", this.x, this.y);
+		return String.format("(%s, %s)", x, y);
 	}
 
 }

@@ -14,18 +14,18 @@ public class Test {
 
 	public static void main(String[] args) {
 		UberImage newton = UberImage.fromFile(IMAGE_DIR + "newton.jpg");
-		// UberImage drnebulon = UberImage.fromFile(IMAGE_DIR +
-		// "drnebulon.jpg");
+//		UberImage drnebulon = UberImage.fromFile(IMAGE_DIR + "drnebulon.jpg");
 
+		
 		show.inFrame(newton);
-		// show.inFrame(drnebulon);
+//		show.inFrame(drnebulon);
 		int width = newton.getWidth();
 		int height = newton.getHeight();
 
 		UberImage blend = UberImage.blankImage(width, height);
 
-		// double p = 0.5;
-		// double q = 1 - p;
+//		double p = 0.5;
+//		double q = 1 - p;
 
 		for (int i = 0; i < width; ++i) {
 			for (int j = 0; j < height; ++j) {
@@ -45,7 +45,7 @@ public class Test {
 		}
 
 		show.inFrame(blend);
-
+		
 	}
 
 }
