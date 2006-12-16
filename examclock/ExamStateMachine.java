@@ -15,11 +15,11 @@ public class ExamStateMachine {
 	}
 	
 	public Exam.StateEnum changeState() {
-		if (exam.secondsRemaining() <= 1) {
+		if (exam.getSecondsRemaining() <= 1) {
 			currentState = Exam.StateEnum.finished;
-		} else if (exam.minutesRemaining() <= 1) {
+		} else if (exam.getMinutesRemaining() <= 1) {
 			currentState = Exam.StateEnum.lastMinute;
-		} else if (exam.minutesRemaining() <= 10) {
+		} else if (exam.getMinutesRemaining() <= 10) {
 			currentState = Exam.StateEnum.lastTenMinutes;
 		}
 		return state();
