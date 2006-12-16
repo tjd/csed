@@ -2,43 +2,43 @@ package examclock;
 
 public class ExamStateMachine {
 
-	private ExamState currentState;
+	private Exam.StateEnum currentState;
 	private Exam exam;
 	
 	public ExamStateMachine(Exam exam) {
 		this.exam = exam;
-		currentState = ExamState.running;
+		currentState = Exam.StateEnum.running;
 	}
 	
-	public ExamState state() {
+	public Exam.StateEnum state() {
 		return currentState;
 	}
 	
-	public ExamState changeState() {
+	public Exam.StateEnum changeState() {
 		if (exam.secondsRemaining() <= 1) {
-			currentState = ExamState.finished;
+			currentState = Exam.StateEnum.finished;
 		} else if (exam.minutesRemaining() <= 1) {
-			currentState = ExamState.lastMinute;
+			currentState = Exam.StateEnum.lastMinute;
 		} else if (exam.minutesRemaining() <= 10) {
-			currentState = ExamState.lastTenMinutes;
+			currentState = Exam.StateEnum.lastTenMinutes;
 		}
 		return state();
 	}
 	
 	public boolean lastTenMinutes() {
-		return state().equals(ExamState.lastMinute);
+		return state().equals(Exam.StateEnum.lastMinute);
 	}
 
 	public boolean lastMinute() {
-		return state().equals(ExamState.lastTenMinutes);
+		return state().equals(Exam.StateEnum.lastTenMinutes);
 	}
 	
 	public boolean finished() {
-		return state().equals(ExamState.finished);
+		return state().equals(Exam.StateEnum.finished);
 	}
 
 	public boolean running() {
-		return state().equals(ExamState.running);
+		return state().equals(Exam.StateEnum.running);
 	}
 
 }
