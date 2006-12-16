@@ -56,25 +56,9 @@ public class Examclock {
 		panel.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
 		panel.setBackground(PANEL_BG_COLOR);
 
-		// // time remaining label
-		// JLabel timeRemaining = new JLabel();
-		// timeRemaining.setFont(TIME_REMAINING_FONT);
-		// timeRemaining.setHorizontalAlignment(SwingConstants.CENTER);
-		// // panel.add(timeRemaining, BorderLayout.CENTER);
-		//
-		// MultiLabel lm = new MultiLabel();
-		// lm.add(new ClockLabel("2"));
-		// lm.add(new ClockLabel("hrs ", TIME_REMAINING_FONT_SIZE - 40));
-		// lm.add(new ClockLabel("5"));
-		// lm.add(new ClockLabel("min", TIME_REMAINING_FONT_SIZE - 40));
-
-		TimePanel timeRemainingPanel = new TimePanel(exam.hoursRemaining(),
-				exam.minutesRemaining());
-
-		// JPanel msgPanel = new JPanel();
-		// msgPanel.setLayout(new FlowLayout());
-		// msgPanel.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
-		// msgPanel.setBackground(PANEL_BG_COLOR);
+		// make time remaining panel
+		TimePanel timeRemainingPanel = new TimePanel(exam.getHoursRemaining(),
+				exam.getMinutesRemaining());
 
 		panel.add(timeRemainingPanel);
 
@@ -177,39 +161,6 @@ class ClockLabel extends JLabel {
 	}
 }
 
-// class MultiLabel {
-// private ArrayList<JLabel> seq;
-// private JPanel panel;
-//	
-// public MultiLabel() {
-// seq = new ArrayList<JLabel>();
-// panel = new JPanel();
-// panel.setLayout(new FlowLayout());
-// }
-//	
-// public void add(String msg, Font f) {
-// JLabel lbl = new JLabel(msg);
-// lbl.setFont(f);
-// add(lbl);
-// }
-//	
-// public JLabel getLabel(int i) {
-// return seq.get(i);
-// }
-//	
-// public void setLabel(int i, String msg) {
-// getLabel(i).setText(msg);
-// }
-//	
-// public void add(JLabel lbl) {
-// seq.add(lbl);
-// panel.add(lbl);
-// }
-//	
-// public JPanel getLabelPanel() {
-// return panel;
-// }
-// }
 
 class AdviceGiver extends TimerTask {
 	private static final int FINAL_MSG_TIME = 10;
@@ -254,7 +205,7 @@ class AdviceGiver extends TimerTask {
 		if (exam.isFinished()) {
 			adviceLabel.setText(EXAM_OVER_MSG);
 		} else {
-			if (exam.minutesRemaining() <= FINAL_MSG_TIME) {
+			if (exam.getMinutesRemaining() <= FINAL_MSG_TIME) {
 				useFinalMessages();
 			}
 			adviceLabel.setText(msg[nextMsg]);
@@ -304,8 +255,8 @@ class UpdateClockTask extends TimerTask {
 
 	@Override
 	public void run() {
-		final long remaining = exam.minutesRemaining();
-		final long elapsed = exam.minutesElapsed();
+		final long remaining = exam.getMinutesRemaining();
+		final long elapsed = exam.getMinutesElapsed();
 
 		if (exam.isLastMinute()) {
 			timeRemaining.setForeground(LAST_MINUTE_COLOR);
@@ -382,51 +333,51 @@ class Exam {
 		return System.currentTimeMillis();
 	}
 
-	public long hoursRemaining() {
-		return (long) Math.round(millisRemaining() / (1000.0 * 60 * 60));
+	public long getHoursRemaining() {
+		return (long) Math.round(getMillisRemaining() / (1000.0 * 60 * 60));
 	}
 
-	public long minutesRemaining() {
-		return (long) Math.round(millisRemaining() / (1000.0 * 60));
+	public long getMinutesRemaining() {
+		return (long) Math.round(getMillisRemaining() / (1000.0 * 60));
 	}
 
-	public long secondsRemaining() {
-		return (long) Math.round(millisRemaining() / 1000.0);
+	public long getSecondsRemaining() {
+		return (long) Math.round(getMillisRemaining() / 1000.0);
 	}
 
-	private long millisRemaining() {
+	private long getMillisRemaining() {
 		return endTimeMillis - getCurrentTime();
 	}
 
-	public long hoursElapsed() {
-		return Math.round(secondsElapsed() / (60.0 * 60));
+	public long getHoursElapsed() {
+		return Math.round(getSecondsElapsed() / (60.0 * 60));
 	}
 
-	public long minutesElapsed() {
-		return Math.round(secondsElapsed() / 60.0);
+	public long getMinutesElapsed() {
+		return Math.round(getSecondsElapsed() / 60.0);
 	}
 
-	public long secondsElapsed() {
-		return getDurInSeconds() - secondsRemaining();
+	public long getSecondsElapsed() {
+		return getDurInSeconds() - getSecondsRemaining();
 	}
 
 	public boolean isLastTenMinutes() {
 		if (currentState != StateEnum.lastTenMinutes
-				&& minutesRemaining() <= 10) {
+				&& getMinutesRemaining() <= 10) {
 			currentState = StateEnum.lastTenMinutes;
 		}
 		return currentState == StateEnum.lastTenMinutes;
 	}
 
 	public boolean isLastMinute() {
-		if (currentState != StateEnum.lastMinute && minutesRemaining() <= 1) {
+		if (currentState != StateEnum.lastMinute && getMinutesRemaining() <= 1) {
 			currentState = StateEnum.lastMinute;
 		}
 		return currentState == StateEnum.lastMinute;
 	}
 
 	public boolean isFinished() {
-		if (currentState != StateEnum.finished && secondsRemaining() <= 1) {
+		if (currentState != StateEnum.finished && getSecondsRemaining() <= 1) {
 			currentState = StateEnum.finished;
 		}
 		return currentState == StateEnum.finished;
