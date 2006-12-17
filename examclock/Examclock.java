@@ -130,13 +130,13 @@ class TimePanel extends JPanel {
 		updateTime(h, m);
 	}
 
-	public void updateTime(long hours, long mins) {
-		updateTime2(hours, mins);
-		// this.hoursLabel.setText("" + hours);
-		// this.minutesLabel.setText("" + mins);
-	}
+//	public void updateTime(long hours, long mins) {
+//		updateTime2(hours, mins);
+//		// this.hoursLabel.setText("" + hours);
+//		// this.minutesLabel.setText("" + mins);
+//	}
 
-	private void updateTime2(long hours, long mins) {
+	private void updateTime(long hours, long mins) {
 		assert hours >= 0;
 		assert mins >= 0 && mins < 60;
 		if (hours == 0) {
@@ -146,7 +146,7 @@ class TimePanel extends JPanel {
 			minLabel.setText("min");
 		} else if (mins == 0) {
 			hoursLabel.setText("" + hours);
-			hrLabel.setText(" hour");
+			hrLabel.setText(" hour" + ((hours > 1) ? "s" : ""));
 			minutesLabel.setText("");
 			minLabel.setText("");
 		} else if (hours == 1) {
@@ -253,20 +253,20 @@ class UpdateClockTask extends TimerTask {
 		return (n == 1) ? "" : "s";
 	}
 
-	public static String minToTime(long min) {
-		// min = 60*h + m
-		// 0 <= m < 60
-		assert min >= 0;
-		long h = min / 60;
-		long m = min % 60;
-		if (h < 1) {
-			return String.format("%s min", m);
-		} else if (m == 0) {
-			return String.format("%s hour%s", h, sIf1(h));
-		} else {
-			return String.format("%shr %smin", h, m);
-		}
-	}
+//	public static String minToTime(long min) {
+//		// min = 60*h + m
+//		// 0 <= m < 60
+//		assert min >= 0;
+//		long h = min / 60;
+//		long m = min % 60;
+//		if (h < 1) {
+//			return String.format("%s min", m);
+//		} else if (m == 0) {
+//			return String.format("%s hour%s", h, sIf1(h));
+//		} else {
+//			return String.format("%shr %smin", h, m);
+//		}
+//	}
 
 	@Override
 	public void run() {
