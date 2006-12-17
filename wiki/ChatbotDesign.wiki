@@ -1,5 +1,5 @@
 #labels Phase-Design
-#Design document for chatbots.
+Design document for chatbots.
 
 = Introduction =
 
@@ -18,7 +18,7 @@ locally for testing purposes.
   * Transcript logging.
 
 (The [http://code.google.com/p/support/issues/detail?id=14&can=2&q=wiki problem with long
-lines in bullet lists] is in the support issue tracker.)
+lines in bullet lists] is in the Google code support issue tracker.)
 
 = Main Classes =
 
