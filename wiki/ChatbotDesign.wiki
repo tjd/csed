@@ -17,6 +17,17 @@ working Jabber connection.
 locally for testing purposes.
   * Transcript logging.
 
+= Main Classes =
+
+== JabberServerProxyBase ==
+
+Classes for chatting on a Jabber server, or locally to the computer user, will extend this
+class.
+
+== JabberClientBase ==
+
+New Jabber clients will extend this class.
+
 = Python-specific Details =
 
 The [http://xmpppy.sourceforge.net/ xmppy] library looks reasonable, although the
