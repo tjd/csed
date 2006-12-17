@@ -130,12 +130,6 @@ class TimePanel extends JPanel {
 		updateTime(h, m);
 	}
 
-//	public void updateTime(long hours, long mins) {
-//		updateTime2(hours, mins);
-//		// this.hoursLabel.setText("" + hours);
-//		// this.minutesLabel.setText("" + mins);
-//	}
-
 	private void updateTime(long hours, long mins) {
 		assert hours >= 0;
 		assert mins >= 0 && mins < 60;
@@ -252,21 +246,6 @@ class UpdateClockTask extends TimerTask {
 	public static String sIf1(long n) {
 		return (n == 1) ? "" : "s";
 	}
-
-//	public static String minToTime(long min) {
-//		// min = 60*h + m
-//		// 0 <= m < 60
-//		assert min >= 0;
-//		long h = min / 60;
-//		long m = min % 60;
-//		if (h < 1) {
-//			return String.format("%s min", m);
-//		} else if (m == 0) {
-//			return String.format("%s hour%s", h, sIf1(h));
-//		} else {
-//			return String.format("%shr %smin", h, m);
-//		}
-//	}
 
 	@Override
 	public void run() {
