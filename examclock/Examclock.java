@@ -3,10 +3,8 @@ package examclock;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -20,24 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class Examclock {
-
-	public static final Color PANEL_BG_COLOR = Color.WHITE;
-
-	public static final int MSG_FONT_SIZE = 40;
-
-	public static final Font MSG_FONT = new Font("Times", Font.PLAIN,
-			MSG_FONT_SIZE);
-
-	public static final int TIME_ELAPSED_FONT_SIZE = 20;
-
-	public static final Font TIME_ELAPSED_FONT = new Font("Helvetica",
-			Font.BOLD, TIME_ELAPSED_FONT_SIZE);
-
-	public static final int TIME_REMAINING_FONT_SIZE = 240;
-
-	public static final Font TIME_REMAINING_FONT = new Font("Helvetica",
-			Font.BOLD, TIME_REMAINING_FONT_SIZE);
-
 	public static final String FRAME_NAME = "Exam Clock";
 
 	public static final int PANEL_WIDTH = Toolkit.getDefaultToolkit()
@@ -45,6 +25,17 @@ public class Examclock {
 
 	public static final int PANEL_HEIGHT = Toolkit.getDefaultToolkit()
 			.getScreenSize().height / 2;
+
+	public static final Color PANEL_BG_COLOR = Color.WHITE;
+
+	public static final MessageFont MSG = new MessageFont("", new Font("Times",
+			Font.PLAIN, 40));
+
+	public static final MessageFont TIME_ELAPSED = new MessageFont("",
+			new Font("Helvetica", Font.BOLD, 20));
+
+	public static final MessageFont TIME_REMAINING = new MessageFont("",
+			new Font("Helvetica", Font.BOLD, 240));
 
 	public static void main(String[] args) {
 		Exam exam = askUserForExamInfo();
@@ -64,13 +55,13 @@ public class Examclock {
 
 		// time elapsed label
 		JLabel timeElapsed = new JLabel();
-		timeElapsed.setFont(TIME_ELAPSED_FONT);
+		timeElapsed.setFont(TIME_ELAPSED);
 		timeElapsed.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(timeElapsed, BorderLayout.NORTH);
 
 		// message label
 		JLabel msg = new JLabel();
-		msg.setFont(MSG_FONT);
+		msg.setFont(MSG);
 		msg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(msg, BorderLayout.SOUTH);
 
@@ -101,6 +92,17 @@ public class Examclock {
 }
 
 class TimePanel extends JPanel {
+	private MessageFont hours;
+
+	private MessageFont minutes;
+
+	private MessageFont hr;
+
+	private MessageFont min;
+
+	private MessageFont FINISHED_MSG = new MessageFont("hr ", new Font(
+			"Helevetica", Font.BOLD, Examclock.TIME_REMAINING.getSize() - 40));
+
 	private JLabel hoursLabel;
 
 	private JLabel minutesLabel;
@@ -110,17 +112,26 @@ class TimePanel extends JPanel {
 	private JLabel minLabel;
 
 	public TimePanel(long hours, long mins) {
-		this.hoursLabel = new ClockLabel("" + hours);
-		this.hrLabel = new ClockLabel("hr ",
-				Examclock.TIME_REMAINING_FONT_SIZE - 40);
-		this.minutesLabel = new ClockLabel("" + mins);
-		this.minLabel = new ClockLabel("min",
-				Examclock.TIME_REMAINING_FONT_SIZE - 40);
+		final long h = mins / 60;
+		final long m = mins % 60;
+		this.hours = new MessageFont("" + h, new Font("Helevetica", Font.BOLD,
+				Examclock.TIME_REMAINING.getSize()));
+		this.hr = new MessageFont("hr ", new Font("Helevetica", Font.BOLD,
+				Examclock.TIME_REMAINING.getSize() - 40));
+		this.minutes = new MessageFont("" + m, new Font("Helevetica",
+				Font.BOLD, Examclock.TIME_REMAINING.getSize()));
+		this.min = new MessageFont("min", new Font("Helevetica", Font.BOLD,
+				Examclock.TIME_REMAINING.getSize() - 40));
 
-		add(this.hoursLabel);
-		add(this.hrLabel);
-		add(this.minutesLabel);
-		add(this.minLabel);
+		hoursLabel = this.hours.toLabel();
+		minutesLabel = this.minutes.toLabel();
+		hrLabel = this.hr.toLabel();
+		minLabel = this.min.toLabel();
+
+		add(hoursLabel);
+		add(hrLabel);
+		add(minutesLabel);
+		add(minLabel);
 		setBackground(Examclock.PANEL_BG_COLOR);
 	}
 
@@ -129,7 +140,7 @@ class TimePanel extends JPanel {
 		long m = mins % 60;
 		updateTime(h, m);
 	}
-	
+
 	public void updateTime(long hours, long mins) {
 		this.hoursLabel.setText("" + hours);
 		this.minutesLabel.setText("" + mins);
@@ -137,30 +148,57 @@ class TimePanel extends JPanel {
 
 	public void setFinished() {
 		this.removeAll();
-		add(new ClockLabel(UpdateClockTask.EXAM_FINISHED_MSG));
+		add(FINISHED_MSG.toLabel());
 	}
 }
 
-class ClockLabel extends JLabel {
-	public ClockLabel(String msg) {
-		this(msg, Examclock.TIME_REMAINING_FONT);
+// class ClockLabel extends JLabel {
+// public ClockLabel(String msg) {
+// this(msg, Examclock.TIME_REMAINING);
+// }
+//
+// public ClockLabel(String msg, int size) {
+// this(msg, Examclock.TIME_REMAINING, size);
+// }
+//
+// public ClockLabel(String msg, Font f) {
+// super(msg);
+// setFont(f);
+// }
+//
+// public ClockLabel(String msg, Font f, int size) {
+// super(msg);
+// setFont(new Font(f.getFontName(), Font.BOLD, size));
+// }
+// }
+
+class MessageFont extends Font {
+	private String message;
+
+	public MessageFont(String msg, Font f) {
+		this(msg, f.getName(), f.getStyle(), f.getSize());
 	}
 
-	public ClockLabel(String msg, int size) {
-		this(msg, Examclock.TIME_REMAINING_FONT, size);
+	public MessageFont(String msg, String name, int style, int size) {
+		super(name, style, size);
+		this.message = msg;
 	}
 
-	public ClockLabel(String msg, Font f) {
-		super(msg);
-		setFont(f);
+	public String getMessage() {
+		return message;
 	}
 
-	public ClockLabel(String msg, Font f, int size) {
-		super(msg);
-		setFont(new Font(f.getFontName(), Font.BOLD, size));
+	public void setMessage(String msg) {
+		this.message = msg;
 	}
+
+	public JLabel toLabel() {
+		JLabel lbl = new JLabel(message);
+		lbl.setFont(this);
+		return lbl;
+	}
+
 }
-
 
 class AdviceGiver extends TimerTask {
 	private static final int FINAL_MSG_TIME = 10;
