@@ -1,0 +1,29 @@
+#summary One-sentence summary of this page.
+#labels Phase-Design
+
+= Introduction =
+
+The following documents the language-neutral architecture for Jabber chatbot clients.
+Currently Python and Java clients are planned, but this design should be implementable in
+any programming language with Jabber support.
+
+= Major Design Goals =
+
+The chatbot client should support these features:
+
+ * It should be easy to create a new chatbot, and then in a few lines of code set up a
+working Jabber connection. 
+ * In addition to on-line Jabber chatting, a plug-in will be provided that allows users to
+easily chat locally for testing purposes.
+ * Logging of transcripts.
+
+
+= Python-specific Details =
+
+The [http://xmpppy.sourceforge.net/ xmppy] library looks reasonable, although the
+documentation is not great.
+
+= Java-specific Details =
+
+In the past, we've used the [http://www.jivesoftware.org/smack/ Smack library] for Java
+support, and it still seems like a good choice.
