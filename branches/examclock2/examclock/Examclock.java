@@ -131,16 +131,44 @@ class TimePanel extends JPanel {
 	}
 
 	public void updateTime(long hours, long mins) {
-		this.hoursLabel.setText("" + hours);
-		this.minutesLabel.setText("" + mins);
+		updateTime2(hours, mins);
+		// this.hoursLabel.setText("" + hours);
+		// this.minutesLabel.setText("" + mins);
+	}
+
+	private void updateTime2(long hours, long mins) {
+		assert hours >= 0;
+		assert mins >= 0 && mins < 60;
+		if (hours == 0) {
+			hoursLabel.setText("");
+			hrLabel.setText("");
+			minutesLabel.setText("" + mins);
+			minLabel.setText("min");
+		} else if (mins == 0) {
+			hoursLabel.setText("" + hours);
+			hrLabel.setText(" hour");
+			minutesLabel.setText("");
+			minLabel.setText("");
+		} else if (hours == 1) {
+			hoursLabel.setText("1");
+			hrLabel.setText("hr ");
+			minutesLabel.setText("" + mins);
+			minLabel.setText("min");
+		} else {
+			hoursLabel.setText("" + hours);
+			hrLabel.setText("hrs ");
+			minutesLabel.setText("" + mins);
+			minLabel.setText("min");
+		}
 	}
 
 	public void setFinished() {
-		this.removeAll();
-		add(this.finishedLabel);
+		hoursLabel.setText("");
+		hrLabel.setText("");
+		minutesLabel.setText(finishedLabel.getText());
+		minLabel.setText("");
 	}
 }
-
 
 class ClockLabel extends JLabel {
 	public ClockLabel(String text, Font f) {
@@ -148,7 +176,6 @@ class ClockLabel extends JLabel {
 		setFont(f);
 	}
 }
-
 
 class AdviceGiver extends TimerTask {
 	private static final int FINAL_MSG_TIME = 10;
