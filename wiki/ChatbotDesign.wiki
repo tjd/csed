@@ -13,9 +13,9 @@ The chatbot client should support these features:
 
   * It should be easy to create a new chatbot, and then in a few lines of code set up a
 working Jabber connection. 
-  * In addition to on-line Jabber chatting, a plug-in will be provided that allows users
-to easily chat locally for testing purposes.
-  * Logging of transcripts.
+  * In addition to on-line Jabber chatting, a module that allows users to easily chat
+locally for testing purposes.
+  * Transcript logging.
 
 
 = Python-specific Details =
