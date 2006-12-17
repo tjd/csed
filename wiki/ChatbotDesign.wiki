@@ -17,7 +17,6 @@ working Jabber connection.
 locally for testing purposes.
   * Transcript logging.
 
-
 = Python-specific Details =
 
 The [http://xmpppy.sourceforge.net/ xmppy] library looks reasonable, although the
