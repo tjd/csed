@@ -2,6 +2,7 @@ package stats;
 
 import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /*
  * 
@@ -19,7 +20,7 @@ public class Descriptive {
 	 * practical since so many real-world applications use floating-point
 	 * numbers.
 	 */
-	public static <T extends Number> double sum(AbstractList<T> arr) {
+	public static <T extends Number> double sum(Collection<T> arr) {
 		double total = 0;
 		for(T n : arr) {
 			total += n.doubleValue();
@@ -27,11 +28,11 @@ public class Descriptive {
 		return total;
 	}
 	
-	public static double mean(AbstractList<? extends Number> arr) {
+	public static double mean(Collection<? extends Number> arr) {
 		return sum(arr) / arr.size();
 	}
 	
-	public static <T extends Number> double variance(AbstractList<T> arr) {
+	public static <T extends Number> double variance(Collection<T> arr) {
 		double total = 0;
 		for(T n : arr) {
 			double d = n.doubleValue();
@@ -40,7 +41,7 @@ public class Descriptive {
 		return total / (arr.size() - 1);
 	}
 	
-	public static double std_dev(AbstractList<? extends Number> arr) {
+	public static double std_dev(Collection<? extends Number> arr) {
 		return Math.sqrt(variance(arr));
 	}
 
