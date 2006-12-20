@@ -11,10 +11,8 @@ any programming language with Jabber support.
 
 The chatbot client should support these features:
 
-  * It should be easy to create a new chatbot, and then in a few lines of code set up a
-working Jabber connection. 
-  * In addition to on-line Jabber chatting, a module that allows users to easily chat
-locally for testing purposes.
+  * It should be easy to create a new chatbot, and then in a few lines of code set up a working Jabber connection. 
+  * In addition to on-line Jabber chatting, a module that allows users to easily chat locally for testing purposes.
   * Transcript logging.
 
 (The [http://code.google.com/p/support/issues/detail?id=14&can=2&q=wiki problem with long
