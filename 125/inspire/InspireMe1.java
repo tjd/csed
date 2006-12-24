@@ -45,13 +45,25 @@ import javax.swing.JLabel;
  *   Questions
  *   ---------
  *   1. What happens if you set JFrame.setDefaultLookAndFeelDecorated to false instead of true?
+ *   
  *   2. The title "Inspire Me" appears on the top of the frame. What happens if:
  *         a) You write new JFrame(), with no string?
  *         b) You give it a very long string that is longer than the frame?
+ *         
  *   3. When the new JLabel is created, a string of "m"s is passed in. What happens if you
  *      do not pass in any string here, and just call new Jlabel()?
+ *      
  *   4. How would you change the code so that the button appears on the left side instead of
  *      on the bottom?
+ *      
+ *   5. The variable message has type ArrayList<String>, i.e. message is an ArrayList that is
+ *      only allowed to hold strings. What happens if you try to add, say, a number? For
+ *      example:
+ *      
+ *                message.add(15);
+ *                
+ *   6. The actionPerformed method is "public". What happens if you delete "public" and make it 
+ *      "private" (like most of the other methods in the class)?
  */
 
 public class InspireMe1 implements ActionListener {
@@ -108,13 +120,14 @@ public class InspireMe1 implements ActionListener {
 	}
 
 	private void createMessages() {
-		// create an empty ArrayList that holds only Strings
+		// create an empty ArrayList that can hold only Strings
 		message = new ArrayList<String>();
 
 		// add as many messages as you want
 		message.add("No matter where you go, there you are!");
 		message.add("There's no time like the present.");
 		message.add("There are no mistakes, only discoveries.");
+		message.add("Never start a land war with Russia.");
 
 		// curr tracks which message to display; start by showing the first
 		// message
