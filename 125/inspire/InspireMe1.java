@@ -57,13 +57,19 @@ import javax.swing.JLabel;
  *      on the bottom?
  *      
  *   5. The variable message has type ArrayList<String>, i.e. message is an ArrayList that is
- *      only allowed to hold strings. What happens if you try to add, say, a number? For
+ *      only allowed to hold strings. What, exactly, happens if you try to add a number? For
  *      example:
  *      
  *                message.add(15);
  *                
  *   6. The actionPerformed method is "public". What happens if you delete "public" and make it 
  *      "private" (like most of the other methods in the class)?
+ *      
+ *   7. The first code line of the actionPerformed method is
+ *   
+ *                curr = (curr + 1) % message.size();
+ *                
+ *      What, exactly, happens if you delete "% message.size()"?
  */
 
 public class InspireMe1 implements ActionListener {
@@ -137,6 +143,7 @@ public class InspireMe1 implements ActionListener {
 		label.setText(message.get(curr));
 	}
 
+    ////////////////////////////////////////////////////////////////////////////
 	// The actionPerformed method is required to be here due to the "implements
 	// ActionListener" in the class header. The idea is that an object of type
 	// InspireMe1 is an action listener, i.e. it "listens" for actions such as
@@ -156,6 +163,7 @@ public class InspireMe1 implements ActionListener {
 		System.out.println(message.get(curr));
 	}
 
+	////////////////////////////////////////////////////////////////////////////
 	// The main method is special in Java: all programs must have a main method,
 	// and Java automatically runs the code in the main method first.
 	public static void main(String[] args) {
