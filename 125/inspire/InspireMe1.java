@@ -39,6 +39,19 @@ import javax.swing.JLabel;
  *   - Creation of objects using "new".
  *   - Basic use of ArrayList<String>.
  *   - Importing and using standard-library code.
+ *   - Creating a basic Swing GUI.
+ *   - Understanding the BorderLayout.
+ *   
+ *   Questions
+ *   ---------
+ *   1. What happens if you set JFrame.setDefaultLookAndFeelDecorated to false instead of true?
+ *   2. The title "Inspire Me" appears on the top of the frame. What happens if:
+ *         a) You write new JFrame(), with no string?
+ *         b) You give it a very long string that is longer than the frame?
+ *   3. When the new JLabel is created, a string of "m"s is passed in. What happens if you
+ *      do not pass in any string here, and just call new Jlabel()?
+ *   4. How would you change the code so that the button appears on the left side instead of
+ *      on the bottom?
  */
 
 public class InspireMe1 implements ActionListener {
@@ -68,13 +81,17 @@ public class InspireMe1 implements ActionListener {
 		// tell the frame to arrange its components in the BorderLayout style
 		frame.setLayout(new BorderLayout());
 
-		// create the label with an inspirational message
-		label = new JLabel("No matter where you go, there you are!");
+		// create the label where messages will be displayed; the width of the
+		// frame ends up being dependant on the length of this label, so some
+		// characters are added to make it pleasingly wide
+		label = new JLabel("mmmmmmmmmmmmmmmmmmmmmmmmm");
 
 		// create the button to press for a new message
 		button = new JButton("Inspire me!");
 
-		// tell the button to use this class to handle mouse clicks
+		// tell the button to use this class to handle mouse clicks; the variable "this"
+		// is a special pre-defined variable that refers to the current object, i.e.
+		// it means "this object"
 		button.addActionListener(this);
 
 		// put the label in the middle of the panel
