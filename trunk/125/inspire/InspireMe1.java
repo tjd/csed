@@ -38,8 +38,6 @@ public class InspireMe1 implements ActionListener {
 	// may access them, but code outside of the class may not access them
 	private JFrame frame;
 
-	private JPanel panel;
-
 	private JLabel label;
 
 	private JButton button;
@@ -60,6 +58,9 @@ public class InspireMe1 implements ActionListener {
 
 		// when the users closes the window, also end the program
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+        // tell the frame to arrange its components in the BorderLayout style
+		frame.setLayout(new BorderLayout());
 
 		// create the label with an inspirational message
 		label = new JLabel("No matter where you go, there you are!");
@@ -67,22 +68,14 @@ public class InspireMe1 implements ActionListener {
 		// create the button to press for a new message
 		button = new JButton("Inspire me!");
 
+		// tell the button to use this class to handle mouse clicks
 		button.addActionListener(this);
 
-		// create a panel with to hold the the label and button
-		panel = new JPanel();
-
-		// tell the panel to arrange its components in the BorderLayout style
-		panel.setLayout(new BorderLayout());
-
 		// put the label in the middle of the panel
-		panel.add(label, BorderLayout.CENTER);
+		frame.getContentPane().add(label, BorderLayout.CENTER);
 
 		// put the button under the label
-		panel.add(button, BorderLayout.SOUTH);
-
-		// add the panel to the frame's content pane
-		frame.getContentPane().add(panel);
+		frame.getContentPane().add(button, BorderLayout.SOUTH);
 
 		// size the window to fit the layout
 		frame.pack();
@@ -121,7 +114,10 @@ public class InspireMe1 implements ActionListener {
 	}
 
 	public static void main(String[] args) {
+		// create an InspireMe1 objecy
 		InspireMe1 im1 = new InspireMe1();
+		
+		// initialize the GUI and the messages
 		im1.createAndShowGUI();
 		im1.createMessages();
 	}
