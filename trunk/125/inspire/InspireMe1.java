@@ -5,11 +5,9 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /*
  * This file is based in part on the Java Tutorial Swing trail: 
@@ -30,6 +28,17 @@ import javax.swing.JPanel;
  *   - Create a main method.
  *   - Create a simple GUI.
  *   - Create a package.
+ *   
+ * If this program is given as an assignment, then the following concepts need to be
+ * discussed first:
+ * 
+ *   - Creating classes with main methods.
+ *   - Class variables and methods.
+ *   - The basic distinction between public and private.
+ *   - The use of data types and declarations in Java.
+ *   - Creation of objects using "new".
+ *   - Basic use of ArrayList<String>.
+ *   - Importing and using standard-library code.
  */
 
 public class InspireMe1 implements ActionListener {
@@ -46,9 +55,6 @@ public class InspireMe1 implements ActionListener {
 
 	private int curr;
 
-	/**
-	 * Create the GUI and show it.
-	 */
 	private void createAndShowGUI() {
 		// add window decorations; try using "false" instead to see difference
 		JFrame.setDefaultLookAndFeelDecorated(true);
@@ -58,8 +64,8 @@ public class InspireMe1 implements ActionListener {
 
 		// when the users closes the window, also end the program
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-        // tell the frame to arrange its components in the BorderLayout style
+
+		// tell the frame to arrange its components in the BorderLayout style
 		frame.setLayout(new BorderLayout());
 
 		// create the label with an inspirational message
@@ -84,11 +90,11 @@ public class InspireMe1 implements ActionListener {
 		frame.setVisible(true);
 	}
 
-	public void createMessages() {
+	private void createMessages() {
 		// create an empty ArrayList that holds only Strings
 		message = new ArrayList<String>();
-		
-		// add the messages: add as many as you want
+
+		// add as many messages as you want
 		message.add("No matter where you go, there you are!");
 		message.add("There's no time like the present.");
 		message.add("There are no mistakes, only discoveries.");
@@ -101,6 +107,13 @@ public class InspireMe1 implements ActionListener {
 		label.setText(message.get(curr));
 	}
 
+	// The actionPerformed method is required to be here due to the "implements
+	// ActionListener" in the class header. The idea is that an object of type
+	// InspireMe1 is an action listener, i.e. it "listens" for actions such as
+	// mouse-clicks or keypresses. The actionPerformed method is called whenever
+	// the object it is listening too receives an event (in this case mouse
+	// clicks), and it simply sits the label text to be the next message in the
+	// message list.
 	public void actionPerformed(ActionEvent event) {
 		// increment the current message counter; wrap-around to 0 if necessary
 		curr = (curr + 1) % message.size();
@@ -113,10 +126,12 @@ public class InspireMe1 implements ActionListener {
 		System.out.println(message.get(curr));
 	}
 
+	// The main method is special in Java: all programs must have a main method,
+	// and Java automatically runs the code in the main method first.
 	public static void main(String[] args) {
-		// create an InspireMe1 objecy
+		// create an InspireMe1 object
 		InspireMe1 im1 = new InspireMe1();
-		
+
 		// initialize the GUI and the messages
 		im1.createAndShowGUI();
 		im1.createMessages();
