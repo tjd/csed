@@ -12,30 +12,23 @@ public class Poly {
 
 	private ArrayList<Term> terms;
 
-	private int deg;
+	// private int deg;
 
 	// creates the zero polynomial, i.e. a polynomial whose coefficients
 	// are all zero and has degree zero
 	public Poly() {
 		terms = new ArrayList<Term>();
-		deg = 0;
 	}
 
 	// Creates a monomial of the form cx^n.
 	public Poly(int c, int n) {
 		terms = new ArrayList<Term>();
 		terms.add(new Term(c, n));
-		if (c == 0) {
-			deg = 0;
-		} else {
-			deg = n;
-		}
 	}
 
 	// Creates a new copy of polynomial p.
 	public Poly(Poly p) {
 		terms = new ArrayList<Term>();
-		deg = p.deg;
 		for (Term t : p.terms) {
 			terms.add(t);
 		}
@@ -44,19 +37,22 @@ public class Poly {
 	// Creates a zero polynomial with n + 1 coefficients all set to 0. This is
 	// a helper constructor only meant for use by the Poly class.
 	private Poly(int n) {
-		deg = n;
 		terms = new ArrayList<Term>(n);
 	}
 
 	// Returns the degree of this polynomial, i.e. the largest exponent
 	// with a non-zero coefficient. Returns 0 for the zero polynomial.
 	public int degree() {
-		return deg;
+		if (terms.size() == 0) {
+			return 0;
+		} else {
+			return terms.get(terms.size() - 1).pow;
+		}
 	}
 
 	// Returns the coefficient of the term with exponent d.
 	public int coeff(int d) {
-		if (d < 0 || d > deg) {
+		if (d < 0 || d > degree()) {
 			return 0;
 		} else {
 			return terms.get(d).coeff;
@@ -105,7 +101,6 @@ public class Poly {
 			}
 		}
 		// debug("" + result.terms);
-		result.deg = result.terms.get(result.terms.size() - 1).pow;
 		return result;
 	}
 
@@ -208,7 +203,7 @@ public class Poly {
 		Poly ab = a.mult(b);
 		assert "[3x^3]".equals("" + ab);
 		assert ab.degree() == 3;
-		
+
 		Poly aa = a.mult(a);
 		assert "[x^4]".equals("" + aa);
 		assert aa.degree() == 4;
