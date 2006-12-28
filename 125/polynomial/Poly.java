@@ -109,17 +109,27 @@ public class Poly {
 		return result;
 	}
 
+	// Returns a new polynomial that is the same as this one, but each
+	// term has been multiplied by t.
+	public Poly termMult(Term t) {
+		Poly result = new Poly();
+		for(Term m : this.terms) {
+			result.terms.add(m.mult(t));
+		}
+		return result;
+	}
+	
 	// Returns a new polynomial that is the product of p and this polynomial.
 	public Poly mult(Poly p) {
 		Poly r = new Poly();
 		for (int i = 0; i < this.terms.size(); ++i) {
-			Poly c = p.scalarMult(this.terms.get(i).coeff);
+			Poly c = p.termMult(this.terms.get(i));
 			r = r.add(c);
 		}
 		return r;
 	}
 
-	// Returns a new polynomial that is the differnecet of p and this
+	// Returns a new polynomial that is the difference of p and this
 	// polynomial,
 	// i.e. this - p.
 	public Poly sub(Poly p) {
@@ -135,7 +145,7 @@ public class Poly {
 		}
 		return p;
 	}
-
+	
 	// Returns a new polynomial that is the same as this one, but with all
 	// coefficients multiplied by -1.
 	public Poly minus() {
@@ -149,6 +159,7 @@ public class Poly {
 	public static void main(String[] args) {
 		test1();
 		test2();
+		test3();
 		// Term t1 = new Term(2, 2);
 		// Term t2 = new Term(10, 1);
 		// //System.out.println(t1);
@@ -201,6 +212,23 @@ public class Poly {
 		assert "[-4, 3x, -3x^2, 3x^4, 3x^5, -4x^8]".equals("" + gf);
 	}
 
+	public static void test3() {
+		Poly a = new Poly(1, 2);
+		Poly b = new Poly(3, 1);
+		Poly ab = a.mult(b);
+		assert "[3x^3]".equals("" + ab);
+		Poly aa = a.mult(a);
+		assert "[x^4]".equals("" + aa);
+		
+		Poly f1 = new Poly(1, 1);
+		Poly f2 = new Poly(1, 0);
+		Poly f = f1.add(f2);
+		
+		assert "[1, x]".equals("" + f);
+		Poly ff = f.mult(f);
+		assert "[1, 2x, x^2]".equals("" + ff);
+	}
+	
 	public static void debug(String s) {
 		System.out.println("dbg: " + s);
 	}
@@ -225,6 +253,10 @@ class Term {
 		}
 	}
 
+	public Term mult(Term t) {
+		return new Term(this.coeff * t.coeff, this.pow + t.pow);
+	}
+	
 	public String toString() {
 		if (coeff == 0) {
 			return "0";
