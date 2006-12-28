@@ -104,7 +104,7 @@ public class Poly {
 				}
 			}
 		}
-		debug("" + result.terms);
+		//debug("" + result.terms);
 		return result;
 	}
 
@@ -112,7 +112,7 @@ public class Poly {
 	// term has been multiplied by t.
 	public Poly termMult(Term t) {
 		Poly result = new Poly();
-		for(Term m : this.terms) {
+		for(Term m : terms) {
 			result.terms.add(m.mult(t));
 		}
 		return result;
@@ -121,10 +121,13 @@ public class Poly {
 	// Returns a new polynomial that is the product of p and this polynomial.
 	public Poly mult(Poly p) {
 		Poly r = new Poly();
-		for (int i = 0; i < this.terms.size(); ++i) {
-			Poly c = p.termMult(this.terms.get(i));
-			r = r.add(c);
+		for(Term t : terms) {
+			r = r.add(p.termMult(t));
 		}
+//		for (int i = 0; i < this.terms.size(); ++i) {
+//			Poly c = p.termMult(this.terms.get(i));
+//			r = r.add(c);
+//		}
 		return r;
 	}
 
