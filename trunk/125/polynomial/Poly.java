@@ -1,7 +1,6 @@
 package polynomial;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /*
  * This is based in part on the Poly class from the book Program Development in Java, by 
