@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /*
  * This file is based in part on the Java Tutorial Swing trail: 
@@ -39,42 +40,9 @@ import javax.swing.JLabel;
  *   - Creation of objects using "new".
  *   - Basic use of ArrayList<String>.
  *   - Importing and using standard-library code.
- *   - Creating a basic Swing GUI.
- *   - Understanding the BorderLayout.
- *   
- *   Questions
- *   ---------
- *   1. What happens if you set JFrame.setDefaultLookAndFeelDecorated to false instead of true?
- *   
- *   2. The title "Inspire Me" appears on the top of the frame. What happens if:
- *         a) You write new JFrame(), with no string?
- *         b) You give it a very long string that is longer than the frame?
- *         
- *   3. When the new JLabel is created, a string of "m"s is passed in. What happens if you
- *      do not pass in any string here, and just call new Jlabel()?
- *      
- *   4. How would you change the code so that the button appears on the left side instead of
- *      on the bottom?
- *      
- *   5. The variable message has type ArrayList<String>, i.e. message is an ArrayList that is
- *      only allowed to hold strings. What, exactly, happens if you try to add a number? For
- *      example:
- *      
- *                message.add(15);
- *                
- *   6. The actionPerformed method is "public". What happens if you delete "public" and make it 
- *      "private" (like most of the other methods in the class)?
- *      
- *   7. The first code line of the actionPerformed method is
- *   
- *                curr = (curr + 1) % message.size();
- *                
- *      What, exactly, happens if you delete "% message.size()"?
- *      
- *   8. In the main method, 
  */
 
-public class InspireMe1 implements ActionListener {
+public class InspireMe2 implements ActionListener {
 
 	// the following are private class variables: any method in the class
 	// may access them, but code outside of the class may not access them
@@ -98,27 +66,32 @@ public class InspireMe1 implements ActionListener {
 		// when the users closes the window, also end the program
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		// create a panel for the on-screen items
+		JPanel panel = new JPanel();
+		
+		// tell the panel to arrange things using the BorderLayout style
+		panel.setLayout(new BorderLayout());
+		
 		// tell the frame to arrange its components in the BorderLayout style
-		frame.setLayout(new BorderLayout());
+		panel.setLayout(new BorderLayout());
 
-		// create the label where messages will be displayed; the width of the
-		// frame ends up being dependant on the length of this label, so some
-		// characters are added to make it pleasingly wide
-		label = new JLabel("mmmmmmmmmmmmmmmmmmmmmmmmm");
+		// create the label with an inspirational message
+		label = new JLabel("No matter where you go, there you are!");
 
 		// create the button to press for a new message
 		button = new JButton("Inspire me!");
 
-		// tell the button to use this class to handle mouse clicks; the variable "this"
-		// is a special pre-defined variable that refers to the current object, i.e.
-		// it means "this object"
+		// tell the button to use this class to handle mouse clicks
 		button.addActionListener(this);
 
 		// put the label in the middle of the panel
-		frame.getContentPane().add(label, BorderLayout.CENTER);
+		panel.add(label, BorderLayout.CENTER);
 
 		// put the button under the label
-		frame.getContentPane().add(button, BorderLayout.SOUTH);
+		panel.add(button, BorderLayout.WEST);
+		
+		// add the panel to the frame
+		frame.getContentPane().add(panel);
 
 		// size the window to fit the layout
 		frame.pack();
@@ -128,14 +101,13 @@ public class InspireMe1 implements ActionListener {
 	}
 
 	private void createMessages() {
-		// create an empty ArrayList that can hold only Strings
+		// create an empty ArrayList that holds only Strings
 		message = new ArrayList<String>();
 
 		// add as many messages as you want
 		message.add("No matter where you go, there you are!");
 		message.add("There's no time like the present.");
 		message.add("There are no mistakes, only discoveries.");
-		message.add("Never start a land war with Russia.");
 
 		// curr tracks which message to display; start by showing the first
 		// message
@@ -145,7 +117,6 @@ public class InspireMe1 implements ActionListener {
 		label.setText(message.get(curr));
 	}
 
-    ////////////////////////////////////////////////////////////////////////////
 	// The actionPerformed method is required to be here due to the "implements
 	// ActionListener" in the class header. The idea is that an object of type
 	// InspireMe1 is an action listener, i.e. it "listens" for actions such as
@@ -165,12 +136,11 @@ public class InspireMe1 implements ActionListener {
 		System.out.println(message.get(curr));
 	}
 
-	////////////////////////////////////////////////////////////////////////////
 	// The main method is special in Java: all programs must have a main method,
 	// and Java automatically runs the code in the main method first.
 	public static void main(String[] args) {
 		// create an InspireMe1 object
-		InspireMe1 im1 = new InspireMe1();
+		InspireMe2 im1 = new InspireMe2();
 
 		// initialize the GUI and the messages
 		im1.createAndShowGUI();
