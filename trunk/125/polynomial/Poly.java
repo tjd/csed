@@ -12,8 +12,6 @@ public class Poly {
 
 	private ArrayList<Term> terms;
 
-	// private int deg;
-
 	// creates the zero polynomial, i.e. a polynomial whose coefficients
 	// are all zero and has degree zero
 	public Poly() {
@@ -146,6 +144,16 @@ public class Poly {
 		return scalarMult(-1);
 	}
 
+	// Evaluates this polynomial by setting the variable x to be the given
+	// value.
+	public int eval(int x) {
+		int result = 0;
+		for (Term t : terms) {
+			result += t.eval(x);
+		}
+		return result;
+	}
+
 	public String toString() {
 		return "" + terms;
 	}
@@ -154,6 +162,7 @@ public class Poly {
 		test1();
 		test2();
 		test3();
+		test4();
 		System.out.println("All tests passed!");
 	}
 
@@ -217,6 +226,19 @@ public class Poly {
 		assert "[1, 2x, x^2]".equals("" + ff);
 	}
 
+	public static void test4() {
+		Poly a = new Poly(1, 2);
+		Poly b = new Poly(3, 1);
+		Poly ab = a.mult(b);
+		assert "[3x^3]".equals("" + ab);
+		assert a.eval(0) == 0;
+		assert a.eval(1) == 1;
+		assert b.eval(2) == 6;
+		assert b.eval(3) == 9;
+		assert ab.eval(4) == (3 * 4 * 4 * 4);
+		assert ab.eval(5) == (3 * 5 * 5 * 5);
+	}
+
 	public static void debug(String s) {
 		System.out.println("dbg: " + s);
 	}
@@ -230,12 +252,13 @@ class Term {
 	public Term(int coeff, int pow) {
 		this.coeff = coeff;
 		this.pow = pow;
+		selfCheck();
 	}
 
-	public boolean equals(Object other) {
-		if (other instanceof Term) {
-			Term o = (Term) other;
-			return this.pow == o.pow && this.coeff == o.coeff;
+	public boolean equals(Object x) {
+		if (x instanceof Term) {
+			Term other = (Term) x;
+			return this.pow == other.pow && this.coeff == other.coeff;
 		} else {
 			return false;
 		}
@@ -243,6 +266,10 @@ class Term {
 
 	public Term mult(Term t) {
 		return new Term(this.coeff * t.coeff, this.pow + t.pow);
+	}
+
+	public int eval(int x) {
+		return (int) (coeff * Math.pow(x, pow));
 	}
 
 	public String toString() {
@@ -254,6 +281,13 @@ class Term {
 			return "" + (coeff != 1 ? coeff : "") + "x";
 		} else {
 			return "" + (coeff != 1 ? coeff : "") + "x^" + pow;
+		}
+	}
+
+	public void selfCheck() {
+		if (pow < 0) {
+			throw new RuntimeException("Term inconsistent: " + this
+					+ "\ncoeff >= 0 required");
 		}
 	}
 }
