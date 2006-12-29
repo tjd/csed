@@ -32,11 +32,11 @@ public class Poly {
 		}
 	}
 
-	// Creates a zero polynomial with n + 1 coefficients all set to 0. This is
-	// a helper constructor only meant for use by the Poly class.
-	private Poly(int n) {
-		terms = new ArrayList<Term>(n);
-	}
+//	// Creates a zero polynomial with n + 1 coefficients all set to 0. This is
+//	// a helper constructor only meant for use by the Poly class.
+//	private Poly(int n) {
+//		terms = new ArrayList<Term>(n);
+//	}
 
 	// Returns the degree of this polynomial, i.e. the largest exponent
 	// with a non-zero coefficient. Returns 0 for the zero polynomial.
@@ -69,36 +69,30 @@ public class Poly {
 		Poly result = new Poly();
 		while (a < A || b < B) {
 			if (a >= A) {
-				// debug("a >= A");
 				result.terms.add(p.terms.get(b));
 				++b;
 			} else if (b >= B) {
-				// debug("b >= B");
 				result.terms.add(this.terms.get(a));
 				++a;
 			} else {
 				Term termA = this.terms.get(a);
 				Term termB = p.terms.get(b);
 				if (termA.pow == termB.pow) {
-					// debug("termA.pow == termB.pow");
 					result.terms.add(new Term(termA.coeff + termB.coeff,
 							termA.pow));
 					++a;
 					++b;
 				} else if (termA.pow < termB.pow) {
-					// debug("termA.pow < termB.pow");
 					result.terms.add(termA);
 					++a;
 				} else if (termA.pow > termB.pow) {
-					// debug("termA.pow > termB.pow");
 					result.terms.add(termB);
 					++b;
 				} else {
-					assert 1 == 2 : "something impossible has happened!";
+					throw new RuntimeException("something impossible has happened!");
 				}
 			}
 		}
-		// debug("" + result.terms);
 		return result;
 	}
 
@@ -245,9 +239,9 @@ public class Poly {
 }
 
 class Term {
-	public int coeff;
+	public final int coeff;
 
-	public int pow;
+	public final int pow;
 
 	public Term(int coeff, int pow) {
 		this.coeff = coeff;
@@ -277,11 +271,15 @@ class Term {
 			return "0";
 		} else if (pow == 0) {
 			return "" + coeff;
-		} else if (pow == 1) {
-			return "" + (coeff != 1 ? coeff : "") + "x";
 		} else {
-			return "" + (coeff != 1 ? coeff : "") + "x^" + pow;
+			return String.format("%sx%s", (coeff != 1 ? coeff : ""),
+					(pow == 1 ? "" : ("^" + pow)));
 		}
+		// } else if (pow == 1) {
+		// return "" + (coeff != 1 ? coeff : "") + "x";
+		// } else {
+		// return "" + (coeff != 1 ? coeff : "") + "x^" + pow;
+		// }
 	}
 
 	public void selfCheck() {
