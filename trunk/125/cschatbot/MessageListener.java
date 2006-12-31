@@ -4,7 +4,7 @@
 
 package cschatbot;
 
-//import org.jivesoftware.smack.*;
+// import org.jivesoftware.smack.*;
 import org.jivesoftware.smack.packet.*;
 
 /**
@@ -12,7 +12,6 @@ import org.jivesoftware.smack.packet.*;
  * 
  * For classes wanting to know when we've recieved a message
  */
-public interface MessageListener
-{
-    public void messageRecieved(Message msg);
+public interface MessageListener {
+	public void messageRecieved(Message msg);
 }
