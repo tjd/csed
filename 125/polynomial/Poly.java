@@ -32,12 +32,6 @@ public class Poly {
 		}
 	}
 
-//	// Creates a zero polynomial with n + 1 coefficients all set to 0. This is
-//	// a helper constructor only meant for use by the Poly class.
-//	private Poly(int n) {
-//		terms = new ArrayList<Term>(n);
-//	}
-
 	// Returns the degree of this polynomial, i.e. the largest exponent
 	// with a non-zero coefficient. Returns 0 for the zero polynomial.
 	public int degree() {
