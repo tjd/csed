@@ -3,7 +3,7 @@ package diophantine;
 /*
  * (See http://en.wikipedia.org/wiki/Diophantus)
  * 
- * Diophantus of Alexandria was a Greek mathematician who lived sometime betweeb
+ * Diophantus of Alexandria was a Greek mathematician who lived sometime between
  * 150BC - 350AD. He's most famous for his study of equations whose variables take 
  * on rational values, and is considered by some to be the father of algebra.
  * 
@@ -28,7 +28,7 @@ public class BruteForce {
 		return a*a + b*b == c*c;
 	}
 	
-	// Prints all Pyhtagoran triples (a, b, c) where each number is in
+	// Prints all Pythagorean triples (a, b, c) where each number is in
 	// the range lo to hi (inclusive), and a <= b <= c.
 	public static void printFromTo(int lo, int hi) {
 		int count = 0;
@@ -43,6 +43,10 @@ public class BruteForce {
 		}
 	}
 	
+	// Counts the number of Pythagorean triples such that
+	//  lo <= a <= hi
+	//   a <= b <= hi
+	//   b <= c <= hi
 	public static int countFromTo(int lo, int hi) {
 		int count = 0;
 		for(int a = lo; a <= hi; ++a) {
