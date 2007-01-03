@@ -48,6 +48,7 @@ public class DiaryEntry {
 		return postingDate;
 	}
 
+	@Override
 	public String toString() {
 		return this.body + "\nby " + author + ", " + postingDate
 				+ "\nKeywords: " + keywords;

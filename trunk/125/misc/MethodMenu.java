@@ -4,10 +4,17 @@
 
 package misc;
 
-import java.lang.reflect.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  * @author Daryl Van Humbeck (Raceimaztion)
@@ -66,9 +73,8 @@ public class MethodMenu extends JFrame implements ActionListener
         // Add the buttons to the window
         Container c = getContentPane();
         c.setLayout(new GridLayout(0, 1));
-        for (int i=0; i < methodButtons.length; i++)
-        {
-            c.add(methodButtons[i]);
+        for (JButton element : methodButtons) {
+            c.add(element);
         }
         
         pack();
@@ -84,9 +90,11 @@ public class MethodMenu extends JFrame implements ActionListener
     // looks for an object in the list of buttons
     private int getIndex(Object o)
     {
-        for (int i=0; i < methodButtons.length; i++)
-            if (o.equals(methodButtons[i]))
-                return i;
+        for (int i=0; i < methodButtons.length; i++) {
+			if (o.equals(methodButtons[i])) {
+				return i;
+			}
+		}
         
         return -1;
     }
@@ -95,8 +103,9 @@ public class MethodMenu extends JFrame implements ActionListener
     {
         // look for the button pressed
         int index = getIndex(e.getSource());
-        if (index < 0)
-            return;
+        if (index < 0) {
+			return;
+		}
         
         // Now activate the method that was asked for
         try
@@ -124,8 +133,9 @@ public class MethodMenu extends JFrame implements ActionListener
      */
     public static void showList(Object owner, String[] methodNames, String[] shownNames)
     {
-        if (methodNames.length != shownNames.length)
-            throw new Error("The lists given to Test.showList() MUST be of the same length!");
+        if (methodNames.length != shownNames.length) {
+			throw new Error("The lists given to Test.showList() MUST be of the same length!");
+		}
         
         MethodMenu t = new MethodMenu(owner, methodNames, shownNames);
         // Wait for the dialog to be done:
@@ -144,8 +154,9 @@ public class MethodMenu extends JFrame implements ActionListener
      */
     public static void showList(Class owner, String[] methodNames, String[] shownNames)
     {
-        if (methodNames.length != shownNames.length)
-            throw new Error("The lists given to Test.showList() MUST be of the same length!");
+        if (methodNames.length != shownNames.length) {
+			throw new Error("The lists given to Test.showList() MUST be of the same length!");
+		}
         
         MethodMenu t = new MethodMenu(owner, methodNames, shownNames);
         // Wait for the dialog to be done:

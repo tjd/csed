@@ -1,9 +1,9 @@
 package csspeech;
 
 import java.io.IOException;
-import java.util.*;
-import javax.speech.*;
-import javax.speech.synthesis.*;
+import java.util.Locale;
+
+import javax.sound.midi.Synthesizer;
 
 // Adapted from "Simply Java Programming"
 // by Deitel and Deitel, page 820
@@ -87,7 +87,8 @@ public class Speaker implements Speaks {
 
     // finalizer method is called automatically when this object is
     // garabage-collected by Java
-    protected void finalize() throws IOException {
+    @Override
+	protected void finalize() throws IOException {
         Deallocate();
     }
 

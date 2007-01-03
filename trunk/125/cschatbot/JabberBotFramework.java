@@ -4,10 +4,9 @@
 
 package cschatbot;
 
-import org.jivesoftware.smack.*;
-import org.jivesoftware.smack.packet.*;
-import org.jivesoftware.smack.filter.*;
-import java.util.*;
+import java.util.Vector;
+
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**
  * Bare minimum Jabber chatbot framework Allows user to add a MessageListener to
@@ -59,10 +58,11 @@ public class JabberBotFramework extends BotFramework implements PacketListener {
 		messageListeners = new Vector();
 
 		hostName = host;
-		if (port < 0)
+		if (port < 0) {
 			mainConnection = new XMPPConnection(host);
-		else
+		} else {
 			mainConnection = new XMPPConnection(host, port);
+		}
 		mainConnection.login(username, password);
 
 		mainConnection.addPacketListener(this, new PacketTypeFilter(
@@ -72,6 +72,7 @@ public class JabberBotFramework extends BotFramework implements PacketListener {
 	/**
 	 * Breaks the connection to the server
 	 */
+	@Override
 	public void close() {
 		mainConnection.close();
 	}
@@ -92,6 +93,7 @@ public class JabberBotFramework extends BotFramework implements PacketListener {
 	 * @param ml
 	 *            The listener to add
 	 */
+	@Override
 	public void addMessageListener(MessageListener ml) {
 		messageListeners.add(ml);
 	}
@@ -104,6 +106,7 @@ public class JabberBotFramework extends BotFramework implements PacketListener {
 	 * @param to
 	 *            The name to send it to
 	 */
+	@Override
 	public void sendMessageFinal(String message, String to)
 			throws XMPPException {
 		Chat c = mainConnection.createChat(to);

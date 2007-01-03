@@ -25,6 +25,7 @@ public class MyArrayList<T> extends ArrayList<T> {
 		return remove(r);
 	}
 
+	@Override
 	public T remove(int i) {
 		if (i < 0) {
 			i += size();

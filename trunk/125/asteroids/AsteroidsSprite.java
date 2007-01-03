@@ -5,7 +5,8 @@ package asteroids;
  * rotation. It also can detemine if two objects collide.
  ************************************************************************************************/
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Polygon;
 
 public class AsteroidsSprite {
 

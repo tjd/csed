@@ -4,13 +4,21 @@
 
 package cschatbot;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
 
-import org.jivesoftware.smack.*;
-import org.jivesoftware.smack.packet.*;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**
  * Allows you to test a chatbot without using extra software
@@ -96,10 +104,11 @@ public class SwingBotFramework extends BotFramework implements ActionListener {
 		input.setText("");
 
 		String text = textPane.getText();
-		if (text.length() > 1)
+		if (text.length() > 1) {
 			text += "\nUser:\t" + s;
-		else
+		} else {
 			text = "User:\t" + s;
+		}
 		textPane.setText(text);
 
 		Message msg = new Message();
@@ -115,15 +124,18 @@ public class SwingBotFramework extends BotFramework implements ActionListener {
 		}
 	}
 
+	@Override
 	public void addMessageListener(MessageListener ml) {
 		messageListeners.add(ml);
 	}
 
+	@Override
 	public void close() {
 		window.setVisible(false);
 		window.dispose();
 	}
 
+	@Override
 	public void sendMessageFinal(String msg, String to) throws XMPPException {
 		// Ignores "to" parameter
 		String text = textPane.getText();

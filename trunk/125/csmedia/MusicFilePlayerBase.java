@@ -17,15 +17,8 @@ package csmedia;
 
 import java.awt.FileDialog;
 import java.io.File;
+import java.sql.Time;
 
-import javax.media.Controller;
-import javax.media.ControllerEvent;
-import javax.media.ControllerListener;
-import javax.media.EndOfMediaEvent;
-import javax.media.GainControl;
-import javax.media.Manager;
-import javax.media.Player;
-import javax.media.Time;
 import javax.swing.JOptionPane;
 
 //import com.sun.media.MediaPlayer;
@@ -52,12 +45,14 @@ public class MusicFilePlayerBase implements MusicFilePlayerInterface,
      * (including extension).
      */
     public MusicFilePlayerBase(String musicFileName) {
-        if (musicFileName == null)
-            return;
+        if (musicFileName == null) {
+			return;
+		}
         dbg(musicFileName);
         m_Player = createPlayerforFile(musicFileName);
-        if (m_Player == null)
-            return;
+        if (m_Player == null) {
+			return;
+		}
         dbg("Instantiated MediaPlayer...");
         dbg("Running constructor...");
         setVolume(0.5);

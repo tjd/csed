@@ -4,7 +4,6 @@
 
 package cschatbot;
 
-import org.jivesoftware.smack.*;
 
 /**
  * Handles the interfaces for JabberBotFramework, SwingBotFramework &
@@ -30,8 +29,8 @@ public abstract class BotFramework {
 	 */
 	public void sendMessage(String msg, String to) throws XMPPException {
 		String[] lines = msg.split("\n");
-		for (int i = 0; i < lines.length; i++) {
-			sendMessageFinal(lines[i], to);
+		for (String element : lines) {
+			sendMessageFinal(element, to);
 		}
 	}
 }

@@ -15,6 +15,7 @@ public class ColorPoint extends Point {
 		color = c;
 	}
 
+	@Override
 	public String toString() {
 		return String.format("(%s, %s, %s)", getX(), getY(), color);
 	}
