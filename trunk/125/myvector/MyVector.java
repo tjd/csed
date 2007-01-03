@@ -33,6 +33,13 @@ package myvector;
  *     actual evidence of what makes a good initial value. So, propose an experiment that
  *     you could do to better determine a good intial capacity for MyVector.
  *     
+ *  9. Implement a boolean method called "same" that takes in another MyVector, and
+ *     returns true if it is equal to the current one, and false otherwise. Two
+ *     MyVector's are considered equal if they have the same values in the same order
+ *     (the capacities may be different).
+ *      
+ * 10. Write a mutator that reverse the elements of a MyVector. Also, write about 5 good test
+ *     cases to help show that it works correctly. 
  */
 
 public class MyVector {
@@ -67,22 +74,15 @@ public class MyVector {
 		end = 0;
 	}
 
+	//
+	// getters
+	//
 	public int size() {
 		return end;
 	}
 
 	public int capacity() {
 		return arr.length;
-	}
-
-	// append x to the end of the vector; automatically increases
-	// capacity if necessary
-	public void push(int x) {
-		if (size() == capacity()) {
-			doubleSize();
-		}
-		arr[end] = x;
-		++end;
 	}
 
 	// returns value at location i
@@ -101,13 +101,6 @@ public class MyVector {
 		return get(size() - 1);
 	}
 
-	// sets location i to be value
-	public void set(int i, int value) {
-		ensure(i < size());
-		arr[i] = value;
-		
-	}
-	
 	// returns a new MyVector that contains everything but the first
 	// element of this MyVector
 	// Note: Calling rest() makes a copy of the underlying vector, which,
@@ -119,6 +112,27 @@ public class MyVector {
 			result.push(get(i));
 		}
 		return result;
+	}
+	
+	//
+	// mutators
+	//
+	
+	// sets location i to be value
+	public void set(int i, int value) {
+		ensure(i < size());
+		arr[i] = value;
+		
+	}
+	
+	// append x to the end of the vector; automatically increases
+	// capacity if necessary
+	public void push(int x) {
+		if (size() == capacity()) {
+			doubleSize();
+		}
+		arr[end] = x;
+		++end;
 	}
 
 	public String toString() {
