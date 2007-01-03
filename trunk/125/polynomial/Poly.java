@@ -32,6 +32,25 @@ public class Poly {
 		}
 	}
 
+	// Returns true iff this and x are Poly's with the same terms in the same order.
+	public boolean equals(Object x) {
+		if (x instanceof Poly) {
+			Poly other = (Poly) x;
+			if (this.degree() == other.degree()) {
+				for(int i = 0; i < this.terms.size(); ++i) {
+					if (!this.terms.get(i).equals(other.terms.get(i))) {
+						return false;
+					}
+				}
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
 	// Returns the degree of this polynomial, i.e. the largest exponent
 	// with a non-zero coefficient. Returns 0 for the zero polynomial.
 	public int degree() {
@@ -83,7 +102,8 @@ public class Poly {
 					result.terms.add(termB);
 					++b;
 				} else {
-					throw new RuntimeException("something impossible has happened!");
+					throw new RuntimeException(
+							"something impossible has happened!");
 				}
 			}
 		}
@@ -141,6 +161,17 @@ public class Poly {
 		}
 		return result;
 	}
+	
+	// Returns a new Poly that is the derivative of this Poly.
+	public Poly derivative() {
+		Poly result = new Poly();
+		for (Term t : terms) {
+			if (!t.isConstant()) {
+				result.terms.add(t.derivative());
+			}
+		}
+		return result;
+	}
 
 	public String toString() {
 		return "" + terms;
@@ -151,6 +182,7 @@ public class Poly {
 		test2();
 		test3();
 		test4();
+		test5();
 		System.out.println("All tests passed!");
 	}
 
@@ -226,6 +258,21 @@ public class Poly {
 		assert ab.eval(4) == (3 * 4 * 4 * 4);
 		assert ab.eval(5) == (3 * 5 * 5 * 5);
 	}
+	
+	public static void test5() {
+		Poly a = new Poly(1, 2);
+		Poly b = new Poly(3, 1);
+		Poly aa = new Poly(1, 2);
+		Poly ab = a.mult(b);
+		assert "[3x^3]".equals("" + ab);
+		assert a.equals(a);
+		assert a.equals(aa);
+		assert aa.equals(a);
+		
+		assert !b.equals(a);
+		assert !aa.equals(b);
+		assert ab.equals(new Poly(3, 3));
+	}
 
 	public static void debug(String s) {
 		System.out.println("dbg: " + s);
@@ -252,12 +299,24 @@ class Term {
 		}
 	}
 
+	public boolean isConstant() {
+		return pow == 0;
+	}
+
 	public Term mult(Term t) {
 		return new Term(this.coeff * t.coeff, this.pow + t.pow);
 	}
 
 	public int eval(int x) {
 		return (int) (coeff * Math.pow(x, pow));
+	}
+
+	public Term derivative() {
+		if (isConstant()) {
+			return new Term(0, 0);
+		} else {
+			return new Term(pow * coeff, pow - 1);
+		}
 	}
 
 	public String toString() {
