@@ -2,9 +2,6 @@ package misc;
 
 public class Auction {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		resolveAuction(new int[] { 6, 3, 1, 5, 2 });
 		resolveAuction(new int[] { 18, 3, 53, 89 });

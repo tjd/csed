@@ -37,8 +37,7 @@ public class Test {
 				} else if (r == 1) {
 					blend.setColor(i, j, new Color(a.getRed(), 0, a.getBlue()));
 				} else {
-					blend
-							.setColor(i, j, new Color(a.getRed(), a.getGreen(),
+					blend.setColor(i, j, new Color(a.getRed(), a.getGreen(),
 									0));
 				}
 			}
