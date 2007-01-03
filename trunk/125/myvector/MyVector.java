@@ -8,12 +8,18 @@ package myvector;
  *     the elements of arr are copied into it, "arr = arr2" makes arr point to the just 
  *     created array. What happened to the array arr originally pointed to?
  *     
- *  2. Add a constructor that takes in the intial capacity of the underlying array.
+ *  2. Add a constructor that sets the initial capacity of the underlying array to be
+ *     a given value, e.g. so you can write code like this:
+ *     
+ *        MyVector vec = new MyVector(100):
+ *        for(int i = 1; i <= 100; ++i) {
+ *           vec.add(i);
+ *        }
  *  
  *  3. Using the constructor you just created in the previous question, make a simple
  *     change to the rest() function that speeds it up.
  *     
- *  4. A copy constructor is a consturctor that takes in an object of the classes type,
+ *  4. A copy constructor is a constructor that takes in an object of the class's type,
  *     and a returns a new object that is a copy of the passed-in object. Add a copy
  *     constructor to MyVector.
  *  
@@ -22,9 +28,8 @@ package myvector;
  *  
  *  6. What is the purpose of the ensure method?
  *  
- *  7. Notice that a number of methods called "ensure(i < size())" to make sure that the
- *     value of i refers to a location inside the array. What happens if i is less than 
- *     zero? 
+ *  7. A number of methods called "ensure(i < size())" to make sure that the value of 
+ *     i refers to a location inside the array. What happens if i is less than zero? 
  *     
  *  8. MyVector's default constructor (i.e. the constructor that has no parameters) sets
  *     the initial length of the underlying array to be 10. There is no deep reason for this
@@ -38,8 +43,9 @@ package myvector;
  *     MyVector's are considered equal if they have the same values in the same order
  *     (the capacities may be different).
  *      
- * 10. Write a mutator that reverse the elements of a MyVector. Also, write about 5 good test
- *     cases to help show that it works correctly. 
+ * 10. Write a mutator method that reverses the order of the elements of a MyVector. Include 5 
+ *     or more good test cases to help show that it works correctly.
+ *      
  */
 
 public class MyVector {
