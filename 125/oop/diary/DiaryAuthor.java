@@ -36,6 +36,7 @@ public class DiaryAuthor {
 		return getFirstName() + " " + getLastName();
 	}
 
+	@Override
 	public String toString() {
 		return String.format("%s (%s)", getFullName(), getEmail());
 	}

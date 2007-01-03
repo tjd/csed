@@ -3,11 +3,12 @@
  */
 package cschatbot;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Vector;
 
-import org.jivesoftware.smack.*;
-import org.jivesoftware.smack.packet.*;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**
  * @author Daryl Van Humbeck (raceimaztion)
@@ -67,8 +68,9 @@ public class ConsoleBotFramework extends BotFramework implements Runnable {
 			String input;
 			while (!done) {
 				while (!in.ready()) {
-					if (done)
+					if (done) {
 						return;
+					}
 					try {
 						Thread.sleep(10);
 					} catch (InterruptedException er) {
@@ -92,14 +94,17 @@ public class ConsoleBotFramework extends BotFramework implements Runnable {
 		}
 	}
 
+	@Override
 	public void addMessageListener(MessageListener ml) {
 		messageListeners.add(ml);
 	}
 
+	@Override
 	public void close() {
 		done = true;
 	}
 
+	@Override
 	public void sendMessageFinal(String msg, String to) throws XMPPException {
 		System.out.println(botName + ":\t" + msg);
 	}

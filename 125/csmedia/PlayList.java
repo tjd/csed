@@ -106,8 +106,9 @@ public class PlayList extends Vector {
             while (true) {
                 String name = inFile.readLine();
                 String location = inFile.readLine();
-                if (name == null)
-                    break;
+                if (name == null) {
+					break;
+				}
                 this.addToTop(name, location);
             }
             inFile.close();

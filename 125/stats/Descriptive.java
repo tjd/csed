@@ -1,6 +1,5 @@
 package stats;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
 

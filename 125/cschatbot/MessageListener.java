@@ -5,7 +5,7 @@
 package cschatbot;
 
 // import org.jivesoftware.smack.*;
-import org.jivesoftware.smack.packet.*;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**
  * @author Daryl Van Humbeck (raceimaztion)

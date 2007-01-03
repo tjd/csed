@@ -33,6 +33,7 @@ public class Poly {
 	}
 
 	// Returns true iff this and x are Poly's with the same terms in the same order.
+	@Override
 	public boolean equals(Object x) {
 		if (x instanceof Poly) {
 			Poly other = (Poly) x;
@@ -173,6 +174,7 @@ public class Poly {
 		return result;
 	}
 
+	@Override
 	public String toString() {
 		return "" + terms;
 	}
@@ -290,6 +292,7 @@ class Term {
 		selfCheck();
 	}
 
+	@Override
 	public boolean equals(Object x) {
 		if (x instanceof Term) {
 			Term other = (Term) x;
@@ -319,6 +322,7 @@ class Term {
 		}
 	}
 
+	@Override
 	public String toString() {
 		if (coeff == 0) {
 			return "0";

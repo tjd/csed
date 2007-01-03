@@ -269,9 +269,10 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		numStars = AsteroidsSprite.width * AsteroidsSprite.height / 5000;
 		stars = new Point[numStars];
-		for (i = 0; i < numStars; i++)
+		for (i = 0; i < numStars; i++) {
 			stars[i] = new Point((int) (Math.random() * AsteroidsSprite.width),
 					(int) (Math.random() * AsteroidsSprite.height));
+		}
 
 		// Create shape for the ship sprite.
 
@@ -317,13 +318,15 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// Create asteroid sprites.
 
-		for (i = 0; i < MAX_ROCKS; i++)
+		for (i = 0; i < MAX_ROCKS; i++) {
 			asteroids[i] = new AsteroidsSprite();
+		}
 
 		// Create explosion sprites.
 
-		for (i = 0; i < MAX_SCRAP; i++)
+		for (i = 0; i < MAX_SCRAP; i++) {
 			explosions[i] = new AsteroidsSprite();
+		}
 
 		// Set font data.
 
@@ -351,8 +354,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void setGameSize(Dimension size) {
-		if (gameSize == size)
+		if (gameSize == size) {
 			return;
+		}
 
 		if (isPlaying()) {
 			pause();
@@ -370,10 +374,12 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		init();
 	}
 
+	@Override
 	public Dimension getMinimumSize() {
 		return gameSize;
 	}
 
+	@Override
 	public Dimension getPreferredSize() {
 		return gameSize;
 	}
@@ -468,8 +474,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 				// start the flying
 				// saucer as necessary.
 
-				if (score > highScore)
+				if (score > highScore) {
 					highScore = score;
+				}
 				if (score > newShipScore) {
 					newShipScore += NEW_SHIP_POINTS;
 					shipsLeft++;
@@ -482,9 +489,11 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 				// If all asteroids have been destroyed create a new batch.
 
-				if (asteroidsLeft <= 0)
-					if (--asteroidsCounter <= 0)
+				if (asteroidsLeft <= 0) {
+					if (--asteroidsCounter <= 0) {
 						initAsteroids();
+					}
+				}
 			}
 
 			// Update the screen and set the timer for the next loop.
@@ -583,8 +592,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		ship.deltaX = 0.0;
 		ship.deltaY = 0.0;
 		ship.render();
-		if (loaded)
+		if (loaded) {
 			thrustersSound.stop();
+		}
 		thrustersPlaying = false;
 
 		hyperCounter = 0;
@@ -594,20 +604,23 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		double dx, dy, limit;
 
-		if (!playing)
+		if (!playing) {
 			return;
+		}
 
 		// Rotate the ship if left or right cursor key is down.
 
 		if (left) {
 			ship.angle += Math.PI / 16.0;
-			if (ship.angle > 2 * Math.PI)
+			if (ship.angle > 2 * Math.PI) {
 				ship.angle -= 2 * Math.PI;
+			}
 		}
 		if (right) {
 			ship.angle -= Math.PI / 16.0;
-			if (ship.angle < 0)
+			if (ship.angle < 0) {
 				ship.angle += 2 * Math.PI;
+			}
 		}
 
 		// Fire thrusters if up or down cursor key is down. Don't let ship go
@@ -618,16 +631,20 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		dy = Math.cos(ship.angle);
 		limit = 0.8 * MIN_ROCK_SIZE;
 		if (up) {
-			if (ship.deltaX + dx > -limit && ship.deltaX + dx < limit)
+			if (ship.deltaX + dx > -limit && ship.deltaX + dx < limit) {
 				ship.deltaX += dx;
-			if (ship.deltaY + dy > -limit && ship.deltaY + dy < limit)
+			}
+			if (ship.deltaY + dy > -limit && ship.deltaY + dy < limit) {
 				ship.deltaY += dy;
+			}
 		}
 		if (down) {
-			if (ship.deltaX - dx > -limit && ship.deltaX - dx < limit)
+			if (ship.deltaX - dx > -limit && ship.deltaX - dx < limit) {
 				ship.deltaX -= dx;
-			if (ship.deltaY - dy > -limit && ship.deltaY - dy < limit)
+			}
+			if (ship.deltaY - dy > -limit && ship.deltaY - dy < limit) {
 				ship.deltaY -= dy;
+			}
 		}
 
 		// Move the ship. If it is currently in hyperspace, advance the
@@ -636,8 +653,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		if (ship.active) {
 			ship.advance();
 			ship.render();
-			if (hyperCounter > 0)
+			if (hyperCounter > 0) {
 				hyperCounter--;
+			}
 		}
 
 		// Ship is exploding, advance the countdown or create a new ship if it
@@ -648,22 +666,26 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		// danger.)
 		// If that was the last ship, end the game.
 
-		else if (--shipCounter <= 0)
+		else if (--shipCounter <= 0) {
 			if (shipsLeft > 0) {
 				initShip();
 				hyperCounter = HYPER_COUNT;
-			} else
+			} else {
 				endGame();
+			}
+		}
 	}
 
 	public void stopShip() {
 
 		ship.active = false;
 		shipCounter = SCRAP_COUNT;
-		if (shipsLeft > 0)
+		if (shipsLeft > 0) {
 			shipsLeft--;
-		if (loaded)
+		}
+		if (loaded) {
 			thrustersSound.stop();
+		}
 		thrustersPlaying = false;
 	}
 
@@ -684,13 +706,15 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// Move any active photons. Stop it when its counter has expired.
 
-		for (i = 0; i < MAX_SHOTS; i++)
+		for (i = 0; i < MAX_SHOTS; i++) {
 			if (photons[i].active) {
 				photons[i].advance();
 				photons[i].render();
-				if (--photonCounter[i] < 0)
+				if (--photonCounter[i] < 0) {
 					photons[i].active = false;
+				}
 			}
+		}
 	}
 
 	public void initUfo() {
@@ -710,12 +734,14 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		}
 		ufo.deltaY = MIN_ROCK_SPEED + Math.random()
 				* (MAX_ROCK_SPEED - MIN_ROCK_SPEED);
-		if (Math.random() < 0.5)
+		if (Math.random() < 0.5) {
 			ufo.deltaY = -ufo.deltaY;
+		}
 		ufo.render();
 		saucerPlaying = true;
-		if (sound)
+		if (sound) {
 			saucerSound.loop(Clip.LOOP_CONTINUOUSLY);
+		}
 
 		// Set counter for this pass.
 
@@ -734,13 +760,14 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		if (ufo.active) {
 			ufo.advance();
 			ufo.render();
-			if (--ufoCounter <= 0)
-				if (--ufoPassesLeft > 0)
+			if (--ufoCounter <= 0) {
+				if (--ufoPassesLeft > 0) {
 					initUfo();
-				else
+				} else {
 					stopUfo();
-			else {
-				for (i = 0; i < MAX_SHOTS; i++)
+				}
+			} else {
+				for (i = 0; i < MAX_SHOTS; i++) {
 					if (photons[i].active && ufo.isColliding(photons[i])) {
 						if (sound) {
 							crashSound.setMicrosecondPosition(0);
@@ -750,6 +777,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 						stopUfo();
 						score += UFO_POINTS;
 					}
+				}
 
 				// On occassion, fire a missle at the ship if the saucer is not
 				// too close to it.
@@ -758,8 +786,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 						.abs(ufo.currentY - ship.currentY));
 				if (ship.active && hyperCounter <= 0 && ufo.active
 						&& !missle.active && d > 4 * MAX_ROCK_SIZE
-						&& Math.random() < .03)
+						&& Math.random() < .03) {
 					initMissle();
+				}
 			}
 		}
 	}
@@ -769,8 +798,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		ufo.active = false;
 		ufoCounter = 0;
 		ufoPassesLeft = 0;
-		if (loaded)
+		if (loaded) {
 			saucerSound.stop();
+		}
 		saucerPlaying = false;
 	}
 
@@ -787,8 +817,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		missleCounter = 3
 				* Math.max(AsteroidsSprite.width, AsteroidsSprite.height)
 				/ MIN_ROCK_SIZE;
-		if (sound)
+		if (sound) {
 			missleSound.loop(Clip.LOOP_CONTINUOUSLY);
+		}
 		misslePlaying = true;
 	}
 
@@ -801,13 +832,13 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		// counter has expired.
 
 		if (missle.active) {
-			if (--missleCounter <= 0)
+			if (--missleCounter <= 0) {
 				stopMissle();
-			else {
+			} else {
 				guideMissle();
 				missle.advance();
 				missle.render();
-				for (i = 0; i < MAX_SHOTS; i++)
+				for (i = 0; i < MAX_SHOTS; i++) {
 					if (photons[i].active && missle.isColliding(photons[i])) {
 						if (sound) {
 							crashSound.setMicrosecondPosition(0);
@@ -817,6 +848,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 						stopMissle();
 						score += MISSLE_POINTS;
 					}
+				}
 				if (missle.active && ship.active && hyperCounter <= 0
 						&& ship.isColliding(missle)) {
 					if (sound) {
@@ -836,26 +868,31 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		double dx, dy, angle;
 
-		if (!ship.active || hyperCounter > 0)
+		if (!ship.active || hyperCounter > 0) {
 			return;
+		}
 
 		// Find the angle needed to hit the ship.
 
 		dx = ship.currentX - missle.currentX;
 		dy = ship.currentY - missle.currentY;
-		if (dx == 0 && dy == 0)
+		if (dx == 0 && dy == 0) {
 			angle = 0;
+		}
 		if (dx == 0) {
-			if (dy < 0)
+			if (dy < 0) {
 				angle = -Math.PI / 2;
-			else
+			} else {
 				angle = Math.PI / 2;
+			}
 		} else {
 			angle = Math.atan(Math.abs(dy / dx));
-			if (dy > 0)
+			if (dy > 0) {
 				angle = -angle;
-			if (dx < 0)
+			}
+			if (dx < 0) {
 				angle = Math.PI - angle;
+			}
 		}
 
 		// Adjust angle for screen coordinates.
@@ -872,8 +909,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		missle.active = false;
 		missleCounter = 0;
-		if (loaded)
+		if (loaded) {
 			missleSound.stop();
+		}
 		misslePlaying = false;
 	}
 
@@ -916,24 +954,28 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 			if (Math.random() < 0.5) {
 				asteroids[i].currentX = -AsteroidsSprite.width / 2;
-				if (Math.random() < 0.5)
+				if (Math.random() < 0.5) {
 					asteroids[i].currentX = AsteroidsSprite.width / 2;
+				}
 				asteroids[i].currentY = Math.random() * AsteroidsSprite.height;
 			} else {
 				asteroids[i].currentX = Math.random() * AsteroidsSprite.width;
 				asteroids[i].currentY = -AsteroidsSprite.height / 2;
-				if (Math.random() < 0.5)
+				if (Math.random() < 0.5) {
 					asteroids[i].currentY = AsteroidsSprite.height / 2;
+				}
 			}
 
 			// Set a random motion for the asteroid.
 
 			asteroids[i].deltaX = Math.random() * asteroidsSpeed;
-			if (Math.random() < 0.5)
+			if (Math.random() < 0.5) {
 				asteroids[i].deltaX = -asteroids[i].deltaX;
+			}
 			asteroids[i].deltaY = Math.random() * asteroidsSpeed;
-			if (Math.random() < 0.5)
+			if (Math.random() < 0.5) {
 				asteroids[i].deltaY = -asteroids[i].deltaY;
+			}
 
 			asteroids[i].render();
 			asteroidIsSmall[i] = false;
@@ -941,8 +983,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		asteroidsCounter = STORM_PAUSE;
 		asteroidsLeft = MAX_ROCKS;
-		if (asteroidsSpeed < MAX_ROCK_SPEED)
+		if (asteroidsSpeed < MAX_ROCK_SPEED) {
 			asteroidsSpeed++;
+		}
 	}
 
 	public void initSmallAsteroids(int n) {
@@ -1000,7 +1043,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// Move any active asteroids and check for collisions.
 
-		for (i = 0; i < MAX_ROCKS; i++)
+		for (i = 0; i < MAX_ROCKS; i++) {
 			if (asteroids[i].active) {
 				asteroids[i].advance();
 				asteroids[i].render();
@@ -1009,7 +1052,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 				// asteroid is large,
 				// make some smaller ones to replace it.
 
-				for (j = 0; j < MAX_SHOTS; j++)
+				for (j = 0; j < MAX_SHOTS; j++) {
 					if (photons[j].active && asteroids[i].active
 							&& asteroids[i].isColliding(photons[j])) {
 						asteroidsLeft--;
@@ -1023,9 +1066,11 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 						if (!asteroidIsSmall[i]) {
 							score += BIG_POINTS;
 							initSmallAsteroids(i);
-						} else
+						} else {
 							score += SMALL_POINTS;
+						}
 					}
+				}
 
 				// If the ship is not in hyperspace, see if it is hit.
 
@@ -1041,6 +1086,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 					stopMissle();
 				}
 			}
+		}
 	}
 
 	public void initExplosions() {
@@ -1067,19 +1113,22 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		s.render();
 		c = 2;
-		if (detail || s.sprite.npoints < 6)
+		if (detail || s.sprite.npoints < 6) {
 			c = 1;
+		}
 		for (i = 0; i < s.sprite.npoints; i += c) {
 			explosionIndex++;
-			if (explosionIndex >= MAX_SCRAP)
+			if (explosionIndex >= MAX_SCRAP) {
 				explosionIndex = 0;
+			}
 			explosions[explosionIndex].active = true;
 			explosions[explosionIndex].shape = new Polygon();
 			explosions[explosionIndex].shape.addPoint(s.shape.xpoints[i],
 					s.shape.ypoints[i]);
 			j = i + 1;
-			if (j >= s.sprite.npoints)
+			if (j >= s.sprite.npoints) {
 				j -= s.sprite.npoints;
+			}
 			explosions[explosionIndex].shape.addPoint(s.shape.xpoints[j],
 					s.shape.ypoints[j]);
 			explosions[explosionIndex].angle = s.angle;
@@ -1100,20 +1149,25 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		// Move any active explosion debris. Stop explosion when its counter has
 		// expired.
 
-		for (i = 0; i < MAX_SCRAP; i++)
+		for (i = 0; i < MAX_SCRAP; i++) {
 			if (explosions[i].active) {
 				explosions[i].advance();
 				explosions[i].render();
-				if (--explosionCounter[i] < 0)
+				if (--explosionCounter[i] < 0) {
 					explosions[i].active = false;
+				}
 			}
+		}
 	}
 
+	@Override
 	public void paint(Graphics g) {
-		if (initComplete)
+		if (initComplete) {
 			update(g);
+		}
 	}
 
+	@Override
 	public void update(Graphics g) {
 
 		Graphics2D g2 = (Graphics2D) g;
@@ -1138,17 +1192,20 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		offGraphics.fillRect(0, 0, d.width, d.height);
 		if (detail) {
 			offGraphics.setColor(Color.white);
-			for (i = 0; i < numStars; i++)
+			for (i = 0; i < numStars; i++) {
 				offGraphics.drawLine(stars[i].x, stars[i].y, stars[i].x,
 						stars[i].y);
+			}
 		}
 
 		// Draw photon bullets.
 
 		offGraphics.setColor(Color.white);
-		for (i = 0; i < MAX_SHOTS; i++)
-			if (photons[i].active)
+		for (i = 0; i < MAX_SHOTS; i++) {
+			if (photons[i].active) {
 				offGraphics.drawPolygon(photons[i].sprite);
+			}
+		}
 
 		// Draw the guided missle, counter is used to quickly fade color to
 		// black when near expiration.
@@ -1165,14 +1222,15 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// Draw the asteroids.
 
-		for (i = 0; i < MAX_ROCKS; i++)
+		for (i = 0; i < MAX_ROCKS; i++) {
 			if (asteroids[i].active) {
 				if (detail) {
 					if (use_Color) {
 						// offGraphics.setColor(asteroids_BG);
 						offGraphics.setColor(asteroids[i].colour);
-					} else
+					} else {
 						offGraphics.setColor(Color.black);
+					}
 
 					offGraphics.fillPolygon(asteroids[i].sprite);
 				}
@@ -1185,6 +1243,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 								asteroids[i].sprite.xpoints[0],
 								asteroids[i].sprite.ypoints[0]);
 			}
+		}
 
 		// Draw the flying saucer.
 
@@ -1205,10 +1264,11 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 		c = 255 - (255 / HYPER_COUNT) * hyperCounter;
 		if (ship.active) {
 			if (detail && hyperCounter == 0) {
-				if (use_Color)
+				if (use_Color) {
 					offGraphics.setColor(ship_BG);
-				else
+				} else {
 					offGraphics.setColor(Color.black);
+				}
 
 				offGraphics.fillPolygon(ship.sprite);
 			}
@@ -1221,12 +1281,13 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// Draw any explosion debris, counters are used to fade color to black.
 
-		for (i = 0; i < MAX_SCRAP; i++)
+		for (i = 0; i < MAX_SCRAP; i++) {
 			if (explosions[i].active) {
 				c = (255 / SCRAP_COUNT) * explosionCounter[i];
 				offGraphics.setColor(new Color(c, c, c));
 				offGraphics.drawPolygon(explosions[i].sprite);
 			}
+		}
 
 		// Display status and messages.
 
@@ -1286,19 +1347,25 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	public void pause() {
 		if (paused) {
-			if (sound && misslePlaying)
+			if (sound && misslePlaying) {
 				missleSound.loop(Clip.LOOP_CONTINUOUSLY);
-			if (sound && saucerPlaying)
+			}
+			if (sound && saucerPlaying) {
 				saucerSound.loop(Clip.LOOP_CONTINUOUSLY);
-			if (sound && thrustersPlaying)
+			}
+			if (sound && thrustersPlaying) {
 				thrustersSound.loop(Clip.LOOP_CONTINUOUSLY);
+			}
 		} else {
-			if (misslePlaying)
+			if (misslePlaying) {
 				missleSound.stop();
-			if (saucerPlaying)
+			}
+			if (saucerPlaying) {
 				saucerSound.stop();
-			if (thrustersPlaying)
+			}
+			if (thrustersPlaying) {
 				thrustersSound.stop();
+			}
 		}
 		paused = !paused;
 	}
@@ -1317,18 +1384,23 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 			// setFullScreenMode(false);
 		}
 
-		if (key == KeyEvent.VK_LEFT)
+		if (key == KeyEvent.VK_LEFT) {
 			left = true;
-		if (key == KeyEvent.VK_RIGHT)
+		}
+		if (key == KeyEvent.VK_RIGHT) {
 			right = true;
-		if (key == KeyEvent.VK_UP)
+		}
+		if (key == KeyEvent.VK_UP) {
 			up = true;
-		if (key == KeyEvent.VK_DOWN)
+		}
+		if (key == KeyEvent.VK_DOWN) {
 			down = true;
+		}
 
 		if ((up || down) && ship.active && !thrustersPlaying) {
-			if (sound && !paused)
+			if (sound && !paused) {
 				thrustersSound.loop(Clip.LOOP_CONTINUOUSLY);
+			}
 			thrustersPlaying = true;
 		}
 
@@ -1340,8 +1412,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 				fireSound.start();
 			}
 			photonIndex++;
-			if (photonIndex >= MAX_SHOTS)
+			if (photonIndex >= MAX_SHOTS) {
 				photonIndex = 0;
+			}
 			photons[photonIndex].active = true;
 			photons[photonIndex].currentX = ship.currentX;
 			photons[photonIndex].currentY = ship.currentY;
@@ -1367,8 +1440,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// 'S' key: start the game, if not already in progress.
 
-		if (key == KeyEvent.VK_S && loaded && !playing)
+		if (key == KeyEvent.VK_S && loaded && !playing) {
 			initGame();
+		}
 
 		// 'P' key: toggle pause mode and start or stop any active looping sound
 		// clips.
@@ -1388,12 +1462,15 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 				thrustersSound.stop();
 				warpSound.stop();
 			} else {
-				if (misslePlaying && !paused)
+				if (misslePlaying && !paused) {
 					missleSound.loop(Clip.LOOP_CONTINUOUSLY);
-				if (saucerPlaying && !paused)
+				}
+				if (saucerPlaying && !paused) {
 					saucerSound.loop(Clip.LOOP_CONTINUOUSLY);
-				if (thrustersPlaying && !paused)
+				}
+				if (thrustersPlaying && !paused) {
 					thrustersSound.loop(Clip.LOOP_CONTINUOUSLY);
+				}
 			}
 			sound = !sound;
 		}
@@ -1416,14 +1493,18 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 		// Check if any cursor keys where released and set flags.
 
-		if (key == KeyEvent.VK_LEFT)
+		if (key == KeyEvent.VK_LEFT) {
 			left = false;
-		if (key == KeyEvent.VK_RIGHT)
+		}
+		if (key == KeyEvent.VK_RIGHT) {
 			right = false;
-		if (key == KeyEvent.VK_UP)
+		}
+		if (key == KeyEvent.VK_UP) {
 			up = false;
-		if (key == KeyEvent.VK_DOWN)
+		}
+		if (key == KeyEvent.VK_DOWN) {
 			down = false;
+		}
 
 		if (!up && !down && thrustersPlaying) {
 			thrustersSound.stop();

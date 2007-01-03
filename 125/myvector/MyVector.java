@@ -153,6 +153,7 @@ public class MyVector {
 	//
 	//   System.out.println("myvec = " + myvec);
 	//
+	@Override
 	public String toString() {
 		if (size() == 0) {
 			return "[]";

@@ -89,8 +89,8 @@ public class OldfPoly {
 	// Returns a new polynomial that is the product of p and this polynomial.
 	public OldfPoly mult(OldfPoly p) {
 		OldfPoly r = new OldfPoly();
-		for (int i = 0; i < this.coeff.length; ++i) {
-			OldfPoly c = p.scalarMult(this.coeff[i]);
+		for (int element : this.coeff) {
+			OldfPoly c = p.scalarMult(element);
 			r = r.add(c);
 		}
 		return r;
@@ -119,6 +119,7 @@ public class OldfPoly {
 		return scalarMult(-1);
 	}
 
+	@Override
 	public String toString() {
 		if (deg == 0) {
 			return "0";

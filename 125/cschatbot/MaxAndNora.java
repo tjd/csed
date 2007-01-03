@@ -4,10 +4,9 @@
 
 package cschatbot;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
-import org.jivesoftware.smack.*;
-import org.jivesoftware.smack.packet.*;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**
  * @author Daryl Van Humbeck (raceimaztion) Plays Max & Nora with anyone who
@@ -47,10 +46,11 @@ public class MaxAndNora implements MessageListener {
 
 			// Send a message back to the sender
 			try {
-				if (lastWord.charAt(0) < 'n')
+				if (lastWord.charAt(0) < 'n') {
 					jbf.sendMessage("Yes", msg.getFrom());
-				else
+				} else {
 					jbf.sendMessage("No", msg.getFrom());
+				}
 			} catch (XMPPException er) {
 				// Do nothing
 			}

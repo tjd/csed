@@ -1,8 +1,33 @@
 package asteroids;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.DisplayMode;
+import java.awt.FlowLayout;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 
 public class MainApp implements ActionListener, WindowListener {
 
@@ -100,7 +125,7 @@ public class MainApp implements ActionListener, WindowListener {
 		newGameMI = new JMenuItem("New Game");
 		newGameMI.setMnemonic('N');
 		newGameMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
-				KeyEvent.CTRL_MASK));
+				InputEvent.CTRL_MASK));
 		newGameMI.addActionListener(this);
 		gameMnu.add(newGameMI);
 		gameMnu.add(new JSeparator());
@@ -109,7 +134,7 @@ public class MainApp implements ActionListener, WindowListener {
 		exitMI = new JMenuItem("Exit");
 		exitMI.setMnemonic('x');
 		exitMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
-				KeyEvent.CTRL_MASK));
+				InputEvent.CTRL_MASK));
 		exitMI.addActionListener(this);
 		menuBar.add(gameMnu);
 		gameMnu.add(exitMI);
@@ -168,8 +193,9 @@ public class MainApp implements ActionListener, WindowListener {
 	public void setFullScreenMode(boolean fullScreen) {
 
 		try {
-			if (isFullScreen == fullScreen)
+			if (isFullScreen == fullScreen) {
 				return;
+			}
 
 			GraphicsEnvironment env = GraphicsEnvironment
 					.getLocalGraphicsEnvironment();
@@ -259,8 +285,9 @@ public class MainApp implements ActionListener, WindowListener {
 				int request = JOptionPane.showConfirmDialog(null, msg, title,
 						JOptionPane.YES_NO_OPTION);
 				game.pause();
-				if (request == JOptionPane.YES_OPTION)
+				if (request == JOptionPane.YES_OPTION) {
 					game.init();
+				}
 			}
 		}
 
@@ -284,8 +311,9 @@ public class MainApp implements ActionListener, WindowListener {
 
 		// Use Color
 		else if (e.getSource() == useColorMI) {
-			if (useColorMI.getState() != game.getUseColor())
+			if (useColorMI.getState() != game.getUseColor()) {
 				game.toggleUseColor();
+			}
 		}
 
 		// FullScreen
@@ -296,18 +324,21 @@ public class MainApp implements ActionListener, WindowListener {
 		} else if (e.getSource() == smallMI) {
 			currentSize = SMALL;
 			game.setGameSize(SMALL);
-			if (!isFullScreen)
+			if (!isFullScreen) {
 				SwingUtilities.getWindowAncestor(game).pack();
+			}
 		} else if (e.getSource() == mediumMI) {
 			currentSize = MEDIUM;
 			game.setGameSize(MEDIUM);
-			if (!isFullScreen)
+			if (!isFullScreen) {
 				SwingUtilities.getWindowAncestor(game).pack();
+			}
 		} else if (e.getSource() == largeMI) {
 			currentSize = LARGE;
 			game.setGameSize(LARGE);
-			if (!isFullScreen)
+			if (!isFullScreen) {
 				SwingUtilities.getWindowAncestor(game).pack();
+			}
 		}
 
 		// Help
@@ -318,8 +349,9 @@ public class MainApp implements ActionListener, WindowListener {
 
 	public void showHelp() {
 
-		if (isFullScreen)
+		if (isFullScreen) {
 			setFullScreenMode(false);
+		}
 
 		final JFrame help = new JFrame("Asteroids Help");
 		help.setResizable(false);
@@ -372,31 +404,36 @@ public class MainApp implements ActionListener, WindowListener {
 
 		originalMode = device.getDisplayMode();
 		DisplayMode modes[] = device.getDisplayModes();
-		for (int i = 0; i < modes.length; i++) {
-			DisplayMode mode = modes[i];
+		for (DisplayMode mode : modes) {
 			// Small
 			if (mode.getWidth() == SMALL.width
 					&& mode.getHeight() == SMALL.height) {
-				if (small_DM == null)
+				if (small_DM == null) {
 					small_DM = mode;
-				if (small_DM.getBitDepth() < mode.getBitDepth())
+				}
+				if (small_DM.getBitDepth() < mode.getBitDepth()) {
 					small_DM = mode;
+				}
 			}
 			// Med
 			if (mode.getWidth() == MEDIUM.width
 					&& mode.getHeight() == MEDIUM.height) {
-				if (med_DM == null)
+				if (med_DM == null) {
 					med_DM = mode;
-				if (med_DM.getBitDepth() < mode.getBitDepth())
+				}
+				if (med_DM.getBitDepth() < mode.getBitDepth()) {
 					med_DM = mode;
+				}
 			}
 			// Large
 			if (mode.getWidth() == LARGE.width
 					&& mode.getHeight() == LARGE.height) {
-				if (large_DM == null)
+				if (large_DM == null) {
 					large_DM = mode;
-				if (large_DM.getBitDepth() < mode.getBitDepth())
+				}
+				if (large_DM.getBitDepth() < mode.getBitDepth()) {
 					large_DM = mode;
+				}
 			}
 		}
 

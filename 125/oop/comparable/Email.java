@@ -39,6 +39,7 @@ public class Email implements Comparable<Object> {
 		return String.format("<a href = \"mailto:%s\">%s</a>", this, this);
 	}
 
+	@Override
 	public String toString() {
 		return username + "@" + domain;
 	}

@@ -4,10 +4,9 @@
 
 package cschatbot;
 
-import org.jivesoftware.smack.*;
-import org.jivesoftware.smack.packet.*;
+import javax.swing.JOptionPane;
 
-import javax.swing.*;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**
  * @author Daryl Van Humbeck (raceimaztion)
