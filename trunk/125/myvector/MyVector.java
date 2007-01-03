@@ -69,6 +69,8 @@ public class MyVector {
 	//
 	// Constructors
 	//
+	
+	// create an empty vector with capacity of 10
 	public MyVector() {
 		arr = new int[10];
 		end = 0;
@@ -77,10 +79,15 @@ public class MyVector {
 	//
 	// getters
 	//
+	
+	// returns the number of items in this vector
 	public int size() {
 		return end;
 	}
 
+	// returns the size of the underlying array
+	// the larger the capacity, th emore calls to push that can
+	// can be made without needing to call doubleSize()
 	public int capacity() {
 		return arr.length;
 	}
@@ -135,6 +142,11 @@ public class MyVector {
 		++end;
 	}
 
+	// returns a String representation of this object; note that his 
+	// overrides Object.toString, so you can write code like this:
+	//
+	//   System.out.println("myvec = " + myvec);
+	//
 	public String toString() {
 		if (size() == 0) {
 			return "[]";
