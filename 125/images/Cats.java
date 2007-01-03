@@ -11,9 +11,6 @@ import csimage.util.EasyInput;
 
 public class Cats {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		String IMAGE_DIR = "/Users/toby/Desktop/spring 2006/125/images/";
 		System.out.printf("IMAGE_DIR = %s\nimages: %s\n", IMAGE_DIR, Arrays
