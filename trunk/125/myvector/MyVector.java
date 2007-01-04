@@ -34,7 +34,7 @@ package myvector;
  *  8. MyVector's default constructor (i.e. the constructor that has no parameters) sets
  *     the initial length of the underlying array to be 10. There is no deep reason for this
  *     value: 10 seems like a reasonable number, and other implementations of dynamic 
- *     arrays use similar values. But better would be to choose a value that is based on
+ *     arrays use similar values. Better would be to choose a value that is based on
  *     actual evidence of what makes a good initial value. So, propose an experiment that
  *     you could do to better determine a good intial capacity for MyVector.
  *     
@@ -43,9 +43,15 @@ package myvector;
  *     MyVector's are considered equal if they have the same values in the same order
  *     (the capacities may be different).
  *      
- * 10. Write a mutator method that reverses the order of the elements of a MyVector. Include 5 
- *     or more good test cases to help show that it works correctly.
- *      
+ * 10. Write a mutator method that reverses the order of the elements of a MyVector. 
+ *     Include 5 or more good test cases to help show that it works correctly.
+ * 
+ * 11. Add a method called toArray() that returns an array of ints containing the values
+ *     of the MyVector. The length of the returned array should be size().
+ * 
+ * 12. Add a constructor that takes an array of ints as the input parameter.
+ * 
+ * 
  */
 
 public class MyVector {
@@ -65,7 +71,7 @@ public class MyVector {
 		}
 		arr = arr2;
 	}
-
+	
 	private void ensure(boolean cond) {
 		if (!cond) {
 			throw new RuntimeException("MyVector ensure violation");
@@ -89,6 +95,11 @@ public class MyVector {
 	// returns the number of items in this vector
 	public int size() {
 		return end;
+	}
+	
+	// returns true iff this MyVector has no elements
+	public boolean isEmpty() {
+		return size() == 0;
 	}
 
 	// returns the size of the underlying array
