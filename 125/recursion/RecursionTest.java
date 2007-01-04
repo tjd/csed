@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  
- <p>Loosely speaking, a recursive definition is a definition that is defined in terms of itself. For
+ <p>Loosely speaking, a recursive definition is one that is defined in terms of itself. For
  example:</p>
  
  <pre>
@@ -12,17 +12,16 @@ import java.util.Arrays;
  S(n) = n + S(n - 1),   for n > 1
  </pre>
  
- <p>The function S has been defined recursively. The first rule, S(1) = 1, is called the base case, 
- and the second rule, S(n) = n + S(n - 1), is called the recursive case because it uses S to help 
- define S.</p>
+ <p>The function S has been defined recursively. It consists of two rules: S(1) = 1, is called 
+ the <em>base case</em>, and S(n) = n + S(n - 1) is called the <em>recursive case</em>.</p>
  
- <p>Calculate S(1) is easy: S(1) = 1 is simply given. To calcuate S(2), we set n = 2 in the second rule and
- get S(2) = 2 + S(2 - 1) = 2 + S(1) = 2 + 1 = 3. To calculate S(3), we get S(3) = 3 + S(2), and we just 
- saw that S(2) = 3, so this becomes S(3) = 3 + 3 = 6.</p>
+ <p>Calculating S(1) is easy: S(1) = 1 is simply given. To calcuate S(2), we set n = 2 in the 
+ second rule and get S(2) = 2 + S(2 - 1) = 2 + S(1) = 2 + 1 = 3. To calculate S(3), we get 
+ S(3) = 3 + S(2), and we just saw that S(2) = 3, so this becomes S(3) = 3 + 3 = 6.</p>
  
- <p>Indeed, if we know the value of S(n-1), then it is easy to calculate the value S(n) using the second 
- rule. However, suppose we want to calculate S(5) without knowing any smaller S values. The trick is to
- repeatedly apply the second rule until we get down to S(1):</p>
+ <p>Indeed, if we know the value of S(n-1), then it is easy to calculate the value S(n) using 
+ the second rule. However, suppose we want to calculate S(5) without knowing any smaller S 
+ values. The trick is to repeatedly apply the second rule until we get down to S(1):</p>
  
  <pre>
  S(5) = 5 + S(4) 
@@ -33,52 +32,52 @@ import java.util.Arrays;
  = 15
  </pre>
 
- <p>So S(5) = 15, and using the recursive definition of S, there's no way to directly calculate S(5).
- We must go through earlier values step-by-step as shown. (For this particular recursive definition there
- is a simple formula that will immediately calculate the answer, but in general there is no guarantee
- that you will be able to find a formula for even simple-looking numerical recursive definitions.)</p>
+ <p>So S(5) = 15. Using this recursive definition of S, there's no way to directly calculate S(5).
+ We must go through earlier values step-by-step as shown. (For this particular recursive definition 
+ there is a simple formula that will immediately calculate the answer, but in general there is no 
+ guarantee that a formula even exists for recursive definitions.)</p>
 
- <p>To avoid the drudgery of calculating recursive definitions by hand, you can program them in Java. For 
- example, here is S in Java:</p>
+ <p>Calculating recursive definitions is drudge work, and so you will be happy to know that it is
+ easy to program Java to do the work. For example, here is S in Java:</p>
 
  <pre>
  public static int S(int n) {
- if (n == 1) {    // base case
- return 1;
- } else {
- return n + S(n - 1);  // recursive case
- }
+     if (n == 1) {    // base case
+         return 1;
+     } else {
+         return n + S(n - 1);  // recursive case
+     }
  }
  </pre>
 
- <p>This is straightforward transcription of the recursive definition of S into Java, and it works! 
- S is called a recursive function because it calls itself.</p>
+ <p>This is straightforward transcription of the recursive definition of S into Java, and it 
+ works!</p>
 
  <p>Lets try another recursive definition:</p>
 
  <pre>
  A(1) = 1
- A(n) = 3*A(n - 1) - 2
+ A(n) = 3 * A(n - 1) - 2
  </pre>
 
  <p>In Java:</p>
 
  <pre>
  public static int A(int n) {
- if (n == 1) {
- return 1;
- } else {
- return 3 * A(n - 1) - 2;
- }
+     if (n == 1) {
+         return 1;
+     } else {
+         return 3 * A(n - 1) - 2;
+     }
  }
  </pre>
 
- <p>Surprisingly, A(n) = 1 no matter what n you give it! See the results for yourself using this test
- code:</p>
+ <p>Surprisingly, A(n) = 1 no matter what n you give it! See the results for yourself using 
+ this test code:</p>
 
  <pre>
  for(int i = 1; i <= 10; ++i) {
- System.out.printf("B(%s) = %s\n", i, B(i));
+     System.out.printf("B(%s) = %s\n", i, B(i));
  }
  </pre>
 
@@ -101,18 +100,18 @@ import java.util.Arrays;
 
  <pre>
  B(1) = 2    
- B(n) = 3*B(n - 1) - 2
+ B(n) = 3 * B(n - 1) - 2
  </pre>
 
  <p>The Java function is this:</p>
 
  <pre>
  public static int B(int n) {
- if (n == 1) {
- return 2;
- } else {
- return 3 * B(n - 1) - 2;
- }
+     if (n == 1) {
+         return 2;
+     } else {
+         return 3 * B(n - 1) - 2;
+     }
  }
  </pre>
 
@@ -131,41 +130,49 @@ import java.util.Arrays;
  B(10) = 19684
  </pre>
 
- <p>Another useful recursive definition is for calculating powers of 2. note that this starts at 0:</p>
+<p>It turns out that B(n) = 3^(n-1) + 1; determining a formula for a recursive definition
+requires mathematics beyond the scope of this course. And even then, not all recursive 
+definitions have a corresponding formula --- recursion is a powerful mathematical tool!</p>
+
+ <p>Another useful recursive definition is for calculating powers of 2. Note that this starts 
+ at 0:</p>
 
  <pre>
  T(0) = 1
  T(n) = 2 * T(n - 1)
  </pre>
 
- <p>This recursive definition can be used as a definition of 2^n (2 to the power of n), i.e. T(n) = 2^n.
+ <p>This recursive definition defines 2^n (2 to the power of n), i.e. T(n) = 2^n.
  Indeed, more generally, we can define a^n as follows:</p>
 
  <pre>
  P(a, 0) = 1, for a != 0
  P(a, n) = a * T(n - 1), for n > 0
  </pre>
-
- <p>It's important to follow these rules <em>precisely</em>. Zero to the power of zero is undefined
- and isn't allowed by the definition if you read carefully.</p>
  
- <p>So we can write this in Java as follows:</p>
+ <p>This defines a to the power of n. Notice how compact and simple the definition is.</p>
+
+ <p>As with all mathematical definitions, it's important to follow the rules <em>precisely</em>. 
+ For example, if you read this definition carefully you will see that zero to the power of zero is 
+ undefined.</p>
+ 
+ <p>So we can translate this to Java as follows:</p>
 
  <pre>
  public static int pow(int a, int n) {
- assert !(a == 0 && n == 0);
- if (a == 0) {
- return 0;
- } else if (n == 0) {
- return 1;
- } else {
- return a * pow(a, n - 1);
- }
+     assert !(a == 0 && n == 0);
+     if (a == 0) {
+         return 0;
+     } else if (n == 0) {
+         return 1;
+     } else {
+         return a * pow(a, n - 1);
+     }
  }
  </pre>
 
- <p>This does the same thing as the recursive definition, but the if-statements and assert are written
- to handle a few special cases.</p>
+<p>One of the nice things about recursive definitions is that they are so easy to implement
+in Java. The Java program corresponds pretty directly to the definition itself.</p>
 
  */
 
