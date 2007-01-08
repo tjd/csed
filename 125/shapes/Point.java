@@ -31,6 +31,11 @@ public class Point {
 		this.y = p.y;
 	}
 
+	public boolean equals(Object o) {
+		Point other = (Point) o;
+		return this.x == other.x && this.y == other.y;
+	}
+
 	public void drawOn(UberImage img) {
 		img.setColor(this.x, this.y, Color.BLACK);
 	}

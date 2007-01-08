@@ -10,6 +10,8 @@ public class MyVectorRecursion {
 		countTest();
 		minTest();
 		hasDuplicatesTest();
+		equalTest();
+		reverseTest();
 		System.out.println("All tests passed.");
 	}
 	
@@ -216,4 +218,86 @@ public class MyVectorRecursion {
 		vec2.push(5);
 		assert hasDuplicates(vec2) == true;
 	}	
+	
+	public static boolean equal(MyVector A, MyVector B) {
+		if (A.isEmpty() && B.isEmpty()) {
+			return true;
+		} else if (A.size() == B.size() && A.first() == B.first()) {
+			return equal(A.rest(), B.rest());
+		} else {
+			return false;
+		}
+	}
+	
+	public static void equalTest() {
+		MyVector vec = new MyVector();
+		MyVector vec1 = new MyVector();
+		assert equal(vec, vec);
+		assert equal(vec, vec1);
+		vec.push(1);
+		vec1.push(1);
+		assert equal(vec, vec);
+		assert equal(vec, vec1);
+		vec.push(2);
+		vec1.push(2);
+		assert equal(vec, vec);
+		assert equal(vec, vec1);
+		vec.push(3);
+		vec1.push(3);
+		assert equal(vec, vec);
+		assert equal(vec, vec1);
+		vec = new MyVector();
+		vec1 = new MyVector();
+		vec.push(1);
+		assert equal(vec, vec1) == false;
+		assert equal(vec1, vec) == false;
+		vec1.push(2);
+		assert equal(vec, vec1) == false;
+		assert equal(vec1, vec) == false;
+		vec.push(3);
+		assert equal(vec, vec1) == false;
+		assert equal(vec1, vec) == false;
+		vec1.push(3);
+		assert equal(vec, vec1) == false;
+		assert equal(vec1, vec) == false;
+	}	
+	
+	public static void reverse(MyVector vec) {
+		reverse(vec, 0, vec.size() - 1);
+	}
+	
+	public static void reverse(MyVector vec, int begin, int end) {
+		if (begin >= end) {
+			return;
+		} else {
+			// swap the items at location begin and end
+			int temp = vec.get(begin);
+			vec.set(begin, vec.get(end));
+			vec.set(end, temp);
+			reverse(vec, begin + 1, end - 1);
+		}
+	}
+	
+	public static void reverseTest() {
+		MyVector vec = new MyVector();
+		MyVector vec1 = new MyVector();
+		reverse(vec);
+		assert equal(vec, vec1);
+		vec.push(9);
+		vec1.push(9);
+		assert equal(vec, vec1);
+		vec.push(8);
+		vec1 = new MyVector();
+		vec1.push(8);
+		vec1.push(9);
+		reverse(vec);
+		assert equal(vec, vec1) : "" + vec + ", " + vec1;
+		vec.push(7);
+		vec1 = new MyVector();
+		vec1.push(7);
+		vec1.push(9);
+		vec1.push(8);
+		reverse(vec);
+		assert equal(vec, vec1) : "" + vec + ", " + vec1;
+	}
 }
