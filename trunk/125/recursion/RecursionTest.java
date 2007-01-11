@@ -132,7 +132,7 @@ import java.util.Arrays;
 
 <p>It turns out that B(n) = 3^(n-1) + 1; determining a formula for a recursive definition
 requires mathematics beyond the scope of this course. And even then, not all recursive 
-definitions have a corresponding formula --- recursion is a powerful mathematical tool!</p>
+definitions have a corresponding formula --- recursion is a powerful tool!</p>
 
  <p>Another useful recursive definition is for calculating powers of 2. Note that this starts 
  at 0:</p>
@@ -153,8 +153,7 @@ definitions have a corresponding formula --- recursion is a powerful mathematica
  <p>This defines a to the power of n. Notice how compact and simple the definition is.</p>
 
  <p>As with all mathematical definitions, it's important to follow the rules <em>precisely</em>. 
- For example, if you read this definition carefully you will see that zero to the power of zero is 
- undefined.</p>
+ For example, note that zero to the power of zero is undefined.</p>
  
  <p>So we can translate this to Java as follows:</p>
 
