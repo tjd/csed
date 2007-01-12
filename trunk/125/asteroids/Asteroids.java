@@ -84,7 +84,8 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	static final int MAX_ROCK_SPEED = 12;
 
 	static final int BIG_POINTS = 25; // Points for shooting different
-										// objects.
+
+	// objects.
 
 	static final int SMALL_POINTS = 50;
 
@@ -93,10 +94,12 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	static final int MISSLE_POINTS = 500;
 
 	static final int NEW_SHIP_POINTS = 5000; // Number of points needed to
-												// earn a new ship.
+
+	// earn a new ship.
 
 	static final int NEW_UFO_POINTS = 2750; // Number of points between flying
-											// saucers.
+
+	// saucers.
 
 	// Color asteroids_BG = new Color(0x7d, 0x4b, 0x1d, 100);
 	Color asteroids_BG = new Color(0, 0, 126);
@@ -169,7 +172,8 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	// Photon data.
 
 	int[] photonCounter = new int[MAX_SHOTS]; // Time counter for life of a
-												// photon.
+
+	// photon.
 
 	int photonIndex; // Next available photon sprite.
 
@@ -196,7 +200,8 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	// Explosion data.
 
 	int[] explosionCounter = new int[MAX_SCRAP]; // Time counters for
-													// explosions.
+
+	// explosions.
 
 	int explosionIndex; // Next available explosion sprite.
 
@@ -512,23 +517,22 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	public void loadSounds() {
 
 		// Load all sound clips by playing and immediately stopping them.
-
 		System.out.println(Asteroids.class.getClassLoader().getResource(
-				"crash.au").toString());
+				"asteroids/crash.au").toString());
 		crashSound = getAudioClip(Asteroids.class.getClassLoader().getResource(
-				"crash.au"));
+				"asteroids/crash.au"));
 		explosionSound = getAudioClip(Asteroids.class.getClassLoader()
-				.getResource("explosion.au"));
+				.getResource("asteroids/explosion.au"));
 		fireSound = getAudioClip(Asteroids.class.getClassLoader().getResource(
-				"fire.au"));
+				"asteroids/fire.au"));
 		missleSound = getAudioClip(Asteroids.class.getClassLoader()
-				.getResource("missle.au"));
+				.getResource("asteroids/missle.au"));
 		saucerSound = getAudioClip(Asteroids.class.getClassLoader()
-				.getResource("saucer.au"));
+				.getResource("asteroids/saucer.au"));
 		thrustersSound = getAudioClip(Asteroids.class.getClassLoader()
-				.getResource("thrusters.au"));
+				.getResource("asteroids/thrusters.au"));
 		warpSound = getAudioClip(Asteroids.class.getClassLoader().getResource(
-				"warp.au"));
+				"asteroids/warp.au"));
 
 		crashSound.start();
 		crashSound.stop();
