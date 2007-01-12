@@ -71,9 +71,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	static final int UFO_PASSES = 3;
 
-	static final int MIN_ROCK_SIDES = 3; // Asteroid shape and size ranges.
+	static final int MIN_ROCK_SIDES = 10; // Asteroid shape and size ranges.
 
-	static final int MAX_ROCK_SIDES = 3;
+	static final int MAX_ROCK_SIDES = 20;
 
 	static final int MIN_ROCK_SIZE = 20;
 
@@ -1107,20 +1107,17 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	public void explode(AsteroidsSprite s) {
 
-		int c, i, j;
-
 		// Create sprites for explosion animation. The each individual line
-		// segment of the given sprite
-		// is used to create a new sprite that will move outward from the
-		// sprite's original position
+		// segment of the given sprite is used to create a new sprite that 
+		// will move outward from the sprite's original position
 		// with a random rotation.
 
 		s.render();
-		c = 2;
+		int c = 2;
 		if (detail || s.sprite.npoints < 6) {
 			c = 1;
 		}
-		for (i = 0; i < s.sprite.npoints; i += c) {
+		for (int i = 0; i < s.sprite.npoints; i += c) {
 			explosionIndex++;
 			if (explosionIndex >= MAX_SCRAP) {
 				explosionIndex = 0;
@@ -1129,7 +1126,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 			explosions[explosionIndex].shape = new Polygon();
 			explosions[explosionIndex].shape.addPoint(s.shape.xpoints[i],
 					s.shape.ypoints[i]);
-			j = i + 1;
+			int j = i + 1;
 			if (j >= s.sprite.npoints) {
 				j -= s.sprite.npoints;
 			}
@@ -1148,12 +1145,10 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	public void updateExplosions() {
 
-		int i;
-
 		// Move any active explosion debris. Stop explosion when its counter has
 		// expired.
 
-		for (i = 0; i < MAX_SCRAP; i++) {
+		for (int i = 0; i < MAX_SCRAP; i++) {
 			if (explosions[i].active) {
 				explosions[i].advance();
 				explosions[i].render();

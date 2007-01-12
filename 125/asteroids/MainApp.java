@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -29,7 +30,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
-public class MainApp implements ActionListener, WindowListener {
+public class MainApp extends WindowAdapter implements ActionListener {
 
 	private final static Dimension SMALL = new Dimension(320, 240);
 
@@ -53,7 +54,7 @@ public class MainApp implements ActionListener, WindowListener {
 
 	private JMenuBar menuBar;
 
-	private JMenu gameMnu;
+	private JMenu gameMenu;
 
 	private JMenuItem newGameMI;
 
@@ -75,7 +76,7 @@ public class MainApp implements ActionListener, WindowListener {
 
 	private JPanel fullScreenPanel;
 
-	private JMenu helpMnu;
+	private JMenu helpMenu;
 
 	private JMenuItem aboutMI;
 
@@ -84,7 +85,6 @@ public class MainApp implements ActionListener, WindowListener {
 	private Dimension currentSize = MEDIUM;
 
 	public MainApp() {
-
 		init();
 	}
 
@@ -117,8 +117,8 @@ public class MainApp implements ActionListener, WindowListener {
 		menuBar = new JMenuBar();
 
 		// Game Menu
-		gameMnu = new JMenu("Game");
-		gameMnu.setMnemonic('G');
+		gameMenu = new JMenu("Game");
+		gameMenu.setMnemonic('G');
 		// gameMnu.getPopupMenu().setLightWeightPopupEnabled(false);
 
 		// New Game
@@ -127,8 +127,8 @@ public class MainApp implements ActionListener, WindowListener {
 		newGameMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
 				InputEvent.CTRL_MASK));
 		newGameMI.addActionListener(this);
-		gameMnu.add(newGameMI);
-		gameMnu.add(new JSeparator());
+		gameMenu.add(newGameMI);
+		gameMenu.add(new JSeparator());
 
 		// Exit
 		exitMI = new JMenuItem("Exit");
@@ -136,8 +136,8 @@ public class MainApp implements ActionListener, WindowListener {
 		exitMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
 				InputEvent.CTRL_MASK));
 		exitMI.addActionListener(this);
-		menuBar.add(gameMnu);
-		gameMnu.add(exitMI);
+		menuBar.add(gameMenu);
+		gameMenu.add(exitMI);
 
 		// View Menu
 		viewMenu = new JMenu("View");
@@ -179,15 +179,15 @@ public class MainApp implements ActionListener, WindowListener {
 		viewMenu.add(fullScreenMI);
 
 		// Help
-		helpMnu = new JMenu("Help");
-		helpMnu.setMnemonic('H');
-		menuBar.add(helpMnu);
+		helpMenu = new JMenu("Help");
+		helpMenu.setMnemonic('H');
+		menuBar.add(helpMenu);
 
 		aboutMI = new JMenuItem("About");
 		aboutMI.setMnemonic('A');
 		aboutMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		aboutMI.addActionListener(this);
-		helpMnu.add(aboutMI);
+		helpMenu.add(aboutMI);
 	}
 
 	public void setFullScreenMode(boolean fullScreen) {
@@ -441,26 +441,8 @@ public class MainApp implements ActionListener, WindowListener {
 		me.game.requestFocus();
 	}
 
-	public void windowActivated(WindowEvent e) {
-	}
-
 	public void windowClosed(WindowEvent e) {
 		System.exit(0);
-	}
-
-	public void windowClosing(WindowEvent e) {
-	}
-
-	public void windowDeactivated(WindowEvent e) {
-	}
-
-	public void windowDeiconified(WindowEvent e) {
-	}
-
-	public void windowIconified(WindowEvent e) {
-	}
-
-	public void windowOpened(WindowEvent e) {
 	}
 
 }
