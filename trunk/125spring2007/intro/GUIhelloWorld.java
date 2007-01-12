@@ -1,5 +1,7 @@
 package intro;
 
+// based on listing 3.7 p.143 of LL5
+
 import java.awt.Color;
 import java.awt.Dimension;
 
