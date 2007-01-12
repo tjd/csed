@@ -78,15 +78,11 @@ public class AsteroidsSprite {
 	}
 
 	public void render() {
-
-		int i;
-
 		// Render the sprite's shape and location by rotating it's base shape
-		// and moving it to
-		// it's proper screen position.
+		// and moving it to it's proper screen position.
 
 		this.sprite = new Polygon();
-		for (i = 0; i < this.shape.npoints; i++)
+		for (int i = 0; i < this.shape.npoints; i++)
 			this.sprite.addPoint((int) Math.round(this.shape.xpoints[i]
 					* Math.cos(this.angle) + this.shape.ypoints[i]  // CHANGE cos to sin for a fun effect
 					* Math.sin(this.angle))
@@ -98,16 +94,14 @@ public class AsteroidsSprite {
 
 	public boolean isColliding(AsteroidsSprite s) {
 
-		int i;
-
 		// Determine if one sprite overlaps with another, i.e., if any vertice
 		// of one sprite lands inside the other.
 
-		for (i = 0; i < s.sprite.npoints; i++)
-			if (this.sprite.inside(s.sprite.xpoints[i], s.sprite.ypoints[i]))
+		for (int i = 0; i < s.sprite.npoints; i++)
+			if (this.sprite.contains(s.sprite.xpoints[i], s.sprite.ypoints[i]))
 				return true;
-		for (i = 0; i < this.sprite.npoints; i++)
-			if (s.sprite.inside(this.sprite.xpoints[i], this.sprite.ypoints[i]))
+		for (int i = 0; i < this.sprite.npoints; i++)
+			if (s.sprite.contains(this.sprite.xpoints[i], this.sprite.ypoints[i]))
 				return true;
 		return false;
 	}

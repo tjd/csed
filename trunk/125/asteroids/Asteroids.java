@@ -71,9 +71,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	static final int UFO_PASSES = 3;
 
-	static final int MIN_ROCK_SIDES = 10; // Asteroid shape and size ranges.
+	static final int MIN_ROCK_SIDES = 5; // Asteroid shape and size ranges.
 
-	static final int MAX_ROCK_SIDES = 20;
+	static final int MAX_ROCK_SIDES = 10;
 
 	static final int MIN_ROCK_SIZE = 20;
 
@@ -829,8 +829,6 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	public void updateMissle() {
 
-		int i;
-
 		// Move the guided missle and check for collision with ship or photon.
 		// Stop it when its
 		// counter has expired.
@@ -842,7 +840,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 				guideMissle();
 				missle.advance();
 				missle.render();
-				for (i = 0; i < MAX_SHOTS; i++) {
+				for (int i = 0; i < MAX_SHOTS; i++) {
 					if (photons[i].active && missle.isColliding(photons[i])) {
 						if (sound) {
 							crashSound.setMicrosecondPosition(0);
