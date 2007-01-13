@@ -440,7 +440,6 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	public void run() {
 
-		int i, j;
 		long startTime;
 
 		// Lower this thread's priority and get the current time.
@@ -719,10 +718,6 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void initUfo() {
-
-		double temp;
-
-		// Randomly set flying saucer at left or right edge of the screen.
 
 		ufo.active = true;
 		ufo.currentX = -AsteroidsSprite.width / 2;
