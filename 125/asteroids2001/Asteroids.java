@@ -1,6 +1,5 @@
 package asteroids2001;
 
-package asteroids2001;
 /******************************************************************************
   Asteroids, Version 1.3
 
