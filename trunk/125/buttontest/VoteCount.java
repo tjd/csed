@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 
 public class VoteCount {
 
-
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Vote Counter");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,7 +21,6 @@ public class VoteCount {
 		frame.getContentPane().add(primary);
 		frame.pack();
 		frame.setVisible(true);
-
 	}
 
 }
