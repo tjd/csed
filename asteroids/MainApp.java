@@ -29,6 +29,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
+
 public class MainApp implements ActionListener, WindowListener {
 
 	private final static Dimension SMALL = new Dimension(320, 240);
