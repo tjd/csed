@@ -3,17 +3,17 @@ Design document for chatbots.
 
 = Introduction =
 
-The following documents the language-neutral architecture for Jabber chatbot clients.
-Currently Python and Java clients are planned, but this design should be implementable in
-any programming language with Jabber support.
+The following documents an object-oriented architecture for Jabber chatbot clients.
+Currently Python and Java clients are planned, but this design is intended to be implementable in any programming language with Jabber support.
 
 = Major Design Goals =
 
 The chatbot client should support these features:
 
-  * It should be easy for beginners (i.e. students in CMPT 120/125) to create a new chatbot, and then in a few lines of code set up a working Jabber connection. 
-  * In addition to on-line Jabber chatting, a module that allows users to easily chat locally for testing purposes.
-  * Transcript logging.
+  * It should be as easy as possible for beginners (i.e. students in CMPT 120/125) to create a new chatbot, and then in a few lines of code set up a working Jabber connection.
+  * In addition to on-line Jabber chatting, it should also be easy for users to chat locally for testing purposes.
+  * One of the supplied chatbots lets the user chat with other Jabber users. This can be  the basis of both a regular human chat client, or as a testing tool when combined with the local server proxy in the previous point.  
+  * Transcript logging. By default, every chat sessions's sent and received messages are appended to the text file `jabberlog.txt`.
 
 = Main Classes =
 
