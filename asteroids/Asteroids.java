@@ -54,15 +54,15 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	// Constants
 
-	static final int DELAY = 50; // Milliseconds between screen updates.
+	static final int DELAY = 20; // Milliseconds between screen updates.
 
 	static final int MAX_SHIPS = 3; // Starting number of ships per game.
 
-	static final int MAX_SHOTS = 6; // Maximum number of sprites for photons,
+	static final int MAX_SHOTS = 8; // Maximum number of sprites for photons,
 
-	static final int MAX_ROCKS = 10; // asteroids and explosions.
+	static final int MAX_ROCKS = 8; // asteroids and explosions.
 
-	static final int MAX_SCRAP = 20;
+	static final int MAX_SCRAP = 40;
 
 	static final int SCRAP_COUNT = 10; // Counter starting values.
 
@@ -72,9 +72,9 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	static final int UFO_PASSES = 3;
 
-	static final int MIN_ROCK_SIDES = 3; // Asteroid shape and size ranges.
+	static final int MIN_ROCK_SIDES = 6; // Asteroid shape and size ranges.
 
-	static final int MAX_ROCK_SIDES = 3;
+	static final int MAX_ROCK_SIDES = 16;
 
 	static final int MIN_ROCK_SIZE = 20;
 

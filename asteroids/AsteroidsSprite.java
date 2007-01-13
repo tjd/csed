@@ -28,17 +28,16 @@ public class AsteroidsSprite {
 
 	double deltaX, deltaY; // Amount to change the screen position.
 
-	Polygon sprite; // Final location and shape of sprite after applying
-					// rotation and
-
-	// moving to screen position. Used for drawing on the screen and
-	// in detecting collisions.
+	Polygon sprite; 
+	// Final location and shape of sprite after applying
+	// rotation and moving to screen position. Used for 
+	// drawing on the screen and in detecting collisions.
+	
 	Color colour; // Colour of asteroid
 
 	// Constructors:
 
 	public AsteroidsSprite() {
-
 		this.shape = new Polygon();
 		this.active = false;
 		this.angle = 0.0;
@@ -56,9 +55,8 @@ public class AsteroidsSprite {
 	public void advance() {
 
 		// Update the rotation and position of the sprite based on the delta
-		// values. If the sprite
-		// moves off the edge of the screen, it is wrapped around to the other
-		// side.
+		// values. If the sprite moves off the edge of the screen, it is 
+		// wrapped around to the other side.
 
 		this.angle += this.deltaAngle;
 		if (this.angle < 0)
@@ -78,15 +76,12 @@ public class AsteroidsSprite {
 	}
 
 	public void render() {
-
-		int i;
-
 		// Render the sprite's shape and location by rotating it's base shape
 		// and moving it to
 		// it's proper screen position.
 
 		this.sprite = new Polygon();
-		for (i = 0; i < this.shape.npoints; i++)
+		for (int i = 0; i < this.shape.npoints; i++)
 			this.sprite.addPoint((int) Math.round(this.shape.xpoints[i]
 					* Math.cos(this.angle) + this.shape.ypoints[i]
 					* Math.sin(this.angle))
@@ -98,16 +93,14 @@ public class AsteroidsSprite {
 
 	public boolean isColliding(AsteroidsSprite s) {
 
-		int i;
-
 		// Determine if one sprite overlaps with another, i.e., if any vertice
 		// of one sprite lands inside the other.
 
-		for (i = 0; i < s.sprite.npoints; i++)
-			if (this.sprite.inside(s.sprite.xpoints[i], s.sprite.ypoints[i]))
+		for (int i = 0; i < s.sprite.npoints; i++)
+			if (this.sprite.contains(s.sprite.xpoints[i], s.sprite.ypoints[i]))
 				return true;
-		for (i = 0; i < this.sprite.npoints; i++)
-			if (s.sprite.inside(this.sprite.xpoints[i], this.sprite.ypoints[i]))
+		for (int i = 0; i < this.sprite.npoints; i++)
+			if (s.sprite.contains(this.sprite.xpoints[i], this.sprite.ypoints[i]))
 				return true;
 		return false;
 	}
