@@ -236,8 +236,8 @@ public class EasyInput {
 	}
 
 	/**
-	 * Converts a text file into a string. May through an IOException if an
-	 * error occurs.
+	 * Converts a text file into a string. May throw an Error if a
+	 * problem occurs.
 	 * 
 	 * @param path
 	 *            The path of the text file to read.

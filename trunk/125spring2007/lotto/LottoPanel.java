@@ -33,13 +33,14 @@ public class LottoPanel extends JPanel {
 		pickButton =  new JButton("Pick");
 		pickButton.addActionListener(new ButtonListener());
 		
-		// add the GUI components
+		// add the GUI components to this panel
 		for(int i = 0; i < 6; ++i) {
 			this.add(label.get(i));
 		}
 		this.add(pickButton);
 		this.setPreferredSize(new Dimension(165, 60));
 		
+		// choose the first set of numbers
 		selectNumbers();
 	}
 
