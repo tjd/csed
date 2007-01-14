@@ -1,4 +1,8 @@
-package util; // last modified: June 22, 2004
+package util;
+
+/*
+ * Helper methods for debugging code.
+ */
 
 public class dbg {
 	public static boolean DEBUG = true;
