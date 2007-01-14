@@ -4,7 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /* 
- * In this lottery, 6 numbers (with no duplicates) are chosen in the range to 49 inclusive.
+ * In this lottery, 6 numbers (with no duplicates) are chosen in the range 
+ * 1 to 49 inclusive.
  * 
  */
 
