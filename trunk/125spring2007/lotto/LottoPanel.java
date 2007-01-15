@@ -30,7 +30,7 @@ public class LottoPanel extends JPanel {
 		}
 		
 		// create the button
-		pickButton =  new JButton("Pick");
+		pickButton = new JButton("Pick");
 		pickButton.addActionListener(new ButtonListener());
 		
 		// add the GUI components to this panel
