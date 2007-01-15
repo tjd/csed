@@ -50,6 +50,8 @@ public class Descriptive {
 		System.out.printf("mean(%s) = %s\n", arr1, mean(arr1));
 		arr1.add(2.0);
 		System.out.printf("mean(%s) = %s\n", arr1, mean(arr1));
+		arr1.add(3.0);
+		System.out.printf("mean(%s) = %s\n", arr1, mean(arr1));
 	}
 
 	public static void main(String[] args) {
