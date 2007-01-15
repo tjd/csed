@@ -6,7 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import util.EasyInput;
+import javaintro.EasyInput;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
