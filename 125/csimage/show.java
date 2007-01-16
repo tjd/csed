@@ -45,22 +45,15 @@ public class show {
 
 	public static JFrame makeFrame(final BufferedImage img) {
 		assert img != null;
-		JPanel panel = new JPanel() {
-			@Override
-			public void paintComponent(Graphics g) {
-				super.paintComponents(g);
-				g.drawImage(img, 0, 0, this);
-			}
-		};
-		panel.setSize(img.getWidth(), img.getHeight());
+		JPanel panel = makePanel(img);
 
 		JFrame f = new JFrame("Image Frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		f.setContentPane(panel);
 
-		f.setSize(panel.getWidth() + insets.left + insets.right, panel
-				.getHeight()
+		f.setSize(panel.getWidth() + insets.left + insets.right, 
+				panel.getHeight()
 				+ insets.top + insets.bottom);
 
 		// center the frame
@@ -69,6 +62,18 @@ public class show {
 		f.setResizable(false);
 
 		return f;
+	}
+	
+	public static JPanel makePanel(final BufferedImage img) {
+		JPanel panel = new JPanel() {
+			@Override
+			public void paintComponent(Graphics g) {
+				super.paintComponents(g);
+				g.drawImage(img, 0, 0, this);
+			}
+		};
+		panel.setSize(img.getWidth(), img.getHeight());
+		return panel;
 	}
 
 	public final static Insets insets = getJFrameInsets();
