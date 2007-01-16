@@ -1,8 +1,11 @@
 package myvector;
 
+import java.util.Random;
+
 public class MyVectorRecursion {
 
 	public static void main(String[] args) {
+		checkAssertions();
 		lengthTest();
 		sumTest();
 		containsTest();
@@ -12,7 +15,19 @@ public class MyVectorRecursion {
 		hasDuplicatesTest();
 		equalTest();
 		reverseTest();
+		shuffleTest();
 		System.out.println("All tests passed.");
+	}
+	
+	// throws an error if assertions are not enabled in JVM
+	public static void checkAssertions()
+	{
+		try {
+			assert 1 == 2;
+			throw new Error("Assertions not enabled!");
+		} catch (AssertionError e) {
+			// okay!
+		}
 	}
 	
 	public static int length(MyVector vec) {
@@ -300,4 +315,40 @@ public class MyVectorRecursion {
 		reverse(vec);
 		assert equal(vec, vec1) : "" + vec + ", " + vec1;
 	}
+	
+	private static Random rnd = new Random();
+	
+	public static void shuffle(MyVector vec) {
+		shuffle(vec, 0);
+	}
+	
+	public static void shuffle(MyVector vec, int i) {
+		final int n = vec.size();
+		if (i >= n) {
+			return;
+		} else {
+			int r = rnd.nextInt(n);
+			// swap the values at i and r
+			int temp = vec.get(i);
+			vec.set(i, vec.get(r));
+			vec.set(r, temp);
+			shuffle(vec, i + 1);
+		}
+	}
+	
+	public static void shuffleTest() {
+		MyVector vec = new MyVector();
+		shuffle(vec);
+		MyVector vec1 = new MyVector();
+		assert equal(vec, vec1);
+		
+		vec.push(5);
+		shuffle(vec);
+		assert vec.get(0) == 5;
+		
+		vec.push(4);
+		shuffle(vec);
+		assert (vec.get(0) == 4 && vec.get(1) == 5) || (vec.get(0) == 5 && vec.get(1) == 4);
+	}
+	
 }
