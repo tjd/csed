@@ -41,7 +41,7 @@ public class show {
 		});
 	}
 
-	// //////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////
 
 	public static JFrame makeFrame(final BufferedImage img) {
 		assert img != null;
@@ -49,16 +49,12 @@ public class show {
 
 		JFrame f = new JFrame("Image Frame");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		f.setContentPane(panel);
-
 		f.setSize(panel.getWidth() + insets.left + insets.right, 
-				panel.getHeight()
-				+ insets.top + insets.bottom);
+				panel.getHeight() + insets.top + insets.bottom);
 
 		// center the frame
 		f.setLocationRelativeTo(null);
-
 		f.setResizable(false);
 
 		return f;
