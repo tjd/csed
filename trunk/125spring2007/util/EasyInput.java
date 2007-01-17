@@ -51,6 +51,10 @@ import javax.swing.JFileChooser;
 
 public class EasyInput {
 
+	public static String quote(String s) {
+		return "\"" + s + "\"";
+	}
+
 	/**
 	 * Gets input from the console window typed by the user on the keyboard. If
 	 * an IOException occurs, then an error message is printed.
@@ -236,8 +240,8 @@ public class EasyInput {
 	}
 
 	/**
-	 * Converts a text file into a string. May throw an Error if a
-	 * problem occurs.
+	 * Converts a text file into a string. May throw an Error if a problem
+	 * occurs.
 	 * 
 	 * @param path
 	 *            The path of the text file to read.
@@ -255,9 +259,9 @@ public class EasyInput {
 		} catch (FileNotFoundException e) {
 			throw new Error(
 					"\nThe file "
-							+ dbg.quote(path)
+							+ quote(path)
 							+ " could not be found in the directory:\n"
-							+ dbg.quote(getcwd())
+							+ quote(getcwd())
 							+ "\n"
 							+ "Check that the file you want to read is in the directory\n"
 							+ "you think it's in, and check that all names are spelled\n"
@@ -283,7 +287,7 @@ public class EasyInput {
 			return getWebPage(new URL(url));
 		} catch (MalformedURLException urlEx) {
 			// urlEx.printStackTrace();
-			throw new Error("URL creation failed:\n" + dbg.quote(url)
+			throw new Error("URL creation failed:\n" + quote(url)
 					+ "\nis not a validly formatted URL.");
 		}
 	}
@@ -309,7 +313,7 @@ public class EasyInput {
 			// e.printStackTrace();
 			throw new Error(
 					"The page "
-							+ dbg.quote(urlObj.toString())
+							+ quote(urlObj.toString())
 							+ "could not be retrieved."
 							+ "\nThis is could be caused by a number of things:"
 							+ "\n"
@@ -323,10 +327,9 @@ public class EasyInput {
 		System.out.println("This is a test of the EasyInput class ...\n");
 		String name = input("What is your name? ");
 		String age = input("What is your age?");
-		System.out.println("name = " + dbg.quote(name));
-		System.out.println("age = " + dbg.quote(age));
-		System.out
-				.println("Current working directory = " + dbg.quote(getcwd()));
+		System.out.println("name = " + quote(name));
+		System.out.println("age = " + quote(age));
+		System.out.println("Current working directory = " + quote(getcwd()));
 		System.out.println("Files and folders: " + Arrays.asList(listdir()));
 		String fname = chooseFile();
 		System.out.println(fname);
