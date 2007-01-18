@@ -229,14 +229,18 @@ public class EasyInput {
 	 * @return The contents of the file as a string.
 	 * @throws IOException
 	 */
-	public static String rawReadfile(String path) throws IOException {
-		FileReader in = new FileReader(new File(path));
+	public static String rawFileToString(File path) throws IOException {
+		FileReader in = new FileReader(path);
 		StringBuffer sb = new StringBuffer();
 		for (int c = -1; (c = in.read()) != -1;) {
 			sb.append(c);
 		}
 		in.close();
 		return sb.toString();
+	}
+
+	public static String rawFileToString(String path) throws IOException {
+		return rawFileToString(new File(path));
 	}
 
 	/**
@@ -247,9 +251,9 @@ public class EasyInput {
 	 *            The path of the text file to read.
 	 * @return The contents of the file as a string.
 	 */
-	public static String readfile(String path) {
+	public static String fileToString(File path) {
 		try {
-			FileReader in = new FileReader(new File(path));
+			FileReader in = new FileReader(path);
 			StringBuffer sb = new StringBuffer();
 			for (int c = -1; (c = in.read()) != -1;) {
 				sb.append((char) c);
@@ -259,7 +263,7 @@ public class EasyInput {
 		} catch (FileNotFoundException e) {
 			throw new Error(
 					"\nThe file "
-							+ quote(path)
+							+ quote(path.getName())
 							+ " could not be found in the directory:\n"
 							+ quote(getcwd())
 							+ "\n"
@@ -273,6 +277,10 @@ public class EasyInput {
 					"An IOException has been thrown by the readFile method:\n"
 							+ e);
 		} // try
+	}
+
+	public static String fileToString(String path) {
+		return fileToString(new File(path));
 	}
 
 	/**
@@ -333,7 +341,7 @@ public class EasyInput {
 		System.out.println("Files and folders: " + Arrays.asList(listdir()));
 		String fname = chooseFile();
 		System.out.println(fname);
-		String file = readfile(fname);
+		String file = fileToString(fname);
 		System.out.println(file);
 	}
 }
