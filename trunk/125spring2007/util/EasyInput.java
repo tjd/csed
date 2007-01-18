@@ -274,7 +274,7 @@ public class EasyInput {
 							+ "than \"myfile.txt\"");
 		} catch (IOException e) {
 			throw new Error(
-					"An IOException has been thrown by the readFile method:\n"
+					"An IOException has been thrown by the fileToString method:\n"
 							+ e);
 		} // try
 	}
