@@ -57,7 +57,7 @@ public class EasyInput {
 
 	/**
 	 * Gets input from the console window typed by the user on the keyboard. If
-	 * an IOException occurs, then an error message is printed.
+	 * an IOException occurs, then an Error is thrown.
 	 * 
 	 * @return The string typed by the user.
 	 */
@@ -72,7 +72,7 @@ public class EasyInput {
 
 	/**
 	 * Gets input from the console window typed by the user on the keyboard. If
-	 * an IOException occurs, then an error message is printed.
+	 * an IOException occurs, then an Error is thrown.
 	 * 
 	 * @param prompt
 	 *            The message to be displayed before the user enters their
@@ -89,9 +89,8 @@ public class EasyInput {
 	}
 
 	/**
-	 * Gets input from the console window typed by the user on the keyboard. An
-	 * IOException will be thrown if something goes wrong, and so the user must
-	 * catch it using a try/catch block.
+	 * Gets input from the console window typed by the user on the keyboard. The
+	 * user's code is responsible for handling a possible IOException.
 	 * 
 	 * @return The string typed by the user.
 	 * @throws IOException
@@ -103,9 +102,8 @@ public class EasyInput {
 	}
 
 	/**
-	 * Gets input from the console window typed by the user on the keyboard. An
-	 * IOException will be thrown if something goes wrong, and so the user must
-	 * catch it using a try/catch block.
+	 * Gets input from the console window typed by the user on the keyboard. The
+	 * user's code is responsible for handling a possible IOException.
 	 * 
 	 * @param prompt
 	 *            The message to be displayed before the user enters their
@@ -203,7 +201,7 @@ public class EasyInput {
 	}
 
 	/**
-	 * Using a file dialog box, gets the name of a file.
+	 * Pops up a file dialog box to allow the user to get a file name.
 	 * 
 	 * @return the fully qualified name of the file selected by the user
 	 * @throws Error
@@ -221,8 +219,7 @@ public class EasyInput {
 	}
 
 	/**
-	 * Converts a text file into a string. May throw an IOException if an error
-	 * occurs.
+	 * Converts a text file into a string.
 	 * 
 	 * @param path
 	 *            The path of the text file to read.
@@ -244,8 +241,7 @@ public class EasyInput {
 	}
 
 	/**
-	 * Converts a text file into a string. May throw an Error if a problem
-	 * occurs.
+	 * Converts a text file into a string.
 	 * 
 	 * @param path
 	 *            The path of the text file to read.
