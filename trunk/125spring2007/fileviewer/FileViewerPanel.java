@@ -30,15 +30,17 @@ public class FileViewerPanel extends JPanel {
 
 		JPanel titlePanel = new JPanel();
 		titlePanel.add(title);
-		titlePanel.setBackground(Color.YELLOW);
+		titlePanel.setBackground(Color.PINK);
 		this.add(titlePanel, BorderLayout.NORTH);
 
 		text = new JTextArea(40, 40);
+		text.setLineWrap(true);
+		text.setEditable(false);
 		JScrollPane scrollPane = new JScrollPane(text);
 		this.add(scrollPane, BorderLayout.CENTER);
 
 		button = new JButton("Load File");
-		button.setBackground(Color.YELLOW);
+		button.setBackground(Color.CYAN);
 		button.addActionListener(new ButtonListener());
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.add(button);
