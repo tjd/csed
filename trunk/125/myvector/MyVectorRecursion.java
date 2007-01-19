@@ -1,11 +1,12 @@
 package myvector;
 
 import java.util.Random;
+import util.Util;
 
 public class MyVectorRecursion {
 
 	public static void main(String[] args) {
-		checkAssertions();
+		Util.checkAssertions();
 		lengthTest();
 		sumTest();
 		containsTest();
@@ -17,17 +18,6 @@ public class MyVectorRecursion {
 		reverseTest();
 		shuffleTest();
 		System.out.println("All tests passed.");
-	}
-	
-	// throws an error if assertions are not enabled in JVM
-	public static void checkAssertions()
-	{
-		try {
-			assert 1 == 2;
-			throw new Error("Assertions not enabled!");
-		} catch (AssertionError e) {
-			// okay!
-		}
 	}
 	
 	public static int length(MyVector vec) {
