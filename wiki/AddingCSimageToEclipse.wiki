@@ -1,0 +1,8 @@
+How to add the [http://csed.googlecode.com/files/csimage.jar csimage.jar] file to an Eclipse project.
+
+  # Download [http://csed.googlecode.com/files/csimage.jar csimage.jar] to your computer.
+  # Launch Eclipse and right-click on a Java project. Select "Build Path" and then "Add External Archives...". In the box that pops up, select the [http://csed.googlecode.com/files/csimage.jar csimage.jar] file you just downloaded.
+  # Now [http://csed.googlecode.com/files/csimage.jar csimage.jar] should be part of your project, and you can use any of the classes it provides.
+
+
+
