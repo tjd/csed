@@ -14,8 +14,32 @@ public class Grayscale {
 
 	public static void main(String[] args) {
 		UberImage image = UberImage.fromFile(EasyInput.chooseFile());
-		shuffleRGB(image);
+		makeBlackAndWhite(image, 0.4);
 		show.inFrame(image);
+	}
+
+	public static void makeBlackAndWhite(UberImage image) {
+		makeBlackAndWhite(image, 3 * 255 / 2);
+	}
+
+	public static int brightness(Color c) {
+		return c.getRed() + c.getGreen() + c.getBlue();
+	}
+	
+	public static void makeBlackAndWhite(UberImage image, double rawThreshold) {
+		assert 0 <= rawThreshold && rawThreshold <= 1;
+		int threshold = (int) (3 * 255 * rawThreshold);
+
+		for (int i = 0; i < image.getWidth(); ++i) {
+			for (int j = 0; j < image.getHeight(); ++j) {
+				Color c = image.getColor(i, j);
+				if (brightness(c) < threshold) {
+					image.setColor(i, j, Color.BLACK);
+				} else {
+					image.setColor(i, j, Color.WHITE);
+				}
+			}
+		}
 	}
 
 	public static int maxRGB(Color c) {
@@ -79,21 +103,8 @@ public class Grayscale {
 				arr.set(1, g);
 				arr.set(2, b);
 				Collections.shuffle(arr);
-				image.setColor(i, j, new Color(arr.get(0), arr.get(1), arr.get(2)));
-			}
-		}
-	}
-	
-	public static void makeBlackAndWhite(UberImage image) {
-		for (int i = 0; i < image.getWidth(); ++i) {
-			for (int j = 0; j < image.getHeight(); ++j) {
-				Color c = image.getColor(i, j);
-				int brightness = c.getRed() + c.getGreen() + c.getBlue();
-				if (brightness < 3 * 255 / 2) {
-					image.setColor(i, j, Color.WHITE);
-				} else {
-					image.setColor(i, j, Color.BLACK);
-				}
+				image.setColor(i, j, new Color(arr.get(0), arr.get(1), arr
+						.get(2)));
 			}
 		}
 	}
