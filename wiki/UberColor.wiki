@@ -1,3 +1,4 @@
-A helper class found in the csimage.jar file.
+#labels Documentation
+A helper class found in the [http://csed.googlecode.com/files/csimage.jar csimage.jar] file.
 
 See UsingUberImage and AddingCsImageToEclipse for more information.
