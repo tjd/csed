@@ -1,3 +1,4 @@
+#labels Documentation
 Instructions for using the UberImage class.
 
 = Introduction =
@@ -21,6 +22,5 @@ The following summarizes the most useful methods in UberImage. Note that the fir
 UberImage has many other methods, but these ones are the main ones. It's worth noting that UberImage is a subclass of Java's BufferedImage class, and so any code that needs a BufferedImage can use an UberImage instead.
 
 The UberColor class is designed to work with the UberImage class, and it is a subclass of the Java Color class. In addition to doing everything Color object do, UberColor objects provide helper methods, such as lightness() and luminance().
-
 
 
