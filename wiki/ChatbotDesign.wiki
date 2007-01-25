@@ -1,4 +1,4 @@
-#labels Phase-Design
+#labels Phase-Requirements
 Design document for chatbots.
 
 = Introduction =
