@@ -1,0 +1,3 @@
+A helper class found in the csimage.jar file.
+
+See UsingUberImage and AddingCsImageToEclipse for more information.
