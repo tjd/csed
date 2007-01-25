@@ -4,5 +4,20 @@ How to add the [http://csed.googlecode.com/files/csimage.jar csimage.jar] file t
   # Launch Eclipse and right-click on a Java project. Select "Build Path" and then "Add External Archives...". In the box that pops up, select the [http://csed.googlecode.com/files/csimage.jar csimage.jar] file you just downloaded.
   # Now [http://csed.googlecode.com/files/csimage.jar csimage.jar] should be part of your project, and you can use any of the classes it provides.
 
+To test that you've properly installed [http://csed.googlecode.com/files/csimage.jar csimage.jar], enter this sample program:
 
+{{{
+import csimage.UberImage;
+import csimage.show;
+import csimage.util.EasyInput;
+
+public class TestImage {
+
+	public static void main(String[] args) {
+		String fname = EasyInput.chooseFile();
+		UberImage img = UberImage.fromFile(fname);
+		show.inFrame(img);
+	}
+}
+}}}
 
