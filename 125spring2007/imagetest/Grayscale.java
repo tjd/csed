@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.Random;
 
 import util.EasyInput;
-import csimage.UberColor;
 import csimage.UberImage;
 import csimage.show;
 
