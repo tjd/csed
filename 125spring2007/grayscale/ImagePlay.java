@@ -17,16 +17,19 @@ public class ImagePlay {
 		UberImage copy2 = new UberImage(image);
 		UberImage copy3 = new UberImage(image);
 		UberImage copy4 = new UberImage(image);
-		makeBlackAndWhite(image, 0.4);
+		UberImage copy5 = new UberImage(image);
+//		makeBlackAndWhite(image, 0.4);
 		show.inFrame(image);
-		makeRandomRGB(copy1);
-		show.inFrame(copy1);
-		shuffleRGB(copy2);
-		show.inFrame(copy2);
-		lowestValueRGB(copy3);
-		show.inFrame(copy3);
-		highestValueRGB(copy4);
-		show.inFrame(copy4);
+//		makeRandomRGB(copy1);
+//		show.inFrame(copy1);
+//		shuffleRGB(copy2);
+//		show.inFrame(copy2);
+//		lowestValueRGB(copy3);
+//		show.inFrame(copy3);
+//		highestValueRGB(copy4);
+//		show.inFrame(copy4);
+		sumModRGB(copy5);
+		show.inFrame(copy5);
 	}
 
 	public static void makeBlackAndWhite(UberImage image) {
@@ -173,6 +176,19 @@ public class ImagePlay {
 				} else {
 					image.setColor(i, j, Color.BLUE);
 				}
+			}
+		}
+	}
+	
+	public static void sumModRGB(UberImage image) {
+		for (int i = 0; i < image.getWidth(); ++i) {
+			for (int j = 0; j < image.getHeight(); ++j) {
+				Color c = image.getColor(i, j);
+				int r = c.getRed();
+				int g = c.getGreen();
+				int b = c.getBlue();
+				int sm = (r + g + b) % 256;
+				image.setColor(i, j, new Color(sm , sm, sm));
 			}
 		}
 	}
