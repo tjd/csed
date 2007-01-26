@@ -11,22 +11,24 @@ public class Grayscale {
 
 	public static void main(String[] args) {
 		UberImage image = UberImage.fromFile(EasyInput.chooseFile());
-		UberImage copy = new UberImage(image);
-		System.out.print("Calling makeBlackAndWhite ... ");
-		makeBlackAndWhite(image);
-		System.out.println("done");
 		show.inFrame(image);
-		System.out.print("Calling bwRandomDither ...");
-		bwRandomDither(copy);
+		UberImage copy1 = new UberImage(image);
+		UberImage copy2 = new UberImage(image);
+		System.out.print("Calling makeBlackAndWhite ... ");
+		makeBlackAndWhite(copy1);
 		System.out.println("done");
-		show.inFrame(copy);
+		show.inFrame(copy1);
+		System.out.print("Calling bwRandomDither ...");
+		bwRandomDither(copy2);
+		System.out.println("done");
+		show.inFrame(copy2);
 	}
 
 	public static void makeBlackAndWhite(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {
 				Color c = image.getColor(i, j);
-				if (brightness(c) < 3 * 255 / 2) {
+				if (brightness(c) < 0.5) {
 					image.setColor(i, j, Color.BLACK);
 				} else {
 					image.setColor(i, j, Color.WHITE);
@@ -34,14 +36,14 @@ public class Grayscale {
 			}
 		}
 	}
-	
+
 	public static Random rnd = new Random();
-	
+
 	public static void bwRandomDither(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {
 				Color c = image.getColor(i, j);
-				int r = rnd.nextInt(300);
+				double r = rnd.nextDouble();
 				if (brightness(c) < r) {
 					image.setColor(i, j, Color.BLACK);
 				} else {
@@ -51,8 +53,8 @@ public class Grayscale {
 		}
 	}
 
-	public static int brightness(Color c) {
-		return c.getRed() + c.getGreen() + c.getBlue();
+	public static double brightness(Color c) {
+		return (c.getRed() + c.getGreen() + c.getBlue()) / (3.0 * 255);
 	}
 
 }
