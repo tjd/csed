@@ -10,7 +10,7 @@ import csimage.UberColor;
 import csimage.UberImage;
 import csimage.show;
 
-public class Grayscale {
+public class ImagePlay {
 
 	public static void main(String[] args) {
 		UberImage image = UberImage.fromFile(EasyInput.chooseFile());
