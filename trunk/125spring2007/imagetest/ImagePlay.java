@@ -1,4 +1,4 @@
-package grayscale;
+package imagetest;
 
 import java.awt.Color;
 import java.util.ArrayList;
