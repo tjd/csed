@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
@@ -18,6 +17,7 @@ import csimage.UberImage;
 public class BWsliderPanel extends JPanel {
 
 	private UberImage img;
+
 	private UberImage copy;
 
 	private final int SLIDER_MIN = 0;
@@ -38,10 +38,12 @@ public class BWsliderPanel extends JPanel {
 
 	public void convertToBW(UberImage orig, UberImage dest, double threshold) {
 		assert 0 <= threshold && threshold <= 1;
-		assert orig.getWidth() == dest.getWidth() && orig.getHeight() == dest.getHeight();
+		assert orig.getWidth() == dest.getWidth()
+				&& orig.getHeight() == dest.getHeight();
 		for (int i = 0; i < orig.getWidth(); ++i) {
 			for (int j = 0; j < orig.getHeight(); ++j) {
-				dest.setColor(i, j, convertToBW(orig.getColor(i, j), threshold));
+				dest.setColor(i, j, convertToBW(orig.getColor(i, j),
+							  threshold));
 			}
 		}
 	}
