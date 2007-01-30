@@ -79,7 +79,6 @@ public class BWsliderPanel extends JPanel {
 				int thresh = source.getValue();
 				convertToBW(copy, img, thresh / (double) SLIDER_MAX);
 				repaint();
-				System.out.println("" + thresh + "%");
 			}
 		}
 	}
