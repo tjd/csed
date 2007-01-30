@@ -24,8 +24,6 @@ public class BWsliderPanel extends JPanel {
 
 	private final int SLIDER_MAX = 100;
 
-	private JLabel label;
-
 	public double brightness(Color c) {
 		return (c.getRed() + c.getGreen() + c.getBlue()) / (3.0 * 255);
 	}
@@ -49,7 +47,6 @@ public class BWsliderPanel extends JPanel {
 	}
 
 	public BWsliderPanel() {
-		label = new JLabel("50%");
 		JSlider slider = new JSlider(JSlider.HORIZONTAL, SLIDER_MIN,
 				SLIDER_MAX, 50);
 		slider.addChangeListener(new SliderListener());
