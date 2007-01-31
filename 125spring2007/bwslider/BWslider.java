@@ -3,8 +3,6 @@ package bwslider;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import lotto.LottoPanel;
-
 public class BWslider {
 
 	public static void main(String[] args) {

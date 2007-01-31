@@ -11,7 +11,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import util.EasyInput;
-
 import csimage.UberImage;
 
 public class BWsliderPanel extends JPanel {
