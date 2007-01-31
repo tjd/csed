@@ -133,7 +133,10 @@ public class MyVector {
  * 2. Add a constructor that sets the initial capacity of the underlying array
  * to be a given value, e.g. so you can write code like this:
  * 
- * MyVector vec = new MyVector(100): for(int i = 1; i <= 100; ++i) { vec.add(i); }
+ *    MyVector vec = new MyVector(100);
+ *    for(int i = 1; i <= 100; ++i) { 
+ *       vec.add(i);
+ *    }
  * 
  * 3. Using the constructor you just created in the previous question, make a
  * simple change to the rest() function that speeds it up.
