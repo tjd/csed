@@ -11,6 +11,11 @@ public class Recursion {
 	}
 
 	public static void lengthTest() {
+//		List<Integer> lst = new List<Integer>();
+//		lst.add(34);
+//		lst.add(348);
+//		lst.add(22);
+//		System.out.println("length of " + lst + " is " + length(lst));
 		List<Integer> arr = new List<Integer>();
 		assert length(arr) == 0;
 		arr.add(1);
@@ -28,9 +33,9 @@ public class Recursion {
 		} else if (arr.first() < 0) {
 			return removeNegatives(arr.rest());
 		} else {
-			List<Integer> rest = removeNegatives(arr.rest());
-			rest.add(0, arr.first());
-			return rest;
+			List<Integer> R = removeNegatives(arr.rest());
+			R.add(0, arr.first());
+			return R;
 		}
 	}
 	
