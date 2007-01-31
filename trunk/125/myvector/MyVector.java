@@ -103,7 +103,7 @@ public class MyVector {
 	}
 
 	// returns the size of the underlying array
-	// the larger the capacity, th emore calls to push that can
+	// the larger the capacity, the more calls to push that can
 	// can be made without needing to call doubleSize()
 	public int capacity() {
 		return arr.length;
