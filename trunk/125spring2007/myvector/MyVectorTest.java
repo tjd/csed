@@ -2,7 +2,7 @@ package myvector;
 
 public class MyVectorTest {
 	public static void main(String[] args) {
-		util.Util.checkAssertions();
+		util.Util.ensureAssertionsEnabled();
 		test1();
 		test2();
 		System.out.println("all tests passed!");
