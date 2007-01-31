@@ -2,9 +2,9 @@ package myarraylist;
 
 import java.util.ArrayList;
 
-public class MyArrayList<T> extends ArrayList<T> {
+public class List<T> extends ArrayList<T> {
 
-	public MyArrayList() {
+	public List() {
 		super();
 	}
 
@@ -15,8 +15,8 @@ public class MyArrayList<T> extends ArrayList<T> {
 
 	// Returns a new MyArrayList the same as this one,
 	// but without the first element.
-	public MyArrayList<T> rest() {
-		MyArrayList<T> arr = new MyArrayList<T>();
+	public List<T> rest() {
+		List<T> arr = new List<T>();
 		for (int i = 1; i < this.size(); ++i) {
 			arr.add(this.get(i));
 		}
@@ -24,13 +24,13 @@ public class MyArrayList<T> extends ArrayList<T> {
 	}
 
 	public static void main(String[] args) {
-		MyArrayList<Integer> ai = new MyArrayList<Integer>();
+		List<Integer> ai = new List<Integer>();
 		ai.add(5);
 		System.out.printf("%s, first = %s, rest = %s\n", ai, ai.first(), ai.rest());
 		ai.add(9);
 		System.out.printf("%s, first = %s, rest = %s\n", ai, ai.first(), ai.rest());
 
-		MyArrayList<String> as = new MyArrayList<String>();
+		List<String> as = new List<String>();
 		as.add("cow");
 		System.out.printf("%s, first = %s, rest = %s\n", as, as.first(), as.rest());
 		as.add("moose");
