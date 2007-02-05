@@ -7,7 +7,7 @@ package hanoi;
 public class TowersOfHanoi {
 
 	private int totalDisks;
-
+ 
 	private int moveCount;
 
 	public TowersOfHanoi(int n) {
@@ -29,7 +29,7 @@ public class TowersOfHanoi {
 		}
 	}
 
-	public void moveOneDisk(int start, int end) {
+	private void moveOneDisk(int start, int end) {
 		++moveCount;
 		System.out.printf("%s. Move one disk from %s to %s\n", moveCount,
 				start, end);
