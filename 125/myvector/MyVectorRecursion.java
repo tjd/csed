@@ -6,7 +6,7 @@ import util.Util;
 public class MyVectorRecursion {
 
 	public static void main(String[] args) {
-		Util.checkAssertions();
+		Util.ensureAssertionsEnabled();
 		lengthTest();
 		sumTest();
 		containsTest();

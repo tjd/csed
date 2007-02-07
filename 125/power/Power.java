@@ -91,7 +91,7 @@ public class Power {
 	}
 
 	public static void main(String[] args) {
-		Util.checkAssertions();
+		Util.ensureAssertionsEnabled();
 		powa_test();
 		powb_test();
 		System.out.println("All tests passed.");
