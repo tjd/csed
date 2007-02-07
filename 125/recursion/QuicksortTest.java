@@ -2,11 +2,19 @@ package recursion;
 
 public class QuicksortTest {
 
+	public static final boolean DEBUG = false;
+	
+	public static void debug(String s) {
+		if (DEBUG) {
+			System.out.print(s);
+		}
+	}
+	
 	public static int partition(MyArray arr, int begin, int end) {
-		if (end - begin + 1 > 2) {
+		if (begin < end) {
 			int p = begin;
 			int pivotValue = arr.get(begin);
-			for (int i = begin; i < end; ++i) {
+			for (int i = begin + 1; i <= end; ++i) {
 				int value = arr.get(i);
 				if (value <= pivotValue) {
 					// swap that values at i, p
@@ -16,7 +24,7 @@ public class QuicksortTest {
 				}
 			}
 			
-			System.out.printf("p=%s, end=%s", p, end);
+			debug(String.format("p=%s, end=%s", p, end));
 
 			assert isPartitioned(arr, p, begin, end) : String.format(
 					"%s, begin = %s, bigsStartAt = %s, end = %s", arr, begin,
@@ -70,13 +78,11 @@ public class QuicksortTest {
 		arr.add(5);
 		arr.add(6);
 		arr.add(1);
-		System.out.println(arr);
 		assert isPartitioned(arr, partition(arr, 0, 3), 0, 3);
-		System.out.println(arr);
 	}
 
 	public static void quicksort(MyArray arr, int begin, int end) {
-		System.out.printf("quicksort(%s, %s, %s)\n", arr, begin, end);
+		debug(String.format("quicksort(%s, %s, %s)\n", arr, begin, end));
 		if (begin < end) {
 			int p = partition(arr, begin, end);
 			quicksort(arr, begin, p - 1);
