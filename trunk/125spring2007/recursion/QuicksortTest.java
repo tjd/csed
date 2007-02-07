@@ -56,13 +56,12 @@ public class QuicksortTest {
 		return isSorted(arr, 0, arr.size() - 1);
 	}
 
-	
 	private static Random rnd = new Random();
 	
 	public static MyArray randArray(int n) {
 		MyArray arr = new MyArray();
 		for(int i = 0; i < n; ++i) {
-			arr.add(rnd.nextInt());
+			arr.add(rnd.nextInt(100));
 		}
 		return arr;
 	}
@@ -86,8 +85,10 @@ public class QuicksortTest {
 		arr.add(3);
 		quicksort(arr);
 		assert isSorted(arr);
-		arr = randArray(1000);
+		arr = randArray(10);
+		System.out.println(arr);
 		quicksort(arr);
+		System.out.println("\n\n" + arr);
 		assert isSorted(arr);
 	}
 
