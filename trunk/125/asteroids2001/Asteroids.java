@@ -35,11 +35,20 @@ package asteroids2001;
 
 ******************************************************************************/
 
-import java.awt.*;
-import java.awt.event.*;
-import java.net.*;
 import java.applet.Applet;
 import java.applet.AudioClip;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Polygon;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /******************************************************************************
   The AsteroidsSprite class defines a game object, including it's shape,

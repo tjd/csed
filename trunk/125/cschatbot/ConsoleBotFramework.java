@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
+import org.jivesoftware.smack.XMPPException;
+
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**

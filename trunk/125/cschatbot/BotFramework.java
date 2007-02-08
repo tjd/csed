@@ -4,6 +4,8 @@
 
 package cschatbot;
 
+import org.jivesoftware.smack.XMPPException;
+
 
 /**
  * Handles the interfaces for JabberBotFramework, SwingBotFramework &
