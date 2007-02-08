@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.Random;
 
 import util.EasyInput;
-import csimage.UberColor;
 import csimage.UberImage;
 import csimage.show;
 
