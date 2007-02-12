@@ -14,9 +14,9 @@ public class LottoPicker {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Lotto Picker");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JPanel primary = new LottoPanel();
-		
+
 		frame.getContentPane().add(primary);
 		frame.pack();
 		frame.setVisible(true);

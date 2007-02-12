@@ -16,7 +16,7 @@ public class VoteCount {
 		primary.add(yes);
 		primary.add(no);
 		primary.add(spoiled);
-		
+
 		// add the primary panel to the frame
 		frame.getContentPane().add(primary);
 		frame.pack();

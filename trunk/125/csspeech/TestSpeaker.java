@@ -10,14 +10,14 @@ import csimage.util.EasyInput;
 
 public class TestSpeaker extends EasyInput {
 
-    public static void main(String args[]) {
-        Speaker s = new Speaker();
-        String sentence = input("Please enter what you want me to say (enter to quit): ");
-        while (sentence.length() > 0) {
-            s.speak(sentence);
-            sentence = input("Please enter what you want me to say (enter to quit): ");
-        } // while
+	public static void main(String args[]) {
+		Speaker s = new Speaker();
+		String sentence = input("Please enter what you want me to say (enter to quit): ");
+		while (sentence.length() > 0) {
+			s.speak(sentence);
+			sentence = input("Please enter what you want me to say (enter to quit): ");
+		} // while
 
-        System.out.println("Done!");
-    }
+		System.out.println("Done!");
+	}
 }

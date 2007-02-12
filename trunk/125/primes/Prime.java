@@ -2,276 +2,276 @@ package primes;
 
 /*
 
-To learn the basic syntax and usage of Java, we'll implement a program
-that finds prime numbers.
+ To learn the basic syntax and usage of Java, we'll implement a program
+ that finds prime numbers.
  
-Recall that a prime number is a positive integer n with exactly two
-divisors, 1 and n. The smallest prime is 2, and then the next few are
-3, 5, 7, 11, 13, .... There's an infinite number of primes, and they
-turn out to fundamental in arithmetic and number theory. Surprisingly,
-they also have important applications in computer security.
+ Recall that a prime number is a positive integer n with exactly two
+ divisors, 1 and n. The smallest prime is 2, and then the next few are
+ 3, 5, 7, 11, 13, .... There's an infinite number of primes, and they
+ turn out to fundamental in arithmetic and number theory. Surprisingly,
+ they also have important applications in computer security.
 
-Determining if a Number is Prime
---------------------------------
+ Determining if a Number is Prime
+ --------------------------------
 
-Given an integer n, the simplest way to test if n is prime is to use a
-generate-and-test algorithm: generate all the numbers from 2 to n - 1
-(called candidate divisors) and test if any of them divide into n.
+ Given an integer n, the simplest way to test if n is prime is to use a
+ generate-and-test algorithm: generate all the numbers from 2 to n - 1
+ (called candidate divisors) and test if any of them divide into n.
  
-Actually, before doing this testing, we should take care of a few
-special cases. If n is 1 or less, then it's not prime. The prime 2 is
-unusual not only because it is the first prime, but because it is the
-only even prime. Thus we will also check explicitly if n is 2.
+ Actually, before doing this testing, we should take care of a few
+ special cases. If n is 1 or less, then it's not prime. The prime 2 is
+ unusual not only because it is the first prime, but because it is the
+ only even prime. Thus we will also check explicitly if n is 2.
  
-When n is 3 or greater we will generate candidate divisors. We
-start by trying 2, then 3, then 4, then 5, and so on, until either we
-find a divisors that goes into n with no remainder, or we reach n - 1
-without finding a divisors (in which case n must be prime).  Here is
-the code:
+ When n is 3 or greater we will generate candidate divisors. We
+ start by trying 2, then 3, then 4, then 5, and so on, until either we
+ find a divisors that goes into n with no remainder, or we reach n - 1
+ without finding a divisors (in which case n must be prime).  Here is
+ the code:
 
-	public static boolean isPrime1(int n) {
-		if (n <= 1) {
-			return false;
-		} else if (n == 2) {
-			return true;
-		} else {
-			int d = 2;
-			while (d < n) {
-				if (n % d == 0) {
-					return false;
-				}
-				d = d + 1;
-			}
-			return true;
-		}
-	}
+ public static boolean isPrime1(int n) {
+ if (n <= 1) {
+ return false;
+ } else if (n == 2) {
+ return true;
+ } else {
+ int d = 2;
+ while (d < n) {
+ if (n % d == 0) {
+ return false;
+ }
+ d = d + 1;
+ }
+ return true;
+ }
+ }
 
-The expression n % d returns the remainder when when d is divided into
-n. For example, 25 % 5 is 0, and 33 % 6 is 3.
+ The expression n % d returns the remainder when when d is divided into
+ n. For example, 25 % 5 is 0, and 33 % 6 is 3.
  
-Testing our Function
+ Testing our Function
  --------------------
 
-After we've written the isPrime1 function and gotten rid any syntax
-errors, we need to test it to make sure it really works correctly.
+ After we've written the isPrime1 function and gotten rid any syntax
+ errors, we need to test it to make sure it really works correctly.
  
-A good way to do that is to use "automatic unit testing". A unit test
-is a test applied to a single unit or thing --- in this case a single
-function.
+ A good way to do that is to use "automatic unit testing". A unit test
+ is a test applied to a single unit or thing --- in this case a single
+ function.
  
-The simplest way to do a unit test is to print the results of the
-function on the screen, and verify its correctness by looking at it. 
-But manually verifying the results is not only error-prone, it
-quickly becomes tedious.
+ The simplest way to do a unit test is to print the results of the
+ function on the screen, and verify its correctness by looking at it. 
+ But manually verifying the results is not only error-prone, it
+ quickly becomes tedious.
  
-A much better technique is to have the computer check the results for
-us. We'll do this using Java's assert statement. Consider this
-example:
+ A much better technique is to have the computer check the results for
+ us. We'll do this using Java's assert statement. Consider this
+ example:
  
-    assert isPrime1(2);  
-    
-This works by calling isPrime1(2), and, if the result is true, then
-nothing happens --- the program continues on to the following
-statement. If, however, isPrime1(2) returns false, then the program
-crashes with an AssertionError. Since 2 is prime the only time "assert
-isPrime1(2);" should crash is when there's a bug in the isPrime1
-function.
+ assert isPrime1(2);  
  
-To check the result of isPrime1(4) we write this:
+ This works by calling isPrime1(2), and, if the result is true, then
+ nothing happens --- the program continues on to the following
+ statement. If, however, isPrime1(2) returns false, then the program
+ crashes with an AssertionError. Since 2 is prime the only time "assert
+ isPrime1(2);" should crash is when there's a bug in the isPrime1
+ function.
  
-    assert !isPrime1(4);
-    
-We must include the ! (logical "not") because when isPrime works
-correctly, isPrime1(4) should evaluate to false. If we didn't include
-the ! then assert would crash when it returns the correct result. So
-it is vital to include or exclude to the !, depending on the correct
-answer.
+ To check the result of isPrime1(4) we write this:
  
-Good testing is difficult. You should always try to find the minimum
-number of test cases that thoroughly tests your function. For the
-isPrime function, a good set of test cases should test extreme values,
-i.e. values near boundaries or near special cases, and also a few
-ordinary cases of number that are prime or not prime.
-
-Here is the isPrime1Test():
-
-	private static void isPrime1Test() {
-		assert !isPrime1(-1);
-		assert !isPrime1(0);
-		assert !isPrime1(1);
-		assert isPrime1(2);
-		assert isPrime1(3);
-		assert !isPrime1(4);
-		assert isPrime1(5);
-		assert !isPrime1(55);
-		assert isPrime1(101);
-		assert !isPrime1(105);
-		System.out.printf("all isPrime1 tests done\n");
-	}
-
-Of course, this is not a guarantee that isPrime1 is bug-free. It could
-certainly still contain errors. But through a combination of unit-testing
-and careful checking of the code, we can be very confident that it is
-working in all cases.
-
-Aside: In this course, we are doing what is known as "informal code inspection".
-When we are checking source, we simply read it and think about it, and look
-for errors. In contrast to this informal checking, some computer scientists
-have suggested that "formal code inspections" are better. A formal inspection
-of code is essentially a detailed mathematical proof of its correctness.
-Formal logic is used, and sometimes it is possible to guarantee that the proof
-is correct. However, formal inspections are rarely useful in practice since the
-necessary mathematics is too difficult for all but the shortest and simplest
-programs. Just as for automated unit testing, automatic "theorem provers"
-are needed to help with any kind of formal inspection in real programs. The
-resulting proofs are typically in a formal language that is often as complex
-as the program that they are proving correct, which leaves doubts as to the
-proof's correctness. And they are usually so long and dense that humans
-don't have the time to read them.
-
-While full-blown formal inspections have not yet caught on practice --- or
-even in academic CS outside of the researchers who promote it! --- there are
-more limited forms of formal inspection that have been far more successful. 
-The best example of this is type-checking. Most modern computer languages 
-have some notion of "data type", or "types" for short, and types are used to 
-prevent errors and increase program readability. For example, s is a string, 
-languages that do type-checking will signal an error if you try to calculate 
-the square root of s, sqrt(s). In a language like Java, much (but not all) of 
-the type-checking is done at compile time, and in this example the Java
-compiler would tell you that sqrt(s) is an error.
-
-Calculating the Number of Primes Up to N
-----------------------------------------
-
-Now lets use the isPrime1 function to write an important function that
-calculates the number of primes from 1 to n (including n).
+ assert !isPrime1(4);
  
-Once again the idea is to use generate and test: generate the numbers
-from 1 to n, call isPrime on them, and keep track of the number that
-are prime.
-
-As with isPrime, we will use if-statements to explicitly handle the
-special cases that arise for small values of n.
+ We must include the ! (logical "not") because when isPrime works
+ correctly, isPrime1(4) should evaluate to false. If we didn't include
+ the ! then assert would crash when it returns the correct result. So
+ it is vital to include or exclude to the !, depending on the correct
+ answer.
  
-The else part of the code tests the numbers in reverse order, from n
-down to 2. The reason for going in this order is to avoid creating
-another variable.
+ Good testing is difficult. You should always try to find the minimum
+ number of test cases that thoroughly tests your function. For the
+ isPrime function, a good set of test cases should test extreme values,
+ i.e. values near boundaries or near special cases, and also a few
+ ordinary cases of number that are prime or not prime.
 
-The ++ operator is called the increment operator, and it adds one to a
-variable. Similarly, -- is the decrement operator, and it subtracts
-1. These operators are not strictly necessary, but they
+ Here is the isPrime1Test():
+
+ private static void isPrime1Test() {
+ assert !isPrime1(-1);
+ assert !isPrime1(0);
+ assert !isPrime1(1);
+ assert isPrime1(2);
+ assert isPrime1(3);
+ assert !isPrime1(4);
+ assert isPrime1(5);
+ assert !isPrime1(55);
+ assert isPrime1(101);
+ assert !isPrime1(105);
+ System.out.printf("all isPrime1 tests done\n");
+ }
+
+ Of course, this is not a guarantee that isPrime1 is bug-free. It could
+ certainly still contain errors. But through a combination of unit-testing
+ and careful checking of the code, we can be very confident that it is
+ working in all cases.
+
+ Aside: In this course, we are doing what is known as "informal code inspection".
+ When we are checking source, we simply read it and think about it, and look
+ for errors. In contrast to this informal checking, some computer scientists
+ have suggested that "formal code inspections" are better. A formal inspection
+ of code is essentially a detailed mathematical proof of its correctness.
+ Formal logic is used, and sometimes it is possible to guarantee that the proof
+ is correct. However, formal inspections are rarely useful in practice since the
+ necessary mathematics is too difficult for all but the shortest and simplest
+ programs. Just as for automated unit testing, automatic "theorem provers"
+ are needed to help with any kind of formal inspection in real programs. The
+ resulting proofs are typically in a formal language that is often as complex
+ as the program that they are proving correct, which leaves doubts as to the
+ proof's correctness. And they are usually so long and dense that humans
+ don't have the time to read them.
+
+ While full-blown formal inspections have not yet caught on practice --- or
+ even in academic CS outside of the researchers who promote it! --- there are
+ more limited forms of formal inspection that have been far more successful. 
+ The best example of this is type-checking. Most modern computer languages 
+ have some notion of "data type", or "types" for short, and types are used to 
+ prevent errors and increase program readability. For example, s is a string, 
+ languages that do type-checking will signal an error if you try to calculate 
+ the square root of s, sqrt(s). In a language like Java, much (but not all) of 
+ the type-checking is done at compile time, and in this example the Java
+ compiler would tell you that sqrt(s) is an error.
+
+ Calculating the Number of Primes Up to N
+ ----------------------------------------
+
+ Now lets use the isPrime1 function to write an important function that
+ calculates the number of primes from 1 to n (including n).
+ 
+ Once again the idea is to use generate and test: generate the numbers
+ from 1 to n, call isPrime on them, and keep track of the number that
+ are prime.
+
+ As with isPrime, we will use if-statements to explicitly handle the
+ special cases that arise for small values of n.
+ 
+ The else part of the code tests the numbers in reverse order, from n
+ down to 2. The reason for going in this order is to avoid creating
+ another variable.
+
+ The ++ operator is called the increment operator, and it adds one to a
+ variable. Similarly, -- is the decrement operator, and it subtracts
+ 1. These operators are not strictly necessary, but they
  are convenient and popluar shorthand that is used frequently in Java
-(and C, and C++).
+ (and C, and C++).
  
-Once the function is written, we then create a suite of automatic unit
-tests. As with isPrime, we test small integers values and a few cases
-for larger values.
+ Once the function is written, we then create a suite of automatic unit
+ tests. As with isPrime, we test small integers values and a few cases
+ for larger values.
  
-Timing Functions
-----------------
+ Timing Functions
+ ----------------
 
-Another common programming task is to measure the running time of a
-function. This is important when you are comparing two or more
-functions that solve the same problem, and need to determine which is
-faster.
+ Another common programming task is to measure the running time of a
+ function. This is important when you are comparing two or more
+ functions that solve the same problem, and need to determine which is
+ faster.
  
-We will calculate elapsed time using the built-in function
-System.currentTimeMillis(). This function returns the total number of
-milliseconds that have elapsed since midnight, January 1st, 1970.
-We'll call it once before the function we want to time, and then once
-after, and the difference in the two times will be the running time of
-the function:
+ We will calculate elapsed time using the built-in function
+ System.currentTimeMillis(). This function returns the total number of
+ milliseconds that have elapsed since midnight, January 1st, 1970.
+ We'll call it once before the function we want to time, and then once
+ after, and the difference in the two times will be the running time of
+ the function:
  
-      long startTime = System.currentTimeMillis();
-      int num = numPrimes(100000);
-      long endTime = System.currentTimeMillis();
-      double elapsedSeconds = (endTime - startTime) / 1000.0;
+ long startTime = System.currentTimeMillis();
+ int num = numPrimes(100000);
+ long endTime = System.currentTimeMillis();
+ double elapsedSeconds = (endTime - startTime) / 1000.0;
  
-Notice that we store the result of System.currentTimeMillis() as a
-variable of type long.  That's because that's what
-System.currentTimeMillis() returns; long values consist of 64 bits,
-while int values consist of only 32. Thus, long's can store *many*
-more values than ints.
+ Notice that we store the result of System.currentTimeMillis() as a
+ variable of type long.  That's because that's what
+ System.currentTimeMillis() returns; long values consist of 64 bits,
+ while int values consist of only 32. Thus, long's can store *many*
+ more values than ints.
  
-When we calculate elapsedSeconds, notice two things: we divide by
-1000.0, and we store the result as a double. If we were to divide by
-1000 (without the .0 on the end) then Java would do integer division,
-and chop off any number to the right of the decimal point. Using
-1000.0 forces Java to do floating-point division, which preserves the
-decimal values. We store the result as type double because double's
-are the standard way to store numbers with values to the right of the
-decimal point. If we used int (or long) instead of double, then,
-again, Java would remorselessly chop off and numbers to the right of
-the decimal point.
+ When we calculate elapsedSeconds, notice two things: we divide by
+ 1000.0, and we store the result as a double. If we were to divide by
+ 1000 (without the .0 on the end) then Java would do integer division,
+ and chop off any number to the right of the decimal point. Using
+ 1000.0 forces Java to do floating-point division, which preserves the
+ decimal values. We store the result as type double because double's
+ are the standard way to store numbers with values to the right of the
+ decimal point. If we used int (or long) instead of double, then,
+ again, Java would remorselessly chop off and numbers to the right of
+ the decimal point.
  
-The value of 100000 was chosen in the second line since it resulted in
-a running time of about 14 seconds (the value might be more or less
-for you, depending on the speed of your CPU and the software you have
-running on your computer). If the run time is very short, then it is
-difficult to get an accurate timing; if it is very long, then you run
-the risk of losing interest!
+ The value of 100000 was chosen in the second line since it resulted in
+ a running time of about 14 seconds (the value might be more or less
+ for you, depending on the speed of your CPU and the software you have
+ running on your computer). If the run time is very short, then it is
+ difficult to get an accurate timing; if it is very long, then you run
+ the risk of losing interest!
 
-Speeding Up numPrimes
----------------------
-It turns out that our numPrimes function is quite slow. To count the
-primes up to 100000 it takes 12-15 seconds on my computer. From one
-point of view, this is pretty good: the computer is checking 100000
-numbers in only a few seconds.
+ Speeding Up numPrimes
+ ---------------------
+ It turns out that our numPrimes function is quite slow. To count the
+ primes up to 100000 it takes 12-15 seconds on my computer. From one
+ point of view, this is pretty good: the computer is checking 100000
+ numbers in only a few seconds.
 
-However, it is possible to do *much* better. By applying a little bit
-of knowledge of prime numbers, we can re-write the isPrime function
-like this:
+ However, it is possible to do *much* better. By applying a little bit
+ of knowledge of prime numbers, we can re-write the isPrime function
+ like this:
  
- 	public static boolean isPrime2(int n) {
-		if (n <= 1) {
-			return false;
-		} else if (n == 2) {
- 			return true;
- 		} else if (n % 2 == 0) {
-			return false;
- 		} else {
- 			int d = 3;
- 			while (d*d <= n) {
- 				if (n % d == 0) {
-					return false;
-				}
-				d = d + 2;
-			}
-			return true;
-		}
-	}
+ public static boolean isPrime2(int n) {
+ if (n <= 1) {
+ return false;
+ } else if (n == 2) {
+ return true;
+ } else if (n % 2 == 0) {
+ return false;
+ } else {
+ int d = 3;
+ while (d*d <= n) {
+ if (n % d == 0) {
+ return false;
+ }
+ d = d + 2;
+ }
+ return true;
+ }
+ }
 
-First notice that a new "else if" clause has been added: it checks to
-see if n is evenly divisible by 2 (recall that n % 2 returns the
-remainder when n is divided by 2; either 0 or 1 is returned, and if it
-is 0, then we know n is divisible by 2). This trick alone catches half
-of all numbers we are likely to give to isPrime.
+ First notice that a new "else if" clause has been added: it checks to
+ see if n is evenly divisible by 2 (recall that n % 2 returns the
+ remainder when n is divided by 2; either 0 or 1 is returned, and if it
+ is 0, then we know n is divisible by 2). This trick alone catches half
+ of all numbers we are likely to give to isPrime.
  
-Second, look at the while loop condition: the loop only executes when
-d*d <= n, or, the same thing, when d is less than or equal to the
-square root of n. This trick relies on the fact that if, say, n is
-divisible by a, then there must be some other number b such that n = a
-* b. In other words, divisors of n always come in pairs, and we only
-have to check to see if n is divisible by one number of each
-pair. Thus, we only need to check up to the square root of n. This is
-a tremendous savings when n is a prime number; in the original isPrime
-function, if n was prime then we checked all the numbers from 2 to n -
-1. But here we only go from 2 to the square root of n.  For example,
-to test if 101 is prime, we only check need to check divisors that are
-less than or equal to 10; in contrast, the original isPrime would
-check all the way up to 100.
+ Second, look at the while loop condition: the loop only executes when
+ d*d <= n, or, the same thing, when d is less than or equal to the
+ square root of n. This trick relies on the fact that if, say, n is
+ divisible by a, then there must be some other number b such that n = a
+ * b. In other words, divisors of n always come in pairs, and we only
+ have to check to see if n is divisible by one number of each
+ pair. Thus, we only need to check up to the square root of n. This is
+ a tremendous savings when n is a prime number; in the original isPrime
+ function, if n was prime then we checked all the numbers from 2 to n -
+ 1. But here we only go from 2 to the square root of n.  For example,
+ to test if 101 is prime, we only check need to check divisors that are
+ less than or equal to 10; in contrast, the original isPrime would
+ check all the way up to 100.
  
-Third, notice that we initialize d to 3, and then increment it by 2
-each time through the loop.  Since we know that n is odd, we don't
-need to bother checking if any even numbers divide into it.  So to
-prove that 101 is prime, the else part of the function does only four
-trial divisions: 3, 5, 7 and 9.
+ Third, notice that we initialize d to 3, and then increment it by 2
+ each time through the loop.  Since we know that n is odd, we don't
+ need to bother checking if any even numbers divide into it.  So to
+ prove that 101 is prime, the else part of the function does only four
+ trial divisions: 3, 5, 7 and 9.
  
-The results are dramatic: when the numPrimes function useds this new
-and improved isPrime2 function, it takes only 0.1 seconds, compared to
-15 seconds for the original isPrime. In fact, it was so fast that when
-I first ran it I didn't even realize it had stopped --- I thought
-there was a bug in the program that wasn't running the code!
+ The results are dramatic: when the numPrimes function useds this new
+ and improved isPrime2 function, it takes only 0.1 seconds, compared to
+ 15 seconds for the original isPrime. In fact, it was so fast that when
+ I first ran it I didn't even realize it had stopped --- I thought
+ there was a bug in the program that wasn't running the code!
 
  */
 

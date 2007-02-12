@@ -1106,7 +1106,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 	public void explode(AsteroidsSprite s) {
 
 		// Create sprites for explosion animation. The each individual line
-		// segment of the given sprite is used to create a new sprite that 
+		// segment of the given sprite is used to create a new sprite that
 		// will move outward from the sprite's original position
 		// with a random rotation.
 

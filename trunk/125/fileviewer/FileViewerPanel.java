@@ -17,24 +17,26 @@ import javax.swing.JTextArea;
 public class FileViewerPanel extends JPanel {
 
 	private JTextArea text;
-	private JButton button; 
+
+	private JButton button;
+
 	private JLabel title;
-	
+
 	public FileViewerPanel() {
 		this.setLayout(new BorderLayout());
-		
+
 		title = new JLabel("File Viewer");
 		title.setFont(new Font("Serif", Font.ITALIC, 16));
-		
+
 		JPanel titlePanel = new JPanel();
 		titlePanel.add(title);
 		titlePanel.setBackground(Color.YELLOW);
 		this.add(titlePanel, BorderLayout.NORTH);
-		
+
 		text = new JTextArea(40, 40);
 		JScrollPane scrollPane = new JScrollPane(text);
 		this.add(scrollPane, BorderLayout.CENTER);
-		
+
 		button = new JButton("Load File");
 		button.setBackground(Color.YELLOW);
 		button.addActionListener(new ButtonListener());
@@ -43,7 +45,7 @@ public class FileViewerPanel extends JPanel {
 		buttonPanel.setBackground(Color.YELLOW);
 		this.add(buttonPanel, BorderLayout.SOUTH);
 	}
-	
+
 	private class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			String fname = EasyInput.chooseFile();
@@ -52,5 +54,5 @@ public class FileViewerPanel extends JPanel {
 			title.setText(fname);
 		}
 	}
-	
+
 }

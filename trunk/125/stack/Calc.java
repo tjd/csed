@@ -18,7 +18,7 @@ public class Calc {
 			return Integer.parseInt(pop());
 		}
 	}
-	
+
 	class Dict extends HashMap<String, StackFun> {
 		public void put(StackFun sf) {
 			this.put(sf.getKey(), sf);
@@ -63,7 +63,7 @@ public class Calc {
 		stack = new CalcStack();
 		dict = new Dict();
 		funBeingDefined = null;
-		
+
 		dict.put(new Add());
 		dict.put(new Subtract());
 		dict.put(new Multiply());
@@ -82,7 +82,7 @@ public class Calc {
 		public abstract void call_fun(CalcStack s);
 
 		public abstract String getKey();
-		
+
 		public String toString() {
 			return getKey() + " <system defined>";
 		}
@@ -203,7 +203,6 @@ public class Calc {
 			System.out.println(stack);
 		}
 	}
-
 
 	public class StartDef extends StackFun {
 		public String getKey() {

@@ -29,7 +29,8 @@ public class AsteroidsSprite {
 	double deltaX, deltaY; // Amount to change the screen position.
 
 	Polygon sprite; // Final location and shape of sprite after applying
-					// rotation and
+
+	// rotation and
 
 	// moving to screen position. Used for drawing on the screen and
 	// in detecting collisions.
@@ -84,7 +85,11 @@ public class AsteroidsSprite {
 		this.sprite = new Polygon();
 		for (int i = 0; i < this.shape.npoints; i++)
 			this.sprite.addPoint((int) Math.round(this.shape.xpoints[i]
-					* Math.cos(this.angle) + this.shape.ypoints[i]  // CHANGE cos to sin for a fun effect
+					* Math.cos(this.angle) + this.shape.ypoints[i] // CHANGE
+																	// cos to
+																	// sin for a
+																	// fun
+																	// effect
 					* Math.sin(this.angle))
 					+ (int) Math.round(this.currentX) + width / 2, (int) Math
 					.round(this.shape.ypoints[i] * Math.cos(this.angle)
@@ -101,7 +106,8 @@ public class AsteroidsSprite {
 			if (this.sprite.contains(s.sprite.xpoints[i], s.sprite.ypoints[i]))
 				return true;
 		for (int i = 0; i < this.sprite.npoints; i++)
-			if (s.sprite.contains(this.sprite.xpoints[i], this.sprite.ypoints[i]))
+			if (s.sprite.contains(this.sprite.xpoints[i],
+					this.sprite.ypoints[i]))
 				return true;
 		return false;
 	}

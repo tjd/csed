@@ -32,13 +32,14 @@ public class Poly {
 		}
 	}
 
-	// Returns true iff this and x are Poly's with the same terms in the same order.
+	// Returns true iff this and x are Poly's with the same terms in the same
+	// order.
 	@Override
 	public boolean equals(Object x) {
 		if (x instanceof Poly) {
 			Poly other = (Poly) x;
 			if (this.degree() == other.degree()) {
-				for(int i = 0; i < this.terms.size(); ++i) {
+				for (int i = 0; i < this.terms.size(); ++i) {
 					if (!this.terms.get(i).equals(other.terms.get(i))) {
 						return false;
 					}
@@ -51,7 +52,7 @@ public class Poly {
 			return false;
 		}
 	}
-	
+
 	// Returns the degree of this polynomial, i.e. the largest exponent
 	// with a non-zero coefficient. Returns 0 for the zero polynomial.
 	public int degree() {
@@ -162,7 +163,7 @@ public class Poly {
 		}
 		return result;
 	}
-	
+
 	// Returns a new Poly that is the derivative of this Poly.
 	public Poly derivative() {
 		Poly result = new Poly();
@@ -260,7 +261,7 @@ public class Poly {
 		assert ab.eval(4) == (3 * 4 * 4 * 4);
 		assert ab.eval(5) == (3 * 5 * 5 * 5);
 	}
-	
+
 	public static void test5() {
 		Poly a = new Poly(1, 2);
 		Poly b = new Poly(3, 1);
@@ -270,7 +271,7 @@ public class Poly {
 		assert a.equals(a);
 		assert a.equals(aa);
 		assert aa.equals(a);
-		
+
 		assert !b.equals(a);
 		assert !aa.equals(b);
 		assert ab.equals(new Poly(3, 3));
