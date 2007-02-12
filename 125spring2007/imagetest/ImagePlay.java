@@ -35,7 +35,7 @@ public class ImagePlay {
 	public static int brightness(Color c) {
 		return c.getRed() + c.getGreen() + c.getBlue();
 	}
-	
+
 	public static void makeBlackAndWhite(UberImage image, double rawThreshold) {
 		assert 0 <= rawThreshold && rawThreshold <= 1;
 		int threshold = (int) (3 * 255 * rawThreshold);
@@ -113,10 +113,8 @@ public class ImagePlay {
 				arr.set(1, g);
 				arr.set(2, b);
 				Collections.shuffle(arr);
-				image.setColor(i, j, 
-						new Color(arr.get(0), 
-								  arr.get(1), 
-								  arr.get(2)));
+				image.setColor(i, j, new Color(arr.get(0), arr.get(1), arr
+						.get(2)));
 			}
 		}
 	}
@@ -177,7 +175,7 @@ public class ImagePlay {
 			}
 		}
 	}
-	
+
 	public static void sumModRGB(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {
@@ -186,7 +184,7 @@ public class ImagePlay {
 				int g = c.getGreen();
 				int b = c.getBlue();
 				int sm = (r + g + b) % 256;
-				image.setColor(i, j, new Color(sm , sm, sm));
+				image.setColor(i, j, new Color(sm, sm, sm));
 			}
 		}
 	}

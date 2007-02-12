@@ -17,9 +17,9 @@ public class Grayscale {
 		makeBlackAndWhite(image, 0.5);
 		bwRandomDither(copy1);
 		show.inFrame(copy1);
-//		makeGrayscale(image);
-//		makeOdd(image);
-		
+		// makeGrayscale(image);
+		// makeOdd(image);
+
 	}
 
 	public static void checkAssertions() {
@@ -52,7 +52,7 @@ public class Grayscale {
 	}
 
 	public static Random rnd = new Random();
-	
+
 	public static void bwRandomDither(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {
@@ -66,6 +66,7 @@ public class Grayscale {
 			}
 		}
 	}
+
 	public static void makeGrayscale(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {

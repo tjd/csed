@@ -42,11 +42,11 @@ import java.util.Arrays;
 
  <pre>
  public static int S(int n) {
-     if (n == 1) {    // base case
-         return 1;
-     } else {
-         return n + S(n - 1);  // recursive case
-     }
+ if (n == 1) {    // base case
+ return 1;
+ } else {
+ return n + S(n - 1);  // recursive case
+ }
  }
  </pre>
 
@@ -64,11 +64,11 @@ import java.util.Arrays;
 
  <pre>
  public static int A(int n) {
-     if (n == 1) {
-         return 1;
-     } else {
-         return 3 * A(n - 1) - 2;
-     }
+ if (n == 1) {
+ return 1;
+ } else {
+ return 3 * A(n - 1) - 2;
+ }
  }
  </pre>
 
@@ -77,7 +77,7 @@ import java.util.Arrays;
 
  <pre>
  for(int i = 1; i <= 10; ++i) {
-     System.out.printf("B(%s) = %s\n", i, B(i));
+ System.out.printf("B(%s) = %s\n", i, B(i));
  }
  </pre>
 
@@ -107,11 +107,11 @@ import java.util.Arrays;
 
  <pre>
  public static int B(int n) {
-     if (n == 1) {
-         return 2;
-     } else {
-         return 3 * B(n - 1) - 2;
-     }
+ if (n == 1) {
+ return 2;
+ } else {
+ return 3 * B(n - 1) - 2;
+ }
  }
  </pre>
 
@@ -130,9 +130,9 @@ import java.util.Arrays;
  B(10) = 19684
  </pre>
 
-<p>It turns out that B(n) = 3^(n-1) + 1; determining a formula for a recursive definition
-requires mathematics beyond the scope of this course. And even then, not all recursive 
-definitions have a corresponding formula --- recursion is a powerful tool!</p>
+ <p>It turns out that B(n) = 3^(n-1) + 1; determining a formula for a recursive definition
+ requires mathematics beyond the scope of this course. And even then, not all recursive 
+ definitions have a corresponding formula --- recursion is a powerful tool!</p>
 
  <p>Another useful recursive definition is for calculating powers of 2. Note that this starts 
  at 0:</p>
@@ -159,19 +159,19 @@ definitions have a corresponding formula --- recursion is a powerful tool!</p>
 
  <pre>
  public static int pow(int a, int n) {
-     assert !(a == 0 && n == 0);
-     if (a == 0) {
-         return 0;
-     } else if (n == 0) {
-         return 1;
-     } else {
-         return a * pow(a, n - 1);
-     }
+ assert !(a == 0 && n == 0);
+ if (a == 0) {
+ return 0;
+ } else if (n == 0) {
+ return 1;
+ } else {
+ return a * pow(a, n - 1);
+ }
  }
  </pre>
 
-<p>One of the nice things about recursive definitions is that they are so easy to implement
-in Java. The Java program corresponds pretty directly to the definition itself.</p>
+ <p>One of the nice things about recursive definitions is that they are so easy to implement
+ in Java. The Java program corresponds pretty directly to the definition itself.</p>
 
  */
 

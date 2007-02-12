@@ -1,8 +1,8 @@
 package imagetest;
 
+import util.EasyInput;
 import csimage.UberImage;
 import csimage.show;
-import util.EasyInput;
 
 public class ImageViewer {
 
