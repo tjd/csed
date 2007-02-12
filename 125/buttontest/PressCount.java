@@ -10,11 +10,10 @@ public class PressCount {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel primary = new PressPanel();
-		
+
 		// add the primary panel to the frame
 		frame.getContentPane().add(primary);
 		frame.pack();
 		frame.setVisible(true);
 	}
 }
-

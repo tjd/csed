@@ -16,98 +16,95 @@ import javax.sound.midi.Synthesizer;
  * (TTS) using the FreeTTS Speech API.
  */
 public class Speaker implements Speaks {
-    // Synthesizer to speak text
-    private Synthesizer speechSynthesizer;
+	// Synthesizer to speak text
+	private Synthesizer speechSynthesizer;
 
-    // no-argument constructor
-    public Speaker() {
-        // initialize Synthesizer
-        try {
-            // create SynthesizerModeDesc for FreeTTS synthesizer.
-            SynthesizerModeDesc descriptor = new SynthesizerModeDesc(
-                                                                     "Unlimited domain FreeTTS Speech Synthesizer "
-                                                                             + "from Sun Labs",
-                                                                     null,
-                                                                     Locale.US,
-                                                                     Boolean.FALSE,
-                                                                     null);
+	// no-argument constructor
+	public Speaker() {
+		// initialize Synthesizer
+		try {
+			// create SynthesizerModeDesc for FreeTTS synthesizer.
+			SynthesizerModeDesc descriptor = new SynthesizerModeDesc(
+					"Unlimited domain FreeTTS Speech Synthesizer "
+							+ "from Sun Labs", null, Locale.US, Boolean.FALSE,
+					null);
 
-            // create a Synthesizer
-            speechSynthesizer = Central.createSynthesizer(descriptor);
+			// create a Synthesizer
+			speechSynthesizer = Central.createSynthesizer(descriptor);
 
-            // Synthesizer created successfully
-            if (speechSynthesizer != null) {
-                // prepare synthesizer to speak
-                speechSynthesizer.allocate();
-                speechSynthesizer.resume();
+			// Synthesizer created successfully
+			if (speechSynthesizer != null) {
+				// prepare synthesizer to speak
+				speechSynthesizer.allocate();
+				speechSynthesizer.resume();
 
-                // get synthesizer properties
-                SynthesizerProperties properties = speechSynthesizer
-                        .getSynthesizerProperties();
+				// get synthesizer properties
+				SynthesizerProperties properties = speechSynthesizer
+						.getSynthesizerProperties();
 
-                // set up speaking rate
-                properties.setSpeakingRate(100.0f);
+				// set up speaking rate
+				properties.setSpeakingRate(100.0f);
 
-            } // end if
-            else {
-                throw new Error("Synthesizer creation failed.");
-            }
+			} // end if
+			else {
+				throw new Error("Synthesizer creation failed.");
+			}
 
-        } // end try
+		} // end try
 
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
-    } // end constructor
+	} // end constructor
 
-    /**
-     * Converts a string of text to speech.
-     * 
-     * @param textToSpeak
-     *            the text to be spoken
-     */
-    public void speak(String textToSpeak) {
-        speechSynthesizer.speakPlainText(textToSpeak, null);
-    }
+	/**
+	 * Converts a string of text to speech.
+	 * 
+	 * @param textToSpeak
+	 *            the text to be spoken
+	 */
+	public void speak(String textToSpeak) {
+		speechSynthesizer.speakPlainText(textToSpeak, null);
+	}
 
-    /**
-     * Deallocates speechSynthesizer object.
-     */
-    public void Deallocate() {
-        try {
-            //http://pixel.recoil.org/java/jspeechlib/ResourceManagement.html
-            // Wait till speaking is done
-            speechSynthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
-            speechSynthesizer.deallocate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	/**
+	 * Deallocates speechSynthesizer object.
+	 */
+	public void Deallocate() {
+		try {
+			// http://pixel.recoil.org/java/jspeechlib/ResourceManagement.html
+			// Wait till speaking is done
+			speechSynthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
+			speechSynthesizer.deallocate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-    // finalizer method is called automatically when this object is
-    // garabage-collected by Java
-    @Override
+	// finalizer method is called automatically when this object is
+	// garabage-collected by Java
+	@Override
 	protected void finalize() throws IOException {
-        Deallocate();
-    }
+		Deallocate();
+	}
 
-    // 	/**
-    //	 main method to test the class
-    //	*/
-    // 	public static void main(String args[]) {
-    //		Speaker s = new Speaker();
-    //		char ans = 'y';
-    //		while (ans == 'y') {
-    //			System.out.println("Please enter some text...");
-    //			String sentence = SpeakerHelper.readLine();
-    //	    	s.speak(sentence);
-    //	    	System.out.println("Continue? y/n");
-    //	    	ans = SpeakerHelper.readLineNonwhiteChar();
-    //	    }
-    //                        
-    //        s.Deallocate();
-    //	}
+	// /**
+	// main method to test the class
+	// */
+	// public static void main(String args[]) {
+	// Speaker s = new Speaker();
+	// char ans = 'y';
+	// while (ans == 'y') {
+	// System.out.println("Please enter some text...");
+	// String sentence = SpeakerHelper.readLine();
+	// s.speak(sentence);
+	// System.out.println("Continue? y/n");
+	// ans = SpeakerHelper.readLineNonwhiteChar();
+	// }
+	//                        
+	// s.Deallocate();
+	// }
 
 } // end class Speaker
 

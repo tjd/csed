@@ -7,23 +7,23 @@ package csmedia;
  */
 /**
  * @author Robert
- *  
+ * 
  */
 public interface MusicFilePlayerInterface {
 
-    /**
-     * Known classes implementing this interface: MusicFilePlayerBase
-     */
+	/**
+	 * Known classes implementing this interface: MusicFilePlayerBase
+	 */
 
-    void play();
+	void play();
 
-    void restart();
+	void restart();
 
-    void stop();
+	void stop();
 
-    /**
-     * The parameter for volume is a double, with 0.0 being quietest, and 1.0
-     * being the loudest amplitude the platform can handle without distortion.
-     */
-    void setVolume(double d);
+	/**
+	 * The parameter for volume is a double, with 0.0 being quietest, and 1.0
+	 * being the loudest amplitude the platform can handle without distortion.
+	 */
+	void setVolume(double d);
 }

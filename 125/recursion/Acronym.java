@@ -17,7 +17,7 @@ public class Acronym {
 		for (int i = 1; i <= 10; ++i) {
 			System.out.println(expand("TTP", "The TTP Project", i));
 		}
-		
+
 		for (int i = 1; i <= 10; ++i) {
 			System.out.println(expand("TOTO", "TOTO Own's TOTO's Options", i));
 		}

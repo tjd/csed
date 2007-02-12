@@ -102,10 +102,10 @@ public class InspireMe implements ActionListener {
 
 		// create a panel for the on-screen items
 		JPanel panel = new JPanel();
-		
+
 		// tell the panel to arrange things using the BorderLayout style
 		panel.setLayout(new BorderLayout());
-		
+
 		// tell the frame to arrange its components in the BorderLayout style
 		panel.setLayout(new BorderLayout());
 
@@ -123,7 +123,7 @@ public class InspireMe implements ActionListener {
 
 		// put the button under the label
 		panel.add(button, BorderLayout.WEST);
-		
+
 		// add the panel to the frame
 		frame.getContentPane().add(panel);
 

@@ -24,7 +24,7 @@ public class ImagePlay {
 	public static int brightness(Color c) {
 		return c.getRed() + c.getGreen() + c.getBlue();
 	}
-	
+
 	public static void makeBlackAndWhite(UberImage image, double rawThreshold) {
 		assert 0 <= rawThreshold && rawThreshold <= 1;
 		int threshold = (int) (3 * 255 * rawThreshold);

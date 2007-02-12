@@ -110,8 +110,10 @@ public class InspireMe1 implements ActionListener {
 		// create the button to press for a new message
 		button = new JButton("Inspire me!");
 
-		// tell the button to use this class to handle mouse clicks; the variable "this"
-		// is a special pre-defined variable that refers to the current object, i.e.
+		// tell the button to use this class to handle mouse clicks; the
+		// variable "this"
+		// is a special pre-defined variable that refers to the current object,
+		// i.e.
 		// it means "this object"
 		button.addActionListener(this);
 
@@ -146,7 +148,7 @@ public class InspireMe1 implements ActionListener {
 		label.setText(message.get(curr));
 	}
 
-    ////////////////////////////////////////////////////////////////////////////
+	// //////////////////////////////////////////////////////////////////////////
 	// The actionPerformed method is required to be here due to the "implements
 	// ActionListener" in the class header. The idea is that an object of type
 	// InspireMe1 is an action listener, i.e. it "listens" for actions such as
@@ -166,7 +168,7 @@ public class InspireMe1 implements ActionListener {
 		System.out.println(message.get(curr));
 	}
 
-	////////////////////////////////////////////////////////////////////////////
+	// //////////////////////////////////////////////////////////////////////////
 	// The main method is special in Java: all programs must have a main method,
 	// and Java automatically runs the code in the main method first.
 	public static void main(String[] args) {

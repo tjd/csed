@@ -6,8 +6,6 @@ package cschatbot;
 
 import javax.swing.JOptionPane;
 
-import org.jivesoftware.smack.XMPPException;
-
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**

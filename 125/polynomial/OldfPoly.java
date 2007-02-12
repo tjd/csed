@@ -25,7 +25,7 @@ public class OldfPoly {
 		if (c == 0) {
 			coeff = new int[1];
 			deg = 0;
-		} else if (n == 0) { 
+		} else if (n == 0) {
 			coeff = new int[1];
 			coeff[0] = c;
 			deg = 0;
@@ -143,7 +143,7 @@ public class OldfPoly {
 		Term t2 = new Term(10, 1);
 		System.out.println(t1);
 		System.out.println(t2);
-		
+
 		OldfPoly a = new OldfPoly(1, 2);
 		OldfPoly b = new OldfPoly(3, 1);
 		OldfPoly c = new OldfPoly(4, 0);
@@ -155,4 +155,3 @@ public class OldfPoly {
 	}
 
 }
-

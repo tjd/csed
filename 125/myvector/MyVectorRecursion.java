@@ -20,7 +20,7 @@ public class MyVectorRecursion {
 		shuffleTest();
 		System.out.println("All tests passed.");
 	}
-	
+
 	public static int length(MyVector vec) {
 		if (vec.isEmpty()) {
 			return 0;
@@ -28,7 +28,7 @@ public class MyVectorRecursion {
 			return 1 + length(vec.rest());
 		}
 	}
-	
+
 	public static void lengthTest() {
 		MyVector vec = new MyVector();
 		assert length(vec) == 0;
@@ -39,7 +39,7 @@ public class MyVectorRecursion {
 		vec.push(62);
 		assert length(vec) == 3;
 	}
-	
+
 	public static int sum(MyVector vec) {
 		if (vec.isEmpty()) {
 			return 0;
@@ -47,7 +47,7 @@ public class MyVectorRecursion {
 			return vec.first() + sum(vec.rest());
 		}
 	}
-	
+
 	public static void sumTest() {
 		MyVector vec = new MyVector();
 		assert sum(vec) == 0;
@@ -58,7 +58,7 @@ public class MyVectorRecursion {
 		vec.push(62);
 		assert sum(vec) == 91;
 	}
-	
+
 	// linear search: returns true if n is in vec, and false otherwise
 	public static boolean contains(MyVector vec, int n) {
 		if (vec.isEmpty()) {
@@ -69,7 +69,7 @@ public class MyVectorRecursion {
 			return contains(vec.rest(), n);
 		}
 	}
-	
+
 	public static void containsTest() {
 		MyVector vec = new MyVector();
 		assert contains(vec, 12) == false;
@@ -86,13 +86,13 @@ public class MyVectorRecursion {
 		assert contains(vec, 6) == true;
 		assert contains(vec, -43) == true;
 	}
-	
+
 	// if n is in vec, returns some i such that vec.get(i) == n;
 	// otherwise, if n is not in vec, returns -1
 	public static int indexOf(MyVector vec, int n) {
 		return indexOf(vec, n, 0);
 	}
-	
+
 	// helper methods for indexOf: includes an extra parameter (start)
 	// that keeps track of how many elements have been checked
 	public static int indexOf(MyVector vec, int n, int start) {
@@ -104,7 +104,7 @@ public class MyVectorRecursion {
 			return indexOf(vec.rest(), n, start + 1);
 		}
 	}
-	
+
 	public static void indexOfTest() {
 		MyVector vec = new MyVector();
 		assert indexOf(vec, 12) == -1;
@@ -121,7 +121,7 @@ public class MyVectorRecursion {
 		assert indexOf(vec, 6) == 1;
 		assert indexOf(vec, -43) == 2;
 	}
-	
+
 	// returns the number of times n occurs in vec
 	public static int count(MyVector vec, int n) {
 		if (vec.isEmpty()) {
@@ -132,7 +132,7 @@ public class MyVectorRecursion {
 			return count(vec.rest(), n);
 		}
 	}
-	
+
 	public static void countTest() {
 		MyVector vec = new MyVector();
 		assert count(vec, 2) == 0;
@@ -156,7 +156,7 @@ public class MyVectorRecursion {
 		assert count(vec, 8) == 3;
 		assert count(vec, 5) == 2;
 	}
-	
+
 	// returns the smallest of two ints
 	public static int min(int x, int y) {
 		if (x < y) {
@@ -165,7 +165,7 @@ public class MyVectorRecursion {
 			return y;
 		}
 	}
-	
+
 	// returns the smallest element in vec
 	public static int min(MyVector vec) {
 		assert vec.size() >= 1;
@@ -175,7 +175,7 @@ public class MyVectorRecursion {
 			return min(vec.first(), min(vec.rest()));
 		}
 	}
-	
+
 	public static void minTest() {
 		MyVector vec = new MyVector();
 		vec.push(40);
@@ -187,7 +187,7 @@ public class MyVectorRecursion {
 		vec.push(80);
 		assert min(vec) == 30;
 	}
-	
+
 	public static boolean hasDuplicates(MyVector vec) {
 		if (vec.isEmpty()) {
 			return false;
@@ -201,7 +201,7 @@ public class MyVectorRecursion {
 			}
 		}
 	}
-	
+
 	public static void hasDuplicatesTest() {
 		MyVector vec = new MyVector();
 		assert hasDuplicates(vec) == false;
@@ -223,8 +223,8 @@ public class MyVectorRecursion {
 		vec2.push(5);
 		vec2.push(5);
 		assert hasDuplicates(vec2) == true;
-	}	
-	
+	}
+
 	public static boolean equal(MyVector A, MyVector B) {
 		if (A.isEmpty() && B.isEmpty()) {
 			return true;
@@ -234,7 +234,7 @@ public class MyVectorRecursion {
 			return false;
 		}
 	}
-	
+
 	public static void equalTest() {
 		MyVector vec = new MyVector();
 		MyVector vec1 = new MyVector();
@@ -266,12 +266,12 @@ public class MyVectorRecursion {
 		vec1.push(3);
 		assert equal(vec, vec1) == false;
 		assert equal(vec1, vec) == false;
-	}	
-	
+	}
+
 	public static void reverse(MyVector vec) {
 		reverse(vec, 0, vec.size() - 1);
 	}
-	
+
 	public static void reverse(MyVector vec, int begin, int end) {
 		if (begin >= end) {
 			return;
@@ -283,7 +283,7 @@ public class MyVectorRecursion {
 			reverse(vec, begin + 1, end - 1);
 		}
 	}
-	
+
 	public static void reverseTest() {
 		MyVector vec = new MyVector();
 		MyVector vec1 = new MyVector();
@@ -306,13 +306,13 @@ public class MyVectorRecursion {
 		reverse(vec);
 		assert equal(vec, vec1) : "" + vec + ", " + vec1;
 	}
-	
+
 	private static Random rnd = new Random();
-	
+
 	public static void shuffle(MyVector vec) {
 		shuffle(vec, 0);
 	}
-	
+
 	public static void shuffle(MyVector vec, int i) {
 		final int n = vec.size();
 		if (i >= n) {
@@ -326,20 +326,21 @@ public class MyVectorRecursion {
 			shuffle(vec, i + 1);
 		}
 	}
-	
+
 	public static void shuffleTest() {
 		MyVector vec = new MyVector();
 		shuffle(vec);
 		MyVector vec1 = new MyVector();
 		assert equal(vec, vec1);
-		
+
 		vec.push(5);
 		shuffle(vec);
 		assert vec.get(0) == 5;
-		
+
 		vec.push(4);
 		shuffle(vec);
-		assert (vec.get(0) == 4 && vec.get(1) == 5) || (vec.get(0) == 5 && vec.get(1) == 4);
+		assert (vec.get(0) == 4 && vec.get(1) == 5)
+				|| (vec.get(0) == 5 && vec.get(1) == 4);
 	}
-	
+
 }

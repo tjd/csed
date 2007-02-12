@@ -38,13 +38,13 @@ public class Power {
 	}
 
 	private static int mult_count;
-	
+
 	public static int powb_mult_count(int a, int n) {
 		mult_count = 0;
 		powb_counted(a, n);
 		return mult_count;
 	}
-	
+
 	public static int powb_counted(int a, int n) {
 		assert !(a == 0 && n == 0);
 		assert n >= 0;
@@ -61,13 +61,13 @@ public class Power {
 			return a * powb_counted(a, n - 1);
 		}
 	}
-	
+
 	public static void print_powb_mult_count() {
-		for(int n = 1; n <= 25; ++n) {
+		for (int n = 1; n <= 25; ++n) {
 			System.out.printf("%s: %s\n", n, powb_mult_count(2, n));
 		}
 	}
-	
+
 	public static void powa_test() {
 		assert powa(1, 1) == 1;
 		assert powa(0, 1) == 0;

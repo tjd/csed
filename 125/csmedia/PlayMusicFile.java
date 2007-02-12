@@ -1,9 +1,9 @@
 package csmedia;
 
 public interface PlayMusicFile {
-    void playMP3(String path);
+	void playMP3(String path);
 
-    void stopMP3();
+	void stopMP3();
 
-    void pauseMP3();
+	void pauseMP3();
 }

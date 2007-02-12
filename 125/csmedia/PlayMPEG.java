@@ -1,9 +1,9 @@
 package csmedia;
 
 public interface PlayMPEG {
-    void playMPEG(String path);
+	void playMPEG(String path);
 
-    void stopMPEG();
+	void stopMPEG();
 
-    void pauseMPEG();
+	void pauseMPEG();
 }

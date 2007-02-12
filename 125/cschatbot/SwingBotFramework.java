@@ -18,8 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import org.jivesoftware.smack.XMPPException;
-
 import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 /**

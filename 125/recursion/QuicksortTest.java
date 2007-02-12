@@ -5,29 +5,29 @@ import java.util.Random;
 public class QuicksortTest {
 
 	public static final boolean DEBUG = false;
-	
+
 	public static void debug(String s) {
 		if (DEBUG) {
 			System.out.print(s);
 		}
 	}
-	
-	public static int partition(MyArray arr, int begin, int end) {
-			int p = begin;
-			int pivotValue = arr.get(begin);
-			for (int i = begin + 1; i <= end; ++i) {
-				int value = arr.get(i);
-				if (value <= pivotValue) {
-					// swap that values at i, p
-					arr.swap(i, p + 1);
-					arr.swap(p, p + 1);
-					++p;
-				}
-			}
-			
-			debug(String.format("p=%s, end=%s", p, end));
 
-			return p;
+	public static int partition(MyArray arr, int begin, int end) {
+		int p = begin;
+		int pivotValue = arr.get(begin);
+		for (int i = begin + 1; i <= end; ++i) {
+			int value = arr.get(i);
+			if (value <= pivotValue) {
+				// swap that values at i, p
+				arr.swap(i, p + 1);
+				arr.swap(p, p + 1);
+				++p;
+			}
+		}
+
+		debug(String.format("p=%s, end=%s\n", p, end));
+
+		return p;
 	}
 
 	public static void quicksort(MyArray arr, int begin, int end) {
@@ -56,17 +56,16 @@ public class QuicksortTest {
 		return isSorted(arr, 0, arr.size() - 1);
 	}
 
-	
 	private static Random rnd = new Random();
-	
+
 	public static MyArray randArray(int n) {
 		MyArray arr = new MyArray();
-		for(int i = 0; i < n; ++i) {
+		for (int i = 0; i < n; ++i) {
 			arr.add(rnd.nextInt());
 		}
 		return arr;
 	}
-	
+
 	public static void quicksortTest() {
 		MyArray arr = new MyArray();
 		quicksort(arr);
