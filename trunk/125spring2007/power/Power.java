@@ -1,6 +1,5 @@
 package power;
 
-import util.Util;
 
 public class Power {
 
@@ -38,16 +37,16 @@ public class Power {
 	}
 
 	private static int mult_count;
-	
+
 	public static int powb_mult_count(int a, int n) {
 		mult_count = 0;
 		powb_counted(a, n);
 		System.out.println();
 		return mult_count;
 	}
-	
+
 	public static int powb_counted(int a, int n) {
-//		assert !(a == 0 && n == 0);
+		// assert !(a == 0 && n == 0);
 		assert n >= 0;
 		if (n == 0) {
 			return 1;
@@ -62,13 +61,14 @@ public class Power {
 			return a * powb_counted(a, n - 1);
 		}
 	}
-	
+
 	public static void print_powb_mult_count() {
-		for(int n = 1; n <= 30; ++n) {
-			System.out.printf("2^%s: %s multiplications  ", n, powb_mult_count(2, n));
+		for (int n = 1; n <= 30; ++n) {
+			System.out.printf("2^%s: %s multiplications  ", n, powb_mult_count(
+					2, n));
 		}
 	}
-	
+
 	public static void powa_test() {
 		assert powa(1, 1) == 1;
 		assert powa(0, 1) == 0;
@@ -92,10 +92,10 @@ public class Power {
 	}
 
 	public static void main(String[] args) {
-//		Util.checkAssertions();
-//		powa_test();
-//		powb_test();
-//		System.out.println("All tests passed.");
+		// Util.checkAssertions();
+		// powa_test();
+		// powb_test();
+		// System.out.println("All tests passed.");
 		print_powb_mult_count();
 	}
 

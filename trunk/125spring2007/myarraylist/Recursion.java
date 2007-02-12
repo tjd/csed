@@ -57,17 +57,17 @@ public class Recursion {
 		arr.add(-34);
 		assert minList(arr) == -34;
 	}
-	
+
 	public static boolean linSearch(int x, List<Integer> arr) {
 		if (arr.isEmpty()) {
 			return false;
-		} else if (arr.first() == x){
+		} else if (arr.first() == x) {
 			return true;
 		} else {
 			return linSearch(x, arr.rest());
 		}
 	}
-	
+
 	public static void linSearchTest() {
 		List<Integer> arr = new List<Integer>();
 		assert linSearch(2, arr) == false;

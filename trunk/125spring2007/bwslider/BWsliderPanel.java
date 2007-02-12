@@ -41,8 +41,9 @@ public class BWsliderPanel extends JPanel {
 				&& orig.getHeight() == dest.getHeight();
 		for (int i = 0; i < orig.getWidth(); ++i) {
 			for (int j = 0; j < orig.getHeight(); ++j) {
-				dest.setColor(i, j, convertToBW(orig.getColor(i, j),
-							  threshold));
+				dest
+						.setColor(i, j, convertToBW(orig.getColor(i, j),
+								threshold));
 			}
 		}
 	}

@@ -26,14 +26,18 @@ public class List<T> extends ArrayList<T> {
 	public static void main(String[] args) {
 		List<Integer> ai = new List<Integer>();
 		ai.add(5);
-		System.out.printf("%s, first = %s, rest = %s\n", ai, ai.first(), ai.rest());
+		System.out.printf("%s, first = %s, rest = %s\n", ai, ai.first(), ai
+				.rest());
 		ai.add(9);
-		System.out.printf("%s, first = %s, rest = %s\n", ai, ai.first(), ai.rest());
+		System.out.printf("%s, first = %s, rest = %s\n", ai, ai.first(), ai
+				.rest());
 
 		List<String> as = new List<String>();
 		as.add("cow");
-		System.out.printf("%s, first = %s, rest = %s\n", as, as.first(), as.rest());
+		System.out.printf("%s, first = %s, rest = %s\n", as, as.first(), as
+				.rest());
 		as.add("moose");
-		System.out.printf("%s, first = %s, rest = %s\n", as, as.first(), as.rest());
+		System.out.printf("%s, first = %s, rest = %s\n", as, as.first(), as
+				.rest());
 	}
 }

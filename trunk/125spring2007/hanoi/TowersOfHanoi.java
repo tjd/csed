@@ -7,7 +7,7 @@ package hanoi;
 public class TowersOfHanoi {
 
 	private int totalDisks;
- 
+
 	private int moveCount;
 
 	public TowersOfHanoi(int n) {
