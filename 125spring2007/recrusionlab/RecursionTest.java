@@ -2,7 +2,6 @@ package recrusionlab;
 
 import myarraylist.List;
 
-
 public class RecursionTest {
 	public static void main(String[] args) {
 		util.Util.ensureAssertionsEnabled();
@@ -13,7 +12,6 @@ public class RecursionTest {
 
 	public static void lengthTest() {
 		List<Integer> arr = new List<Integer>();
-		Recursion.
 		assert Recursion.length(arr) == 0;
 		arr.add(3);
 		assert Recursion.length(arr) == 1;
