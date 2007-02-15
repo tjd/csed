@@ -1,0 +1,51 @@
+package recursionlab;
+
+import myarraylist.List;
+
+public class RecursionTest {
+	public static void main(String[] args) {
+		util.Util.ensureAssertionsEnabled();
+		lengthTest();
+		sumTest();
+		countTest();
+		System.out.println("all recursion tests passed");
+	}
+
+	public static void lengthTest() {
+		List<Integer> arr = new List<Integer>();
+		assert Recursion.length(arr) == 0;
+		arr.add(3);
+		assert Recursion.length(arr) == 1;
+		arr.add(4);
+		assert Recursion.length(arr) == 2;
+	}
+
+	public static void sumTest() {
+		List<Integer> arr = new List<Integer>();
+		assert Recursion.sum(arr) == 0;
+		arr.add(3);
+		assert Recursion.sum(arr) == 3;
+		arr.add(4);
+		assert Recursion.sum(arr) == 7;
+	}
+	
+	public static void countTest() {
+		List<Integer> arr = new List<Integer>();
+		assert Recursion.count(arr, 5) == 0;
+		arr.add(7);
+		assert Recursion.count(arr, 5) == 0;
+		assert Recursion.count(arr, 7) == 1;
+		arr.add(8);
+		assert Recursion.count(arr, 5) == 0;
+		assert Recursion.count(arr, 7) == 1;
+		assert Recursion.count(arr, 8) == 1;
+		arr.add(7);
+		assert Recursion.count(arr, 5) == 0;
+		assert Recursion.count(arr, 7) == 2;
+		assert Recursion.count(arr, 8) == 1;
+		arr.add(7);
+		assert Recursion.count(arr, 5) == 0;
+		assert Recursion.count(arr, 7) == 3;
+		assert Recursion.count(arr, 8) == 1;
+	}
+}
