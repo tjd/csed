@@ -8,6 +8,8 @@ public class RecursionTest {
 		lengthTest();
 		sumTest();
 		countTest();
+		recMinTest();
+		recMaxTest();
 		System.out.println("all recursion tests passed");
 	}
 
@@ -48,4 +50,29 @@ public class RecursionTest {
 		assert Recursion.count(arr, 7) == 3;
 		assert Recursion.count(arr, 8) == 1;
 	}
+	
+	public static void recMinTest() {
+		List<Integer> arr = new List<Integer>();
+		arr.add(5);
+		assert Recursion.recMin(arr) == 5;
+		arr.add(3);
+		assert Recursion.recMin(arr) == 3;
+		arr.add(-7);
+		assert Recursion.recMin(arr) == -7;
+		arr.add(7);
+		assert Recursion.recMin(arr) == -7;
+	}
+	
+	public static void recMaxTest() {
+		List<Integer> arr = new List<Integer>();
+		arr.add(5);
+		assert Recursion.recMax(arr) == 5;
+		arr.add(3);
+		assert Recursion.recMax(arr) == 5;
+		arr.add(-7);
+		assert Recursion.recMax(arr) == 5;
+		arr.add(7);
+		assert Recursion.recMax(arr) == 7;
+	}
+	
 }
