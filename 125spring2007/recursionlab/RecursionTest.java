@@ -75,4 +75,26 @@ public class RecursionTest {
 		assert Recursion.recMax(arr) == 7;
 	}
 	
+	public static void isSortedAscendingTest() {
+		List<Integer> arr = new List<Integer>();
+		assert Recursion.isSortedAscending(arr);
+		arr.add(3);
+		assert Recursion.isSortedAscending(arr);
+		arr.add(3);
+		assert Recursion.isSortedAscending(arr);
+		arr.add(4);
+		assert Recursion.isSortedAscending(arr);
+		arr.add(354);
+		assert Recursion.isSortedAscending(arr);
+		arr.add(4);
+		assert !Recursion.isSortedAscending(arr);
+		arr.add(10);
+		assert !Recursion.isSortedAscending(arr);
+		arr.clear();
+		arr.add(10);
+		arr.add(5);
+		assert !Recursion.isSortedAscending(arr);
+		arr.add(6);
+		assert !Recursion.isSortedAscending(arr);
+	}
 }
