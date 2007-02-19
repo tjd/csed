@@ -10,9 +10,18 @@ public class RecursionTest {
 		countTest();
 		recMinTest();
 		recMaxTest();
+		expandTest();
 		System.out.println("all recursion tests passed");
 	}
 
+	private static void expandTest() {
+		for (int i = 1; i <= 5; ++i) {
+			System.out.printf("expand(%s, %s, %s) = %s\n", "GNU",
+					"GNU's Not Unix", i, Recursion.expand("GNU",
+							"GNU's Not Unix", i));
+		}
+	}
+	
 	public static void lengthTest() {
 		List<Integer> arr = new List<Integer>();
 		assert Recursion.length(arr) == 0;
