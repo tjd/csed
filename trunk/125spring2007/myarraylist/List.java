@@ -8,6 +8,14 @@ public class List<T> extends ArrayList<T> {
 		super();
 	}
 
+	// array constructor
+	public List(T[] arr) {
+		this();
+		for(int i = 0; i < arr.length; ++i) {
+			this.add(arr[i]);
+		}
+	}
+	
 	// Returns a reference to the first element of this MyArrayList.
 	public T first() {
 		return this.get(0);
@@ -39,5 +47,9 @@ public class List<T> extends ArrayList<T> {
 		as.add("moose");
 		System.out.printf("%s, first = %s, rest = %s\n", as, as.first(), as
 				.rest());
+		
+		Double[] arr = {4.5, -8.22, 0.0, 2.4, 4.0};
+		List<Double> ad = new List<Double>(arr);
+		System.out.println(ad);
 	}
 }
