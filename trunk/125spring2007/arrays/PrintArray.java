@@ -40,7 +40,7 @@ public class PrintArray {
 	}
 
 	public static void testPrint() {
-		int[] score = { 98, 90, 85, 86, 44, 100 };
+		int[] score = { 98, 44, 100 };
 		print1(score);
 		print2(score);
 	}
@@ -48,14 +48,14 @@ public class PrintArray {
 	public static int sum1(int[] arr) {
 		int result = 0;
 		for (int i = 0; i < arr.length; ++i) {
-			result += arr[i];
+			result = result + arr[i];
 		}
 		return result;
 	}
 
 	public static int sum2(int[] arr) {
 		int result = 0;
-		for (Integer n : arr) {
+		for (int n : arr) {
 			result += n;
 		}
 		return result;
