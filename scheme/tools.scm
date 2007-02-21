@@ -6,7 +6,9 @@
   (lambda (x)
     (and (not (pair? x)) (not (null? x)))))
 
-(define singleton? (lambda (lst) (and (list? lst) (= 1 (length lst)))))
+(define singleton? 
+  (lambda (lst) 
+    (and (list? lst) (= 1 (length lst)))))
 
 (define add1
   (lambda (n)
