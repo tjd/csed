@@ -1,13 +1,20 @@
 ;; The following is based on the LISP unification code from the 5th
 ;; edition of Luger's Artificial Intelligence textbook.
 ;; 
-
+;; Variables ?x are used instead of (var x), and when unification fails, 
+;; #f is returned instead of 'failed.
 
 ;; Unifies the two given patterns, returning an association list of
 ;; pairs indicating variable bindings. If the patterns match with no
 ;; bindings (e.g. they are the same pattern), then '() is returned. If
 ;; the patterns don't match, #f is returned.
-(define (unify pat1 pat2 sub)
+
+(define occurs-check-enabled true)
+
+(define (unify pat1 pat2)
+  (unify-aux pat1 pat2 '()))
+
+(define (unify-aux pat1 pat2 sub)
   (cond ((equal? sub #f) #f)
 	((var? pat1) (match-var pat1 pat2 sub))
 	((var? pat2) (match-var pat2 pat1 sub))
@@ -16,16 +23,21 @@
 	     sub
 	     #f))
 	((constant? pat2) #f)
-	(else (unify (cdr pat1) (cdr pat2)
-		     (unify (car pat1) (car pat2) sub)))))
+	(else (unify-aux (cdr pat1) (cdr pat2)
+		     (unify-aux (car pat1) (car pat2) sub)))))
 
+;; bug fix: Original code looped forever on (unify '(?x ?y a) '(?y ?x ?x)).
+;; Code below fixes this by checking if pat is variable, and, if it is,
+;; unifying on pat's value.
 (define (match-var var pat sub)
   (if (equal? var pat) 
       sub
       (let ((binding (get-binding var sub)))
 	(cond ((not (null? binding)) 
-	       (unify (get-binding-value binding) pat sub))
-	      ((occurs? var pat) #f)
+	       (unify-aux (get-binding-value binding) pat sub))
+	      ((and (var? pat) (not (null? (get-binding pat sub))))
+	       (unify-aux var (get-binding-value (get-binding pat sub)) sub))
+	      ((and occurs-check-enabled (occurs? var pat)) #f)
 	      (else (add-substitution var pat sub))))))
 
 (define (occurs? var pat)

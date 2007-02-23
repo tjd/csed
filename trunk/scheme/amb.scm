@@ -56,7 +56,7 @@
 ;; Non-deterministically returns an element of lst.
 (define element-of
   (lambda (lst)
-    (if (singleton? lst)
+    (if (= 1 (length lst))
         (car lst)
         (amb (car lst) (element-of (cdr lst))))))
 
