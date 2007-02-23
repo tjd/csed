@@ -11,7 +11,7 @@
 
 ;; when true, occurs checking is done; when false, it is not done
 ;; (and thus more efficient, but runs the risk of an infinite loop)
-(define occurs-check-enabled true)
+(define occurs-check-enabled #t)
 
 (define (unify pat1 pat2)
   (unify-aux pat1 pat2 '()))

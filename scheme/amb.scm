@@ -64,5 +64,9 @@
   (lambda (pred)
     (if (not pred) (amb))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define assert2
+  (lambda (pred)
+    (if (not pred) 
+        (amb)
+        pred)))
 

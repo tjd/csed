@@ -1,4 +1,5 @@
 (load "amb.scm")
+(load "unify.scm")
 
 (define gen-prime
   (lambda (hi)
@@ -45,3 +46,6 @@
     (let* ((d1 (number-between 1 9))
            (d2 (number-between (+ d1 2) 9)))
       (list d1 d2))))
+
+(define (uab1)
+  (assert (unify (list 1 2 (amb 'a 'b)) (list 1 2 'b))))
