@@ -157,7 +157,9 @@ public class MyVector {
  * other implementations of dynamic arrays use similar values. Better would be
  * to choose a value that is based on actual evidence of what makes a good
  * initial value. So, propose an experiment that you could do to better
- * determine a good intial capacity for MyVector.
+ * determine a good intial capacity for MyVector. (Just propose such an
+ * experiment for now; you don't have to actually carry it out --- unless,
+ * of course, you would like to actually determining a good starting value.)
  * 
  * 9. Implement a boolean method called "same" that takes in another MyVector,
  * and returns true if it is equal to the current one, and false otherwise. Two
@@ -174,5 +176,15 @@ public class MyVector {
  * 
  * 12. Add a constructor that takes an array of ints as the input parameter.
  * 
+ * 13. Add a method called compress() that shrinks the underlying array to 
+ * be the smallest size to fit the number of item currently stored in it.
+ * This operation is useful when you know your vector is not going to hold
+ * any more objects.
+ * 
+ * 14. Add lock() and unlock() methods. By default, MyVector is unlocked,
+ * meaning that mutating methods (like push) can be called. If the user
+ * calls lock(), then mutating methods do nothing --- the lock prevents
+ * them from making changes. When unlock() is called, then mutating
+ * methods are allowed to make changes.
  * 
  */
