@@ -12,13 +12,10 @@
 ;;;;NB. PUT's are commented out and no top-level table is set up.
 ;;;;Instead use initialize-data-base (from manual), supplied in this file.
 
-;; added as described in http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-24.html#footnote_Temp_444
-(define the-empty-stream '())
-(define stream-null? null?)
+(load "streams.scm")
   
 ;;;SECTION 4.4.4.1
 ;;;The Driver Loop and Instantiation
-
 (define input-prompt ";;; Query input:")
 (define output-prompt ";;; Query results:")
 
