@@ -3,12 +3,14 @@
 ;; 
 ;; Variables ?x are used instead of (var x), and when unification fails, 
 ;; #f is returned instead of 'failed.
-
+;;
 ;; Unifies the two given patterns, returning an association list of
 ;; pairs indicating variable bindings. If the patterns match with no
 ;; bindings (e.g. they are the same pattern), then '() is returned. If
 ;; the patterns don't match, #f is returned.
 
+;; when true, occurs checking is done; when false, it is not done
+;; (and thus more efficient, but runs the risk of an infinite loop)
 (define occurs-check-enabled true)
 
 (define (unify pat1 pat2)
@@ -24,11 +26,16 @@
 	     #f))
 	((constant? pat2) #f)
 	(else (unify-aux (cdr pat1) (cdr pat2)
-		     (unify-aux (car pat1) (car pat2) sub)))))
+			 (unify-aux (car pat1) (car pat2) sub)))))
 
 ;; bug fix: Original code looped forever on (unify '(?x ?y a) '(?y ?x ?x)).
 ;; Code below fixes this by checking if pat is variable, and, if it is,
 ;; unifying on pat's value.
+;;
+;; In PAIP, Norvig also points out that this causes problems:
+;;
+;; > (unify '(f (?x ?y a) (?y ?x ?x)) '(f ?z ?z))
+;; ((?y . a) (?x . ?y) (?z ?x ?y a))
 (define (match-var var pat sub)
   (if (equal? var pat) 
       sub
