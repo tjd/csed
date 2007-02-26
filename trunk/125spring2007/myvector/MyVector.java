@@ -86,7 +86,6 @@ public class MyVector {
 	public void set(int i, int value) {
 		assert i < size();
 		arr[i] = value;
-
 	}
 
 	// append x to the end of the vector; automatically increases
