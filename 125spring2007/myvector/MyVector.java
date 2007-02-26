@@ -187,4 +187,8 @@ public class MyVector {
  * them from making changes. When unlock() is called, then mutating
  * methods are allowed to make changes.
  * 
+ * 15. Add a method named push_new(x) that adds x to the end of a MyVector
+ * when x is not already in it. If x is already in it, then push_new(x)
+ * does nothing.
+ * 
  */
