@@ -40,7 +40,7 @@ public class Collatz {
 	// Note: It has been empirically verified that this function returns 1 for
 	// all values of n less than about 2.7 x 10^16, so strictly speaking all
 	// possible 32-bit Java ints will return 1. So really, you ought to use 
-	// a data type that supports larger integer values to truly exibit the
+	// a data type that supports larger integer values to truly exhibit the
 	// Collatz problem.
 	public static int collatz(int n) {
 		int count = 0;
