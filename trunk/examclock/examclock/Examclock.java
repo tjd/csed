@@ -128,7 +128,6 @@ class AdviceGiver extends TimerTask {
 
 class UpdateClockTask extends TimerTask {
 
-
 	private JLabel timeRemaining;
 
 	private JLabel timeElapsed;
@@ -158,9 +157,7 @@ class UpdateClockTask extends TimerTask {
 
 		if (exam.finished()) {
 			timeRemaining.setText(String.format(Constant.EXAM_FINISHED_MSG));
-			frame.setTitle(Constant.FRAME_NAME + ": Over!");
-			// "Over!" is printed instead of Data.EXAM_FINISHED_MSG since it is
-			// shorter and so more likely to fit on the window label when minimized
+			frame.setTitle(Constant.FRAME_NAME + ": " + Constant.TITLE_DONE_MSG);
 		} else {
 			timeRemaining.setText(String.format("%s min", remaining));
 			frame.setTitle(Constant.FRAME_NAME + " (" + remaining + " min)");
@@ -313,6 +310,8 @@ class Constant {
 	public static final String EXAM_OVER_MSG = "Hand in your exam!";
 	
 	public static final String EXAM_FINISHED_MSG = "Time's up!";
+	
+	public static final String TITLE_DONE_MSG = "Done!";
 
 	public static final Color LAST_TEN_MINUTES_COLOR = Color.ORANGE;
 
