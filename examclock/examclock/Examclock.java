@@ -26,30 +26,30 @@ public class Examclock {
 		// make the panel for the labels
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		panel.setPreferredSize(new Dimension(Data.PANEL_WIDTH,
-				Data.PANEL_HEIGHT));
-		panel.setBackground(Data.PANEL_BG_COLOR);
+		panel.setPreferredSize(new Dimension(Constant.PANEL_WIDTH,
+				Constant.PANEL_HEIGHT));
+		panel.setBackground(Constant.PANEL_BG_COLOR);
 
 		// time remaining label
 		JLabel timeRemaining = new JLabel();
-		timeRemaining.setFont(Data.TIME_REMAINING_FONT);
+		timeRemaining.setFont(Constant.TIME_REMAINING_FONT);
 		timeRemaining.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(timeRemaining, BorderLayout.CENTER);
 
 		// time elapsed label
 		JLabel timeElapsed = new JLabel();
-		timeElapsed.setFont(Data.TIME_ELAPSED_FONT);
+		timeElapsed.setFont(Constant.TIME_ELAPSED_FONT);
 		timeElapsed.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(timeElapsed, BorderLayout.NORTH);
 
 		// message label
 		JLabel msg = new JLabel();
-		msg.setFont(Data.MSG_FONT);
+		msg.setFont(Constant.MSG_FONT);
 		msg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(msg, BorderLayout.SOUTH);
 
 		// prepare the frame
-		JFrame frame = new JFrame(Data.FRAME_NAME);
+		JFrame frame = new JFrame(Constant.FRAME_NAME);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		frame.pack();
@@ -114,9 +114,9 @@ class AdviceGiver extends TimerTask {
 	@Override
 	public void run() {
 		if (exam.finished()) {
-			adviceLabel.setText(Data.EXAM_OVER_MSG);
+			adviceLabel.setText(Constant.EXAM_OVER_MSG);
 		} else {
-			if (exam.minutesRemaining() <= Data.FINAL_MSG_TIME) {
+			if (exam.minutesRemaining() <= Constant.FINAL_MSG_TIME) {
 				useFinalMessages();
 			}
 			adviceLabel.setText(msg[nextMsg]);
@@ -151,19 +151,19 @@ class UpdateClockTask extends TimerTask {
 		final long elapsed = exam.minutesElapsed();
 
 		if (exam.lastMinute()) {
-			timeRemaining.setForeground(Data.LAST_MINUTE_COLOR);
+			timeRemaining.setForeground(Constant.LAST_MINUTE_COLOR);
 		} else if (exam.lastTenMinutes()) {
-			timeRemaining.setForeground(Data.LAST_TEN_MINUTES_COLOR);
+			timeRemaining.setForeground(Constant.LAST_TEN_MINUTES_COLOR);
 		}
 
 		if (exam.finished()) {
-			timeRemaining.setText(String.format(Data.EXAM_FINISHED_MSG));
-			frame.setTitle(Data.FRAME_NAME + ": Over!");
+			timeRemaining.setText(String.format(Constant.EXAM_FINISHED_MSG));
+			frame.setTitle(Constant.FRAME_NAME + ": Over!");
 			// "Over!" is printed instead of Data.EXAM_FINISHED_MSG since it is
 			// shorter and so more likely to fit on the window label when minimized
 		} else {
 			timeRemaining.setText(String.format("%s min", remaining));
-			frame.setTitle(Data.FRAME_NAME + " (" + remaining + " min)");
+			frame.setTitle(Constant.FRAME_NAME + " (" + remaining + " min)");
 		}
 		timeElapsed.setText(String.format("%s minute%s elapsed", elapsed,
 				(elapsed == 1) ? "" : "s"));
@@ -281,7 +281,7 @@ class Exam {
 
 }
 
-class Data {
+class Constant {
 
 	public static final String FRAME_NAME = "Exam Clock";
 
