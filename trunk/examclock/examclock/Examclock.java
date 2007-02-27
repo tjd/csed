@@ -19,31 +19,6 @@ import javax.swing.SwingConstants;
 
 public class Examclock {
 
-	private static final Color PANEL_BG_COLOR = Color.WHITE;
-
-	private static final int MSG_FONT_SIZE = 40;
-
-	private static final Font MSG_FONT = new Font("Times", Font.PLAIN,
-			MSG_FONT_SIZE);
-
-	private static final int TIME_ELAPSED_FONT_SIZE = 20;
-
-	private static final Font TIME_ELAPSED_FONT = new Font("Helvetica",
-			Font.BOLD, TIME_ELAPSED_FONT_SIZE);
-
-	private static final int TIME_REMAINING_FONT_SIZE = 240;
-
-	private static final Font TIME_REMAINING_FONT = new Font("Helvetica",
-			Font.BOLD, TIME_REMAINING_FONT_SIZE);
-
-	private static final String FRAME_NAME = "Exam Clock";
-
-	private static final int PANEL_WIDTH = Toolkit.getDefaultToolkit()
-			.getScreenSize().width;
-
-	private static final int PANEL_HEIGHT = Toolkit.getDefaultToolkit()
-			.getScreenSize().height / 2;
-
 	public static void main(String[] args) {
 		Exam exam = askUserForExamInfo();
 		System.out.printf("%s", exam);
@@ -51,42 +26,45 @@ public class Examclock {
 		// make the panel for the labels
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		panel.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
-		panel.setBackground(PANEL_BG_COLOR);
+		panel.setPreferredSize(new Dimension(Data.PANEL_WIDTH,
+				Data.PANEL_HEIGHT));
+		panel.setBackground(Data.PANEL_BG_COLOR);
 
 		// time remaining label
 		JLabel timeRemaining = new JLabel();
-		timeRemaining.setFont(TIME_REMAINING_FONT);
+		timeRemaining.setFont(Data.TIME_REMAINING_FONT);
 		timeRemaining.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(timeRemaining, BorderLayout.CENTER);
 
 		// time elapsed label
 		JLabel timeElapsed = new JLabel();
-		timeElapsed.setFont(TIME_ELAPSED_FONT);
+		timeElapsed.setFont(Data.TIME_ELAPSED_FONT);
 		timeElapsed.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(timeElapsed, BorderLayout.NORTH);
 
 		// message label
 		JLabel msg = new JLabel();
-		msg.setFont(MSG_FONT);
+		msg.setFont(Data.MSG_FONT);
 		msg.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(msg, BorderLayout.SOUTH);
+
+		// prepare the frame
+		JFrame frame = new JFrame(Data.FRAME_NAME);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		frame.pack();
 
 		// set up timers
 		Timer clockTimer = new Timer();
 		TimerTask clockUpdate = new UpdateClockTask(timeRemaining, timeElapsed,
-				exam);
+				exam, frame);
 		clockTimer.scheduleAtFixedRate(clockUpdate, 0, 60 * 1000);
 
 		// Timer msgTimer = new Timer();
 		TimerTask advice = new AdviceGiver(msg, exam);
 		clockTimer.schedule(advice, 10 * 1000, 30 * 1000);
 
-		// prepare the frame
-		JFrame frame = new JFrame(FRAME_NAME);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		frame.pack();
+		// make the frame visible
 		frame.setVisible(true);
 	}
 
@@ -99,9 +77,6 @@ public class Examclock {
 }
 
 class AdviceGiver extends TimerTask {
-	private static final int FINAL_MSG_TIME = 10;
-
-	private static final String EXAM_OVER_MSG = "Hand in your exam!";
 
 	private JLabel adviceLabel;
 
@@ -113,9 +88,8 @@ class AdviceGiver extends TimerTask {
 
 	private String[] earlyMsg = {
 			"Write your name and student number on all pages.",
-			"Double-check your answers!",
-			"Read the questions carefully!", "Think.", "Relax.",
-			"Have a question? Raise your hand!",
+			"Double-check your answers!", "Read the questions carefully!",
+			"Think.", "Relax.", "Have a question? Raise your hand!",
 			"Have mercy on your marker: write clearly!" };
 
 	private String[] finalMsg = { "Finish what you are working on!",
@@ -140,23 +114,20 @@ class AdviceGiver extends TimerTask {
 	@Override
 	public void run() {
 		if (exam.finished()) {
-			adviceLabel.setText(EXAM_OVER_MSG);
+			adviceLabel.setText(Data.EXAM_OVER_MSG);
 		} else {
-			if (exam.minutesRemaining() <= FINAL_MSG_TIME) {
+			if (exam.minutesRemaining() <= Data.FINAL_MSG_TIME) {
 				useFinalMessages();
 			}
 			adviceLabel.setText(msg[nextMsg]);
 			nextMsg = (nextMsg + 1) % msg.length;
 		}
 	}
+
 }
 
 class UpdateClockTask extends TimerTask {
-	private static final String EXAM_FINISHED_MSG = "Time's up!";
 
-	private static final Color LAST_TEN_MINUTES_COLOR = Color.ORANGE;
-
-	private static final Color LAST_MINUTE_COLOR = Color.RED;
 
 	private JLabel timeRemaining;
 
@@ -164,10 +135,14 @@ class UpdateClockTask extends TimerTask {
 
 	private Exam exam;
 
-	public UpdateClockTask(JLabel timeRemaining, JLabel timeElapsed, Exam exam) {
+	private JFrame frame;
+
+	public UpdateClockTask(JLabel timeRemaining, JLabel timeElapsed, Exam exam,
+			JFrame frame) {
 		this.timeRemaining = timeRemaining;
 		this.timeElapsed = timeElapsed;
 		this.exam = exam;
+		this.frame = frame;
 	}
 
 	@Override
@@ -176,15 +151,19 @@ class UpdateClockTask extends TimerTask {
 		final long elapsed = exam.minutesElapsed();
 
 		if (exam.lastMinute()) {
-			timeRemaining.setForeground(LAST_MINUTE_COLOR);
+			timeRemaining.setForeground(Data.LAST_MINUTE_COLOR);
 		} else if (exam.lastTenMinutes()) {
-			timeRemaining.setForeground(LAST_TEN_MINUTES_COLOR);
+			timeRemaining.setForeground(Data.LAST_TEN_MINUTES_COLOR);
 		}
 
 		if (exam.finished()) {
-			timeRemaining.setText(String.format(EXAM_FINISHED_MSG));
+			timeRemaining.setText(String.format(Data.EXAM_FINISHED_MSG));
+			frame.setTitle(Data.FRAME_NAME + ": Over!");
+			// "Over!" is printed instead of Data.EXAM_FINISHED_MSG since it is
+			// shorter and so more likely to fit on the window label when minimized
 		} else {
 			timeRemaining.setText(String.format("%s min", remaining));
+			frame.setTitle(Data.FRAME_NAME + " (" + remaining + " min)");
 		}
 		timeElapsed.setText(String.format("%s minute%s elapsed", elapsed,
 				(elapsed == 1) ? "" : "s"));
@@ -300,4 +279,42 @@ class Exam {
 		return startTime.getTime();
 	}
 
+}
+
+class Data {
+
+	public static final String FRAME_NAME = "Exam Clock";
+
+	public static final int MSG_FONT_SIZE = 40;
+
+	public static final Font MSG_FONT = new Font("Times", Font.PLAIN,
+			MSG_FONT_SIZE);
+
+	public static final Color PANEL_BG_COLOR = Color.WHITE;
+
+	public static final int TIME_ELAPSED_FONT_SIZE = 20;
+
+	public static final Font TIME_ELAPSED_FONT = new Font("Helvetica",
+			Font.BOLD, TIME_ELAPSED_FONT_SIZE);
+
+	public static final int TIME_REMAINING_FONT_SIZE = 240;
+
+	public static final Font TIME_REMAINING_FONT = new Font("Helvetica",
+			Font.BOLD, TIME_REMAINING_FONT_SIZE);
+
+	public static final int PANEL_WIDTH = Toolkit.getDefaultToolkit()
+			.getScreenSize().width;
+
+	public static final int PANEL_HEIGHT = Toolkit.getDefaultToolkit()
+			.getScreenSize().height / 2;
+
+	public static final int FINAL_MSG_TIME = 10;
+
+	public static final String EXAM_OVER_MSG = "Hand in your exam!";
+	
+	public static final String EXAM_FINISHED_MSG = "Time's up!";
+
+	public static final Color LAST_TEN_MINUTES_COLOR = Color.ORANGE;
+
+	public static final Color LAST_MINUTE_COLOR = Color.RED;
 }
