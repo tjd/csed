@@ -1,3 +1,3 @@
-To run, download examclock.jar, double-click it and then follow then follow the instructions.
+To run, download examclock.jar, double-click it and then follow the instructions.
 
-The start-up can be alittle slow, so be patient.
+The start-up can be a little slow, so be patient.
