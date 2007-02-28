@@ -170,7 +170,6 @@
         '()
         (cons (- n i) (range_aux (sub1 i) n)))))
 
-
 (define gen-nums 
   (lambda (n)
     (if (= n 1)
@@ -265,4 +264,28 @@
 (define mat
   (lambda (r c lst)
     (nth c (nth r lst))))
-    
+
+;; convert pre-fix to infix
+(define (prefix->infix expr)
+  (cond ((null? expr) '())
+        ((atom? expr) expr)
+        (else (let ((f (car expr))
+                    (s (car (cdr expr)))
+                    (t (car (cdr (cdr expr)))))
+                (list (prefix->infix s) f (prefix->infix t))))))
+
+(define (pair-with-all x lst)
+  (map (lambda (a) (list x a)) lst))
+
+;; return the Cartesian product of the pairs of A and B
+(define (prod A B)
+  (if (null? A) 
+      '()
+      (append (pair-with-all (car A) B) 
+              (prod (cdr A) B))))
+
+;; return the flattened version of lst
+(define (flatten lst)
+  (cond ((null? lst) '())
+        ((atom? (car lst)) (cons (car lst) (flatten (cdr lst))))
+        (else (append (flatten (car lst)) (flatten (cdr lst))))))
