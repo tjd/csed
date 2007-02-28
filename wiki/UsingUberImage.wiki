@@ -23,6 +23,7 @@ UberImage has many other methods, but these ones are the main ones. It's worth n
 
 The UberColor class is designed to work with the UberImage class, and it is a subclass of the Java Color class. In addition to doing everything Color object do, UberColor objects provide helper methods, such as lightness() and luminance().
 
+= Sample Code =
 Here is an example of how to use UberImage to create a simple image viewer:
 
 {{{
