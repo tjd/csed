@@ -60,7 +60,6 @@ public class Examclock {
 				exam, frame);
 		clockTimer.scheduleAtFixedRate(clockUpdate, 0, 60 * 1000);
 
-		// Timer msgTimer = new Timer();
 		TimerTask advice = new AdviceGiver(msg, exam);
 		clockTimer.schedule(advice, 10 * 1000, 30 * 1000);
 
