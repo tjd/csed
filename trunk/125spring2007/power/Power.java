@@ -1,6 +1,5 @@
 package power;
 
-
 public class Power {
 
 	// The naive power algorithm: multiplies a by itself n times.

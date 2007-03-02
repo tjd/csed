@@ -38,7 +38,6 @@ public class Recursion {
 		}
 	}
 
-
 	public static int count(List<Integer> arr, int x) {
 		if (arr.isEmpty()) {
 			return 0;
@@ -79,9 +78,7 @@ public class Recursion {
 		}
 	}
 
-
-	public static String expand(String acronym, String expansion, int n) 
-	{
+	public static String expand(String acronym, String expansion, int n) {
 		if (n == 1) {
 			return expansion;
 		} else {
@@ -91,4 +88,3 @@ public class Recursion {
 	}
 
 }
-
