@@ -368,7 +368,8 @@ public class Asteroids extends Applet implements Runnable, KeyListener {
 	// Explosion data.
 
 	int[] explosionCounter = new int[MAX_SCRAP]; // Time counters for
-													// explosions.
+
+	// explosions.
 
 	int explosionIndex; // Next available explosion sprite.
 
