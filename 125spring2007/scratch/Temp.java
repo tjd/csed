@@ -2,11 +2,11 @@ package scratch;
 
 public class Temp {
 	public static void swap(int x, int y) {
-//		System.out.printf("x = %s, y = %s\n", x, y);
+		// System.out.printf("x = %s, y = %s\n", x, y);
 		int temp = x;
 		x = y;
 		y = temp;
-//		System.out.printf("x = %s, y = %s\n", x, y);
+		// System.out.printf("x = %s, y = %s\n", x, y);
 	}
 
 	public static void main(String[] args) {

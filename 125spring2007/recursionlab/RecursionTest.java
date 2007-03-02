@@ -21,7 +21,7 @@ public class RecursionTest {
 							"GNU's Not Unix", i));
 		}
 	}
-	
+
 	public static void lengthTest() {
 		List<Integer> arr = new List<Integer>();
 		assert Recursion.length(arr) == 0;
@@ -39,7 +39,7 @@ public class RecursionTest {
 		arr.add(4);
 		assert Recursion.sum(arr) == 7;
 	}
-	
+
 	public static void countTest() {
 		List<Integer> arr = new List<Integer>();
 		assert Recursion.count(arr, 5) == 0;
@@ -59,7 +59,7 @@ public class RecursionTest {
 		assert Recursion.count(arr, 7) == 3;
 		assert Recursion.count(arr, 8) == 1;
 	}
-	
+
 	public static void recMinTest() {
 		List<Integer> arr = new List<Integer>();
 		arr.add(5);
@@ -71,7 +71,7 @@ public class RecursionTest {
 		arr.add(7);
 		assert Recursion.recMin(arr) == -7;
 	}
-	
+
 	public static void recMaxTest() {
 		List<Integer> arr = new List<Integer>();
 		arr.add(5);
@@ -83,7 +83,7 @@ public class RecursionTest {
 		arr.add(7);
 		assert Recursion.recMax(arr) == 7;
 	}
-	
+
 	public static void isSortedAscendingTest() {
 		List<Integer> arr = new List<Integer>();
 		assert Recursion.isSortedAscending(arr);

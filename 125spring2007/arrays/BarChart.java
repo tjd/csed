@@ -7,7 +7,7 @@ public class BarChart {
 	public static void main(String[] args) {
 		// initialize the scanner and array
 		Scanner sc = new Scanner(System.in);
-		
+
 		// create a new array that holds exactly 5 ints
 		int[] arr = new int[5];
 
