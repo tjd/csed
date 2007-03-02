@@ -86,10 +86,10 @@ public class AsteroidsSprite {
 		for (int i = 0; i < this.shape.npoints; i++)
 			this.sprite.addPoint((int) Math.round(this.shape.xpoints[i]
 					* Math.cos(this.angle) + this.shape.ypoints[i] // CHANGE
-																	// cos to
-																	// sin for a
-																	// fun
-																	// effect
+					// cos to
+					// sin for a
+					// fun
+					// effect
 					* Math.sin(this.angle))
 					+ (int) Math.round(this.currentX) + width / 2, (int) Math
 					.round(this.shape.ypoints[i] * Math.cos(this.angle)
