@@ -88,8 +88,6 @@ class AdviceGiver extends TimerTask {
 
 	private int nextMsg;
 
-//	private String[] msg;
-
 	private ArrayList<String> msg;
 	
 	private String[] defaultEarlyMessages = {
@@ -98,7 +96,7 @@ class AdviceGiver extends TimerTask {
 			"Think.", "Relax.", "Have a question? Raise your hand!",
 			"Have mercy on your marker: write clearly!" };
 
-	private String[] defaultFinalMessages = {
+	private String[] defaultLateMessages = {
 			"Finish what you are working on!",
 			"Please stay seated until the end of the exam.",
 			"Is your name and student number on the exam?",
@@ -109,9 +107,9 @@ class AdviceGiver extends TimerTask {
 	private ArrayList<String> late;
 
 	private void initializeMessages() {
-		// System.out.println("cwd: " + System.getProperty("user.dir"));
 		early = new ArrayList<String>();
 		late = new ArrayList<String>();
+		msg = early;
 		try {
 			Scanner sc = new Scanner(new File("earlyMessages.txt"));
 			while (sc.hasNextLine()) {
@@ -131,11 +129,10 @@ class AdviceGiver extends TimerTask {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("using default late messages");
-			for (String s : defaultFinalMessages) {
+			for (String s : defaultLateMessages) {
 				late.add(s);
 			}
 		}
-		msg = early;
 	}
 
 	public AdviceGiver(JLabel label, Exam exam) {
