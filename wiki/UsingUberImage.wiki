@@ -15,7 +15,7 @@ The following summarizes the most useful methods in UberImage. Note that the fir
     * *getWidth()*: returns the width of the image in pixels.
     * *getHeight()*: returns the height of the image in pixels.
     * *setColor(int x, int y, Color c)*: sets the pixel at location (x, y) to be the given color. Note that the upper left hand of the corner is (0, 0), and the x-values increase to the right, and the y-values decrease down (so the y-values go in the opposite direction of regular mathematical coordinates).
-    * *getColor(x, y)*: returns the color of the pixel at (x, y) as a Color object.
+    * *getColor(int x, int y)*: returns the color of the pixel at (x, y) as a Color object.
     * *saveAsJPEG(String name)*: saves the current image in a file with the given name in the JPEG format. JPEG compresses images quite a bit, and so it's a popular format for storing photographic images. The downside is some details are lost in the compression process, which results in minor visual imperfections, such as smearing or blurring of details. Thus, JPEG is not a good format for storing images (such as icons) where the pixel colors must be exact.
     * *saveAsPNG(String name)*: saves the current image in a file with the given name in the PNG format. PNG files save the pixel colors exactly, although they tend to be bigger than equivalent JPEG files.
 
