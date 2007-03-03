@@ -290,6 +290,10 @@ public class UberImage extends BufferedImage {
 		this.setColor(p.x, p.y, c);
 	}
 
+	public void setColor(Point p, int red, int green, int blue) {
+		this.setColor(p.x, p.y, red, green, blue);
+	}
+	
 	/**
 	 * @return the color of the pixel at location (x, y)
 	 */
