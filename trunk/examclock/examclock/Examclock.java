@@ -5,9 +5,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -73,6 +77,7 @@ public class Examclock {
 		int minutes = Integer.parseInt(inval);
 		return new Exam(minutes);
 	}
+
 }
 
 class AdviceGiver extends TimerTask {
@@ -83,29 +88,67 @@ class AdviceGiver extends TimerTask {
 
 	private int nextMsg;
 
-	private String[] msg;
+//	private String[] msg;
 
-	private String[] earlyMsg = {
+	private ArrayList<String> msg;
+	
+	private String[] defaultEarlyMessages = {
 			"Write your name and student number on all pages.",
 			"Double-check your answers!", "Read the questions carefully!",
 			"Think.", "Relax.", "Have a question? Raise your hand!",
 			"Have mercy on your marker: write clearly!" };
 
-	private String[] finalMsg = { "Finish what you are working on!",
+	private String[] defaultFinalMessages = {
+			"Finish what you are working on!",
 			"Please stay seated until the end of the exam.",
 			"Is your name and student number on the exam?",
 			"Double-check your answers!" };
 
+	private ArrayList<String> early;
+
+	private ArrayList<String> late;
+
+	private void initializeMessages() {
+		// System.out.println("cwd: " + System.getProperty("user.dir"));
+		early = new ArrayList<String>();
+		late = new ArrayList<String>();
+		try {
+			Scanner sc = new Scanner(new File("earlyMessages.txt"));
+			while (sc.hasNextLine()) {
+				early.add(sc.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("using default early messages");
+			for (String s : defaultEarlyMessages) {
+				early.add(s);
+			}
+		}
+
+		try {
+			Scanner sc = new Scanner(new File("lateMessages.txt"));
+			while (sc.hasNextLine()) {
+				late.add(sc.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("using default late messages");
+			for (String s : defaultFinalMessages) {
+				late.add(s);
+			}
+		}
+		msg = early;
+	}
+
 	public AdviceGiver(JLabel label, Exam exam) {
-		msg = earlyMsg;
+		msg = early;
 		nextMsg = 0;
 		this.adviceLabel = label;
 		this.exam = exam;
+		initializeMessages();
 	}
 
 	public void useFinalMessages() {
-		if (msg != finalMsg) {
-			msg = finalMsg;
+		if (msg != late) {
+			msg = late;
 			nextMsg = 0;
 		}
 	}
@@ -118,8 +161,8 @@ class AdviceGiver extends TimerTask {
 			if (exam.minutesRemaining() <= Constant.FINAL_MSG_TIME) {
 				useFinalMessages();
 			}
-			adviceLabel.setText(msg[nextMsg]);
-			nextMsg = (nextMsg + 1) % msg.length;
+			adviceLabel.setText(msg.get(nextMsg));
+			nextMsg = (nextMsg + 1) % msg.size();
 		}
 	}
 
@@ -156,7 +199,9 @@ class UpdateClockTask extends TimerTask {
 
 		if (exam.finished()) {
 			timeRemaining.setText(String.format(Constant.EXAM_FINISHED_MSG));
-			frame.setTitle(Constant.FRAME_NAME + ": " + Constant.TITLE_DONE_MSG);
+			frame
+					.setTitle(Constant.FRAME_NAME + ": "
+							+ Constant.TITLE_DONE_MSG);
 		} else {
 			timeRemaining.setText(String.format("%s min", remaining));
 			frame.setTitle(Constant.FRAME_NAME + " (" + remaining + " min)");
@@ -307,9 +352,9 @@ class Constant {
 	public static final int FINAL_MSG_TIME = 10;
 
 	public static final String EXAM_OVER_MSG = "Hand in your exam!";
-	
+
 	public static final String EXAM_FINISHED_MSG = "Time's up!";
-	
+
 	public static final String TITLE_DONE_MSG = "Done!";
 
 	public static final Color LAST_TEN_MINUTES_COLOR = Color.ORANGE;
