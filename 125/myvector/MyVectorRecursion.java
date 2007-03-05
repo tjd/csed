@@ -18,6 +18,7 @@ public class MyVectorRecursion {
 		equalTest();
 		reverseTest();
 		shuffleTest();
+		isSortedTest();
 		System.out.println("All tests passed.");
 	}
 
@@ -343,4 +344,29 @@ public class MyVectorRecursion {
 				|| (vec.get(0) == 5 && vec.get(1) == 4);
 	}
 
+	public static boolean isSorted(MyVector vec) {
+		if (vec.size() <= 1) {
+			return true;
+		} else {
+			MyVector rest = vec.rest();
+			return (vec.first() <= rest.first()) && isSorted(rest);
+		}
+	}
+	
+	public static void isSortedTest() {
+		MyVector vec = new MyVector();
+		assert isSorted(vec);
+		vec.push(1);
+		assert isSorted(vec);
+		vec.push(1);
+		assert isSorted(vec);
+		vec.push(56);
+		assert isSorted(vec);
+		vec.push(1);
+		assert !isSorted(vec);
+		vec = new MyVector();
+		vec.push(2);
+		vec.push(1);
+		assert !isSorted(vec);
+	}
 }
