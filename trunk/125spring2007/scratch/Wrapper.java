@@ -1,8 +1,13 @@
 package scratch;
 
+import java.util.ArrayList;
+
 public class Wrapper {
 
 	public static void main(String[] args) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		arr.add(5);
+		
 		Integer x = new Integer(51);
 		System.out.println("x = " + x);
 
