@@ -1,6 +1,6 @@
-package oop.comparable;
+package oop.diary;
 
-public class Email implements Comparable<Object> {
+public class Email implements Comparable<Email> {
 
 	private String username;
 
@@ -21,10 +21,8 @@ public class Email implements Comparable<Object> {
 		}
 	}
 
-	public int compareTo(Object s) {
-		Email other = (Email) s;
+	public int compareTo(Email other) {
 		return this.getDomain().compareTo(other.getDomain());
-		// return this.getUsername().compareTo(other.getUsername());
 	}
 
 	public String getDomain() {
@@ -45,7 +43,7 @@ public class Email implements Comparable<Object> {
 	}
 
 	public static void main(String[] args) {
-		// assert 1 == 2;
+		util.Util.ensureAssertionsEnabled();
 		Email email1 = new Email("tjd@sfu.ca");
 		assert email1.getUsername().equals("tjd");
 		assert email1.getDomain().equals("sfu.ca");

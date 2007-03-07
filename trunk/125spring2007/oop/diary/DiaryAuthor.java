@@ -1,6 +1,5 @@
 package oop.diary;
 
-import oop.comparable.Email;
 
 public class DiaryAuthor {
 
