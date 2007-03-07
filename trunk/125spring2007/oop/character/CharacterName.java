@@ -1,4 +1,4 @@
-package oop;
+package oop.character;
 
 public class CharacterName {
 
@@ -19,4 +19,7 @@ public class CharacterName {
 		return this.rawName;
 	}
 
+	public String toString() {
+		return getName();
+	}
 }

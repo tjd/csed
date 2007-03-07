@@ -1,4 +1,4 @@
-package oop;
+package oop.point;
 
 public class Point {
 

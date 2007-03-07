@@ -16,7 +16,7 @@ public class CoinTest {
 		// initialize the list of flippers
 		ArrayList<Coin> flippers = new ArrayList<Coin>();
 		for(int i = 0; i < n; ++i) {
-			flippers.add(new Coin1());
+			flippers.add(new Coin2());
 		}
 		
 		// perform the experiment

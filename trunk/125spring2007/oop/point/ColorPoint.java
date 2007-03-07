@@ -1,6 +1,7 @@
-package oop;
+package oop.point;
 
 import java.awt.Color;
+
 
 public class ColorPoint extends Point {
 
