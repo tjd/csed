@@ -1,4 +1,4 @@
-package objects;
+package objects.shape;
 
 public class Circle {
 
