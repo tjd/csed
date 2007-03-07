@@ -1,4 +1,4 @@
-package objects;
+package objects.shape;
 
 import java.awt.Color;
 
