@@ -1,5 +1,7 @@
-package oop;
+package oop.character;
 
+// Represents a single character attribute, such as "strength" or
+// "intelligence". 
 public class Attribute {
 
 	private final String name;
@@ -39,4 +41,7 @@ public class Attribute {
 		return this.name;
 	}
 
+	public String toString() {
+		return getName() + ": " + getValue();
+	}
 }

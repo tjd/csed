@@ -14,6 +14,8 @@ public class Coin1 implements Coin {
 		} else {
 			headsUp = false;
 		}
+		// or just:
+		// readsUp = Math.random() <= 0.5
 	}
 
 	public boolean isHeads() {

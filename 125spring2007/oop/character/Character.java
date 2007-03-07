@@ -1,4 +1,4 @@
-package oop;
+package oop.character;
 
 public class Character {
 
@@ -18,17 +18,14 @@ public class Character {
 
 	public Character(String name) {
 		this.name = new CharacterName(name);
+		
+		// set default values
 		this.gold = 25;
 		this.xp = 10;
 		this.hp = 12;
 		this.stateOfMind = State.normal;
 		this.strength = new Attribute("strength", 0, 20);
 		this.agility = new Attribute("agility", 0, 20);
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public double getAgility() {
@@ -85,6 +82,18 @@ public class Character {
 
 	public void setXp(int xp) {
 		this.xp = xp;
+	}
+
+	public String toString() {
+		String result = "";
+		result += "Character name: " + name + "\n";
+		result += "Gold: " + gold + "\n";
+		result += "Experience points: " + xp + "\n";
+		result += "Hit points: " + hp + "\n";
+		result += "State of mind: " + stateOfMind + "\n";
+		result += strength + "\n";
+		result += agility + "\n";
+		return result;
 	}
 
 }

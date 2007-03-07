@@ -24,6 +24,10 @@ public class Coin2 implements Coin {
 	public boolean isTails() {
 		return !isHeads();
 	}
+	
+	public Side side() {
+		return side;
+	}
 }
 
 // Side is an enumerated type, i.e. a finite set of values.
