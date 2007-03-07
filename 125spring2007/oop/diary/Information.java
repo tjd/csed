@@ -1,4 +1,4 @@
-package oop.comparable;
+package oop.diary;
 
 public interface Information {
 	public String getOwner();
