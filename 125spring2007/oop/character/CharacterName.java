@@ -1,4 +1,4 @@
-package objects.character;
+package oop.character;
 
 public class CharacterName {
 
