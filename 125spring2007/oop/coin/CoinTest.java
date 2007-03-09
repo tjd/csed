@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CoinTest {
 
 	public static void main(String[] args) {
-		flipOut(10);
+		flipOut(1000);
 	}
 
 	// Suppose n people each flip a coin at the same time.
@@ -15,9 +15,13 @@ public class CoinTest {
 	public static void flipOut(int n) {
 		// initialize the list of flippers
 		ArrayList<Coin> flippers = new ArrayList<Coin>();
-		for(int i = 0; i < n; ++i) {
-			flippers.add(new Coin2());
+		for (int i = 0; i < n; ++i) {
+			flippers.add(new Coin1());
 		}
+
+//		Coin firstCoin = flippers.get(0);
+//		Coin2 c = (Coin2) firstCoin; // cast
+//		System.out.println(c.getSide());
 		
 		// perform the experiment
 		int count = 0;

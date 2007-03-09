@@ -24,8 +24,8 @@ public class Coin2 implements Coin {
 	public boolean isTails() {
 		return !isHeads();
 	}
-	
-	public Side side() {
+
+	public Side getSide() {
 		return side;
 	}
 }
