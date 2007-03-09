@@ -1,4 +1,4 @@
-package objects.character;
+package oop.character;
 
 // Represents a single character attribute, such as "strength" or
 // "intelligence". 
