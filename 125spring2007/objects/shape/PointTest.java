@@ -6,6 +6,17 @@ import java.util.ArrayList;
 public class PointTest {
 
 	public static void main(String[] args) {
+//		test1();
+		test2();
+	}
+	
+	public static void test2() {
+		ColorPoint q = new ColorPoint(45, 2, Color.RED);
+		q.setX(4354);
+		System.out.println(q.toString());
+	}
+	
+	public static void test1() {
 		Point p = new Point();
 		p.print();
 		System.out.println(p.toString());

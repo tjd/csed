@@ -2,9 +2,7 @@ package objects.shape;
 
 public class Circle {
 
-	private int x;
-
-	private int y;
+private Point center;
 
 	private int radius; // radius > 0
 
@@ -12,8 +10,7 @@ public class Circle {
 		if (radius <= 0) {
 			throw new Error("Circle's radius must be positive");
 		} else {
-			this.x = x;
-			this.y = y;
+			this.center = new Point(x, y);
 			this.radius = radius;
 		}
 	}
@@ -31,11 +28,11 @@ public class Circle {
 	}
 
 	public int getX() {
-		return x;
+		return center.getX();
 	}
 
 	public int getY() {
-		return y;
+		return center.getY();
 	}
 
 }
