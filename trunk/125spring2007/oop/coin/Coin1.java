@@ -1,6 +1,6 @@
 package oop.coin;
 
-public class Coin1 implements Coin {
+public class Coin1 implements Coin, Cow {
 
 	private boolean headsUp;
 
@@ -24,5 +24,9 @@ public class Coin1 implements Coin {
 	
 	public boolean isTails() {
 		return !isHeads();
+	}
+	
+	public void moo() {
+		System.out.println("moo");
 	}
 }
