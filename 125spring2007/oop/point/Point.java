@@ -2,6 +2,8 @@ package oop.point;
 
 public class Point {
 
+	private static int count = 0;
+
 	private int x;
 
 	private int y;
@@ -21,6 +23,20 @@ public class Point {
 	public Point(int x, int y) {
 		this.x = x;
 		this.y = y;
+		++count;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public boolean equals(Object x) {
+		if (x instanceof Point) {
+			Point p = (Point) x;
+			return p.x == this.x && p.y == this.y;
+		} else {
+			return false;
+		}
 	}
 
 	// setters and getters
