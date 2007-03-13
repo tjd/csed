@@ -16,12 +16,12 @@ public class List<T> extends ArrayList<T> {
 		}
 	}
 
-	// Returns a reference to the first element of this MyArrayList.
+	// Returns a reference to the first element of this List.
 	public T first() {
 		return this.get(0);
 	}
 
-	// Returns a new MyArrayList the same as this one,
+	// Returns a new List the same as this one,
 	// but without the first element.
 	public List<T> rest() {
 		List<T> arr = new List<T>();
