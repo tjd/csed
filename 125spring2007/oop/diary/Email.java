@@ -34,7 +34,7 @@ public class Email implements Comparable<Email> {
 	}
 
 	public String toHTML() {
-		return String.format("<a href = \"mailto:%s\">%s</a>", this, this);
+		return String.format("<a href = \"mailto:%s\">%s</a>", toString(), toString());
 	}
 
 	@Override

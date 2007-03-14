@@ -33,14 +33,21 @@ public class Diary {
 	}
 
 	public static void main(String[] args) {
-		DiaryAuthor author = new DiaryAuthor("Toby", "Donaldson", "tjd@sfu.ca");
+		DiaryAuthor author = new DiaryAuthor("Toby", "Donaldson", 
+					"tjd@sfu.ca");
 		Diary diary = new Diary(author);
+		
 		diary.addEntry("I like cheese. It's really good.");
 		diary.addEntry("Ever wonder who invented the shoe? What a genius!");
 		diary.addEntry("If music be the food of love, "
 				+ "then I'll have a Whopper and large fries.");
+		
+		DiaryEntry entry = new DiaryEntry("Hi!", author);
+		entry.addKeyword("introduction");
+		entry.addKeyword("hello");
+		diary.addEntry(entry);
+		
 		diary.printAll();
-
 	}
 
 }
