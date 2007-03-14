@@ -89,15 +89,14 @@ class AdviceGiver extends TimerTask {
 	private int nextMsg;
 
 	private ArrayList<String> msg;
-	
+
 	private String[] defaultEarlyMessages = {
 			"Write your name and student number on all pages.",
 			"Double-check your answers!", "Read the questions carefully!",
 			"Think.", "Relax.", "Have a question? Raise your hand!",
 			"Have mercy on your marker: write clearly!" };
 
-	private String[] defaultLateMessages = {
-			"Finish what you are working on!",
+	private String[] defaultLateMessages = { "Finish what you are working on!",
 			"Please stay seated until the end of the exam.",
 			"Is your name and student number on the exam?",
 			"Double-check your answers!" };
@@ -111,7 +110,9 @@ class AdviceGiver extends TimerTask {
 		late = new ArrayList<String>();
 		msg = early;
 		try {
-			Scanner sc = new Scanner(new File("earlyMessages.txt"));
+			Scanner sc = new Scanner(Constant.EARLY_MESSAGES_FILE);
+			System.out.printf("Reading early messages from \"%s\"\n",
+					Constant.EARLY_MESSAGES_FILE.getPath());
 			while (sc.hasNextLine()) {
 				early.add(sc.nextLine());
 			}
@@ -123,7 +124,9 @@ class AdviceGiver extends TimerTask {
 		}
 
 		try {
-			Scanner sc = new Scanner(new File("lateMessages.txt"));
+			Scanner sc = new Scanner(Constant.LATE_MESSAGES_FILE);
+			System.out.printf("Reading late messages from \"%s\"\n",
+					Constant.LATE_MESSAGES_FILE.getPath());
 			while (sc.hasNextLine()) {
 				late.add(sc.nextLine());
 			}
@@ -357,4 +360,8 @@ class Constant {
 	public static final Color LAST_TEN_MINUTES_COLOR = Color.ORANGE;
 
 	public static final Color LAST_MINUTE_COLOR = Color.RED;
+
+	public static final File LATE_MESSAGES_FILE = new File("lateMessages.txt");
+
+	public static final File EARLY_MESSAGES_FILE = new File("earlyMessages.txt");
 }
