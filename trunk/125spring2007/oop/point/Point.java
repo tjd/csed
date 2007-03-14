@@ -26,17 +26,9 @@ public class Point {
 		++count;
 	}
 
+	// return number of Point objects that have been created
 	public int getCount() {
 		return count;
-	}
-
-	public boolean equals(Object x) {
-		if (x instanceof Point) {
-			Point p = (Point) x;
-			return p.x == this.x && p.y == this.y;
-		} else {
-			return false;
-		}
 	}
 
 	// setters and getters
@@ -66,6 +58,17 @@ public class Point {
 		int dx = this.x - other.x;
 		int dy = this.y - other.y;
 		return Math.sqrt(dx * dx + dy * dy);
+	}
+
+	public boolean equals(Object x) {
+		if (x instanceof Point) {
+			Point other = (Point) x;
+			return this.x == other.x && this.y == other.y;
+		} else {
+			// might be better to throw an error if you try to compare a Point
+			// to a non-Point
+			return false;
+		}
 	}
 
 	//
