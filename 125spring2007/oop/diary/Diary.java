@@ -15,8 +15,6 @@ public class Diary {
 
 	public void addEntry(String body) {
 		addEntry(new DiaryEntry(body, this.author));
-//		DiaryEntry entry = new DiaryEntry(body, this.author);
-//		entries.add(entry);
 	}
 	
 	public void addEntry(DiaryEntry e) {
