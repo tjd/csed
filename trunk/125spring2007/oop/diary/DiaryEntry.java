@@ -55,6 +55,7 @@ public class DiaryEntry {
 	}
 
 	public static void main(String[] args) {
+		util.Util.ensureAssertionsEnabled();
 		DiaryAuthor author = new DiaryAuthor("Toby", "Donaldson", "tjd@sfu.ca");
 		String body = "My cat Newton is so cute. I demand that you look at these pictures!";
 		DiaryEntry entry = new DiaryEntry(body, author);

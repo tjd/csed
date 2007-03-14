@@ -1,4 +1,4 @@
-package oop.diary;
+package oop.comparable;
 
 
 /* 
@@ -8,7 +8,7 @@ sort a lot of data!
 
  s.compareTo(t) returns 
  
-   - a negative integer is s comes before t;
+   - a negative integer if s comes before t;
    - 0 if s equals t
    - a positive integer if s comes after t
 
@@ -23,7 +23,7 @@ Here is the definition of the Comparable<String> interface:
       public int compareTo(String o);
    }
    
-The idea here is that any class that implements the Comparable<Strnig> interface
+The idea here is that any class that implements the Comparable<String> interface
 will provide the compareTo method for comparing objects. We use an
 interface because different objects will have different criteria for how
 they want to compare themselves.
@@ -85,6 +85,8 @@ Of course, a three-pronged plug won't work in a two-pronged outlet.
 */
 
 import java.util.Arrays;
+
+import oop.diary.Email;
 
 
 public class StringSort {
