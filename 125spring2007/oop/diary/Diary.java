@@ -14,14 +14,19 @@ public class Diary {
 	}
 
 	public void addEntry(String body) {
-		DiaryEntry entry = new DiaryEntry(body, this.author);
-		entries.add(entry);
+		addEntry(new DiaryEntry(body, this.author));
+//		DiaryEntry entry = new DiaryEntry(body, this.author);
+//		entries.add(entry);
+	}
+	
+	public void addEntry(DiaryEntry e) {
+		entries.add(e);
 	}
 
 	public void printAll() {
 		String sep = "---------------------------------------\n";
-		for (int i = 0; i < entries.size(); ++i) {
-			System.out.printf("%s%s\n%s", sep, entries.get(i), sep);
+		for (DiaryEntry entry : entries) {
+			System.out.printf("%s%s\n%s", sep, entry, sep);
 		}
 	}
 

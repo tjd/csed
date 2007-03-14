@@ -44,6 +44,7 @@ public class Email implements Comparable<Email> {
 
 	public static void main(String[] args) {
 		util.Util.ensureAssertionsEnabled();
+		util.Util.ensureAssertionsEnabled();
 		Email email1 = new Email("tjd@sfu.ca");
 		assert email1.getUsername().equals("tjd");
 		assert email1.getDomain().equals("sfu.ca");

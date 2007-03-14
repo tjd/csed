@@ -41,7 +41,7 @@ public class DiaryAuthor {
 	}
 
 	public static void main(String[] args) {
-		// assert 1 == 2;
+		util.Util.ensureAssertionsEnabled();
 		DiaryAuthor author = new DiaryAuthor("Toby", "Donaldson", "tjd@sfu.ca");
 		assert author.getEmail().equals("tjd@sfu.ca");
 		assert author.getUsername().equals("tjd");
