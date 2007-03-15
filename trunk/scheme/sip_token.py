@@ -7,18 +7,40 @@ alpha_chars = lower_alpha_chars + upper_alpha_chars
 atom_chars = alpha_chars + '_-!?*' + digit_chars
 
 
-def eval(lst):
-    if lst == []:
-	return []
-    elif is_int(lst[0]):
-	return int(lst[0])
-    elif lst[0] == '+':
-	result = 0
-	for e in lst[1:]:
-	    result += eval(e)
-	return result
-	
+def eval(e):
+    print 'e = %s' % e
+    if is_string(e):
+	if is_int(e):
+	    return int(e)
+    elif is_list(e):
+	head = e[0]
+	if head == '+':
+	    result = 0
+	    for sub in e[1:]:
+		result += eval(sub)
+	    ret1urn result
+	elif head == '-':
+	    result = 0
+	    for sub in e[1:]:
+		result -= eval(sub)
+	    return result
+	elif head == '*':
+	    result = 1
+	    for sub in e[1:]:
+		result *= eval(sub)
+	    return result
+	elif head == '/':
+	    result = eval(e[1])
+	    for sub in e[2:]:
+		result /= eval(sub)
+	    return result
 
+def is_string(e):
+    return isinstance(e, str)
+
+def is_list(e):
+    return isinstance(e, list)
+	
 def gen_tokens(s):
     """
     Returns a generator for the tokens of s.
@@ -65,7 +87,7 @@ def is_atom(s):
 def is_int(s):
     if s == '':
         return False
-    elif s[0] in '+-':
+    elif s[0] in '+-' and len(s) > 1:
         return all_in(s[1:], digit_chars)
     else:
         return all_in(s, digit_chars)
@@ -116,6 +138,8 @@ def is_int_test():
     assert not is_int('--1')
     assert not is_int('++1')
     assert not is_int('two')
+    assert not is_int('+')
+    assert not is_int('-')
 
 if __name__ == '__main__':
     print 'Running tests ...'
