@@ -6,6 +6,19 @@ upper_alpha_chars = lower_alpha_chars.upper()
 alpha_chars = lower_alpha_chars + upper_alpha_chars
 atom_chars = alpha_chars + '_-!?*' + digit_chars
 
+
+def eval(lst):
+    if lst == []:
+	return []
+    elif is_int(lst[0]):
+	return int(lst[0])
+    elif lst[0] == '+':
+	result = 0
+	for e in lst[1:]:
+	    result += eval(e)
+	return result
+	
+
 def gen_tokens(s):
     """
     Returns a generator for the tokens of s.
@@ -23,17 +36,6 @@ def gen_tokens(s):
         else:
             i += 1
 
-def gen_tokens_test():
-    assert [t for t in gen_tokens('cat')] == ['cat']
-    assert [t for t in gen_tokens('(cat)')] == ['(', 'cat', ')']
-    assert [t for t in gen_tokens('(cat dog)')] == ['(', 'cat', 'dog', ')']
-    assert [t for t in gen_tokens('(cat (dog woof))')] == ['(', 'cat',
-                                                           '(', 'dog', 'woof',
-                                                           ')', ')']
-    assert [t for t in gen_tokens('()')] == ['(', ')']
-    assert [t for t in gen_tokens('(())')] == ['(', '(', ')', ')']
-    assert [t for t in gen_tokens('((()))')] == ['(', '(', '(', ')', ')', ')']
-
 def get_atom(s, start):
     """
     Return the atom starting at s[start].
@@ -43,12 +45,6 @@ def get_atom(s, start):
         atom += s[start]
         start += 1
     return atom, start
-
-def get_atom_test():
-    assert get_atom('a', 0) == ('a', 1)
-    assert get_atom('apple', 0) == ('apple', 5)
-    assert get_atom('apple ', 0) == ('apple', 5)
-    assert get_atom('(apple)', 1) == ('apple', 6)
 
 def all_in(s, chars):
     """ Returns true iff all of s's characters are in chars.
@@ -66,6 +62,31 @@ def is_atom(s):
     else:
         return all_in(s, atom_chars)
 
+def is_int(s):
+    if s == '':
+        return False
+    elif s[0] in '+-':
+        return all_in(s[1:], digit_chars)
+    else:
+        return all_in(s, digit_chars)
+
+def gen_tokens_test():
+    assert [t for t in gen_tokens('cat')] == ['cat']
+    assert [t for t in gen_tokens('(cat)')] == ['(', 'cat', ')']
+    assert [t for t in gen_tokens('(cat dog)')] == ['(', 'cat', 'dog', ')']
+    assert [t for t in gen_tokens('(cat (dog woof))')] == ['(', 'cat',
+                                                           '(', 'dog', 'woof',
+                                                           ')', ')']
+    assert [t for t in gen_tokens('()')] == ['(', ')']
+    assert [t for t in gen_tokens('(())')] == ['(', '(', ')', ')']
+    assert [t for t in gen_tokens('((()))')] == ['(', '(', '(', ')', ')', ')']
+
+def get_atom_test():
+    assert get_atom('a', 0) == ('a', 1)
+    assert get_atom('apple', 0) == ('apple', 5)
+    assert get_atom('apple ', 0) == ('apple', 5)
+    assert get_atom('(apple)', 1) == ('apple', 6)
+
 def is_atom_test():
     assert is_atom('a')
     assert is_atom('23')
@@ -79,14 +100,6 @@ def is_atom_test():
     assert not is_atom('a b')
     assert not is_atom(' a')
     assert not is_atom('b ')
-
-def is_int(s):
-    if s == '':
-        return False
-    elif s[0] in '+-':
-        return all_in(s[1:], digit_chars)
-    else:
-        return all_in(s, digit_chars)
 
 def is_int_test():
     assert is_int('0')
