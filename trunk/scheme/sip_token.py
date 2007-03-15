@@ -18,7 +18,7 @@ def eval(e):
 	    result = 0
 	    for sub in e[1:]:
 		result += eval(sub)
-	    ret1urn result
+	    return result
 	elif head == '-':
 	    result = 0
 	    for sub in e[1:]:
