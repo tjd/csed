@@ -13,7 +13,7 @@ import java.util.Date;
 // Write a boolean method called isIdentifier(String s) that returns true if s is valid
 // identifier, and false otherwise. Make your method as efficient as possible.
 
-public class StringProb1 {
+public class StringProb {
 
 	public static final String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
