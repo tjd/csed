@@ -147,7 +147,7 @@ class AsteroidsSprite {
 		this.sprite = new Polygon();
 		for (i = 0; i < this.shape.npoints; i++) {
 			this.sprite.addPoint((int) Math.round(this.shape.xpoints[i]
-					* Math.cos(this.angle) + this.shape.ypoints[i]
+					* Math.sin(this.angle) + this.shape.ypoints[i]
 					* Math.sin(this.angle))
 					+ (int) Math.round(this.x) + width / 2, (int) Math
 					.round(this.shape.ypoints[i] * Math.cos(this.angle)
@@ -224,9 +224,9 @@ public class Asteroids extends Applet implements Runnable, KeyListener {
 
 	static final int STORM_PAUSE = 2 * FPS;
 
-	static final int MIN_ROCK_SIDES = 6; // Ranges for asteroid shape, size
+	static final int MIN_ROCK_SIDES = 3; // Ranges for asteroid shape, size
 
-	static final int MAX_ROCK_SIDES = 16; // speed and rotation.
+	static final int MAX_ROCK_SIDES = 3; // speed and rotation.
 
 	static final int MIN_ROCK_SIZE = 20;
 

@@ -151,7 +151,7 @@ public class StringProb {
 
 	public static void fileTest1() {
 		String[] bill = util.EasyInput.fileToString(
-				"/home/toby/Desktop/qa/shaks12.txt").split(" ");
+				"C:/Documents and Settings/tjd/Desktop/125/all_raw.txt").split(" ");
 		System.out.println("Start: " + new Date());
 		
 		int count = 0;
@@ -169,8 +169,8 @@ public class StringProb {
 
 	public static void fileTest2() {
 		String[] bill = util.EasyInput.fileToString(
-				"/home/toby/Desktop/qa/shaks12.txt").split(" ");
-		System.out.println("Start: " + new Date());
+		"C:/Documents and Settings/tjd/Desktop/125/all_raw.txt").split(" ");
+System.out.println("Start: " + new Date());
 		
 		int count = 0;
 		for (int rep = 1; rep <= 5; ++rep) {
@@ -187,8 +187,8 @@ public class StringProb {
 
 	public static void fileTest3() {
 		String[] bill = util.EasyInput.fileToString(
-				"/home/toby/Desktop/qa/shaks12.txt").split(" ");
-		System.out.println("Start: " + new Date());
+		"C:/Documents and Settings/tjd/Desktop/125/all_raw.txt").split(" ");
+System.out.println("Start: " + new Date());
 		
 		int count = 0;
 		for (int rep = 1; rep <= 5; ++rep) {
@@ -205,11 +205,11 @@ public class StringProb {
 	}
 
 	public static void main(String[] args) {
-		util.Util.ensureAssertionsEnabled();
-		isIdentifier1Test();
-		isIdentifier2Test();
-		isIdentifier3Test();
-		fileTest1();
+//		util.Util.ensureAssertionsEnabled();
+//		isIdentifier1Test();
+//		isIdentifier2Test();
+//		isIdentifier3Test();
+		fileTest3();
 	}
 
 }

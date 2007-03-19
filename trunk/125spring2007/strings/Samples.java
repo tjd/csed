@@ -16,15 +16,15 @@ public class Samples {
 		for(int i = s.length() - 1; i >= 0; --i) {
 			work.append(s.charAt(i));
 		}
-		return work.toString();
+		return "" + work;
 	}
 	
 	public static void main(String[] args) {
 		System.out.println(reverse1("cattle"));
 		System.out.println(reverse1("balloon"));
-		System.out.println(reverse2("cattle"));
-		System.out.println(reverse2("balloon"));
-		double gpa = Double.parseDouble("3.25");
+//		System.out.println(reverse2("cattle"));
+//		System.out.println(reverse2("balloon"));
+//		double gpa = Double.parseDouble("3.25");
 	}
 
 }
