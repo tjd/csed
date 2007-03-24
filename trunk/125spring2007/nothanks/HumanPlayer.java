@@ -19,17 +19,26 @@ public class HumanPlayer extends Player {
 				.getNumChips(), this.getCards());
 
 		Scanner sc = new Scanner(System.in);
-		while (true) {
-			System.out.printf("Please choose (T)ake it, or (N)o thanks --> ");
-			String in = sc.next().trim().toUpperCase();
-			if (in.length() > 0) {
-				if (in.charAt(0) == 'T') {
-					return Move.takeIt;
-				} else if (in.charAt(0) == 'N') {
-					return Move.noThanks;
+		if (this.getNumChips() == 0) {
+			System.out
+					.printf("Uh oh! You have no chip left so you must take it!\n");
+			System.out.println("Press 'enter' to continue ...");
+			sc.nextLine();
+			return Move.takeIt;
+		} else {
+			while (true) {
+				System.out
+						.printf("Please choose (T)ake it, or (N)o thanks --> ");
+				String in = sc.next().trim().toUpperCase();
+				if (in.length() > 0) {
+					if (in.charAt(0) == 'T') {
+						return Move.takeIt;
+					} else if (in.charAt(0) == 'N') {
+						return Move.noThanks;
+					}
 				}
+				System.out.printf("Oops: I don't understand '%s'.\n", in);
 			}
-			System.out.printf("Oops: I don't understand '%s'.\n", in);
 		}
 	}
 
