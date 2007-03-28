@@ -18,7 +18,9 @@ public class EmailHarvester {
 
 	public static void main(String[] args) {
 		// get the text to process
-		String url = "http://www.sfu.ca/english/faculty.htm";
+//		String url = "http://www.sfu.ca/english/faculty.htm";
+		String url = "http://www.sfu.ca/economics/faculty/index.html";
+//		String url = "http://www.cs.sfu.ca/people/Faculty/";
 		String text = getWebPageAtUrl(url);
 
 		// extract all the email addresses
