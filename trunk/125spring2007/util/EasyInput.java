@@ -290,7 +290,6 @@ public class EasyInput {
 		try {
 			return getWebPage(new URL(url));
 		} catch (MalformedURLException urlEx) {
-			// urlEx.printStackTrace();
 			throw new Error("URL creation failed:\n" + quote(url)
 					+ "\nis not a validly formatted URL.");
 		}
@@ -314,7 +313,6 @@ public class EasyInput {
 			}
 			return content;
 		} catch (IOException e) {
-			// e.printStackTrace();
 			throw new Error(
 					"The page "
 							+ quote(urlObj.toString())
