@@ -10,7 +10,7 @@ public class Deck {
 	public Deck(int numCards) {
 		if (numCards <= 0 || numCards % 2 == 1) {
 			throw new Error(
-					"Deck initialization error: numCards must be a positive even number");
+					"Deck initialization error: numCards must be a positive even int");
 		}
 		deck = new int[numCards];
 		reset();
@@ -21,7 +21,7 @@ public class Deck {
 			deck[i] = i;
 		}
 	}
-	
+
 	// the left half of the deck consists of all cards from 0
 	// to splitPoint-1 inclusive; the right half is all the rest
 	// Note: there are more elegant and efficient ways to do this,
@@ -40,7 +40,7 @@ public class Deck {
 			arr.add(deck[i]);
 		}
 
-		// copy the re-arranged cards in arr back into the deck
+		// copy the re-ordered cards in arr back into the deck
 		for (int i = 0; i < deck.length; ++i) {
 			deck[i] = arr.get(i);
 		}
