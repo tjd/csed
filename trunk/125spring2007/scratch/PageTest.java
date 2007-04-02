@@ -1,5 +1,7 @@
 package scratch;
 
+import javax.swing.JOptionPane;
+
 import util.EasyInput;
 
 public class PageTest {
@@ -8,7 +10,8 @@ public class PageTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String page = EasyInput.getWebPage("http://www.sfu.ca");
+		String url = JOptionPane.showInputDialog("Enter a URL:");
+		String page = EasyInput.getWebPage(url);
 		System.out.println(page);
 	}
 
