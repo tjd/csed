@@ -2,7 +2,7 @@ package statemachines;
 
 import java.util.regex.Pattern;
 
-public class Email implements Comparable {
+public class Email implements Comparable<Email> {
 
 	private String username, place, extension;
 
@@ -55,9 +55,8 @@ public class Email implements Comparable {
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	public int compareTo(Object o) {
-		Email other = (Email) o;
-		return this.username.compareTo(other.username);
+	public int compareTo(Email e) {
+		return this.username.compareTo(e.username);
 	}
 
 	public String toHTML() {
