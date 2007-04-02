@@ -56,7 +56,6 @@ public class MainNoThanks {
 		result.add(new HumanPlayer());
 		for (int i = 1; i < n; ++i) {
 			result.add(ComputerPlayer.randomComputerPlayer());
-			// result.add(new RandomPlayer("Randy" + i));
 		}
 
 		// randomly chosen players goes first

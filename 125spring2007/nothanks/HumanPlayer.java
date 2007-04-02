@@ -12,8 +12,8 @@ public class HumanPlayer extends Player {
 	@Override
 	public Move makeAmove(PlayerPot pot) {
 		// show the user the current state of the game
-		System.out.printf("\nChips in the pot: %s\nUp card: %s\n", pot
-				.getNumChips(), pot.getUpCard());
+		System.out.printf("\n***********************\n* Chips in the pot: %s\n* Up card: %s (%s remain)\n***********************\n", pot
+				.getNumChips(), pot.getUpCard(), pot.getNumCards());
 		pot.printPlayerCards();
 		System.out.printf("Your chips: %s\nYour cards: %s\n\n", this
 				.getNumChips(), this.getCards());
