@@ -31,6 +31,19 @@
         '()
         (cons (bit) (n-bits (- n 1))))))
 
+;; For each 1-bit in bits, keep the item at the corresponding position in bits, e.g.
+;; > (keep-if-1 '(0 1 0 0 1) '(a b c d e))
+;; (b e)
+(define (keep-if-1 bits lst)
+  (cond ((null? bits) '())
+	((= 0 (car bits)) (keep-if-1 (cdr bits) (cdr lst)))
+	((= 1 (car bits)) (cons (car lst) (keep-if-1 (cdr bits) (cdr lst))))))
+
+;;; generates all subsets of lst
+(define (subset-of lst)
+  (let ((bits (n-bits (length lst))))
+    (keep-if-1 bits lst)))
+ 
 (define bit-strings
   (lambda ()
     (list (bit) (bit) (bit))))

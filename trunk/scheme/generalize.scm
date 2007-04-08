@@ -9,13 +9,14 @@
 (define (pred? a)
   (and (list? a)
        (atom? (car a))
-       (all? (cdr a) (lambda (x) (or (var? x) (atom? x))))))
+       (all? (lambda (x) (or (var? x) (atom? x)))
+	     (cdr a))))
 
 ;; a ground predicate has no variable arguments
 (define (ground-pred? a)
   (and (list? a)
        (atom? (car a))
-       (all? (cdr a) ground?)))
+       (all? ground? (cdr a))))
 
 ;; replace x with a variable if it is ground; otherwise return x
 ;; unchanged
@@ -26,13 +27,7 @@
 
 ;; assumes lst contains only variables and atoms
 (define (abstract-all-ground lst)
-  (if (null? lst) 
-      '()
-      (cons (if (ground? (car lst))
-		(next-var)
-		(car lst))
-	    (abstract-all-ground (cdr lst)))))
-	 
+  (cons (car lst) (map replace-if-ground (cdr lst))))	 
 
 ;; returns a list of predicates with exactly one non-variable
 ;; parameter replaced with a variable

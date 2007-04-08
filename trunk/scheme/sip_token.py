@@ -40,7 +40,23 @@ def is_string(e):
 
 def is_list(e):
     return isinstance(e, list)
-	
+
+def make_list(s):
+    gen = gen_tokens(s)
+    assert gen.next() == '('
+    return gen_make_list(s)
+#    assert gen.next() == '('
+
+def gen_make_list(gen):
+    lst = []
+    for tok in gen:
+	if is_atom(tok):
+	    lst.append(tok)
+	elif tok == '(':
+	    lst.append(gen_make_list(gen))
+	elif tok == ')':
+	    return lst
+	    
 def gen_tokens(s):
     """
     Returns a generator for the tokens of s.

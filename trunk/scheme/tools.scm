@@ -106,10 +106,16 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; (define all?
+;;   (lambda (lst test?)
+;;     (if (null? lst) #t
+;;         (and (test? (car lst)) (all? (cdr lst) test?)))))
+
 (define all?
-  (lambda (lst test?)
+  (lambda (test? lst)
     (if (null? lst) #t
-        (and (test? (car lst)) (all? (cdr lst) test?)))))
+        (and (test? (car lst)) (all? test? (cdr lst))))))
+
 
 ;; returns a list with n copies of sexp
 (define rep
