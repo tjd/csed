@@ -61,6 +61,13 @@
       '()
       (cons (element-of (car lst)) (prod-all-of (cdr lst)))))
 
+;; generate pairs of elements of lst
+(define (pair-of lst)
+  (if (< (length lst) 2)
+      (amb)
+      (amb (list (car lst) (element-of (cdr lst)))
+           (pair-of (cdr lst)))))
+           
 (define bit-strings
   (lambda ()
     (list (bit) (bit) (bit))))
