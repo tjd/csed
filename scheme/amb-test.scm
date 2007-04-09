@@ -48,10 +48,8 @@
 (define (subset-of2 lst)
   (if (null? lst)
       '()
-      (let ((sub (subset-of2 (cdr lst)))
-	    (head (car lst)))
-	(amb (append sub
-		     (map (lambda (s) (cons head s)) sub))))))
+      (let ((sub (subset-of2 (cdr lst))))
+        (amb sub (cons (car lst) sub)))))
 
 (define bit-strings
   (lambda ()

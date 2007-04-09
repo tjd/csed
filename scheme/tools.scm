@@ -295,3 +295,12 @@
   (cond ((null? lst) '())
         ((atom? (car lst)) (cons (car lst) (flatten (cdr lst))))
         (else (append (flatten (car lst)) (flatten (cdr lst))))))
+
+;; return a list of all subsets of lst
+(define (all-subsets lst)
+  (if (null? lst)
+      '(())
+      (let ((sub (all-subsets (cdr lst))))
+        (append sub
+                (map (lambda (s) (cons (car lst) s))
+                     sub)))))
