@@ -51,6 +51,16 @@
       (let ((sub (subset-of2 (cdr lst))))
         (amb sub (cons (car lst) sub)))))
 
+;; returns all pairs of the Cartesian product of A and B
+(define (prod-of A B)
+  (list (element-of A) (element-of B)))
+
+;; returns tuples of the lists in lst
+(define (prod-all-of lst)
+  (if (null? lst)
+      '()
+      (cons (element-of (car lst)) (prod-all-of (cdr lst)))))
+
 (define bit-strings
   (lambda ()
     (list (bit) (bit) (bit))))
