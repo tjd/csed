@@ -43,7 +43,16 @@
 (define (subset-of lst)
   (let ((bits (n-bits (length lst))))
     (keep-if-1 bits lst)))
- 
+
+;;; generates all subsets of lst
+(define (subset-of2 lst)
+  (if (null? lst)
+      '()
+      (let ((sub (subset-of2 (cdr lst)))
+	    (head (car lst)))
+	(amb (append sub
+		     (map (lambda (s) (cons head s)) sub))))))
+
 (define bit-strings
   (lambda ()
     (list (bit) (bit) (bit))))
