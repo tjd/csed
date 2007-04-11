@@ -298,7 +298,7 @@
 
 ;;;
 ;;; see http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/stdlib.html
-;;; for 
+;;; for examples of Scheme folds
 ;;;
 
 ;; right-associative fold operator
