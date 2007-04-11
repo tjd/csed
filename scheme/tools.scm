@@ -25,11 +25,11 @@
           (else
            (and (eq? (car lst) (cadr lst)) (all-equal (cdr lst)))))))
 
-(define sum
-  (lambda (n)
-    (if (<= n 0)
-	0
-	(+ n (sum (sub1 n))))))
+;(define sum
+;  (lambda (n)
+;    (if (<= n 0)
+;	0
+;	(+ n (sum (sub1 n))))))
 
 (define divides
   (lambda (a b)
@@ -59,8 +59,14 @@
 
 (define is-sorted?
   (lambda (lst)
-    (cond ((null? (cdr lst)) #t)
-          (else (and (<= (car lst) (cadr lst)) (is-sorted? (cdr lst)))))))
+    (cond 
+      ((null? (cdr lst)) #t)
+      (else 
+       (and (<= (car lst) (cadr lst)) (is-sorted? (cdr lst)))))))
+
+;;; alternatively:
+;(define (is-sorted? lst)
+;  (apply <= lst))
 
 (define merge 
   (lambda (A B)
@@ -139,9 +145,10 @@
 
 (define member?
   (lambda (x lst)
-    (cond ((null? lst) #f)
-          ((eq? x (car lst)) #t)
-          (else (member? x (cdr lst))))))
+    (cond 
+      ((null? lst) #f)
+      ((eq? x (car lst)) #t)
+      (else (member? x (cdr lst))))))
 
 (define rem1st
   (lambda (atm lst)
@@ -304,3 +311,11 @@
         (append sub
                 (map (lambda (s) (cons (car lst) s))
                      sub)))))
+
+(define (sum-list lst)
+  (if (null? lst)
+      0
+      (+ (car lst) (sum-list (cdr lst)))))
+
+(define (dot-prod A B)
+  (sum-list (map (lambda (a b) (* a b)) A B)))
