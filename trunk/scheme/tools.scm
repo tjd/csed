@@ -25,36 +25,6 @@
           (else
            (and (eq? (car lst) (cadr lst)) (all-equal (cdr lst)))))))
 
-;(define sum
-;  (lambda (n)
-;    (if (<= n 0)
-;	0
-;	(+ n (sum (sub1 n))))))
-
-(define divides
-  (lambda (a b)
-    (= 0 (modulo b a))))
-
-(define get_lowest_divisor
-  (lambda (n div)
-    (if (divides div n)
-	div
-	(get_lowest_divisor n (add1 div)))))
-
-(define divisors_aux
-  (lambda (n div)
-    (cond 
-      ((< n div) '())
-      ((= n div) (list div))
-      (else
-       (let ((ld (get_lowest_divisor n div)))
-         (cons ld (divisors_aux n (add1 ld)))
-         )))))
-
-(define divisors (lambda (n) (divisors_aux n 1)))
-(define d (lambda (n) (length (divisors n))))
-(define prime? (lambda (n) (= 2 (d n))))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define is-sorted?
@@ -117,11 +87,16 @@
 ;;     (if (null? lst) #t
 ;;         (and (test? (car lst)) (all? (cdr lst) test?)))))
 
+;; returns true if all the elements on lst make test? return true
 (define all?
   (lambda (test? lst)
     (if (null? lst) #t
         (and (test? (car lst)) (all? test? (cdr lst))))))
 
+(define (some? test? lst)
+  (if (null? lst) #t
+      (or (test? (car lst)) (some? test? (cdr lst)))))
+  
 
 ;; returns a list with n copies of sexp
 (define rep
@@ -175,13 +150,13 @@
 	(let ((n1 (sub1 n)))
 	  (cons n1 (nums n1))))))
 
-(define range (lambda (n) (range_aux n n)))
+(define range (lambda (n) (range-aux n n)))
                        
-(define range_aux
+(define range-aux
   (lambda (i n)
     (if (< i 1)
         '()
-        (cons (- n i) (range_aux (sub1 i) n)))))
+        (cons (- n i) (range-aux (sub1 i) n)))))
 
 (define gen-nums 
   (lambda (n)
@@ -213,8 +188,7 @@
           (else
            (let* ((hd (car lst))
                   (rest (shuffle (cdr lst)))
-                  (r (random (add1 (length rest))))
-                  )
+                  (r (random (add1 (length rest)))))
              (insert hd r rest))))))
 
 ;;; swaps location i of vec with another randomly chosen location in vec
@@ -312,10 +286,40 @@
                 (map (lambda (s) (cons (car lst) s))
                      sub)))))
 
-(define (sum-list lst)
-  (if (null? lst)
-      0
-      (+ (car lst) (sum-list (cdr lst)))))
+;; returns the sum of the elements in lst
+;(define (sum-list lst)
+;  (if (null? lst)
+;      0
+;      (+ (car lst) (sum-list (cdr lst)))))
 
+;; returns the dot product of the elements in A and B
 (define (dot-prod A B)
   (sum-list (map (lambda (a b) (* a b)) A B)))
+
+;;;
+;;; see http://halogen.note.amherst.edu/~jdtang/scheme_in_48/tutorial/stdlib.html
+;;; for 
+;;;
+
+;; right-associative fold operator
+(define (foldr func end lst)
+  (if (null? lst)
+      end
+      (func (car lst) (foldr func end (cdr lst)))))
+
+;; left-associative fold operator
+(define (foldl func accum lst)
+  (if (null? lst)
+      accum
+      (foldl func (func accum (car lst)) (cdr lst))))
+
+;; more traditional Scheme names for folds
+(define fold foldl)
+(define reduce fold)
+
+(define (sum . lst)
+  (fold + 0 lst))
+
+(define (product . lst)
+  (fold * 1 lst))
+
