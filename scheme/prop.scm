@@ -107,7 +107,8 @@
   (truth-value (eval-aux x env)))
 
 ;; non-deterministically generates assignments of truth-values to x's variables
-;; that make x true
+;; that make x true; uses a truth table, so the performance is exponential in
+;; the number of atoms
 (define (satisfy x)
   (let* ((env (assign-vars x '()))
          (result (eval x env)))
@@ -119,3 +120,9 @@
 
 (define (tautology x)
   (contradiction (list 'not x)))
+
+;; returns #t iff x and y are logically equivalent
+(define (logically-equiv x y)
+  (tautology (list 'and 
+                   (list x 'imp y)
+                   (list y 'imp x))))
