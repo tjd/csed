@@ -1,12 +1,15 @@
 (load "tools.scm")
 (load "amb.scm")
 
+;; simple list-size checking predicates
 (define (double-list? x)
   (and (list? x) (= 2 (length x))))
 
 (define (triple-list? x)
   (and (list? x) (= 3 (length x))))
 
+;; structure checking predicates: these do *not* recursively check their
+;; arguments to see if they are also wffs
 (define (not-list? x)
   (and (double-list? x) (eq? (car x) 'not)))
 
@@ -19,12 +22,27 @@
 (define (imp-list? x)
   (and (triple-list? x) (eq? (cadr x) 'imp)))
 
+;; expression constructors
+(define (make-not x)
+  (list 'not x))
+
+(define (make-and p q)
+  (list p 'and q))
+
+(define (make-or p q)
+  (list p 'or q))
+
+(define (make-imp p q)
+  (list p 'imp q))
+
+;; predicates for recognizing propositional variables and truth values
 (define (prop-var? x)
   (atom? x))
 
 (define (truth-value? x)
   (member x '(true false)))
 
+;; helper functions
 (define (bool x)
   (if (eq? x 'true) #t #f))
 
@@ -98,8 +116,8 @@
                             (eval-aux (caddr x) env)))
         ((or-list? x) (or (eval-aux (car x) env)
                           (eval-aux (caddr x) env)))
-        ((imp-list? x) (or (not (eval-aux (car x))) 
-                           (eval-aux (caddr x))))
+        ((imp-list? x) (or (not (eval-aux (car x) env)) 
+                           (eval-aux (caddr x) env)))
         (else 'error)))
 
 ;; evaluates propositional expression x using the given assignments of values to variables
@@ -114,15 +132,23 @@
          (result (eval x env)))
     (assert (eq? 'true result))
     env))
-    
+
+;; returns #t iff no assignment of truth-values to the variables of x
+;; make it true
 (define (contradiction x)
   (null? (bag-of (satisfy x))))
 
+;; returns #t iff all assignments of truth-values to the variables of x
+;; make it true
 (define (tautology x)
-  (contradiction (list 'not x)))
+  (contradiction (make-not x)))
 
 ;; returns #t iff x and y are logically equivalent
+;; > (logically-equiv '(a imp (not b)) '((not a) or b))
+;; #f
+;; > (logically-equiv '(a imp (not (not b))) '((not a) or b))
+;; #t
 (define (logically-equiv x y)
-  (tautology (list 'and 
-                   (list x 'imp y)
-                   (list y 'imp x))))
+  (tautology (make-and
+              (make-imp x y)
+              (make-imp y x))))
