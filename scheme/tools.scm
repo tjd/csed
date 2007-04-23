@@ -323,3 +323,14 @@
 (define (product . lst)
   (fold * 1 lst))
 
+;; return lst with first occurrence of item removed
+(define (removeq-first item lst)
+  (cond ((null? lst) '())
+        ((eq? item (car lst)) (cdr lst))
+        (else (cons (car lst) (removeq-first item (cdr lst))))))
+
+;; on alist, replace the pair with the given key with new-pair
+(define (areplaceq-first key new-value alist)
+  (cond ((null? alist) '())
+        ((eq? key (caar alist)) (cons (list key new-value) (cdr alist)))
+        (else (cons (car alist) (areplaceq-first key new-value (cdr alist))))))
