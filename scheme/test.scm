@@ -31,3 +31,31 @@
       1
       (* n (! (- n 1)))))
 
+;(define (sum lst)
+;  (if (null? lst)
+;      0
+;      (+ (car lst) (sum (cdr lst)))))
+
+(define (sum lst)
+  (apply + lst))
+
+(define (divide-all-by n lst)
+  (map (lambda (x) (/ x n)) lst))
+   
+;(define (divide-all-by n lst)
+;  (if (null? lst)
+;      '()
+;      (cons (/ (car lst) n)
+;            (divide-all-by n (cdr lst)))))
+
+(define (normalize lst)
+  (divide-all-by (sum lst) lst))
+
+(define (norm lst)
+  (let ((sum (apply + lst)))
+    (map (lambda (x) (/ x sum)) lst)))
+
+(define (mymap fn lst)
+  (if (null? lst)
+      '()
+      (cons (fn (car lst)) (mymap fn (cdr lst)))))
