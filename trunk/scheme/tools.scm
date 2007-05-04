@@ -329,8 +329,23 @@
         ((eq? item (car lst)) (cdr lst))
         (else (cons (car lst) (removeq-first item (cdr lst))))))
 
-;; on alist, replace the pair with the given key with new-pair
-(define (areplaceq-first key new-value alist)
-  (cond ((null? alist) '())
-        ((eq? key (caar alist)) (cons (list key new-value) (cdr alist)))
-        (else (cons (car alist) (areplaceq-first key new-value (cdr alist))))))
+;;; return a list containing just those elements that satisfy the test function
+(define (keep-if test-fn lst)
+  (cond ((null? lst) '())
+        ((test-fn (car lst)) (cons (car lst) (keep-if test-fn (cdr lst))))
+        (else (keep-if test-fn (cdr lst)))))
+
+(define (remove-if test-fn lst)
+  (keep-if (lambda (x) (not (test-fn x))) lst))
+
+;;;
+;;; returns a Gaussian probability density function (pdf) with the given parameters
+;;;
+(define pi 3.1415926)
+
+(define (make-gaussian-pdf mean variance)
+  (lambda (x)
+    (* (/ 1 (sqrt (* variance 2 pi)))
+       (exp (/ (* (- x mean) (- x mean))
+               (* -2 variance))))))
+
