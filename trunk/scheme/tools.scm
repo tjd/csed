@@ -350,3 +350,20 @@
        (exp (/ (* (- x mean) (- x mean))
                (* -2 variance))))))
 
+;;; returns a new list that is the normalized version of lst, i.e. each item
+;;; of lst is divided by the sum; the resulting list sums to 1
+(define (norm lst)
+  (let ((s (apply sum lst)))
+    (map (lambda (x) (/ x s)) lst)))
+
+;;; returns the dot product of A and B
+;;; A and B must be lists of numbers of the same length
+(define (dot-prod A B)
+  (if (and (null? A) (null? B))
+      '()
+      (cons (* (car A) (car B))
+            (dot-prod (cdr A) (cdr B)))))
+
+;;; returns the vector sum of A and B(
+(define (add A B)
+  (map + A B))
