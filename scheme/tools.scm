@@ -340,6 +340,7 @@
 
 ;;;
 ;;; returns a Gaussian probability density function (pdf) with the given parameters
+;;; from http://en.wikipedia.org/wiki/Normal_distribution
 ;;;
 (define pi 3.1415926)
 
