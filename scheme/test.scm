@@ -59,3 +59,19 @@
   (if (null? lst)
       '()
       (cons (fn (car lst)) (mymap fn (cdr lst)))))
+
+;; linear function
+(define (speed1 t)
+  t)
+
+;; step function
+(define (speed2 t)
+  (if (<= t 0)
+      0
+      1))
+
+;;; sigmoid function
+(define (speed3 t)
+  (/ 1.0 (+ 1 (exp (- t)))))
+
+
