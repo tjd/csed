@@ -1,3 +1,4 @@
+(load "amb.scm")
 
 (define var?
   (lambda (a)
@@ -74,4 +75,19 @@
 (define (speed3 t)
   (/ 1.0 (+ 1 (exp (- t)))))
 
+;;; Pythagorean triples
 
+(define (pyth-triple n)
+    (let* ((a (number-between 1 n))
+           (b (number-between a n))
+           (c (number-between b n)))
+      (assert (= (* c c) (+ (* a a) (* b b))))
+      (list a b c)))
+
+(define (bit)
+    (amb 0 1))
+
+(define (n-bits n)
+    (if (<= n 0)
+        '()
+        (cons (bit) (n-bits (- n 1)))))
