@@ -1,5 +1,3 @@
-(load "amb.scm")
-
 (define var?
   (lambda (a)
     (let ((s (symbol->string a)))
@@ -75,7 +73,16 @@
 (define (speed3 t)
   (/ 1.0 (+ 1 (exp (- t)))))
 
-;;; Pythagorean triples
+;;; returns a function that caluculates mx + b, e.g.
+;;; > (define f1 (make-linear 10 -2))
+;;; > (f1 5)
+;;; 48
+(define (make-linear m b)
+  (lambda (x)
+    (+ (* m x) b)))
+
+;;; Pythagorean triples using the amb operator
+(load "amb.scm")
 
 (define (pyth-triple n)
     (let* ((a (number-between 1 n))
@@ -84,6 +91,7 @@
       (assert (= (* c c) (+ (* a a) (* b b))))
       (list a b c)))
 
+;;; Generating bits strings with the amb operator
 (define (bit)
     (amb 0 1))
 
