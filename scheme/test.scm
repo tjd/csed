@@ -1,3 +1,38 @@
+<<<<<<< .mine
+
+(define var?
+  (lambda (a)
+    (let ((s (symbol->string a)))
+      (and (< 1 (string-length s))
+	   (eq? #\? (string-ref s 0))))))
+
+(define make-var
+  (lambda (a)
+    (string->symbol (string-append "?" (symbol->string a)))))
+
+;; returns a function that takes a single list as a 
+;; parameter and returns true if target is in the list,
+;; and false otherwise
+;(define (make-search target)
+;  (lambda (lst)
+;    (member target lst)))
+
+(define make-search
+  (lambda (target)
+    (lambda (lst)
+      (member target lst))))
+
+(define add
+  (lambda (x)
+    (lambda (y)
+      (+ x y))))
+
+(define (! n)
+  (if (= n 0)
+      1
+      (* n (! (- n 1)))))
+
+
 (define var?
   (lambda (a)
     (let ((s (symbol->string a)))
@@ -81,6 +116,24 @@
   (lambda (x)
     (+ (* m x) b)))
 
+
+;;; An arithmetic expression is defined recursively follows:
+;;;   - All numbers are arithmetic expressions.
+;;;   - If e1 and e2 are arithmetic expressions, then so are (e1 + e2), (e1 - e2),
+;;;     (e1 * e2), and (e1 / e2).
+;;;
+;;; cadr and caddr return the second and third elements of a list respectively.
+(define (eval-arith e)
+  (cond ((number? e) e)
+        ((eq? (cadr e) +) (+ (eval-arith (car e))
+                             (eval-arith (caddr e))))
+        ((eq? (cadr e) -) (- (eval-arith (car e))
+                             (eval-arith (caddr e))))
+        ((eq? (cadr e) *) (* (eval-arith (car e))
+                             (eval-arith (caddr e))))
+        ((eq? (cadr e) /) (/ (eval-arith (car e))
+                             (eval-arith (caddr e))))))
+
 ;;; Pythagorean triples using the amb operator
 (load "amb.scm")
 
@@ -99,3 +152,4 @@
     (if (<= n 0)
         '()
         (cons (bit) (n-bits (- n 1)))))
+
