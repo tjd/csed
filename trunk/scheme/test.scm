@@ -1,5 +1,3 @@
-<<<<<<< .mine
-
 (define var?
   (lambda (a)
     (let ((s (symbol->string a)))
@@ -123,16 +121,38 @@
 ;;;     (e1 * e2), and (e1 / e2).
 ;;;
 ;;; cadr and caddr return the second and third elements of a list respectively.
-(define (eval-arith e)
+(define (eval-arith1 e)
   (cond ((number? e) e)
-        ((eq? (cadr e) +) (+ (eval-arith (car e))
-                             (eval-arith (caddr e))))
-        ((eq? (cadr e) -) (- (eval-arith (car e))
-                             (eval-arith (caddr e))))
-        ((eq? (cadr e) *) (* (eval-arith (car e))
-                             (eval-arith (caddr e))))
-        ((eq? (cadr e) /) (/ (eval-arith (car e))
-                             (eval-arith (caddr e))))))
+        ((eq? (cadr e) '+) (+ (eval-arith1 (car e))
+                              (eval-arith1 (caddr e))))
+        ((eq? (cadr e) '-) (- (eval-arith1 (car e))
+                              (eval-arith1 (caddr e))))
+        ((eq? (cadr e) '*) (* (eval-arith1 (car e))
+                              (eval-arith1 (caddr e))))
+        ((eq? (cadr e) '/) (/ (eval-arith1 (car e))
+                              (eval-arith1 (caddr e))))))
+
+;;; same as eval-arith1, but uses a let environment and the eval function
+;;; to avoid repeated code
+(define (eval-arith2 e)
+  (cond ((number? e) e)
+        (else (let ((op (cadr e))
+                    (left (eval-arith2 (car e)))
+                    (right (eval-arith2 (caddr e))))
+                (eval (list op left right))))))
+
+;;; another version, without using eval
+(define (eval-arith3 e)
+  (if (number? e)
+      e
+      (let ((op (cadr e))
+            (left (eval-arith3 (car e)))
+            (right (eval-arith3 (caddr e))))
+        (cond ((eq? op '+) (+ left right))
+              ((eq? op '*) (* left right))
+              ((eq? op '-) (- left right))
+              ((eq? op '/) (/ left right))))))
+
 
 ;;; Pythagorean triples using the amb operator
 (load "amb.scm")
