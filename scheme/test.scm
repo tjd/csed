@@ -153,6 +153,23 @@
               ((eq? op '-) (- left right))
               ((eq? op '/) (/ left right))))))
 
+;;; This version allows variables in the expression. The parameter env is an association
+;;; list of (symbol, value) pairs, and symbols are replaced with their corresponding 
+;;; values in the evaluation.
+;;; e.g.
+;;; > (eval-arith4 '((a + 2) * (b + 4)) '((a 1) (b 2) (c 3)))
+;;; 18
+(define (eval-arith4 e env)
+  (cond ((number? e) e)
+        ((symbol? e) (cadr (assoc e env)))
+        (else 
+         (let ((op (cadr e))
+               (left (eval-arith4 (car e) env))
+               (right (eval-arith4 (caddr e) env)))
+           (cond ((eq? op '+) (+ left right))
+                 ((eq? op '*) (* left right))
+                 ((eq? op '-) (- left right))
+                 ((eq? op '/) (/ left right)))))))
 
 ;;; Pythagorean triples using the amb operator
 (load "amb.scm")
