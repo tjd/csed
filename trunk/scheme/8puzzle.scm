@@ -36,7 +36,6 @@
     (vector-set! new j (vector-ref board i))
     new))
 
-
 ;;; returns the resulting board after randomly moving the blank space one spot
 (define (one-random-move board)
   (list-random-item (next-boards board)))
@@ -47,6 +46,13 @@
       board
       (random-move (- n 1) (one-random-move board))))
 
+;;; returns the count of the number of tiles not in their home position
+(define (count-home board)
+  (apply + (map (lambda (a b) (if (eq? a b) 1 0)) 
+                (vector->list board) 
+                (vector->list start-board))))
+
+;;; prints the given board on the console
 (define (display-board board)
   (let ((show (lambda (i) (begin 
                             (display (vector-ref board i)) 
