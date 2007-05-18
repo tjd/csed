@@ -1,6 +1,6 @@
 ;;; bfs.scm
 (require (lib "trace.ss"))  ;; used for debugging
-(load "tools.scm")
+(load "tools.scm")          ;; remove-if is here
 
 ;;; breadth first search
 ;;;
@@ -12,7 +12,8 @@
 ;;; kids-fn: a function that takes a node as input, and returns its children
 ;;; open: a starting list of nodes; normally initialized to the (single) starting
 ;;;       state
-;;; closed: the list of nodes that have been visited
+;;; closed: the list of nodes that have been visited; this makes sure that the search doesn't
+;;;         stuck in a loop in the graph
 (define (bfs goal-fn kids-fn open closed)
     (cond ((null? open) 'FAIL)
           ((goal-fn (car open)) (car open))
@@ -41,6 +42,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; sample data
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;
+;;; tree1
+;;;
 (define tree1 
   '((a (b c d))
     (b ())
@@ -74,4 +79,18 @@
   ;;(trace bfs)
   (bfs (lambda (x) (eq? x 'm)) (lambda (x) (kids x tree1)) '(a) '()))
 
-(test1)
+;;;
+;;; graph1
+;;;
+
+(define graph1
+  '((a (b f))
+    (b (a c f g h))
+    (c (b d))
+    (d (c e))
+    (e (d h))
+    (f (a b g i))
+    (g (b h i))
+    (h (b e g j))
+    (i (f g j))
+    (j (h i)))
