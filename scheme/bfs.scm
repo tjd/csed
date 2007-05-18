@@ -1,6 +1,7 @@
 ;;; bfs.scm
 (require (lib "trace.ss"))  ;; used for debugging
 (load "tools.scm")          ;; remove-if is here
+(load "digraph.scm")        ;; directed graph helper functions
 
 ;;; breadth first search
 ;;;
@@ -29,47 +30,11 @@
         kids
         (remove-if (lambda (a) (or (memq a open) (memq a closed))) kids))))
 
-;;;; helper functions
-;;;; return a list containing just those elements that satisfy the test function
-;(define (keep-if test-fn lst)
-;  (cond ((null? lst) '())
-;        ((test-fn (car lst)) (cons (car lst) (keep-if test-fn (cdr lst))))
-;        (else (keep-if test-fn (cdr lst)))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; sample usage
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;
-;(define (remove-if test-fn lst)
-;  (keep-if (lambda (x) (not (test-fn x))) lst))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; sample data
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;;
-;;; tree1
-;;;
-(define tree1 
-  '((a (b c d))
-    (b ())
-    (c (e f))
-    (d (g h))
-    (e (i j))
-    (f (k))
-    (g (l m))
-    (h ())
-    (i ())
-    (j ())
-    (k ())
-    (l ())
-    (m ())))
-
-;; return the children of a given node
-(define (kids x graph)
-  (cadr (assoc x graph)))
-
-;; return the parent of the node x in graph
-(define (parent-of x graph)
-  (cond ((null? graph) '())
-        ((memq x (cadr (car graph))) (caar graph))
-        (else (parent-of x (cdr graph)))))
 
 ;;; search for node "m" starting at the root node "a";
 ;;; should return the node matching goal-fn, e.g.
@@ -77,20 +42,4 @@
 ;;; m
 (define (test1)
   ;;(trace bfs)
-  (bfs (lambda (x) (eq? x 'm)) (lambda (x) (kids x tree1)) '(a) '()))
-
-;;;
-;;; graph1
-;;;
-
-(define graph1
-  '((a (b f))
-    (b (a c f g h))
-    (c (b d))
-    (d (c e))
-    (e (d h))
-    (f (a b g i))
-    (g (b h i))
-    (h (b e g j))
-    (i (f g j))
-    (j (h i)))
+  (bfs (lambda (x) (eq? x 'm)) (lambda (x) (neighbors-of x tree1)) '(a) '()))
