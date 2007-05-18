@@ -1,9 +1,9 @@
-;;; bfs.scm
+;;; dfs.scm
 (require (lib "trace.ss"))  ;; used for debugging
 (load "tools.scm")          ;; remove-if is here
 (load "digraph.scm")        ;; directed graph helper functions
 
-;;; breadth first search
+;;; depth first search
 ;;;
 ;;; Searches in a given graph in a bread-first manner. Returns a node satisfying the goal function,
 ;;; and FAIL otherwise.
@@ -15,13 +15,13 @@
 ;;;       state
 ;;; closed: the list of nodes that have been visited; this makes sure that the search doesn't
 ;;;         stuck in a loop in the graph
-(define (bfs goal-fn kids-fn open closed)
+(define (dfs goal-fn kids-fn open closed)
     (cond ((null? open) 'FAIL)
           ((goal-fn (car open)) (car open))
           (else
            (let ((x (car open)))
-             (bfs goal-fn kids-fn 
-                  (append (cdr open) (filter-kids x kids-fn open closed)) ;; new open list
+             (dfs goal-fn kids-fn 
+                  (append (filter-kids x kids-fn open closed) (cdr open)) ;; new open list
                   (cons x closed))))))
 
 (define (filter-kids x kids-fn open closed)
@@ -41,8 +41,8 @@
 ;;; > (test1)
 ;;; m
 (define (test1)
-  (trace bfs)
-  (bfs (lambda (x) (eq? x 'm))                ;; goal function
+  (trace dfs)
+  (dfs (lambda (x) (eq? x 'm))                ;; goal function
        (lambda (x) (neighbors-of x tree1))    ;; kids function
        '(a)                                   ;; open list
        '()))                                  ;; closed list
