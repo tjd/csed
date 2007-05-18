@@ -8,19 +8,19 @@
 ;;; Searches in a given graph in a bread-first manner. Returns a node satisfying the goal function,
 ;;; and FAIL otherwise.
 ;;;
-;;; goal-fn: a function that takes a node as input, and returns true if the node
+;;;   goal?: a function that takes a node as input, and returns true if the node
 ;;;          satisfies the goal, and false otherwise
 ;;; kids-fn: a function that takes a node as input, and returns its children
 ;;; open: a starting list of nodes; normally initialized to the (single) starting
 ;;;       state
 ;;; closed: the list of nodes that have been visited; this makes sure that the search doesn't
 ;;;         stuck in a loop in the graph
-(define (dfs goal-fn kids-fn open closed)
+(define (dfs goal? kids-fn open closed)
     (cond ((null? open) 'FAIL)
-          ((goal-fn (car open)) (car open))
+          ((goal? (car open)) (car open))
           (else
            (let ((x (car open)))
-             (dfs goal-fn kids-fn 
+             (dfs goal? kids-fn 
                   (append (filter-kids x kids-fn open closed) (cdr open)) ;; new open list
                   (cons x closed))))))
 
@@ -28,7 +28,7 @@
   (let ((kids (kids-fn x)))
     (if (null? kids)
         kids
-        (remove-if (lambda (a) (or (memq a open) (memq a closed))) kids))))
+        (remove-if (lambda (a) (or (member a open) (member a closed))) kids))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; sample usage
