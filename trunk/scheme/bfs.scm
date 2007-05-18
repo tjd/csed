@@ -1,10 +1,21 @@
-;;; breadth first search
+;;; bfs.scm
 (require (lib "trace.ss"))  ;; used for debugging
 (load "tools.scm")
 
+;;; breadth first search
+;;;
+;;; Searches in a given graph in a bread-first manner. Returns a node satisfying the goal function,
+;;; and FAIL otherwise.
+;;;
+;;; goal-fn: a function that takes a node as input, and returns true if the node
+;;;          satisfies the goal, and false otherwise
+;;; kids-fn: a function that takes a node as input, and returns its children
+;;; open: a starting list of nodes; normally initialized to the (single) starting
+;;;       state
+;;; closed: the list of nodes that have been visited
 (define (bfs goal-fn kids-fn open closed)
     (cond ((null? open) 'FAIL)
-          ((goal-fn (car open)) 'SUCCESS)
+          ((goal-fn (car open)) (car open))
           (else
            (let ((x (car open)))
              (bfs goal-fn kids-fn 
@@ -46,15 +57,21 @@
     (m ())))
 
 ;; return the children of a given node
-(define (kids1 node)
-  (cadr (assoc node tree1)))
+(define (kids x graph)
+  (cadr (assoc x graph)))
+
+;; return the parent of the node x in graph
+(define (parent-of x graph)
+  (cond ((null? graph) '())
+        ((memq x (cadr (car graph))) (caar graph))
+        (else (parent-of x (cdr graph)))))
 
 ;;; search for node "m" starting at the root node "a";
-;;; should return SUCCESS, e.g.
+;;; should return the node matching goal-fn, e.g.
 ;;; > (test1)
-;;; SUCCESS
+;;; m
 (define (test1)
-  ;;(trace filter-kids keep-if)
-  (bfs (lambda (x) (eq? x 'm)) kids1 '(a) '()))
+  ;;(trace bfs)
+  (bfs (lambda (x) (eq? x 'm)) (lambda (x) (kids x tree1)) '(a) '()))
 
 (test1)
