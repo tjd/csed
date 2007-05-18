@@ -383,3 +383,11 @@
 ;;; puts x onto the end of lst
 (define (snoc x lst)
   (reverse (cons x (reverse lst))))
+
+;;; returns a random item in v
+(define (vector-random-item v)
+  (vector-ref v (random (vector-length v))))
+
+;;; returns a random item in lst
+(define (list-random-item lst)
+  (vector-random-item (list->vector lst)))

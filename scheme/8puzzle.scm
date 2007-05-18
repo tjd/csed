@@ -35,4 +35,25 @@
     (vector-set! new i (vector-ref board j))
     (vector-set! new j (vector-ref board i))
     new))
-  
+
+
+;;; returns the resulting board after randomly moving the blank space one spot
+(define (one-random-move board)
+  (list-random-item (next-boards board)))
+
+;;; returns the new board that results after doing n random moves
+(define (random-move n board)
+  (if (= n 0)
+      board
+      (random-move (- n 1) (one-random-move board))))
+
+(define (display-board board)
+  (let ((show (lambda (i) (begin 
+                            (display (vector-ref board i)) 
+                            (display " "))))
+        (newline (lambda () (display "\n"))))
+    (show 0) (show 1) (show 2) (newline)
+    (show 3) (show 4) (show 5) (newline)
+    (show 6) (show 7) (show 8) (newline)
+    ))
+    
