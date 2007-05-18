@@ -226,6 +226,14 @@
       ((>= i end) result)
       (vector-set! result (- i start) (vector-ref vec i)))))
 
+;;; returns a copy of vector v
+(define (vector-copy v)
+  (let ((n (vector-length v)))
+    (do ((new (make-vector n))
+         (i 0 (+ i 1)))
+      ((= i n) new)
+      (vector-set! new i (vector-ref v i)))))
+
 ;; if seq is a vector, it is converted to a list; otherwise, it is returned as-is
 (define listify
   (lambda (seq)
