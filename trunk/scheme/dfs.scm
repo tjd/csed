@@ -34,8 +34,6 @@
 ;;; sample usage
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;
-
 ;;; search for node "m" starting at the root node "a";
 ;;; should return the node matching goal-fn, e.g.
 ;;; > (test1)
