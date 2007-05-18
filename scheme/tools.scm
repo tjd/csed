@@ -367,3 +367,11 @@
 ;;; returns the vector sum of A and B(
 (define (add A B)
   (map + A B))
+
+;;; returns a new list not containing the last element
+(define (rdc lst)
+  (reverse (cdr (reverse lst))))
+
+;;; puts x onto the end of lst
+(define (snoc x lst)
+  (reverse (cons x (reverse lst))))

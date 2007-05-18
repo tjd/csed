@@ -42,4 +42,7 @@
 ;;; m
 (define (test1)
   ;;(trace bfs)
-  (bfs (lambda (x) (eq? x 'm)) (lambda (x) (neighbors-of x tree1)) '(a) '()))
+  (bfs (lambda (x) (eq? x 'm))                ;; goal function
+       (lambda (x) (neighbors-of x tree1))    ;; kids function
+       '(a)                                   ;; open list
+       '()))                                  ;; closed list
