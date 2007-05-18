@@ -113,6 +113,14 @@
                  ((eq? op '-) (- left right))
                  ((eq? op '/) (/ left right)))))))
 
+;;; sample simplification rule from assignment 1
+(define (rule7 e)
+  (if (and (eq? 'not (car e))
+           (eq? 'not (car (cadr e))))
+      (cadr (cadr e))
+      e ;; else
+      ))
+
 ;;; Pythagorean triples using the amb operator
 (load "amb.scm")
 
