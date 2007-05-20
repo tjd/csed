@@ -384,6 +384,11 @@
 (define (snoc x lst)
   (reverse (cons x (reverse lst))))
 
+(define (flatten lst)
+  (cond ((null? lst) '())
+        ((list? (car lst)) (append (flatten (car lst)) (flatten (cdr lst))))
+        (else (cons (car lst) (flatten (cdr lst))))))
+
 ;;; returns a random item in v
 (define (vector-random-item v)
   (vector-ref v (random (vector-length v))))

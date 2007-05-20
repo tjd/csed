@@ -1,5 +1,13 @@
 ;;; blind-search.scm
 
+;;; The following demonstates so-called blind search algorithms. That is, they search a state space
+;;; without any concern for what the states contain, other than the goal state. Thus these algorithms
+;;; enumerate the state space, i.e. they visit all the states in a particular order. 
+;;;
+;;; In some applications, such as pathfinding, you may want to augment the algorithms to record the 
+;;; path from the start to the goal. For instance, in pathfinding algorithms you will want to keep track 
+;;; of the path to the goal.
+
 (require (lib "trace.ss"))  ;; used for debugging
 (load "tools.scm")          ;; remove-if is here
 (load "digraph.scm")        ;; directed graph helper functions
