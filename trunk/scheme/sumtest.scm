@@ -16,8 +16,7 @@
 
 (define (sum-print lst)
   (set! collect '())
-  (let ((result (sum-print-aux lst)))
-    (display-results (reverse collect))))
+  (display-results (sum-print-aux lst) (reverse collect)))
 
 (define (sum-print-aux lst)
   (if (null? lst)
@@ -25,9 +24,11 @@
       (+ (remember (car lst)) (sum-print-aux (cdr lst)))))
 
 ;;; functions for printing the final results
-(define (display-results lst)
+(define (display-results result lst)
   (display (car lst))  ;;; the first item is printed differently than all the rest
-  (display-results-aux (cdr lst)))
+  (display-results-aux (cdr lst))
+  (display " = ")
+  (display result))
 
 (define (display-results-aux lst)
  (if (null? (cdr lst))
