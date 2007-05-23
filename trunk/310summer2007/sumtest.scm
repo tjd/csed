@@ -25,16 +25,14 @@
 
 ;;; functions for printing the final results
 (define (display-results result lst)
- (display (car lst))  ;;; the first item is printed differently than
-all the rest
+ (display (car lst))  ;;; the first item is printed differently than all the rest
  (display-results-aux (cdr lst))
  (display " = ")
  (display result))
 
 (define (display-results-aux lst)
  (if (null? (cdr lst))
-    (begin (display " + ")          ;;; begin lets you do a sequence
-of operations
+    (begin (display " + ")          ;;; begin lets you do a sequence of operations
            (display (car lst)))
     (begin (display " + ")
            (display (car lst))
