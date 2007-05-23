@@ -1,6 +1,7 @@
-;;; returns true of every item on lst satisfies test?
+;;; returns true just when every item on lst satisfies test?
 (define (all? test? lst)
-  (if (null? lst) #t
+  (if (null? lst) 
+      #t
       (and (test? (car lst)) (all? test? (cdr lst)))))
 
 ;;;
