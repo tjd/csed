@@ -1,4 +1,4 @@
-;;; sum-test.scm
+;;; sumtest.scm
 
 ;;; vanilla sum function
 (define (sum lst)
