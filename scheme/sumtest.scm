@@ -14,6 +14,9 @@
   (set! collect (cons x collect))
   x)
 
+;;; print out the sum of the values of list, e.g.
+;;; > (sum-print '(3 2 5))
+;;; 3 + 2 + 5 = 10
 (define (sum-print lst)
   (set! collect '())
   (display-results (sum-print-aux lst) (reverse collect)))
