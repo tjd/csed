@@ -14,6 +14,7 @@
  (set! collect (cons x collect))
  x)
 
+;;; neatly print an equation for the sum of the numbers in lst
 (define (sum-print lst)
  (set! collect '())
  (display-results (sum-print-aux lst) (reverse collect)))
