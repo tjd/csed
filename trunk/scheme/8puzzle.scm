@@ -74,6 +74,62 @@
                 (vector->list board) 
                 (vector->list start-board))))
 
+;;; returns true if tile is at index location loc on board; false otherwise
+(define (tile-at? tile loc board)
+  (eq? tile (vector-ref board loc)))
+
+;;; returns the index location of tile t on board
+(define (tile-loc t board)
+  (let ((at? (lambda (i) (tile-at? t i board))))
+    (cond ((at? 0) 0)
+          ((at? 1) 1)
+          ((at? 2) 2)
+          ((at? 3) 3)
+          ((at? 4) 4)
+          ((at? 5) 5)
+          ((at? 6) 6)
+          ((at? 7) 7)
+          ((at? 8) 8))))
+
+;;; returns the row in which tile t occurs in board;
+;;; first row is 0, second row is 1, third row is 2
+(define (tile-row t board)
+  (let ((at? (lambda (i) (tile-at? t i board))))
+    (cond ((or (at? 0) (at? 1) (at? 2))
+           0)
+          ((or (at? 3) (at? 4) (at? 5))
+           1)
+          (else 
+           2))))
+  
+;;; returns the row in which tile t occurs in board;
+;;; first col is 0, second col is 1, third col is 2
+(define (tile-col t board)
+  (let ((at? (lambda (i) (tile-at? t i board))))
+    (cond ((or (at? 0) (at? 3) (at? 6))
+           0)
+          ((or (at? 1) (at? 4) (at? 7))
+           1)
+          (else 
+           2))))
+
+;;; return the home row of tile t
+(define (home-row t)
+  (tile-row t start-board))
+
+;;; return the home col of tile t
+(define (home-col t)
+  (tile-col t start-board))
+
+;;; returns the manhattan distance of t from its home position
+(define (manhattan t board)
+  (let ((trow (tile-row t board))
+        (tcol (tile-col t board))
+        (hrow (home-row t))
+        (hcol (home-col t)))
+    (+ (abs (- trow hrow))
+       (abs (- tcol hcol)))))
+
 ;;; prints the given board on the console
 (define (display-board board)
   (let ((show (lambda (i) (begin 
