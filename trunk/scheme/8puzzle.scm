@@ -1,6 +1,28 @@
 ;;; 8puzzle.scm
 
-(load "tools.scm") ;; need vector-copy
+;;;
+;;; basic helper functions
+;;;
+
+;;; returns a random item in v
+(define (vector-random-item v)
+  (vector-ref v (random (vector-length v))))
+
+;;; returns a random item in lst
+(define (list-random-item lst)
+  (vector-random-item (list->vector lst)))
+
+;;; returns a copy of vector v
+(define (vector-copy v)
+  (let ((n (vector-length v)))
+    (do ((new (make-vector n))
+         (i 0 (+ i 1)))
+      ((= i n) new)
+      (vector-set! new i (vector-ref v i)))))
+
+;;;
+;;; 8-puzzle functions
+;;;
 
                                  ;; tile locations
 (define start-board '#(1 2 3     ;; 0 1 2
@@ -61,5 +83,6 @@
     (show 0) (show 1) (show 2) (newline)
     (show 3) (show 4) (show 5) (newline)
     (show 6) (show 7) (show 8) (newline)
+    (newline)
     ))
     
