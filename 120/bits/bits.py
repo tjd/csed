@@ -23,6 +23,7 @@ def num_bits(n):
 def dec_to_bin(n):
     """ Converts n to a binary bit string.
     """
+    n = int(n)
     nb = num_bits(n)
     p = 2 ** (nb - 1) # biggest power of 2 <= n
     bin = ''
