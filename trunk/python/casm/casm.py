@@ -35,6 +35,13 @@ op_code = {'start':128, 'baud':129, 'control':130, 'safe':131,
            }
 
 def process_file(fname):
+    """
+    Convert a casm file into a corresponding string of numbers.
+    
+    >>> from casm import *
+    >>> process_file('forward_turn.cas')
+    ['137', '8', '0', '0', '0', '156', '1', '144', '137', '1', '44', '0', '1', '157', '0', '90']
+    """
     assert fname[-4:] == '.cas' and len(fname) > 0
     lines = re.split(r'\n+', open(fname, 'r').read())
     raw = [process_line(line) for line in lines if line != '']
