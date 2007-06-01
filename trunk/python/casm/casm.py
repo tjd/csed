@@ -37,7 +37,7 @@ op_code = {'start':128, 'baud':129, 'control':130, 'safe':131,
 def process_file(fname):
     assert fname[-4:] == '.cas' and len(fname) > 0
     lines = re.split(r'\n+', open(fname, 'r').read())
-    raw = [process_line(line) for line in lines]
+    raw = [process_line(line) for line in lines if line != '']
     result = []
     for cmd in raw:
         result.extend(cmd)
