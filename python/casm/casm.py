@@ -37,6 +37,7 @@ op_code = {'start':128, 'baud':129, 'control':130, 'safe':131,
 def process_file(fname):
     """
     Convert a casm file into a corresponding string of numbers.
+    File names must end with '.cas'.
     
     >>> from casm import *
     >>> process_file('forward_turn.cas')
@@ -52,6 +53,8 @@ def process_file(fname):
     
 
 def process_line(s):
+    """ Process a single line. Returns the corresponding list of replaced tokens.
+    """
     tokens = tokenize_line(s)
     return replace_tokens(tokens)
 
