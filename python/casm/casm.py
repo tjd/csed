@@ -304,6 +304,8 @@ def strip_comment(s):
     except:
         return s
 
+######################################################################
+    
 def run_doctest():
     """
     Tests that the examples in the doc-strings of the functions in
@@ -317,7 +319,7 @@ def usage():
     print 'Simple Create Assembler'
     print '   Usage: python filename.cas'
 
-if __name__ == '__main__':
+def main():
     import sys
     param = [t.strip().lower() for t in sys.argv[1:]]
     if len(param) == 0:
@@ -329,3 +331,6 @@ if __name__ == '__main__':
     else:
         result = process_file(param[0])
         print result
+        
+if __name__ == '__main__':
+    main()
