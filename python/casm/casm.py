@@ -312,3 +312,20 @@ def run_doctest():
     """
     import doctest
     doctest.testmod()
+
+def usage():
+    print 'Simple Create Assembler'
+    print '   Usage: python filename.cas'
+
+if __name__ == '__main__':
+    import sys
+    param = [t.strip().lower() for t in sys.argv[1:]]
+    if len(param) == 0:
+        usage()
+        sys.exit(2)
+    elif param[0] in ('h', '-h', '--help', 'help'):
+        usage()
+        sys.exit(2)       
+    else:
+        result = process_file(param[0])
+        print result
