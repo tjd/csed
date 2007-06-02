@@ -33,6 +33,8 @@ op_code = {'start':128, 'baud':129, 'control':130, 'safe':131,
            'play_script':153, 'show_script':154, 'wait_time':155,
            'wait_distance':156, 'wait_angle':157, 'wait_event':158
            }
+# Op codes with 0 parameters.
+no_param_codes = 'start control safe full spot cover cover_and_dock play_script show_script'.split()
 
 def process_file(fname):
     """
@@ -53,10 +55,15 @@ def process_file(fname):
     
 
 def process_line(s):
-    """ Process a single line. Returns the corresponding list of replaced tokens.
+    """ Process a single line. Returns the corresponding list of tokens.
     """
-    tokens = tokenize_line(s)
-    return replace_tokens(tokens)
+    try:
+        tokens = tokenize_line(s)
+        return replace_tokens(tokens)
+    except RuntimeError, err:
+        print '!!! A run-time error has occurred !!!'
+        print '--> ' + str(err)
+        
 
 def replace_tokens(tokens):
     """ Replaces all tokens on the given list of tokens with their
@@ -110,6 +117,8 @@ def replace_tokens(tokens):
         return ''
     elif n == 1:
         # add error-checking for non-command words
+        ensure(tokens[0] in no_param_codes,
+               'error: no param op code must be one of:\n %s' % no_param_codes)
         return [str(op_code[first_word])]
     else:
         result = [str(op_code[first_word])]    # first token is command word
@@ -246,8 +255,7 @@ def replace_tokens(tokens):
             ensure((-20 <= int(tokens[1]) <= -1) or (1 <= int(tokens[1]) <= 20),
                    'wait_event: event id must be from -20 to -1 (inclusive), or 1 to 20 (inclusive)')
             result.append(bin_to_dec(dec_to_twos_complement(tokens[1], 8)))
-            
-            
+                        
         # return the final values of as a list of base-10 strings
         return [str(x) for x in result]
 
@@ -266,7 +274,7 @@ def ensure(b, s):
         error(s)
         
 def error(s):
-    raise RuntimeError('casm processing error:\n %s' % s)
+    raise RuntimeError(s)
         
 def tokenize_line(s_raw):
     """ Returns a list of the tokens in line (comments stripped).
@@ -291,7 +299,7 @@ def strip_comment(s):
     'move -220, 35'    
     """
     try:
-        c_loc = s.index(';')
+        c_loc = s.index(';')  # if ';' not found, raises an exception
         return s[:c_loc]
     except:
         return s
