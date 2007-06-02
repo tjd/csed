@@ -295,3 +295,12 @@ def strip_comment(s):
         return s[:c_loc]
     except:
         return s
+
+def run_doctest():
+    """
+    Tests that the examples in the doc-strings of the functions in
+    this module match their output. If nothing is printed, then
+    all tests passed.
+    """
+    import doctest
+    doctest.testmod()
