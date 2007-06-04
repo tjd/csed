@@ -114,6 +114,8 @@
   (lambda (x)
     (+ (* m x) b)))
 
+(define celsius-to-fahrenheit
+  (make-linear (/ 9 5) 32))
 
 ;;; An arithmetic expression is defined recursively follows:
 ;;;   - All numbers are arithmetic expressions.
