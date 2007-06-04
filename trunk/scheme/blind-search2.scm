@@ -8,11 +8,9 @@
 ;;; they visit all the states in a particular order.
 ;;;
 ;;; An interesting detail of this implementation is that it uses closures to
-;;; simulate object-like implementations of stacks and queues.
-
-;;; Simple stacks and queues using closures. Little attempt regard has been given to performance,
-;;; so if you plan to use these in performance-critical applications you should improve upon
-;;; their implementation.
+;;; simulate object-like implementations of stacks and queues. Little regard has 
+;;; been given to performance, so if you plan to use these in performance-critical 
+;;; applications you can and should improve upon their implementation.
 
 ;;; > (define s (make-stack))
 ;;; > s
@@ -128,6 +126,7 @@
   (if (open 'empty?)
       'FAIL
       (let ((x (open 'pop)))
+        (display x) (display " ")
         (if (goal? x)
             'SUCCESS
             (let* ((new-closed (cons x closed))
@@ -152,17 +151,23 @@
     (stack (list 'push start))
     (search stack '() goal? children-of)))
 
+;;; Breadth first search
+;;;         goal? - a function that takes a single state as input, and returns
+;;;                 true if it's goal state, and false otherwise
+;;;   children-of - a function that takes a single state as input, and returns
+;;;                 the list of children of that state; if the state is childless,
+;;;                 the empty list is returned
 (define (breadth-first start goal? children-of)              
   (let ((queue (make-queue)))
     (queue (list 'push start))
     (search queue '() goal? children-of)))
 
-;;; sample graph
+;;; sample graph from page 135 of Luger
 (define graph1
   '((a (b c d))
     (b (e f))
     (c (g h))
-    (d (p q j))
+    (d (i j))
     (e (k l))
     (f (l m))
     (g (n))
