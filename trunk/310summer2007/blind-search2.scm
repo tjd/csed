@@ -178,6 +178,12 @@
     (l (t))
     ))  
 
+(define graph2
+  '((a (b c d))
+    (c (e f g))
+    (d (h i))
+    (f (j k))))
+
 ;;; makes a children-of function when given a graph in the form
 ;;; of an association list
 (define (make-children-of graph)
@@ -186,5 +192,6 @@
       (if (not p)
           '()
           (cadr p)))))
-    
-(depth-first 'a (lambda (s) (eq? s 'p)) (make-children-of graph1))
+
+(breadth-first 'a (lambda (s) (eq? s 'k)) (make-children-of graph2))
+;(depth-first 'a (lambda (s) (eq? s 'p)) (make-children-of graph1))
