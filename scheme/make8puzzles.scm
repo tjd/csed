@@ -1,0 +1,17 @@
+(load "tools.scm")
+(load "8puzzle.scm")
+
+(define (make-many-boards n)
+  (let* ((boards (map (lambda (x) (random-move 50 (vector-copy start-board)))
+                     (range n)))
+         (at-home (map count-home boards))
+         (manhattan (map manhattan-score boards)))
+    (display boards)
+    (display "\n")
+    (display "Average at-home score: ")
+    (display (average at-home))
+    (display "\n")
+    (display "Average manhattan score: ")
+    (display (average manhattan))
+    (display "\n")))
+    
