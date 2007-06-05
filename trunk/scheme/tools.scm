@@ -396,3 +396,7 @@
 ;;; returns a random item in lst
 (define (list-random-item lst)
   (vector-random-item (list->vector lst)))
+
+;;; return the average of lst
+(define (average lst)
+  (/ (apply + lst) (length lst)))

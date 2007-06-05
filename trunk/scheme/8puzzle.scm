@@ -130,6 +130,11 @@
     (+ (abs (- trow hrow))
        (abs (- tcol hcol)))))
 
+;;; returns the manhattan heuristic value for the given board
+(define (manhattan-score board)
+  (apply + (map (lambda (t) (if (blank? t) 0 (manhattan t board)))
+                (vector->list board))))
+
 ;;; prints the given board on the console
 (define (display-board board)
   (let ((show (lambda (i) (begin 
@@ -141,4 +146,3 @@
     (show 6) (show 7) (show 8) (newline)
     (newline)
     ))
-    
