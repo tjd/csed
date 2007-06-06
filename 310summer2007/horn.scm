@@ -70,3 +70,24 @@
     A
     B))
 
+(define KB-figure-eight
+  '((C <-- G)
+    (G <-- F)
+    (F <-- E)
+    (E <-- D)
+    (D <-- C)
+    (C <-- B)
+    (B <-- A)
+    (A <-- H)
+    (H <-- C)
+    F))
+
+(define KB-misc
+  '((X <-- A B C)
+    (X <-- D)
+    (D <-- A B C)
+    (A <-- B)
+    (A <-- C)
+    B
+    C))
+
