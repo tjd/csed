@@ -9,7 +9,7 @@ class Board(object):
         self.blank_at = n * n - 1
         self.blank_row = n - 1
         self.blank_col = n - 1
-        self.manhattan = 0  # running calculation of Manhattan score
+        self.last_move = ''
         self.n = n
 
     def copy(self):
@@ -25,6 +25,7 @@ class Board(object):
             self.swap(self.blank_at, new_blank)
             self.blank_at = new_blank
             self.blank_row -= 1
+            self.last_move = 'U'
 
     def move_down(self):
         if self.blank_row < self.n - 1:
@@ -32,6 +33,7 @@ class Board(object):
             self.swap(self.blank_at, new_blank)
             self.blank_at = new_blank
             self.blank_row += 1
+            self.last_move = 'D'
 
     def move_left(self):
         if self.blank_col > 0:
@@ -39,6 +41,7 @@ class Board(object):
             self.swap(self.blank_at, new_blank)
             self.blank_at = new_blank
             self.blank_col -= 1
+            self.last_move = 'L'
 
     def move_right(self):
         if self.blank_col < self.n - 1:
@@ -46,8 +49,47 @@ class Board(object):
             self.swap(self.blank_at, new_blank)
             self.blank_at = new_blank
             self.blank_col += 1
+            self.last_move = 'R'
 
-    def legal_moves(self):
+    def make_move(self, m):
+        if m == 'L':
+            self.move_left()
+        elif m == 'R':
+            self.move_right()
+        elif m == 'U':
+            self.move_up()
+        elif m == 'D':
+            self.move_down()
+
+    def make_moves(self, s):
+        for m in s:
+            self.make_move(m)
+
+    def undo_last_move(self):
+        if self.last_move == 'R':
+            self.move_left()
+        elif self.last_move == 'L':
+            self.move_right()
+        elif self.last_move == 'U':
+            self.move_down()
+        elif self.last_move == 'D':
+            self.move_up()
+
+    def get_legal_move_names(self):
+        """ Returns a string of the names of moves legal on this board.
+        """
+        moves = []
+        if self.blank_row > 0:
+            moves.append('U')
+        if self.blank_row < self.n - 1:
+            moves.append('D')
+        if self.blank_col > 0:
+            moves.append('L')
+        if self.blank_col < self.n - 1:
+            moves.append('R')
+        return ''.join(moves)
+            
+    def get_legal_move_methods(self):
         """ Returns a list of the legal move methods for this object.
         """
         moves = []
@@ -60,10 +102,20 @@ class Board(object):
         if self.blank_col < self.n - 1:
             moves.append(self.move_right)
         return moves
-
+            
+    def child_boards(self):
+        """ Returns a list of Board objects representing the next states.
+        """
+        result = []
+        for m in self.get_legal_move_names():
+            b = self.copy()
+            b.make_move(m)
+            result.append(b)
+        return result
+        
     def make_one_random_move(self):
         import random
-        move_fn = random.choice(self.legal_moves())
+        move_fn = random.choice(self.get_legal_move_methods())
         move_fn()        
 
     def scramble(self, n = 25):
@@ -82,6 +134,7 @@ class Board(object):
 
     def tile_index(self, tile):
         """ Returns the index of tile self.board.
+        Could be made more efficient using a dictionary?
         """
         for i, t in enumerate(self.board):
             if t == tile:
@@ -98,8 +151,6 @@ class Board(object):
 
     def tile_manhattan(self, tile):
         """ Return the Manhattan distance of tile to its home location.
-        Calling self.tile_pos is somewhat inefficient. Better would be
-        to calculate the Manhattan distances incrementally after each move.
         """
         r, c = self.tile_pos(tile)
         hr, hc = tile / self.n, tile % self.n
@@ -125,7 +176,7 @@ class Board(object):
                                                     self.misplaced())
         print 'Manhattan score = %s' % (self.manhattan_score())
 
-def random_solver(n, mix_amount = 50):
+def random_solver1(n, mix_amount = 50):
     """ Tries solving a random n-puzzle by making random moves.
     """
     b = Board(n)
@@ -137,6 +188,27 @@ def random_solver(n, mix_amount = 50):
     while b.misplaced() > 0:
         b.make_one_random_move()
         count += 1
+    print 'Found a solution after %s moves!' % count
+    print 'Goal board:'
+    b.display()
+
+def random_solver2(n, mix_amount = 50):
+    """ Tries solving a random n-puzzle by making random moves.
+    Never immediately undoes a move.
+    """
+    b = Board(n)
+    b.scramble(mix_amount)
+    print 'Starting board (%s random moves):' % mix_amount
+    b.display()
+    print '\nSearching for solution ...\n'
+    count = 0
+    while b.misplaced() > 0:
+        moves = b.get_legal_move_names()
+        for m in moves:
+            if m != b.last_move:
+                b.make_move(m)
+                count += 1
+                break  # jump out of the for-loop
     print 'Found a solution after %s moves!' % count
     print 'Goal board:'
     b.display()
