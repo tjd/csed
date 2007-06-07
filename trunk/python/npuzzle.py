@@ -203,7 +203,14 @@ def random_solver2(n, mix_amount = 50):
     print '\nSearching for solution ...\n'
     count = 0
     while b.misplaced() > 0:
+        # CLIFFHANGER!!!
         moves = b.get_legal_move_names()
+        l = moves.find(b.last_move)
+        if l == -1:
+            b.make_move(random.choice(l))
+        else:
+            l.replace
+            
         for m in moves:
             if m != b.last_move:
                 b.make_move(m)
