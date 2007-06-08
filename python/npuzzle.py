@@ -4,13 +4,15 @@
 class Board(object):
     def __init__(self, n):
         assert n > 2
+        self.n = n
         self.board = [i for i in xrange(n * n)]
         self.board[-1] = -1   # -1 represents the blank
         self.blank_at = n * n - 1
         self.blank_row = n - 1
         self.blank_col = n - 1
         self.last_move = ''
-        self.n = n
+        # flags used to track allowable moves
+        self.up, self.down, self.left, self.right = True, True, True, True
 
     def copy(self):
         import copy
@@ -20,6 +22,7 @@ class Board(object):
         self.board[i], self.board[j] = self.board[j], self.board[i]
     
     def move_up(self):
+        assert self.up
         if self.blank_row > 0:
             new_blank = self.blank_at - self.n
             self.swap(self.blank_at, new_blank)
@@ -28,6 +31,7 @@ class Board(object):
             self.last_move = 'U'
 
     def move_down(self):
+        assert self.down
         if self.blank_row < self.n - 1:
             new_blank = self.blank_at + self.n
             self.swap(self.blank_at, new_blank)
@@ -36,6 +40,7 @@ class Board(object):
             self.last_move = 'D'
 
     def move_left(self):
+        assert self.left
         if self.blank_col > 0:
             new_blank = self.blank_at - 1
             self.swap(self.blank_at, new_blank)
@@ -44,6 +49,7 @@ class Board(object):
             self.last_move = 'L'
 
     def move_right(self):
+        assert self.right
         if self.blank_col < self.n - 1:
             new_blank = self.blank_at + 1
             self.swap(self.blank_at, new_blank)
@@ -60,6 +66,29 @@ class Board(object):
             self.move_up()
         elif m == 'D':
             self.move_down()
+
+    def disallow_move(self, move):
+        if move == 'L':
+            self.left = False
+        elif move == 'R':
+            self.right = False
+        elif move == 'U':
+            self.up = False
+        elif move == 'D':
+            self.down = False
+    
+    def disallow_opposite_move(self, move):
+        if move == 'R':
+            self.left = False
+        elif move == 'L':
+            self.right = False
+        elif move == 'D':
+            self.up = False
+        elif move == 'U':
+            self.down = False
+
+    def allow_all_moves(self):
+        self.up, self.down, self.left, self.right = True, True, True, True
 
     def make_moves(self, s):
         for m in s:
@@ -79,30 +108,16 @@ class Board(object):
         """ Returns a string of the names of moves legal on this board.
         """
         moves = []
-        if self.blank_row > 0:
+        if self.blank_row > 0 and self.up:
             moves.append('U')
-        if self.blank_row < self.n - 1:
+        if self.blank_row < self.n - 1 and self.down:
             moves.append('D')
-        if self.blank_col > 0:
+        if self.blank_col > 0 and self.left:
             moves.append('L')
-        if self.blank_col < self.n - 1:
+        if self.blank_col < self.n - 1 and self.right:
             moves.append('R')
         return ''.join(moves)
-            
-    def get_legal_move_methods(self):
-        """ Returns a list of the legal move methods for this object.
-        """
-        moves = []
-        if self.blank_row > 0:
-            moves.append(self.move_up)
-        if self.blank_row < self.n - 1:
-            moves.append(self.move_down)
-        if self.blank_col > 0:
-            moves.append(self.move_left)
-        if self.blank_col < self.n - 1:
-            moves.append(self.move_right)
-        return moves
-            
+                        
     def child_boards(self):
         """ Returns a list of Board objects representing the next states.
         """
@@ -115,12 +130,15 @@ class Board(object):
         
     def make_one_random_move(self):
         import random
-        move_fn = random.choice(self.get_legal_move_methods())
-        move_fn()        
+        move = random.choice(self.get_legal_move_names())
+        self.make_move(move)
+        return move
 
-    def scramble(self, n = 25):
-        for i in xrange(n):
-            self.make_one_random_move()        
+    def scramble(self, n = None):
+        if n == None:
+            n = (self.n + 2) ** 2
+        moves = [self.make_one_random_move() for i in xrange(n)]
+        return moves
 
     def tiles_at_home(self):
         count = 0
@@ -176,12 +194,17 @@ class Board(object):
                                                     self.misplaced())
         print 'Manhattan score = %s' % (self.manhattan_score())
 
-def random_solver1(n, mix_amount = 50):
+def random_solver1(n = 3, mix_amount = 50):
     """ Tries solving a random n-puzzle by making random moves.
     """
     b = Board(n)
-    b.scramble(mix_amount)
+    if isinstance(mix_amount, str):
+        moves = mix_amount
+        b.make_moves(moves)
+    else:
+        moves = b.scramble(mix_amount)
     print 'Starting board (%s random moves):' % mix_amount
+    print ''.join(moves)
     b.display()
     print '\nSearching for solution ...\n'
     count = 0
@@ -192,30 +215,28 @@ def random_solver1(n, mix_amount = 50):
     print 'Goal board:'
     b.display()
 
-def random_solver2(n, mix_amount = 50):
+def random_solver2(n = 3, mix_amount = 50):
     """ Tries solving a random n-puzzle by making random moves.
-    Never immediately undoes a move.
+    Never immediately undoes a move. Experiments show that this
+    does about 10 times fewer moves than random_solver1.
     """
     b = Board(n)
-    b.scramble(mix_amount)
+    if isinstance(mix_amount, str):
+        moves = mix_amount
+        b.make_moves(moves)
+    else:
+        moves = b.scramble(mix_amount)
     print 'Starting board (%s random moves):' % mix_amount
+    print ''.join(moves)
     b.display()
     print '\nSearching for solution ...\n'
     count = 0
     while b.misplaced() > 0:
-        # CLIFFHANGER!!!
-        moves = b.get_legal_move_names()
-        l = moves.find(b.last_move)
-        if l == -1:
-            b.make_move(random.choice(l))
-        else:
-            l.replace
-            
-        for m in moves:
-            if m != b.last_move:
-                b.make_move(m)
-                count += 1
-                break  # jump out of the for-loop
+        m = b.make_one_random_move()
+        b.allow_all_moves()
+        b.disallow_opposite_move(m)
+        count += 1
+        
     print 'Found a solution after %s moves!' % count
     print 'Goal board:'
     b.display()
