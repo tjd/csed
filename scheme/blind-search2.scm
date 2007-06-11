@@ -188,3 +188,4 @@
           (cadr p)))))
     
 (depth-first 'a (lambda (s) (eq? s 'p)) (make-children-of graph1))
+(breadth-first 'a (lambda (s) (eq? s 'p)) (make-children-of graph1))
