@@ -240,3 +240,4 @@ def random_solver2(n = 3, mix_amount = 50):
     print 'Found a solution after %s moves!' % count
     print 'Goal board:'
     b.display()
+
