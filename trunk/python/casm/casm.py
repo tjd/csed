@@ -50,7 +50,8 @@ def process_file(fname):
     raw = [process_line(line) for line in lines if line != '']
     result = []
     for cmd in raw:
-        result.extend(cmd)
+        if cmd != '':  # lines that are just comments are empty strings
+            result.extend(cmd)
     return result
     
 
@@ -59,7 +60,10 @@ def process_line(s):
     """
     try:
         tokens = tokenize_line(s)
-        return replace_tokens(tokens)
+        if tokens == '':
+            return tokens
+        else:
+            return replace_tokens(tokens)
     except RuntimeError, err:
         print '!!! A run-time error has occurred !!!'
         print '--> ' + str(err)
@@ -279,16 +283,21 @@ def error(s):
 def tokenize_line(s_raw):
     """ Returns a list of the tokens in line (comments stripped).
     A line has the form
-           <command> [param]* [;;; comment]
-    E.g.
+           [<command> [param]*] [;;; comment]
+
+    If the line is just a comment, the empty string is returned.
+    
     >>> tokenize_line('script 17         ;;; this is a 17-byte script')
     ['script', '17']
     >>> tokenize_line('drive 300, 32767  ;;; drive forward with a velocity of 300 mm/s')
     ['drive', '300', '32767']
     """
     s = strip_comment(s_raw).strip()
-    tokens = [t.strip() for t in re.split('[, ]+', s)]
-    return tokens
+    if s == '':
+        return s
+    else:
+        tokens = [t.strip() for t in re.split('[, ]+', s)]
+        return tokens
 
 def strip_comment(s):
     """ Remove trailing ';;;'-style comment from s, if it has one. E.g.
