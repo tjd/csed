@@ -49,13 +49,6 @@ def process_file(fname):
     """
     assert fname[-4:] == '.cas' and len(fname) > 0
     return process_program(open(fname, 'r').read())
-##     lines = re.split(r'\n+', open(fname, 'r').read())
-##     raw = [process_line(line) for line in lines if line != '']
-##     result = []
-##     for cmd in raw:
-##         if cmd != '':  # lines that are just comments are empty strings
-##             result.extend(cmd)
-##     return result
     
 def process_program(s):
     """ Process a series of 1 or more \n-seperated lines.
@@ -126,8 +119,6 @@ def process_line(s):
 def replace_tokens(tokens):
     """ Replaces all tokens on the given list of tokens with their
     corresponding byte value.
-    E.g.
-
     """
     n = len(tokens)
     first_word = tokens[0].lower()
