@@ -38,6 +38,34 @@ op_code = {'start':128, 'baud':129, 'control':130, 'safe':131,
 # Op codes with 0 parameters.
 no_param_codes = 'start control safe full spot cover cover_and_dock play_script show_script'.split()
 
+# Scientific pitch notation
+# see: http://en.wikipedia.org/wiki/Scientific_pitch_notation
+sci_pitch = {'G1':31, 'G1#':32,
+             'A1':33, 'A1#':34, 'B1':35,
+             'C2':36, 'C2#':37, 'D2':38, 'D2#':39, 'E2':40,
+             'F2':41, 'F2#':42, 'G2':43, 'G2#':44,
+             'A2':45, 'A2#':46, 'B2':47,
+             'C3':48, 'C3#':49, 'D3':50, 'D3#':51, 'E3':52,
+             'F3':53, 'F3#':54, 'G3':55, 'G3#':56, 'A3':57,
+             'A3#':58, 'B3':59,
+             'C4':60, 'C4#':61, 'D4':62, 'D4#':63, 'E4':64,
+             'F4':65, 'F4#':66, 'G4':67, 'G4#':68, 'A4':69,
+             'A4#':70, 'B4':71,
+             'C5':72, 'C5#':73, 'D5':74, 'D5#':75, 'E5':76,
+             'F5':77, 'F5#':78, 'G5':79, 'G5#':80, 'A5':81,
+             'A5#':82, 'B5':83,
+             'C6':84, 'C6#':85, 'D6':85, 'D6#':87, 'E6':88,
+             'F6':89, 'F6#':90, 'G6':91, 'G6#':92, 'A6':93,
+             'A6#':94, 'B6':95,
+             'C7':96, 'C7#':97, 'D7':98, 'D7#':99, 'E7':100,
+             'F7':101, 'F7#':102, 'G7':103, 'G7#':104, 'A7':105,
+             'A7#':106, 'B7':107,
+             'C8':108, 'C8#':109, 'D8':110, 'D8#':111, 'E8':112,
+             'F8':113, 'F8#':114, 'G8':115, 'G8#':116, 'A8':117,
+             'A8#':118, 'B8':119,
+             'C9':120, 'C9#':121, 'D9':122, 'D9#':123, 'E9':124,
+             'F9':125, 'F9#':126, 'G9':127}
+
 def process_file(fname):
     """
     Convert a casm file into a corresponding string of numbers.
@@ -80,6 +108,8 @@ def process_line(s):
     ['140', '5', '5', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     >>> process_line('play 5')
     ['141', '5']
+    >>> process_line('song 1, 5, C4#, 32, C7, 32, D9#, 32, G6#, 60, G6#, 60')
+    ['140', '1', '5', '61', '32', '96', '32', '123', '32', '92', '60', '92', '60']
     >>> process_line('sensors 12 ;;; get sensors data')
     ['142', '12']
     >>> process_line('pwm_low_side_drivers 8, 3, 2  ;;; set low side drivers')
@@ -174,16 +204,24 @@ def replace_tokens(tokens):
             
             result += [bits, color, intensity]
         elif first_word == 'song':
-            song_num, song_len, notes = tokens[1], tokens[2], tokens[3:]
+            song_num, song_len, raw_notes = tokens[1], tokens[2], tokens[3:]
             ensure(0 <= int(song_num) <= 15,
                    'song: song number must be from 0 to 15 (inclusive); song_num = %s' % song_num)
             ensure(1 <= int(song_len) <= 16,
                    'song: song length must be from 1 to 16 (inclusive)')
-            ensure(len(notes) == 2 * int(song_len),
+            ensure(len(raw_notes) == 2 * int(song_len),
                    'song: must have 2n note and duration bytes')
-            for n in notes:
-                ensure(0 <= int(n) <= 255,
-                   'song: notes and durations must be from 0 to 255 (inclusive)')
+            notes = []
+            for i, n in enumerate(raw_notes):
+                if i % 2 == 0: # note check
+                    nn = note(n)
+                    ensure(0 <= nn <= 255,
+                           'song: notes  must be from 0 to 255 (inclusive), or specified with Scientific note notation')
+                    notes.append(nn)
+                else:  # duration check
+                    ensure(0 <= int(n) <= 255,
+                           'song: durations must be from 0 to 255 (inclusive)')
+                    notes.append(n)
             result += [song_num] + [song_len] + notes
         elif first_word == 'play':
             ensure(0 <= int(tokens[1]) <= 15,
@@ -267,6 +305,16 @@ def replace_tokens(tokens):
                         
         # return the final values of as a list of base-10 strings
         return [str(x) for x in result]
+
+def note(n):
+    if isinstance(n, str):
+        if n in sci_pitch:
+            return sci_pitch[n]
+        else:
+            return int(n)
+    else:
+        return n
+    
 
 def byte_split(w):
     """ Returns the decimal values of upper and lower bytes of w.
