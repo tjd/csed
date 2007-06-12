@@ -8,6 +8,8 @@ Drive in a square:
 Here is the same program in a hypothetical assembly language, that
 makes things more readable:
 
+;;; drive in a square forever
+
 script 17         ;;; this is a 17-byte script
 drive 300, 32767  ;;; drive forward with a velocity of 300 mm/s
 wait_distance 400 ;;; don't execute the next command until you've gone 400mm
@@ -46,40 +48,35 @@ def process_file(fname):
     ['137', '8', '0', '0', '0', '156', '1', '144', '137', '1', '44', '0', '1', '157', '0', '90']
     """
     assert fname[-4:] == '.cas' and len(fname) > 0
-    lines = re.split(r'\n+', open(fname, 'r').read())
+    return process_program(open(fname, 'r').read())
+##     lines = re.split(r'\n+', open(fname, 'r').read())
+##     raw = [process_line(line) for line in lines if line != '']
+##     result = []
+##     for cmd in raw:
+##         if cmd != '':  # lines that are just comments are empty strings
+##             result.extend(cmd)
+##     return result
+    
+def process_program(s):
+    """ Process a series of 1 or more \n-seperated lines.
+    """
+    lines = re.split(r'\n+', s)
     raw = [process_line(line) for line in lines if line != '']
     result = []
     for cmd in raw:
         if cmd != '':  # lines that are just comments are empty strings
             result.extend(cmd)
     return result
-    
 
 def process_line(s):
     """ Process a single line. Returns the corresponding list of tokens.
-    """
-    try:
-        tokens = tokenize_line(s)
-        if tokens == '':
-            return tokens
-        else:
-            return replace_tokens(tokens)
-    except RuntimeError, err:
-        print '!!! A run-time error has occurred !!!'
-        print '--> ' + str(err)
-        
-
-def replace_tokens(tokens):
-    """ Replaces all tokens on the given list of tokens with their
-    corresponding byte value.
-    E.g.
 
     >>> process_line('baud 11')
     ['129', '11']
     >>> process_line('demo 5')
     ['136', '5']
     >>> process_line('demo -1')
-    ['136', 255]
+    ['136', '255']
     >>> process_line('drive 32767')
     ['137', '8', '0', '0', '0']
     >>> process_line('drive 32768')
@@ -115,6 +112,23 @@ def replace_tokens(tokens):
     >>> process_line('wait_event -18  ;;; intelligent comment goes here')
     ['158', '238']
     """
+    try:
+        tokens = tokenize_line(s)
+        if tokens == '':
+            return tokens
+        else:
+            return replace_tokens(tokens)
+    except RuntimeError, err:
+        print '!!! A run-time error has occurred !!!'
+        print '--> ' + str(err)
+        
+
+def replace_tokens(tokens):
+    """ Replaces all tokens on the given list of tokens with their
+    corresponding byte value.
+    E.g.
+
+    """
     n = len(tokens)
     first_word = tokens[0].lower()
     if n == 0:
@@ -131,7 +145,7 @@ def replace_tokens(tokens):
                    'baud: parameter must be from 0 to 11 (inclusive)')
             result.append(tokens[1])
         elif first_word == 'demo':
-            ensure(0 <= int(tokens[1]) <= 11,
+            ensure(-1 <= int(tokens[1]) <= 6,
                    'demo: parameter must be from -1 to 6 (inclusive)')
             if tokens[1] == '-1':
                 result.append(255)
@@ -305,7 +319,7 @@ def strip_comment(s):
     >>> strip_comment('start ;;; start it up!')
     'start '
     >>> strip_comment('move -220, 35')
-    'move -220, 35'    
+    'move -220, 35'
     """
     try:
         c_loc = s.index(';')  # if ';' not found, raises an exception
@@ -326,7 +340,11 @@ def run_doctest():
 
 def usage():
     print 'Simple Create Assembler'
-    print '   Usage: python filename.cas'
+    print '   Usage:'
+    print '     python filename.cas'
+    print '   Options:'
+    print '     -h        print this help message'
+    print '     -doctest  run internal doctests'
 
 def main():
     import sys
@@ -334,6 +352,8 @@ def main():
     if len(param) == 0:
         usage()
         sys.exit(2)
+    elif param[0] in ('doctest', '-doctest', '--doctest'):
+        run_doctest()
     elif param[0] in ('h', '-h', '--help', 'help'):
         usage()
         sys.exit(2)       
