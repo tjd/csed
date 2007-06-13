@@ -74,7 +74,7 @@ def process_file(fname):
     
     >>> from casm import *
     >>> process_file('forward_turn.cas')
-    ['137', '8', '0', '0', '0', '156', '1', '144', '137', '1', '44', '0', '1', '157', '0', '90']
+    [137, 8, 0, 0, 0, 156, 1, 144, 137, 1, 44, 0, 1, 157, 0, 90]
     """
     assert fname[-4:] == '.cas' and len(fname) > 0
     return process_program(open(fname, 'r').read())
@@ -88,7 +88,7 @@ def process_program(s):
     for cmd in raw:
         if cmd != '':  # lines that are just comments are empty strings
             result.extend(cmd)
-    return result
+    return [int(n) for n in result]
 
 def process_line(s):
     """ Process a single line. Returns the corresponding list of tokens.
@@ -217,7 +217,7 @@ def replace_tokens(tokens):
                 if i % 2 == 0: # note check
                     nn = note(n)
                     ensure(0 <= nn <= 255,
-                           'song: notes  must be from 0 to 255 (inclusive), or specified with Scientific note notation')
+                           'song: notes  must be from 0 to 255 (inclusive), or specified with Scientific pitch notation')
                     notes.append(nn)
                 else:  # duration check
                     ensure(0 <= int(n) <= 255,
@@ -308,14 +308,13 @@ def replace_tokens(tokens):
         return [str(x) for x in result]
 
 def note(n):
-    if isinstance(n, str):
-        if n in sci_pitch:
-            return sci_pitch[n]
-        else:
-            return int(n)
+    """ If n is a string, assumes it is Scientific pitch notation and converts it to MIDI number.
+    If n is not a string, it is returned. 
+    """
+    if n in sci_pitch:
+        return sci_pitch[n]
     else:
-        return n
-    
+        return int(n)
 
 def byte_split(w):
     """ Returns the decimal values of upper and lower bytes of w.
@@ -385,6 +384,7 @@ def usage():
     print '   Options:'
     print '     -h        print this help message'
     print '     -doctest  run internal doctests'
+    print '     -script   include a script command at the beginning'
 
 def main():
     import sys
@@ -396,7 +396,13 @@ def main():
         run_doctest()
     elif param[0] in ('h', '-h', '--help', 'help'):
         usage()
-        sys.exit(2)       
+        sys.exit(2)
+    elif param[0] in ('s', '-s', '--s', 'script', '-script', '--script'):
+        result = process_file(param[1])
+        n = len(result)
+        print [152, n] + result  # 152 is the 'script' opcode
+        if n > 100:
+            print 'Warning: script is %s bytes long; 100 bytes is the maximum'
     else:
         result = process_file(param[0])
         print result
