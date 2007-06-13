@@ -40,6 +40,7 @@ no_param_codes = 'start control safe full spot cover cover_and_dock play_script 
 
 # Scientific pitch notation
 # see: http://en.wikipedia.org/wiki/Scientific_pitch_notation
+# The keys are MIDI note numbers.
 sci_pitch = {'G1':31, 'G1#':32,
              'A1':33, 'A1#':34, 'B1':35,
              'C2':36, 'C2#':37, 'D2':38, 'D2#':39, 'E2':40,
