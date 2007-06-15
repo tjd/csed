@@ -1,12 +1,24 @@
 # gridworld.py
 
+"""
+
+A simple gridworld display. Lets you specify a maze, and the location
+of a single robot and goal. Then you can send the robot commands to
+move up, down, left, or right, and the on-screen robot will move as
+commanded. The robot is a turtle graphics turtle, so moves smoothly
+from square to square, and leaves a trail.
+
+See the test1 function at the bottom for example usage.
+"""
+
 import turtle
 
 class Gridworld(object):
     def __init__(self, grid):
         """
-        grid - a list of lists, using 'w' to represent a wall, 'r' the
-               robot, 'g' the goal, and anything else a blank
+        grid - a list of lists (or a list of strings), using 'w' to
+               represent a wall, 'r' the robot, 'g' the goal, and
+               anything else a blank
         """
         self.grid = grid
         # number of horizontal and vertical squares
@@ -27,7 +39,6 @@ class Gridworld(object):
         self.blank_color = 'white'
         self.path_color = 'red'
         self.goal_color = 'gold'
-        #self.info()
 
     def info(self):
         print self.grid
@@ -59,7 +70,6 @@ class Gridworld(object):
                 x = c * self.square_width - turtle.window_width() / 2
                 y = -r * self.square_height + turtle.window_height() / 2
                 ch = square.lower()
-                #print '%s at (%s, %s)' % (ch, x, y)
                 if ch == 'w':
                     turtle.color(self.wall_color)
                     rectangle_at(x, y, self.square_width, self.square_height, True)
