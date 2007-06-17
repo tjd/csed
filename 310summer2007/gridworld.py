@@ -39,6 +39,7 @@ class Gridworld(object):
         self.blank_color = 'white'
         self.path_color = 'red'
         self.goal_color = 'gold'
+        self.move_speed = 'fast'
 
     def info(self):
         print self.grid
@@ -51,6 +52,7 @@ class Gridworld(object):
         print 'blank color is %s' % self.blank_color
         print 'path color is %s' % self.path_color
         print 'goal color is %s' % self.goal_color
+        print 'move speed is "%s"' % self.move_speed
 
     def draw_robot(self):
         turtle.up()
@@ -83,6 +85,7 @@ class Gridworld(object):
                 
     def go_right(self):
         if self.robot_col < self.num_col - 1:
+            turtle.speed(self.move_speed)
             target = self.grid[self.robot_row][self.robot_col + 1]
             if target != 'w':
                 self.robot_col += 1
@@ -93,6 +96,7 @@ class Gridworld(object):
 
     def go_left(self):
         if self.robot_col > 0:
+            turtle.speed(self.move_speed)
             target = self.grid[self.robot_row][self.robot_col - 1]
             if target != 'w':
                 self.robot_col -= 1
@@ -103,6 +107,7 @@ class Gridworld(object):
 
     def go_up(self):
         if self.robot_row > 0:
+            turtle.speed(self.move_speed)
             target = self.grid[self.robot_row - 1][self.robot_col]
             if target != 'w':
                 self.robot_row -= 1
@@ -113,6 +118,7 @@ class Gridworld(object):
 
     def go_down(self):
         if self.robot_row < self.num_row - 1:
+            turtle.speed(self.move_speed)
             target = self.grid[self.robot_row + 1][self.robot_col]
             if target != 'w':
                 self.robot_row += 1
