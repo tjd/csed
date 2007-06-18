@@ -1,7 +1,6 @@
 # gridworld.py
 
 """
-
 A simple gridworld display. Lets you specify a maze, and the location
 of a single robot and goal. Then you can send the robot commands to
 move up, down, left, or right, and the on-screen robot will move as
