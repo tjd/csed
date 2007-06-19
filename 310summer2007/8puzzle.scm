@@ -68,7 +68,7 @@
       board
       (random-move (- n 1) (one-random-move board))))
 
-;;; returns the count of the number of tiles not in their home position
+;;; returns the count of the number of tiles in their home position
 (define (count-home board)
   (apply + (map (lambda (a b) (if (eq? a b) 1 0)) 
                 (vector->list board) 
