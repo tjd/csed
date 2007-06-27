@@ -26,7 +26,7 @@ from math import *
 def make_rnd_sol_file(n = 1000000, fname = 'queens.sol'):
     print 'Writing random permutation of 0 to %s into file %s ...' % (n - 1,
                                                                       fname)
-    lst = [str(i) + ' ' for i in range(n - 1)]
+    lst = [str(i) + ' ' for i in range(n)]
     print 'Shuffling ...'
     random.shuffle(lst)
     print 'Writing to %s ...' % fname
@@ -41,7 +41,8 @@ def main(fname = 'queens.sol'):
     print 'Reading "%s" ...' % fname
     var = [int(s) for s in open(fname, 'r').read().split(' ') if s != '']
     n = len(var)
-
+    print 'N = %s' % n
+    
     print 'Checking for diagonal conflicts ...'
     for i in xrange(n):
         for j in xrange(i + 1, n):
