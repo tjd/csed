@@ -2,10 +2,10 @@
 
 """
 
-Checks if a given file of space-seperated numbers is a valid
-n-queens solution. To run it at the command line, type this:
+Checks if a given file of space-seperated numbers is a valid n-queens
+solution. To run it at the (Linux) command line, type this:
 
-$ python queenchecker.py filname
+$ python queenchecker.py filename
 
 where filename is assumed to be a text file of space-seperated
 numbers.
