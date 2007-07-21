@@ -138,7 +138,7 @@ class Gridworld(object):
                 turtle.forward(self.square_height)
 
     def make_moves(self, s):
-        s = s.lower()
+        s = s.strip().lower()
         for move in s:
             if move == 'u': self.go_up()
             elif move == 'd': self.go_down()
