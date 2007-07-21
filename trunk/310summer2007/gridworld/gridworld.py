@@ -1,11 +1,11 @@
 # gridworld.py
 
 """
-A simple gridworld display. Lets you specify a maze, and the location
-of a single robot and goal. Then you can send the robot commands to
-move up, down, left, or right, and the on-screen robot will move as
-commanded. The robot is a turtle graphics turtle, so moves smoothly
-from square to square, and leaves a trail.
+A simple gridworld display built on Python's turtle graphics.  You
+specify a maze, and the location of a single robot and goal. Then you
+can send the robot commands to move up, down, left, or right, and the
+on-screen robot will move as commanded. The robot moves smoothly from
+square to square leaving a trail.
 
 Command-line Usage
 ------------------
