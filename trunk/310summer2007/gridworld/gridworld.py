@@ -7,7 +7,18 @@ move up, down, left, or right, and the on-screen robot will move as
 commanded. The robot is a turtle graphics turtle, so moves smoothly
 from square to square, and leaves a trail.
 
-See the test1 function at the bottom for example usage.
+Command-line Usage
+------------------
+
+Type the following to display a grid on-screen:
+
+$ python gridworld.py grid25.txt
+
+You can also issue commands to the robot:
+
+$ python gridworld.py grid25.txt uuulllul
+
+See the test1 function at the bottom for another example usage.
 """
 
 import turtle
@@ -202,6 +213,19 @@ def test1():
     raw_input('return to continue ... ')
     gw.make_moves('RRDDDRDDDDRRR')
 
+def main():
+    import sys
+    fname = sys.argv[1]   # name of file with the maze
+    grid = open(fname, 'r').read().split('\n')
+    gw = Gridworld(grid)
+    gw.draw()
+    
+    if len(sys.argv) > 2:
+        commands = sys.argv[2]
+        gw.make_moves(commands)
+        
+    raw_input('press return to end ... ')
+
 if __name__ == '__main__':
-    test1()
-    raw_input('return to end ... ')
+    main()
+    
