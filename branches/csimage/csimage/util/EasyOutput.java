@@ -8,8 +8,16 @@ import java.util.Iterator;
 
 public class EasyOutput {
 
-	// Writes string s to the file with the given name. If the file
-	// already exists it is overwritten.
+	/*
+	 * Writes string s to the file with the given name. If the file
+	 * already exists it is overwritten.
+	 * 
+	 * @param path
+	 *    path name of the file to write to
+	 *    
+	 * @param s
+	 *    the string to write to the file
+	 */ 
 	public static void writeToFile(String path, String s) {
 		try {
 			// open an output stream for printing
@@ -23,7 +31,24 @@ public class EasyOutput {
 		}
 	}
 
-	// Note: Java arrays do not implement the Iterable interface. 
+	/*
+	 * Writes string s to the file with the given name. If the file
+	 * already exists it is overwritten.
+	 * 
+	 * Note: Java arrays do not implement the Iterable interface. 
+	 * 
+	 * @param c
+	 *    an iterable container with elements of type T
+	 *    
+	 * @param sep
+	 *    the string to seperate the items
+	 *    
+	 * @return
+	 *     a string contain all the items of c (converted to string by calling their
+	 *     .toString() methods) in order, and seperated by string sep; note that sep
+	 *     is not added to the beginning or end of the string --- the seperation string
+	 *     only occurs between elements   
+	 */ 
 	public static <T> String join(Iterable<T> c, String sep) {
 		Iterator<T> iter = c.iterator();
 		if (!iter.hasNext()) { // c is empty
@@ -38,13 +63,40 @@ public class EasyOutput {
 		}
 	}
 
-	// Writes each element of container c to the file with the given name. Each
-	// element is seperated by a string sep, excluding the last element. If the
-	// file already exists it is overwritten.
+	/*
+	 * Writes each element of container c to the file with the given name. Each
+	 * element is seperated by a string sep, excluding the last element. If the
+	 * file already exists it is overwritten,
+	 * 
+	 * Note: Java arrays do not implement the Iterable interface. 
+	 * 
+	 * @param path
+	 *    path name of the file to write to
+	 * 
+	 * @param c
+	 *    an iterable container with elements of type T
+	 *    
+	 * @param sep
+	 *    the string to seperate the items
+	 *  
+	 */ 
 	public static <T> void writeToFile(String path, Iterable<T> c, String sep) {
 		writeToFile(path, join(c, sep));
 	}
 
+	/*
+	 * Writes each element of container c to the file with the given name. Each
+	 * element is seperated by a "\n". If the file already exists it is overwritten.
+	 * 
+	 * Note: Java arrays do not implement the Iterable interface. 
+	 * 
+	 * @param path
+	 *    path name of the file to write to
+	 * 
+	 * @param c
+	 *    an iterable container with elements of type T
+	 *  
+	 */ 
 	public static <T> void writeToFile(String path, Iterable<T> c) {
 		writeToFile(path, c, "\n");
 	}
