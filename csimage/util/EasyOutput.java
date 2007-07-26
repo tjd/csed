@@ -42,7 +42,6 @@ public class EasyOutput {
 	// Writes each element of container c to the file with the given name. Each
 	// element is seperated by a string sep, excluding the last element. If the
 	// file already exists it is overwritten.
-	// Note: Java arrays do not implement the Iterable interface. To
 	public static <T> void writeToFile(String path, Iterable<T> c, String sep) {
 		writeToFile(path, join(c, sep));
 	}
