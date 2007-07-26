@@ -35,7 +35,7 @@ import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageDecoder;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
-public class Utilities extends dbg {
+public class Utilities {
 
 	public static final float DEFAULT_JPEG_QUALITY = 0.85f;
 
@@ -287,7 +287,7 @@ public class Utilities extends dbg {
 			return image;
 		} catch (IOException e) {
 			throw new Error("getBufferedImageFromFile failed due to "
-					+ "an IOException while trying to open " + quote(path)
+					+ "an IOException while trying to open " + dbg.quote(path)
 					+ ".");
 		}
 	}
@@ -429,3 +429,4 @@ public class Utilities extends dbg {
 		}
 	}
 }
+

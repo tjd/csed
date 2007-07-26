@@ -6,6 +6,7 @@ package csimage;
  * 
  */
 
+
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.image.BufferedImage;
