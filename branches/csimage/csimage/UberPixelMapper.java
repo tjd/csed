@@ -1,5 +1,6 @@
 package csimage;
 
+
 public interface UberPixelMapper {
 	/**
 	 * Returns a new color for the pixel at location (x, y).

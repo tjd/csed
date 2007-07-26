@@ -334,3 +334,4 @@ public class EasyInput {
 		System.out.println(file);
 	}
 }
+
