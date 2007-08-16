@@ -62,7 +62,8 @@ def main(fname = 'queens.sol'):
             print 'var[%s] = %s' % (i, var[i])
             return
 
-    print "!!! %s contains a valid solution to the %s-queens problem!" % (fname, n)
+    print "SUCCESS!"
+    print "%s contains a valid solution to the %s-queens problem!" % (fname, n)
     
 if __name__ == '__main__':
     # Import Psyco if available
