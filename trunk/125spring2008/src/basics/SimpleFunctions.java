@@ -15,5 +15,5 @@ public class SimpleFunctions {
 	public static void welcome() {
 		System.out.println("Welcome to Surrey!");
 	}	
-
+    
 }
