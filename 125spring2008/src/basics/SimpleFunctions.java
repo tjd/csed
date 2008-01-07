@@ -11,9 +11,9 @@ public class SimpleFunctions {
 	public static double areaOfCircle(double radius) {
 		return Math.PI * radius * radius;
 	}
-	
+
 	public static void welcome() {
 		System.out.println("Welcome to Surrey!");
-	}
+	}	
 
 }
