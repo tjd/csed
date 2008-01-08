@@ -1,5 +1,11 @@
 package buttontest;
 
+/*
+ * The main difference between this class and PressPanel is that
+ * in this class you must pass in the name of the button.
+ * 
+ */
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
