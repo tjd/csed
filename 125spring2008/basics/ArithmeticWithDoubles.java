@@ -15,7 +15,6 @@ public class ArithmeticWithDoubles {
 		System.out.println("product = " + product);
 		System.out.println("difference = " + difference);
 		System.out.println("quotient = " + quotient);
-		System.out.println("remainder = " + remainder);
 		
 		System.out.println();
 		
