@@ -10,7 +10,6 @@ public class ArithmeticWithDoubles {
 		double product = a * b;
 		double difference = a - b;
 		double quotient = a / b;
-		double remainder = a % b;
 
 		System.out.println("sum = " + sum);
 		System.out.println("product = " + product);
