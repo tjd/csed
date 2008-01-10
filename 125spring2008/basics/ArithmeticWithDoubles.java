@@ -23,7 +23,6 @@ public class ArithmeticWithDoubles {
 		System.out.printf("product= %.2f\n", product);
 		System.out.printf("difference = %.2f\n", difference);
 		System.out.printf("quotient = %.2f\n", quotient);
-		System.out.printf("remainder = %.2f\n", remainder);
 	}
 
 }
