@@ -10,7 +10,7 @@ public class ConsoleInput {
         String name = sc.next();
         System.out.print("How old are you? ");
         String age = sc.next();
-        System.out.printf("\nHello %s! In 5 years you will %s years old.", name,
+        System.out.printf("\nHello %s! In 5 years you will be %s years old.", name,
                 Integer.parseInt(age) + 5);
     }
 
