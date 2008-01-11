@@ -18,7 +18,7 @@ public class IfStatement {
 			if (numHotDogs <= 0) {
 				System.out.printf("Not hungry today sir?");
 			} else if (numHotDogs <= 25) {
-				System.out.printf("\ns tasty hot dogs have been ordered.",
+				System.out.printf("\n%s tasty hot dogs have been ordered.",
 						numHotDogs);
 			} else {
 				System.out
