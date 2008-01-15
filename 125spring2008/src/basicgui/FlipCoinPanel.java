@@ -29,11 +29,11 @@ public class FlipCoinPanel extends JPanel {
         flipButton.addActionListener(new ButtonListener());
 
         // add to panel
-        this.add(flipButton);
-        this.add(flipResult);
+        add(flipButton);
+        add(flipResult);
 
         // set size
-        this.setPreferredSize(new Dimension(120, 40));
+        setPreferredSize(new Dimension(120, 40));
     }
 
     private void flipCoin() {

@@ -10,8 +10,8 @@ public class OneLabelPanel extends JPanel {
     public OneLabelPanel(String msg) {
         JLabel label = new JLabel(msg);
         
-        this.add(label);
-        this.setPreferredSize(new Dimension(100, 40));
+        add(label);
+        setPreferredSize(new Dimension(100, 40));
     }
     
 }
