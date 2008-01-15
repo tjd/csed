@@ -1,10 +1,4 @@
-package buttontest;
-
-/*
- * The main difference between this class and PressPanel is that
- * in this class you must pass in the name of the button.
- * 
- */
+package basicgui;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -14,14 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class NamedPressPanel extends JPanel {
+public class PressPanel extends JPanel {
+
 	private int count;
 
 	private JButton button;
 
 	private JLabel countLabel;
 
-	public NamedPressPanel(String buttonText) {
+	public PressPanel(String buttonText) {
 		count = 0;
 		button = new JButton(buttonText);
 		button.addActionListener(new ButtonListener());
@@ -30,7 +25,7 @@ public class NamedPressPanel extends JPanel {
 		countLabel.setText("0");
 		this.add(button);
 		this.add(countLabel);
-		this.setPreferredSize(new Dimension(120, 50));
+		this.setPreferredSize(new Dimension(300, 40));
 	}
 
 	private class ButtonListener implements ActionListener {
