@@ -1,4 +1,4 @@
-package buttontest;
+package basicgui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,7 +9,7 @@ public class PressCount {
 		JFrame frame = new JFrame("Button Press Counter");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel primary = new PressPanel();
+		JPanel primary = new PressPanel("Press me!");
 
 		// add the primary panel to the frame
 		frame.getContentPane().add(primary);

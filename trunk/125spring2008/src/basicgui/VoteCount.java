@@ -1,4 +1,4 @@
-package buttontest;
+package basicgui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,9 +10,9 @@ public class VoteCount {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel primary = new JPanel();
-		JPanel yes = new NamedPressPanel("yes");
-		JPanel no = new NamedPressPanel("no");
-		JPanel spoiled = new NamedPressPanel("spoiled");
+		JPanel yes = new PressPanel("yes");
+		JPanel no = new PressPanel("no");
+		JPanel spoiled = new PressPanel("spoiled");
 		primary.add(yes);
 		primary.add(no);
 		primary.add(spoiled);
@@ -21,7 +21,6 @@ public class VoteCount {
 		frame.getContentPane().add(primary);
 		frame.pack();
 		frame.setVisible(true);
-
 	}
 
 }
