@@ -23,9 +23,9 @@ public class PressPanel extends JPanel {
 
 		countLabel = new JLabel();
 		countLabel.setText("0");
-		this.add(button);
-		this.add(countLabel);
-		this.setPreferredSize(new Dimension(300, 40));
+		add(button);
+		add(countLabel);
+		setPreferredSize(new Dimension(300, 40));
 	}
 
 	private class ButtonListener implements ActionListener {
