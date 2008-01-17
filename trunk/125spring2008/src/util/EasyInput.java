@@ -44,6 +44,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.JColorChooser;
@@ -325,6 +326,22 @@ public class EasyInput {
                             + "\n  - your computer does not have Internet access"
                             + "\n  - the heat death of the universe has occurred, taking down all web servers with it");
         }
+    }
+
+    /**
+     * Conveneince method for creating an ArrayList with an intial set of
+     * values.
+     * 
+     * @param arg
+     *            the values to be in the new ArrayList
+     * @return The new ArrayList.
+     */
+    public static <T> ArrayList<T> arrayList(T... arg) {
+        ArrayList<T> result = new ArrayList<T>(arg.length);
+        for (T x : arg) {
+            result.add(x);
+        }
+        return result;
     }
 
     public static void main(String[] args) {
