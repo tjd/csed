@@ -19,7 +19,7 @@ public class Lotto {
 		// myPicks will hold the 6 chosen numbers
 		ArrayList<Integer> myPicks = new ArrayList<Integer>();
 
-		// choose 6 random numbers from the choices,
+		// randomly choose 6 numbers from the choices,
 		// deleting each chosen number to ensure it is not
 		// chosen again
 		for (int i = 1; i <= 6; ++i) {
