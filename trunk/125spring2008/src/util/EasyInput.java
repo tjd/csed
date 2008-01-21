@@ -311,7 +311,7 @@ public class EasyInput {
             BufferedReader reader = new BufferedReader(is);
             String line;
             while ((line = reader.readLine()) != null) {
-                content += line;
+                content += line + "\n";
             }
             return content;
         } catch (IOException e) {
