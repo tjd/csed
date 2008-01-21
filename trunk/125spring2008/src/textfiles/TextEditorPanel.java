@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -23,14 +23,18 @@ public class TextEditorPanel extends JPanel {
 	private JButton loadButton;
 	private JButton saveButton;
 	private JTextArea text;
+	private JFrame frame;
 
-	public TextEditorPanel() {
+	public TextEditorPanel(JFrame frame) {
 		this.setLayout(new BorderLayout());
+		// need the frame to set the title when a file is loaded
+		this.frame = frame;
 
 		// create the box to display the file
 		text = new JTextArea(40, 40);
 		text.setLineWrap(true);
 		text.setEditable(true);
+
 		// add scroll bars
 		JScrollPane scrollPane = new JScrollPane(text);
 		this.add(scrollPane, BorderLayout.CENTER);
@@ -54,6 +58,7 @@ public class TextEditorPanel extends JPanel {
 				String fname = EasyInput.chooseFile();
 				String fileText = EasyInput.fileToString(fname);
 				text.setText(fileText);
+				frame.setTitle(fname);
 			} else if (event.getSource().equals(saveButton)) {
 				try {
 					FileWriter fw = new FileWriter("sample.txt");
@@ -63,7 +68,8 @@ public class TextEditorPanel extends JPanel {
 					for (String line : lines) {
 						outFile.write(line + "\n");
 					}
-					System.out.printf("sample.txt written to %s", EasyInput.getcwd());
+					System.out.printf("sample.txt written to %s", EasyInput
+							.getcwd());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
