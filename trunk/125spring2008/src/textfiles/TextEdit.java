@@ -3,8 +3,6 @@ package textfiles;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import fileviewer.FileViewerPanel;
-
 public class TextEdit {
 
 	public static void main(String[] args) {
