@@ -9,7 +9,7 @@ public class TextEdit {
 		JFrame frame = new JFrame("Simple Text Editor");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel primary = new TextEditorPanel();
+		JPanel primary = new TextEditorPanel(frame);
 
 		frame.getContentPane().add(primary);
 		frame.pack();
