@@ -18,7 +18,8 @@ public class TypeExamples {
 		System.out.printf("%s", rectangle("@", 10, 5));
 		
 		System.out.printf("%s\n", trim("   abc def  "));
-		System.out.printf("%s\n", trim("abc def", "."));
+		System.out.printf("%s\n", trim("...abc def.", '.'));
+		System.out.printf("%s\n", trim("...abc def.", "."));
 	}
 
 	public static String repeat(String s, int times) // header
