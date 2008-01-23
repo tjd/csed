@@ -7,7 +7,7 @@ public class Lotto {
 
 	private static Random rnd;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {			
 		rnd = new Random();
 		
 		// fill an ArrayList with the numbers from 1 to 49
