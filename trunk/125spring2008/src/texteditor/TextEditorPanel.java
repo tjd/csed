@@ -68,6 +68,7 @@ public class TextEditorPanel extends JPanel {
 					}
 					System.out.printf("sample.txt written to %s", EasyInput
 							.getcwd());
+					outFile.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
