@@ -10,8 +10,6 @@ package util;
  * call add to append multiple values, e.g.
  * 
  *   nums.add(-1, -2, 3, 4);
- *   
- * appens the four given values to the end of nums.
  * 
  */
 
