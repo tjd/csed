@@ -14,12 +14,12 @@ public class Grayscale {
 		UberImage image = UberImage.fromFile(EasyInput.chooseFile());
 		UberImage copy1 = new UberImage(image);
 		show.inFrame(image);
-		makeBlackAndWhite(image, 0.5);
-		bwRandomDither(copy1);
+		//makeBlackAndWhite(image, 0.5);
+		//bwRandomDither(copy1);
+		makeOdd(copy1);
 		show.inFrame(copy1);
-		// makeGrayscale(image);
+		
 		// makeOdd(image);
-
 	}
 
 	public static void checkAssertions() {
@@ -85,7 +85,7 @@ public class Grayscale {
 				int r = c.getRed();
 				int g = c.getGreen();
 				int b = c.getBlue();
-				image.setColor(i, j, new Color(b, r, g));
+				image.setColor(i, j, new Color(r, 0, 0));
 			}
 		}
 	}
