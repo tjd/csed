@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class ArrayList125<T> extends ArrayList<T> {
 
-	private Random rnd = new Random();
+	private static Random rnd = new Random();
 	
     public ArrayList125() {
     }
