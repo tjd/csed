@@ -15,9 +15,12 @@ package util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 public class ArrayList125<T> extends ArrayList<T> {
 
+	private Random rnd = new Random();
+	
     public ArrayList125() {
     }
 
@@ -38,5 +41,12 @@ public class ArrayList125<T> extends ArrayList<T> {
         for (T x : args)
             add(x);
     }
-
+    
+    // remove and return a randomly chosen value
+    public T removeRandom() {
+    	int r = rnd.nextInt(size());
+    	T x = remove(r);
+    	return x;
+    }
+    
 }
