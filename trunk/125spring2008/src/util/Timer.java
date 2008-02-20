@@ -6,9 +6,7 @@ package util;
 // have elapsed. For example:
 //
 //    Timer timer = new Timer();  // the clock has started!
-//
 //    someCode();
-//
 //    System.out.printf("%.2f seconds elapsed", timer.getElapsedSeconds());
 //
 
