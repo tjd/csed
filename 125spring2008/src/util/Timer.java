@@ -1,6 +1,7 @@
 package util;
 
-// A utility class for timing code. The timer starts when the object
+//
+// A simple class for timing code. The timer starts when the object
 // is created, and at any time you can ask how many milliseconds/seconds/etc.
 // have elapsed. For example:
 //
@@ -9,6 +10,7 @@ package util;
 //    someCode();
 //
 //    System.out.printf("%.2f seconds elapsed", timer.getElapsedSeconds());
+//
 
 public class Timer {
 
