@@ -1,5 +1,10 @@
 package collections;
 
+/*
+ * Reads in a list of words and lets the user check if words are in the 
+ * dictionary or not.
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
@@ -26,8 +31,8 @@ public class Checkwords {
         while (dict.hasNextLine()) {
             words.add(dict.nextLine().trim());
         }
-        System.out.printf(" %s words read in %.2fs\n", words.size(),
-                timer.getElapsedSeconds());
+        System.out.printf(" %s words read in %.2fs\n", words.size(), timer
+                .getElapsedSeconds());
 
         //
         // main loop
