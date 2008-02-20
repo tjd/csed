@@ -3,10 +3,10 @@ package recursion;
 public class RecursiveAcronym {
 
 	public static void main(String[] args) {
-		String acro = "GNU";
-		String exp = "GNU's Not Unix";
-//		String acro = "MOMS";
-//		String exp = "MOMS Offering MOMS Support";
+//		String acro = "GNU";
+//		String exp = "GNU's Not Unix";
+		String acro = "MOMS";
+		String exp = "MOMS Offering MOMS Support";
 
 		for (int i = 0; i < 10; ++i) {
 			String expansion = expand(acro, exp, i);
