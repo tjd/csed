@@ -15,9 +15,12 @@ public class RecursiveAcronym {
 
 	}
 
+	// expands the given recursive acronym n times 
 	public static String expand(String acro, String expansion, int n) {
 		if (n == 0) {
 			return acro;
+		} else if (n == 1) {
+			return expansion;
 		} else { // n >= 2
 			String result = expansion.replaceAll(acro, expansion);
 			for (int i = 1; i < n; ++i) {
