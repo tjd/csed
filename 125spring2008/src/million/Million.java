@@ -12,7 +12,7 @@ import util.Timer;
 public class Million {
 
     public static void main(String[] args) {
-        final int LIMIT = 1000000;
+        final int LIMIT = 10000000;
         Random rnd = new Random();
         int winningNumber = rnd.nextInt(LIMIT);
 

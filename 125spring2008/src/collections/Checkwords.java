@@ -22,7 +22,8 @@ public class Checkwords {
         // ospd.txt is a list of English words, one word per line; it's
         // available on-line from
         // http://csed.googlecode.com/svn/trunk/125spring2008/ospd.txt
-        final String DICT_FILENAME = "/home/toby/svn/tjd-personal/125/code/ospd.txt";
+    	util.EasyInput.printCwd();
+        final String DICT_FILENAME = "ospd.txt";
 
         System.out.printf("Creating dictionary ...");
         Timer timer = new Timer();
