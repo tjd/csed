@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.Random;
 
 import util.EasyInput;
+import util.Timer;
 import csimage.UberImage;
 import csimage.show;
 
@@ -11,17 +12,10 @@ public class Grayscale {
 
 	public static void main(String[] args) {
 		checkAssertions();
-		UberImage image = UberImage.fromFile(EasyInput.chooseFile());
-		UberImage copy1 = new UberImage(image);
-		show.inFrame(image);
-		//makeBlackAndWhite(image, 0.5);
-		//bwRandomDither(copy1);
-		makeOdd(copy1);
-		show.inFrame(copy1);
-		
-		// makeOdd(image);
+		UberImage img1 = UberImage.fromFile(EasyInput.chooseFile());
+		show.inFrame(img1);
 	}
-
+	
 	public static void checkAssertions() {
 		try {
 			assert 1 == 2;
@@ -67,7 +61,7 @@ public class Grayscale {
 		}
 	}
 
-	public static void makeGrayscale(UberImage image) {
+	public static void makeGrayscale1(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {
 				Color c = image.getColor(i, j);
@@ -77,7 +71,20 @@ public class Grayscale {
 			}
 		}
 	}
-
+	
+	// experiments show that this method is a little bit faster than
+	// makeGrayScale1
+	public static void makeGrayscale2(UberImage image) {
+		for (int i = 0; i < image.getWidth(); ++i) {
+			for (int j = 0; j < image.getHeight(); ++j) {
+				Color c = image.getColor(i, j);
+				double B = brightness(c);
+				int x = (int) (255 * B);
+				image.setColor(i, j, gray[x]);
+			}
+		}
+	}
+	
 	public static void makeOdd(UberImage image) {
 		for (int i = 0; i < image.getWidth(); ++i) {
 			for (int j = 0; j < image.getHeight(); ++j) {
@@ -90,4 +97,14 @@ public class Grayscale {
 		}
 	}
 
+	final public static Color[] gray = preCalculateGrays();
+	
+	private static Color[] preCalculateGrays() {
+		Color[] result = new Color[256];
+		for(int i = 0; i < 256; ++i) {
+			result[i] = new Color(i, i, i);
+		}
+		return result;
+	}
+	
 }
