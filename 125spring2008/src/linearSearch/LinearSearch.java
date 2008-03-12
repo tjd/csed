@@ -1,6 +1,8 @@
 package linearSearch;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 import simplelist.List;
 import util.ArrayList125;
@@ -9,20 +11,54 @@ public class LinearSearch {
 
 	public static void main(String[] args) {
 		util.Util.ensureAssertionsEnabled();
-		test1();
-		test2();
-		test3();
-		test4();
-		test5();
-		test6();
-		test7();
-		test8();
-		test9();
-		test10();
-		test11();
-		test12();
-		test13();
+		// test1();
+		// test2();
+		// test3();
+		// test4();
+		// test5();
+		// test6();
+		// test7();
+		// test8();
+		// test9();
+		// test10();
+		// test11();
+		// test12();
+		// test13();
+		test14();
 		System.out.printf("-- All tests passed\n");
+	}
+
+	private static Random rnd = new Random();
+
+	private static ArrayList<Integer> makeRandomArray(int size) {
+		ArrayList<Integer> arr = new ArrayList<Integer>(size);
+		for (int i = 0; i < size; ++i) {
+			arr.add(rnd.nextInt(1000));
+		}
+		return arr;
+	}
+
+	private static int sum(ArrayList<Integer> arr) {
+		int result = 0;
+		for (Integer x : arr) {
+			result += x;
+		}
+		return result;
+	}
+
+	private static void test14() {
+		ArrayList<Integer> counts = new ArrayList<Integer>();
+		for (int i = 0; i < 10000; ++i) {
+			ArrayList<Integer> arr = makeRandomArray(1000);		
+			if (rnd.nextBoolean()) { // 50/50 chance that 5555 is in the list
+				arr.add(rnd.nextInt(arr.size()), 5555);
+			}
+
+			int count = countedLinearSearch(5555, arr);
+			counts.add(count);
+		}
+		System.out.printf("Average number of comparisons: %.2f\n", sum(counts)
+				/ ((double) counts.size()));
 	}
 
 	private static void test12() {
@@ -308,6 +344,17 @@ public class LinearSearch {
 				"c1 = %s, c2 = %s, c3 = %s, c4 = %s, c5 = %s, c6 = %s\n", c1,
 				c2, c3, c4, c5, c6);
 		return false;
+	}
+
+	public static int countedLinearSearch(Integer x, ArrayList<Integer> arr) {
+		int count = 0;
+		for (int i = 0; i < arr.size(); ++i) {
+			++count;
+			if (arr.get(i).equals(x)) {
+				return count;
+			}
+		}
+		return count;
 	}
 
 	public static int indexOf(Integer x, ArrayList<Integer> arr) {
