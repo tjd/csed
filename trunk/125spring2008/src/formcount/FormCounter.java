@@ -6,7 +6,7 @@ import java.util.Collections;
 public class FormCounter {
 
 	public static void main(String[] args) {
-		final int NUM_PEOPLE = 100000;
+		final int NUM_PEOPLE = 1000000;
 	    int formCount = 1;
 		ArrayList<Integer> people = makeRandomList(NUM_PEOPLE);
 		
