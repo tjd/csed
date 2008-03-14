@@ -73,7 +73,7 @@ public class Asteroids extends JPanel implements Runnable, KeyListener {
 
 	static final int MIN_ROCK_SIDES = 5; // Asteroid shape and size ranges.
 
-	static final int MAX_ROCK_SIDES = 10;
+	static final int MAX_ROCK_SIDES = 9;
 
 	static final int MIN_ROCK_SIZE = 20;
 
