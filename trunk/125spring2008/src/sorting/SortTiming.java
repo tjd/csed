@@ -10,7 +10,9 @@ import util.Timer;
 public class SortTiming {
 
 	public static void main(String[] args) {
-		int[] unsortedData1 = makeRandomData(100000);
+		final int N = 2*100000;
+		System.out.println("N = " + N);
+		int[] unsortedData1 = makeRandomData(N);
 		int[] unsortedData2 = copy(unsortedData1);
 
 		Timer timer = new Timer();
