@@ -3,10 +3,15 @@ package power;
 public class RaisingToApower {
 
 	public static void main(String[] args) {
-		util.Util.ensureAssertionsEnabled();
-		test1();
-		test2();
-		System.out.printf("All tests passed.\n");
+//		util.Util.ensureAssertionsEnabled();
+//		test1();
+//		test2();
+//		System.out.printf("All tests passed.\n");
+		for(int i = 1; i < 21; ++i) {
+			power(2, i);
+			System.out.println();
+//			System.out.printf("2 ^ 10 = %s\n", power(2, 14));	
+		}		
 	}
 
 	private static void test2() {
@@ -50,8 +55,10 @@ public class RaisingToApower {
 		if (p == 0) {
 			return 1;
 		} else if (p % 2 == 1) { // p is odd
+			System.out.printf("1 ");
 			return a * power(a * a, (p - 1) / 2);
 		} else { // p is even
+			System.out.printf("0 ");
 			return power(a * a, p / 2);
 		}
 	}
