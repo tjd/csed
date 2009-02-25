@@ -17,6 +17,20 @@ Under Linux, you need to install the following packages:
 
 I'm not sure what software you'd need to compile it under MacOS.
 
+= Sample program =
+
+Included with this library is a sample program that tries to escape from a room by following a wall, called `"wall-follow.c"`.
+
+To compile it, use the included makefile and enter the following on the command-line:
+
+`make`
+
+To download it to the Command Module, plug it into an available USB port and type the following into the command-line:
+
+`make program`
+
+(as a shortcut, you can just type `make program` to compile it _and_ download it to the device)
+
 = Using this library =
 
 To use this library, add the files "cm-interface.c" and "oi.h" to your project, and add the following _#include_ line to the top of your source code:
@@ -32,4 +46,7 @@ After that, you can ask for all sensor data to be updated with a call to cm_upda
 Most of the functions in this library are based on the Open Interface documentation, so for full reference of the commands, please read that document available here:
 [http://www.irobot.com/filelibrary/pdfs/hrd/create/Create%20Open%20Interface_v2.pdf Create Open Interface reference]
 
-Complete reference information will be available at a later date.
+= Things to do =
+
+  * Write complete documentation on this API.
+  * Parse out all the sensor data and provide a simple way to read it (maybe use "getters" with a little bit of intelligence?)
